@@ -186,6 +186,7 @@
 
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="richards water content" />
+        <Parameter name="checkpoint" type="bool" value="true" /> <!-- for testing -->
       </ParameterList>
 
       <ParameterList name="capillary_pressure_gas_liq" type="ParameterList">
