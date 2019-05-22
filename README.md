@@ -3,6 +3,10 @@ ATS Regression Test Suite
 
 This is the regression test suite for ATS.
 
+The full set of these runs should always work, and should always be run and, if necessary, updated prior to issuing a pull request.
+
+TODO: Update these to fix timestep sizes to ensure easier comparability despite divergence of nonlinear iterates.
+
 
 Quickstart
 ------------
@@ -36,7 +40,6 @@ New tests
 * make sure that checkpoints are being written at sane times, and add "checkpoint=True" to xml files on evaluators whose results you wish to compare.
 * run the test: `python regression_tests.py -n path_to.cfg -t "my_category-my_name"
 * clean out the resulting gold directory: `./clean_gold.sh XX_my_category/my_category-my_name.regression.gold` to make sure that only the checkpoint files and the ats_version.txt files are left.
-* add results to the repo: `git add XX_my_category/my_category-my_name.regression.gold/checkpoint*.h5 XX_my_category/my_category-my_name.regression.gold/ats_version.txt`
 * commit and push
 
 
@@ -45,6 +48,5 @@ Updating tests:
 * update xml files, etc
 * run the update: `python regression_tests.py -u path_to.cfg -t "my_category-my_name"
 * clean out the resulting gold directory: `./clean_gold.sh XX_my_category/my_category-my_name.regression.gold` to make sure that only the checkpoint files and the ats_version.txt files are left.
-* add results to the repo: `git add XX_my_category/my_category-my_name.regression.gold/checkpoint*.h5 XX_my_category/my_category-my_name.regression.gold/ats_version.txt`
 * commit and push
 
