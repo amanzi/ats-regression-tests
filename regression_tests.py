@@ -66,9 +66,14 @@ def commandline_options():
 
     parser.add_argument('-n', '--new-tests',
                         action="store_true", default=False,
-                        help="indicate that there are new tests being run. "
+                        help="Indicate that there are new tests being run. "
                         "Skips the output check and creates a new gold file.")
 
+    parser.add_argument('--save-dt-history',
+                        action="store_true", default=False,
+                        help="When used with --new-tests, does an additional run "
+                        "to get the timestep history for more accurate comparison. ")
+    
     parser.add_argument('-s', '--suites', nargs="+", default=[],
                         help='space separated list of test suite names')
 
@@ -156,7 +161,8 @@ def main(options):
                          options.new_tests,
                          options.check_only,
                          False,
-                         testlog)
+                         testlog,
+                         options.save_dt_history)
 
             report[filename] = tm.run_status()
             os.chdir(root_dir)
