@@ -15,6 +15,11 @@
         <Parameter name="number of cells" type="Array(int)" value="{1,1,100}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{0.0,0.0,0.0}" />
         <Parameter name="domain high coordinate" type="Array(double)" value="{1.0,1.0,10.0}" />
+        <ParameterList name="unstructured" type="ParameterList">
+          <ParameterList name="expert" type="ParameterList">
+            <Parameter name="partitioner" type="string" value="zoltan_rcb" />
+          </ParameterList>
+        </ParameterList>
       </ParameterList>
     </ParameterList>
   </ParameterList>
