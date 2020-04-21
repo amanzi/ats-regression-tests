@@ -64,6 +64,7 @@
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source key suffix" type="string" value="mass_source" />
       <Parameter name="initial time step" type="double" value="1.0" />
+      <Parameter name="absolute error tolerance" type="double" value="0.01" />
 
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
