@@ -60,11 +60,12 @@
     <ParameterList name="surface balance" type="ParameterList">
       <Parameter name="PK type" type="string" value="conservation ODE" />
       <Parameter name="primary variable key suffix" type="string" value="ponded_depth" />
-      <Parameter name="conserved quantity key suffix" type="string" value="water_content" />
+      <Parameter name="conserved quantity key suffix" type="string" value="ponded_depth" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source key suffix" type="string" value="mass_source" />
       <Parameter name="initial time step" type="double" value="1.0" />
-      <Parameter name="absolute error tolerance" type="double" value="0.01" />
+      <Parameter name="absolute error tolerance factor" type="double" value="0.01" />
+      <!-- <Parameter name="initial time step" type="double" value="8640." />-->
 
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
@@ -76,8 +77,9 @@
         <Parameter name="solver type" type="string" value="nka" />
         <Parameter name="timestep controller type" type="string" value="smarter" />
         <ParameterList name="nka parameters" type="ParameterList">
-          <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
+          <Parameter name="nonlinear tolerance" type="double" value="1e-6" />
           <Parameter name="diverged tolerance" type="double" value="1000000.0" />
+          <Parameter name="monitor" type="string" value="monitor residual" />
           <Parameter name="limit iterations" type="int" value="21" />
           <ParameterList name="verbose object" type="ParameterList">
             <Parameter name="verbosity level" type="string" value="high" />
@@ -95,6 +97,8 @@
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+        </ParameterList>
+        <ParameterList name="timestep controller fixed parameters" type="ParameterList">
         </ParameterList>
       </ParameterList>
 
@@ -122,11 +126,6 @@
 
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="evaluators" type="ParameterList">
-
-      <ParameterList name="surface-water_content" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="multiplicative" />
-	<Parameter name="dependencies" type="Array(string)" value="{surface-ponded_depth, surface-cell_volume}" />
-      </ParameterList>
 
       <ParameterList name="surface-mass_source" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="additive" />
@@ -183,16 +182,6 @@
       <Parameter name="observation output filename" type="string" value="surface-ponded_depth.dat" />
       <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400.0,-1.0}" />
     </ParameterList>
-
-    <ParameterList name="surface-water_content" type="ParameterList">
-      <Parameter name="variable" type="string" value="surface-water_content" />
-      <Parameter name="region" type="string" value="surface domain" />
-      <Parameter name="functional" type="string" value="observation data: extensive integral" />
-      <Parameter name="delimiter" type="string" value=" " />
-      <Parameter name="location name" type="string" value="cell" />
-      <Parameter name="write interval" type="int" value="30" />
-      <Parameter name="observation output filename" type="string" value="surface-water_content.dat" />
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400.0,-1.0}" />
-    </ParameterList>
   </ParameterList>
+
 </ParameterList>
