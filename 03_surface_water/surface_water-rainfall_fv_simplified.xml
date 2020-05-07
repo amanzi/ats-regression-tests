@@ -44,30 +44,30 @@
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="overland flow" type="ParameterList">
-        <Parameter name="PK type" type="string" value="overland flow, pressure basis" />
+        <Parameter name="PK type" type="string" value="mixed form parabolic PDE" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
     <ParameterList name="overland flow" type="ParameterList">
-      <Parameter name="PK type" type="string" value="overland flow, pressure basis" />
+      <Parameter name="PK type" type="string" value="mixed form parabolic PDE" />
       <Parameter name="primary variable key" type="string" value="surface-pressure" />
+      <Parameter name="conserved quantity key" type="string" value="surface-water_content" />
+      <Parameter name="diffusion operator key" type="string" value="overland_flow_operator" />
+      <Parameter name="diffusion operand key" type="string" value="surface-ponded_depth" />
+      <Parameter name="absolute error tolerance factor" type="double" value="550." />
       <Parameter name="domain name" type="string" value="surface" />
-      <Parameter name="source term" type="bool" value="true" />
-      <Parameter name="debug cells" type="Array(int)" value="{0,9}" />
+      <Parameter name="is source term" type="bool" value="true" />
+      <Parameter name="source key" type="string" value="surface-mass_source" />
       <Parameter name="initial time step" type="double" value="600.0" />
-      <Parameter name="source term is differentiable" type="bool" value="true" />
+<!--      <Parameter name="modify correction positivity preserving" type="bool" value="true" />-->
+
       <ParameterList name="verbose object" type="ParameterList">
+        <Parameter name="debug cells" type="Array(int)" value="{0,9}" />
+        <Parameter name="debug variables" type="Array(string)" value="{surface-water_content, surface-ponded_depth, surface-elevation, surface-manning_conductivity, surface-upwind_manning_conductivity, surface-mass_source}" />
+        <Parameter name="debug variables short" type="Array(string)" value="{wc, h, z, k_mann, uw_k_mann, Qs}" />
         <Parameter name="verbosity level" type="string" value="high" />
-      </ParameterList>
-
-      <ParameterList name="diffusion" type="ParameterList">
-        <Parameter name="discretization primary" type="string" value="fv: default" />
-      </ParameterList>
-
-      <ParameterList name="preconditioner" type="ParameterList">
-        <Parameter name="preconditioner type" type="string" value="diagonal" />
       </ParameterList>
 
       <ParameterList name="time integrator" type="ParameterList">
@@ -80,6 +80,7 @@
           <Parameter name="monitor" type="string" value="monitor residual" />
           <Parameter name="nonlinear tolerance" type="double" value="1e-6" />
           <Parameter name="diverged tolerance" type="double" value="1000.0" />
+          <Parameter name="max divergent iterations" type="int" value="10" />
           <Parameter name="limit iterations" type="int" value="51" />
           <ParameterList name="verbose object" type="ParameterList">
             <Parameter name="verbosity level" type="string" value="high" />
@@ -100,33 +101,6 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="elevation evaluator" type="ParameterList">
-        <ParameterList name="elevation function" type="ParameterList">
-          <ParameterList name="elevation" type="ParameterList">
-            <Parameter name="region" type="string" value="all" />
-            <Parameter name="components" type="Array(string)" value="{cell, face}" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-linear" type="ParameterList">
-                <Parameter name="y0" type="double" value="0.0" />
-                <Parameter name="gradient" type="Array(double)" value="{0., -0.1, 0.}" />
-                <Parameter name="x0" type="Array(double)" value="{0.,0.,0.}" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-        <ParameterList name="slope function" type="ParameterList">
-          <ParameterList name="slope magnitude" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{all}" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.1" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-
       <ParameterList name="overland conductivity evaluator" type="ParameterList">
         <ParameterList name="overland conductivity model" type="ParameterList">
           <Parameter name="Manning exponent" type="double" value="0.666666666667" />
@@ -134,11 +108,11 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
         <ParameterList name="function" type="ParameterList">
-          <ParameterList name="initial head" type="ParameterList">
+          <ParameterList name="initial pressure cells" type="ParameterList">
             <Parameter name="region" type="string" value="all" />
-            <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
+            <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="101325.0" />
@@ -156,25 +130,39 @@
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
-    <ParameterList name="field evaluators" type="ParameterList">
+    <ParameterList name="evaluators" type="ParameterList">
 
+<!--
       <ParameterList name="surface-water_content" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="overland pressure water content" />
-        <Parameter name="molar mass" type="double" value="0.01818181818181818" />
+        <Parameter name="evaluator type" type="string" value="surface water content" />
+      </ParameterList>
+-->
+      <ParameterList name="surface-water_content" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="multiplicative" />
+        <Parameter name="dependencies" type="Array(string)" value="{surface-ponded_depth, surface-molar_density_liquid}" />
+        <Parameter name="checkpoint" type="bool" value="true"/>
       </ParameterList>
 
       <ParameterList name="surface-ponded_depth" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="ponded depth" />
+        <Parameter name="evaluator type" type="string" value="surface water depth" />
+        <Parameter name="allow negative in derivative" type="bool" value="true" />
+        <Parameter name="checkpoint" type="bool" value="true"/>
       </ParameterList>
 
+      <ParameterList name="surface-cell_volume" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="cell volume" />
+      </ParameterList>
+
+<!--      
       <ParameterList name="surface-ponded_depth_bar" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="ponded depth" />
+        <Parameter name="evaluator type" type="string" value="ponded depth" />
         <Parameter name="ponded depth bar" type="bool" value="true" />
         <Parameter name="height key" type="string" value="ponded_depth_bar" />
       </ParameterList>
+-->
 
-      <ParameterList name="surface-mass_source" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+      <ParameterList name="surface-precipitation" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain rain" type="ParameterList">
             <Parameter name="region" type="string" value="all" />
@@ -189,56 +177,80 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
-      <ParameterList name="surface-source_molar_density" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
-        <Parameter name="constant in time" type="bool" value="true" />
-        <ParameterList name="function" type="ParameterList">
-          <ParameterList name="domain" type="ParameterList">
-            <Parameter name="region" type="string" value="all" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="55000" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
-        </ParameterList>
+      
+      <ParameterList name="surface-mass_source" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="multiplicative" />
+        <Parameter name="dependencies" type="Array(string)" value="{surface-precipitation, surface-source_molar_density}" />
       </ParameterList>
 
-
-      <ParameterList name="surface-mass_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
-        <Parameter name="constant in time" type="bool" value="true" />
-        <ParameterList name="function" type="ParameterList">
-          <ParameterList name="domain" type="ParameterList">
-            <Parameter name="region" type="string" value="all" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1000" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
-        </ParameterList>
+      <ParameterList name="surface-source_molar_density" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable constant value" />
+        <Parameter name="value" type="double" value="55000." />
       </ParameterList>
 
       <ParameterList name="surface-molar_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
-        <Parameter name="constant in time" type="bool" value="true" />
-        <ParameterList name="function" type="ParameterList">
-          <ParameterList name="domain" type="ParameterList">
-            <Parameter name="region" type="string" value="all" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable constant value" />
+        <Parameter name="value" type="double" value="55000." />
+      </ParameterList>
+      
+
+      <ParameterList name="surface-mass_density_liquid" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable constant value" />
+        <Parameter name="value" type="double" value="1000." />
+      </ParameterList>
+
+      <ParameterList name="surface-manning_coefficient" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable constant value" />
+        <Parameter name="value" type="double" value="0.15" />
+      </ParameterList>
+
+      <ParameterList name="overland_flow_operator" type="ParameterList">
+        <Parameter name="operator argument key" type="double" value="surface-pres_elev" />
+        <Parameter name="tensor coefficient key" type="string" value="none" />
+        <Parameter name="scalar coefficient key" type="string" value="surface-upwind_manning_conductivity" />
+        <Parameter name="discretization primary" type="string" value="fv: default" />
+      </ParameterList>
+
+      <ParameterList name="overland_flow_operator_bcs" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="boundary condition aggregator" />
+        <ParameterList name="boundary functions" type="ParameterList">
+          <ParameterList name="exterior_boundary_neumann_data" type="ParameterList">
+            <Parameter name="boundary condition type" type="string" value="Neumann" />
+          </ParameterList>
+        </ParameterList>
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="low" />
+        </ParameterList>
+      </ParameterList>
+
+      <ParameterList name="surface-pressure_res">
+        <Parameter name="diagonal primary x key" type="string" value="surface-ponded_depth" />
+        <Parameter name="diagonal local operators" type="Array(string)" value="{overland_flow_operator}" />
+        <Parameter name="diagonal local operator rhss" type="Array(string)" value="{overland_flow_operator_rhs}" />
+        <Parameter name="off-diagonal primary x keys" type="Array(string)" value="{surface-elevation}" />
+        <Parameter name="elevation local operators keys" type="Array(string)" value="{overland_flow_operator}" />
+        <Parameter name="elevation local operator rhss keys" type="Array(string)" value="{overland_flow_operator_rhs}" />
+
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="debug cells" type="Array(int)" value="{0,9}" />
+          <Parameter name="verbosity level" type="string" value="extreme" />
+        </ParameterList>
+        <ParameterList name="preconditioner" type="ParameterList">
+          <Parameter name="preconditioner type" type="string" value="diagonal" />
+        </ParameterList>
+      </ParameterList>
+
+      <ParameterList name="exterior_boundary_neumann_data" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="boundary condition function" />
+        <Parameter name="boundary condition type" type="string" value="Neumann" />
+        <Parameter name="list name" type="string" value="flux" />
+        <Parameter name="function name" type="string" value="outward normal flux" />
+        <ParameterList name="flux">
+          <ParameterList name="surface">
+            <Parameter name="regions" type="Array(string)" value="{left side, right side}" />
+            <ParameterList name="outward normal flux">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="55000" />
+                <Parameter name="value" type="double" value="0." />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -248,35 +260,67 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface-manning_coefficient" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+      <ParameterList name="surface-upwind_manning_conductivity" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="upwind potential difference" />
+        <Parameter name="potential field key" type="string" value="surface-pres_elev" />
+        <Parameter name="conductivity field key" type="string" value="surface-manning_conductivity" />
+      </ParameterList>
+
+      <ParameterList name="surface-pres_elev" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="additive" />
+        <Parameter name="dependencies" type="Array(string)" value="{surface-ponded_depth, surface-elevation}" />
+      </ParameterList>
+      
+      <ParameterList name="surface-manning_conductivity" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="Manning conductivity" />
+        <Parameter name="depth key" type="string" value="surface-ponded_depth" />
+        <Parameter name="conductivity key" type="string" value="manning_conductivity" />
+      </ParameterList>
+
+      <ParameterList name="surface-slope_magnitude" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable constant value" />
+        <Parameter name="value" type="double" value="0.1" />
+      </ParameterList>
+
+      <ParameterList name="surface-elevation" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
-          <ParameterList name="domain" type="ParameterList">
+          <ParameterList name="domain rain" type="ParameterList">
             <Parameter name="region" type="string" value="all" />
-            <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
+            <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.15" />
+              <ParameterList name="function-linear" type="ParameterList">
+                <Parameter name="x0" type="Array(double)" value="{0.0, 0., 0.}" />
+                <Parameter name="gradient" type="Array(double)" value="{0., -0.1, 0.}" />
+                <Parameter name="y0" type="double" value="0.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
         </ParameterList>
       </ParameterList>
 
-    </ParameterList>
-    <ParameterList name="initial conditions" type="ParameterList">
-
-      <ParameterList name="atmospheric_pressure" type="ParameterList">
-        <Parameter name="value" type="double" value="101325.0" />
+      <ParameterList name="surface mesh" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="static mesh" />
+        <Parameter name="mesh name" type="string" value="surface" />
       </ParameterList>
 
-      <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{0.0,0.0,-9.81}" />
+      <ParameterList name="surface-water_content_t" type="ParameterList">
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="extreme" />
+        </ParameterList>
       </ParameterList>
-
+      
+      
     </ParameterList>
+
+    <ParameterList name="constants" type="ParameterList">
+      <Parameter name="atmospheric_pressure" type="double" value="101325.0" />
+      <Parameter name="gravity" type="Array(double)" value="{0,0,-9.81}" />
+    </ParameterList>
+
   </ParameterList>
+
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="file name base" type="string" value="visdump" />
