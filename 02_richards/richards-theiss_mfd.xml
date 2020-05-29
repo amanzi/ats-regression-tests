@@ -104,7 +104,7 @@
       <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
         <Parameter name="debug variables" type="Array(string)" value="{water_content, saturation_liquid, upwind_relative_hydraulic_conductivity}" />
-        <Parameter name="verbosity level" type="string" value="high" />
+        <Parameter name="verbosity level" type="string" value="low" />
       </ParameterList>
       
       <ParameterList name="time integrator" type="ParameterList">
@@ -118,11 +118,11 @@
           <Parameter name="diverged tolerance" type="double" value="100000.0" />
           <Parameter name="limit iterations" type="int" value="21" />
           <ParameterList name="verbose object" type="ParameterList">
-            <Parameter name="verbosity level" type="string" value="high" />
+            <Parameter name="verbosity level" type="string" value="low" />
           </ParameterList>
         </ParameterList>
         <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="high" />
+          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
           <Parameter name="max iterations" type="int" value="18" />
@@ -139,7 +139,7 @@
       <ParameterList name="linear solver" type="ParameterList">
         <Parameter name="iterative method" type="string" value="gmres" />
         <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="high" />
+          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
         <ParameterList name="gmres parameters" type="ParameterList">
           <Parameter name="preconditioning strategy" type="string" value="left" />
@@ -192,7 +192,7 @@
       <ParameterList name="pressure_res">
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
-          <Parameter name="verbosity level" type="string" value="high" />
+          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
         <ParameterList name="preconditioner" type="ParameterList">
           <Parameter name="preconditioner type" type="string" value="ifpack2: ILUT" />
@@ -205,14 +205,14 @@
         <Parameter name="dependencies" type="Array(string)" value="{porosity,saturation_liquid,molar_density_liquid}" /> <!-- for testing -->
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
-          <Parameter name="verbosity level" type="string" value="high" />
+          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 
       <ParameterList name="water_content_t" type="ParameterList">
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
-          <Parameter name="verbosity level" type="string" value="high" />
+          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
       
@@ -230,7 +230,7 @@
         <Parameter name="checkpoint" type="bool" value="true" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
-          <Parameter name="verbosity level" type="string" value="high" />
+          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 
@@ -244,7 +244,7 @@
         <Parameter name="checkpoint" type="bool" value="true" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
-          <Parameter name="verbosity level" type="string" value="high" />
+          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
       
@@ -284,7 +284,7 @@
         <Parameter name="reciprocal" type="bool" value="true" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
-          <Parameter name="verbosity level" type="string" value="high" />
+          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 

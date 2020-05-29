@@ -123,19 +123,6 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="diffusion operator" type="ParameterList">
-        <Parameter name="discretization primary" type="string" value="fv: default" />
-      </ParameterList>
-
-<!--
-      <ParameterList name="diffusion preconditioner" type="ParameterList">
-        <Parameter name="include Newton correction" type="bool" value="true" />
-      </ParameterList>
--->
-      <ParameterList name="preconditioner" type="ParameterList">
-        <Parameter name="preconditioner type" type="string" value="diagonal" />
-      </ParameterList>
-
       <ParameterList name="linear solver" type="ParameterList">
         <Parameter name="iterative method" type="string" value="gmres" />
         <ParameterList name="verbose object" type="ParameterList">
@@ -192,6 +179,9 @@
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{0,49,99}" />
           <Parameter name="verbosity level" type="string" value="high" />
+        </ParameterList>
+        <ParameterList name="preconditioner" type="ParameterList">
+          <Parameter name="preconditioner type" type="string" value="diagonal" />
         </ParameterList>
       </ParameterList>
       
@@ -343,7 +333,7 @@
 
     </ParameterList>
     <ParameterList name="constants" type="ParameterList">
-      <Parameter name="atmospheric_pressure" type="double" value="101325.0" />
+      <Parameter name="atmospheric pressure" type="double" value="101325.0" />
       <Parameter name="gravity" type="Array(double)" value="{0,0,-9.81}" />
     </ParameterList>
   </ParameterList>
