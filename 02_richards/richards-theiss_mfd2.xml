@@ -138,6 +138,7 @@
         </ParameterList>
       </ParameterList>
 
+<!--      
       <ParameterList name="linear solver" type="ParameterList">
         <Parameter name="iterative method" type="string" value="gmres" />
         <ParameterList name="verbose object" type="ParameterList">
@@ -150,6 +151,7 @@
           <Parameter name="maximum number of iterations" type="int" value="5" />
         </ParameterList>
       </ParameterList>
+-->
 
       <ParameterList name="initial conditions" type="ParameterList">
 <!--        <Parameter name="initialize faces from cells" type="bool" value="true" />-->
