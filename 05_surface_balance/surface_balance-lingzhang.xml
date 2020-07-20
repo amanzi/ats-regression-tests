@@ -284,12 +284,12 @@
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain rain" type="ParameterList">
             <Parameter name="region" type="string" value="surface domain" />
-            <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="100.0" />
               </ParameterList>
             </ParameterList>
+            <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
