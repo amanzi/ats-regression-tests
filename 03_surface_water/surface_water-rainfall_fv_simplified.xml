@@ -48,8 +48,8 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="PKs" type="ParameterList">
+
     <ParameterList name="overland flow" type="ParameterList">
       <Parameter name="PK type" type="string" value="overland flow, pressure basis" />
       <Parameter name="primary variable key" type="string" value="surface-pressure" />
@@ -78,7 +78,7 @@
           <Parameter name="max error growth factor" type="double" value="1000.0" />
           <Parameter name="modify correction" type="bool" value="true" />
           <Parameter name="monitor" type="string" value="monitor residual" />
-          <Parameter name="nonlinear tolerance" type="double" value="1e-6" />
+          <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
           <Parameter name="diverged tolerance" type="double" value="1000.0" />
           <Parameter name="limit iterations" type="int" value="51" />
           <ParameterList name="verbose object" type="ParameterList">
@@ -108,8 +108,8 @@
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-linear" type="ParameterList">
                 <Parameter name="y0" type="double" value="0.0" />
-                <Parameter name="gradient" type="Array(double)" value="{0., -0.1, 0.}" />
-                <Parameter name="x0" type="Array(double)" value="{0.,0.,0.}" />
+                <Parameter name="gradient" type="Array(double)" value="{0.0,-0.1,0.0}" />
+                <Parameter name="x0" type="Array(double)" value="{0.0,0.0,0.0}" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -199,7 +199,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="55000" />
+                <Parameter name="value" type="double" value="55000.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -208,7 +208,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
 
       <ParameterList name="surface-mass_density_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
@@ -219,7 +218,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1000" />
+                <Parameter name="value" type="double" value="1000.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -238,7 +237,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="55000" />
+                <Parameter name="value" type="double" value="55000.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
