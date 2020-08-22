@@ -82,11 +82,8 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="preconditioner" type="ParameterList">
-        <Parameter name="preconditioner type" type="string" value="block ilu" />
-      </ParameterList>
-
-      <ParameterList name="linear solver" type="ParameterList">
+      <ParameterList name="inverse" type="ParameterList">
+        <Parameter name="preconditioning method" type="string" value="block ilu" />
         <Parameter name="iterative method" type="string" value="gmres" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="medium" />

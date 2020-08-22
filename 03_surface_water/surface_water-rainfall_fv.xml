@@ -66,8 +66,8 @@
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
 
-      <ParameterList name="preconditioner" type="ParameterList">
-        <Parameter name="preconditioner type" type="string" value="block ilu" />
+      <ParameterList name="inverse" type="ParameterList">
+        <Parameter name="preconditioning method" type="string" value="block ilu" />
       </ParameterList>
 
       <ParameterList name="time integrator" type="ParameterList">
@@ -234,12 +234,12 @@
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
             <Parameter name="region" type="string" value="all" />
+            <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="0.15" />
               </ParameterList>
             </ParameterList>
-            <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
