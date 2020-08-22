@@ -120,8 +120,8 @@
         <Parameter name="preconditioner schema" type="Array(string)" value="{face}" />
       </ParameterList>
 
-      <ParameterList name="preconditioner" type="ParameterList">
-        <Parameter name="preconditioner type" type="string" value="boomer amg" />
+      <ParameterList name="inverse" type="ParameterList">
+        <Parameter name="preconditioning method" type="string" value="boomer amg" />
         <ParameterList name="boomer amg parameters" type="ParameterList">
           <Parameter name="cycle applications" type="int" value="2" />
           <Parameter name="smoother sweeps" type="int" value="3" />

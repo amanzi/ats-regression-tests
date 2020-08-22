@@ -70,8 +70,8 @@
         <Parameter name="include Newton correction" type="bool" value="true" />
       </ParameterList>
 
-      <ParameterList name="preconditioner" type="ParameterList">
-        <Parameter name="preconditioner type" type="string" value="block ilu" />
+      <ParameterList name="inverse" type="ParameterList">
+        <Parameter name="preconditioning method" type="string" value="block ilu" />
       </ParameterList>
 
       <ParameterList name="time integrator" type="ParameterList">
