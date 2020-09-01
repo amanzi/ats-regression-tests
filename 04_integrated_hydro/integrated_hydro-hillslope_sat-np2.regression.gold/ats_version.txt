@@ -1,2 +1,0 @@
-ATS: b'ats-1.0-dev-4-g7d51b566'
-Amanzi: b'970d45490'
