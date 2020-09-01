@@ -1,5 +1,10 @@
 *.regression
 *.regression.gold.old
+*.xmf
+visdump*data.h5
+visdump*mesh.h5
+checkpoint_final.h5
+*.stdout
 *.ipynb_checkpoints
 LOGS/
 *.pyc

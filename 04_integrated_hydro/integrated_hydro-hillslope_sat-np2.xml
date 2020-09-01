@@ -11,7 +11,7 @@
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="read mesh file" />
       <ParameterList name="read mesh file parameters" type="ParameterList">
-        <Parameter name="file" type="string" value="../data/hillslope.exo" />
+        <Parameter name="file" type="string" value="../data/hillslope.par" />
         <Parameter name="format" type="string" value="Exodus II" />
         <ParameterList name="unstructured" type="ParameterList">
           <ParameterList name="expert" type="ParameterList">
@@ -40,7 +40,7 @@
     <ParameterList name="surface" type="ParameterList">
       <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="2" />
-        <Parameter name="file" type="string" value="../data/hillslope.exo" />
+        <Parameter name="file" type="string" value="../data/hillslope.par" />
         <Parameter name="format" type="string" value="Exodus II" />
         <Parameter name="entity" type="string" value="face" />
       </ParameterList>
@@ -90,7 +90,7 @@
         </ParameterList>
         <ParameterList name="gmres parameters" type="ParameterList">
           <Parameter name="preconditioning strategy" type="string" value="left" />
-          <Parameter name="error tolerance" type="double" value="1e-06" />
+          <Parameter name="error tolerance" type="double" value="1e-12" />
           <Parameter name="convergence criteria" type="Array(string)" value="{relative residual,make one iteration}" />
           <Parameter name="maximum number of iteration" type="int" value="80" />
         </ParameterList>
@@ -99,7 +99,7 @@
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="smarter" />
+        <Parameter name="timestep controller type" type="string" value="from file" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
           <Parameter name="nka lag iterations" type="int" value="2" />
           <Parameter name="max backtrack steps" type="int" value="5" />
@@ -107,8 +107,8 @@
           <Parameter name="backtrack factor" type="double" value="0.5" />
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
           <Parameter name="nonlinear tolerance" type="double" value="1e-10" />
-          <Parameter name="diverged tolerance" type="double" value="100000.0" />
-          <Parameter name="limit iterations" type="int" value="21" />
+          <Parameter name="diverged tolerance" type="double" value="10000000000.0" />
+          <Parameter name="limit iterations" type="int" value="100" />
           <ParameterList name="verbose object" type="ParameterList">
             <Parameter name="verbosity level" type="string" value="high" />
           </ParameterList>
@@ -122,6 +122,9 @@
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+        </ParameterList>
+        <ParameterList name="timestep controller from file parameters" type="ParameterList">
+          <Parameter name="file name" type="string" value="../data/integrated_hydro-hillslope_sat-np2_dts.h5" />
         </ParameterList>
       </ParameterList>
 
@@ -169,9 +172,9 @@
           <ParameterList name="rest domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain" />
             <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00010224" />
-            <Parameter name="van Genuchten n [-]" type="double" value="2.0" />
-            <Parameter name="residual saturation [-]" type="double" value="0.2" />
+            <Parameter name="van Genuchten alpha" type="double" value="0.00010224" />
+            <Parameter name="van Genuchten n" type="double" value="2.0" />
+            <Parameter name="residual saturation" type="double" value="0.2" />
             <Parameter name="smoothing interval width [saturation]" type="double" value="0.0" />
           </ParameterList>
         </ParameterList>
@@ -472,6 +475,6 @@
   </ParameterList>
 
   <ParameterList name="checkpoint">
-    <Parameter name="times start period stop" type="Array(double)" value="{0.0,1800.0,-1.0}" />
+    <Parameter name="cycles" type="Array(int)" value="{0,9,12,17,23,29,33,38,42,45,48}" />
   </ParameterList>
 </ParameterList>
