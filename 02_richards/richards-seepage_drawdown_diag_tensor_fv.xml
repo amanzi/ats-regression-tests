@@ -94,7 +94,7 @@
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="smarter" />
+        <Parameter name="timestep controller type" type="string" value="from file" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
           <Parameter name="nka lag iterations" type="int" value="2" />
           <Parameter name="max backtrack steps" type="int" value="5" />
@@ -102,8 +102,8 @@
           <Parameter name="backtrack factor" type="double" value="0.5" />
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
           <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
-          <Parameter name="diverged tolerance" type="double" value="100000.0" />
-          <Parameter name="limit iterations" type="int" value="50" />
+          <Parameter name="diverged tolerance" type="double" value="10000000000.0" />
+          <Parameter name="limit iterations" type="int" value="100" />
           <ParameterList name="verbose object" type="ParameterList">
             <Parameter name="verbosity level" type="string" value="high" />
           </ParameterList>
@@ -120,6 +120,9 @@
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+        </ParameterList>
+        <ParameterList name="timestep controller from file parameters" type="ParameterList">
+          <Parameter name="file name" type="string" value="../data/richards-seepage_drawdown_diag_tensor_fv_dts.h5" />
         </ParameterList>
       </ParameterList>
 
@@ -241,7 +244,6 @@
         </ParameterList>
       </ParameterList>
 
-
       <ParameterList name="porosity" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -273,17 +275,17 @@
               <Parameter name="number of dofs" type="int" value="3" />
               <ParameterList name="dof 1 function" type="ParameterList">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="1e-11" /> <!--xx-->
+                  <Parameter name="value" type="double" value="1e-11" />
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function" type="ParameterList">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="2.5e-12" /> <!--yy-->
+                  <Parameter name="value" type="double" value="2.5e-12" />
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 3 function" type="ParameterList">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="1e-12" /> <!--zz-->
+                  <Parameter name="value" type="double" value="1e-12" />
                 </ParameterList>
               </ParameterList>
             </ParameterList>
@@ -334,8 +336,7 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times start period stop" type="Array(double)" value="{0.0,0.0025,-1.0}" />
-      <Parameter name="times start period stop units" type="string" value="noleap" />
+    <Parameter name="cycles" type="Array(int)" value="{0,13,15,17,19,21,23,25,27,29,31}" />
   </ParameterList>
 
   <ParameterList name="visualization">
