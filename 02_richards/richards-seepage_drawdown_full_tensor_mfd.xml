@@ -102,7 +102,7 @@
           <Parameter name="backtrack lag" type="int" value="0" />
           <Parameter name="backtrack factor" type="double" value="0.5" />
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
-          <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
+          <Parameter name="nonlinear tolerance" type="double" value="1e-08" />
           <Parameter name="diverged tolerance" type="double" value="10000000000.0" />
           <Parameter name="limit iterations" type="int" value="100" />
           <ParameterList name="verbose object" type="ParameterList">
@@ -147,7 +147,7 @@
         </ParameterList>
         <ParameterList name="gmres parameters" type="ParameterList">
           <Parameter name="preconditioning strategy" type="string" value="left" />
-          <Parameter name="error tolerance" type="double" value="1e-06" />
+          <Parameter name="error tolerance" type="double" value="1e-12" />
           <Parameter name="convergence criteria" type="Array(string)" value="{relative residual,make one iteration}" />
           <Parameter name="maximum number of iteration" type="int" value="80" />
         </ParameterList>
@@ -349,7 +349,7 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="cycles" type="Array(int)" value="{0,19,23,27,29,31,33,35,37,38,39}" />
+    <Parameter name="cycles" type="Array(int)" value="{0,15,20,25,30,35,38,41,44,47,49}" />
   </ParameterList>
 
   <ParameterList name="visualization">
