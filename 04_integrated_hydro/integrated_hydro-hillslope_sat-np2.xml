@@ -24,11 +24,11 @@
 
   <ParameterList name="regions" type="ParameterList">
     <ParameterList name="computational domain" type="ParameterList">
-      <ParameterList name="region: all" type="ParameterList" >
+      <ParameterList name="region: all" type="ParameterList">
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface domain" type="ParameterList">
-      <ParameterList name="region: all" type="ParameterList" >
+      <ParameterList name="region: all" type="ParameterList">
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface outlet" type="ParameterList">
@@ -46,11 +46,11 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-  
+
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value="0.0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="18000.0"/>
+    <Parameter name="end time" type="double" value="18000.0" />
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="Top level MPC" type="ParameterList">
@@ -64,7 +64,6 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="PKs" type="ParameterList">
 
     <ParameterList name="Top level MPC" type="ParameterList">
@@ -103,7 +102,7 @@
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="smarter" />
+        <Parameter name="timestep controller type" type="string" value="from file" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
           <Parameter name="nka lag iterations" type="int" value="2" />
           <Parameter name="max backtrack steps" type="int" value="5" />
@@ -111,8 +110,8 @@
           <Parameter name="backtrack factor" type="double" value="0.5" />
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
           <Parameter name="nonlinear tolerance" type="double" value="1e-10" />
-          <Parameter name="diverged tolerance" type="double" value="100000.0" />
-          <Parameter name="limit iterations" type="int" value="21" />
+          <Parameter name="diverged tolerance" type="double" value="10000000000.0" />
+          <Parameter name="limit iterations" type="int" value="100" />
           <ParameterList name="verbose object" type="ParameterList">
             <Parameter name="verbosity level" type="string" value="high" />
           </ParameterList>
@@ -126,6 +125,9 @@
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+        </ParameterList>
+        <ParameterList name="timestep controller from file parameters" type="ParameterList">
+          <Parameter name="file name" type="string" value="../data/integrated_hydro-hillslope_sat-np2_dts.h5" />
         </ParameterList>
       </ParameterList>
 
@@ -176,7 +178,7 @@
             <Parameter name="van Genuchten alpha" type="double" value="0.00010224" />
             <Parameter name="van Genuchten n" type="double" value="2.0" />
             <Parameter name="residual saturation" type="double" value="0.2" />
-            <Parameter name="smoothing interval width [saturation]" type="double" value="0." />
+            <Parameter name="smoothing interval width [saturation]" type="double" value="0.0" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
@@ -205,18 +207,6 @@
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
-<!--
-        <ParameterList name="seepage face head" type="ParameterList">
-          <ParameterList name="outlet" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{surface outlet}" />
-            <ParameterList name="boundary head" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0." />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
--->
         <ParameterList name="critical depth" type="ParameterList">
           <ParameterList name="outlet" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface outlet}" />
@@ -231,7 +221,7 @@
       <ParameterList name="overland conductivity evaluator" type="ParameterList">
         <ParameterList name="overland conductivity model" type="ParameterList">
           <Parameter name="Manning exponent" type="double" value="0.666666666667" />
-          <Parameter name="slope regularization epsilon" type="double" value="0." />
+          <Parameter name="slope regularization epsilon" type="double" value="0.0" />
         </ParameterList>
       </ParameterList>
 
@@ -250,8 +240,8 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="x values" type="Array(double)" value="{0.0, 12000.0}"/>
-                <Parameter name="y values" type="Array(double)" value="{5.5e-6, 0.0}"/>
+                <Parameter name="x values" type="Array(double)" value="{0.0,12000.0}" />
+                <Parameter name="y values" type="Array(double)" value="{5.5e-06,0.0}" />
                 <Parameter name="forms" type="Array(string)" value="{constant}" />
               </ParameterList>
             </ParameterList>
@@ -338,7 +328,7 @@
             <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="8.9e-4" />
+                <Parameter name="value" type="double" value="0.00089" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -402,7 +392,7 @@
             <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.01986"/>
+                <Parameter name="value" type="double" value="0.01986" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -433,7 +423,7 @@
         <ParameterList name="compressible porosity model parameters" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain" />
-            <Parameter name="pore compressibility [Pa^-1]" type="double" value="5.113922e-8" />
+            <Parameter name="pore compressibility [Pa^-1]" type="double" value="5.113922e-08" />
             <Parameter name="pore compressibility inflection point [Pa]" type="double" value="0.0" />
           </ParameterList>
         </ParameterList>
@@ -448,8 +438,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1.052888e-12"/><!--12-->
-                <!-- corresponds to 6.94e-4 m/min -->
+                <Parameter name="value" type="double" value="1.052888e-12" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -477,8 +466,6 @@
 
     </ParameterList>
   </ParameterList>
-
-
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="file name base" type="string" value="visdump" />
@@ -489,23 +476,8 @@
       <Parameter name="times start period stop" type="Array(double)" value="{0.0,1800.0,-1.0}" />
     </ParameterList>
   </ParameterList>
-<!--  
 
-  <ParameterList name="observations" type="ParameterList">
-    <ParameterList name="surface outlet flux" type="ParameterList">
-      <Parameter name="variable" type="string" value="surface-mass_flux" />
-      <Parameter name="direction normalized flux" type="bool" value="true" />
-      <Parameter name="region" type="string" value="surface outlet" />
-      <Parameter name="functional" type="string" value="observation data: extensive integral" />
-      <Parameter name="delimiter" type="string" value=" " />
-      <Parameter name="location name" type="string" value="face" />
-      <Parameter name="write interval" type="int" value="1" />
-      <Parameter name="observation output filename" type="string" value="surface_outlet_flux.dat" />
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,60.0,-1.0}" />
-    </ParameterList>
-  </ParameterList>
--->
   <ParameterList name="checkpoint">
-    <Parameter name="times start period stop" type="Array(double)" value="{0.0,1800.0,-1.0}" />
+    <Parameter name="cycles" type="Array(int)" value="{0,9,12,17,23,29,33,38,42,45,48}" />
   </ParameterList>
 </ParameterList>
