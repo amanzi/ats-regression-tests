@@ -61,12 +61,12 @@ Test Index:
 
 Note that missing links mean the test does not yet exist.  Please feel free to help!
 
-* `01_richards_steadystate`. These tests solve Richards equation in steadystate form.
+* [`01_richards_steadystate`](https://github.com/amanzi/ats-regression-tests/tree/master/01_richards_steadystate) These tests solve Richards equation in steadystate form.
   * [`fv`](https://github.com/amanzi/ats-regression-tests/blob/master/01_richards_steadystate/richards_steadystate-fv.xml) A 1D column using finite volumes.
   * [`mfd`](https://github.com/amanzi/ats-regression-tests/blob/master/01_richards_steadystate/richards_steadystate-mfd.xml) The same problem using mimetic finite differences.
   * [`mfd-schur`](https://github.com/amanzi/ats-regression-tests/blob/master/01_richards_steadystate/richards_steadystate-mfd_schur.xml) The same problem using MFD and a Schur complement preconditioner.
 
-* `02_richards` Transient Richards equation tests.  In particular BCs, including seepage face BCs, cause trouble.
+* [`02_richards`](https://github.com/amanzi/ats-regression-tests/tree/master/02_richards) Transient Richards equation tests.  In particular BCs, including seepage face BCs, cause trouble.
   * [`infiltration_fv`](https://github.com/amanzi/ats-regression-tests/blob/master/02_richards/richards-infiltration_fv_orig.xml) A 1D column infiltration problem, using finite volumes.
   * [`infiltration_mfd`](https://github.com/amanzi/ats-regression-tests/blob/master/02_richards/richards-infiltration_mfd_orig.xml) A 1D column infiltration problem using mimetic finite differences.
   * [`seepage_infiltration_fv`](https://github.com/amanzi/ats-regression-tests/blob/master/02_richards/richards-seepage_infiltration_fv_orig.xml) Infiltrate with a seepage face.
@@ -82,7 +82,7 @@ Note that missing links mean the test does not yet exist.  Please feel free to h
   * [`infiltration_then_seepage_fv`](https://github.com/amanzi/ats-regression-tests/blob/master/02_richards/richards-infiltration_then_seepage_fv_orig.xml) A 1D column that infiltrates, then a seepage face turns on.
   * [`infiltration_then_seepage_mfd`](https://github.com/amanzi/ats-regression-tests/blob/master/02_richards/richards-infiltration_then_seepage_mfd_orig.xml) Same as above with MFD.
 
-* `03_surface_water` Solve some form of diffusion wave equation.  In particular BCs, including the plethora of outflow options, cause trouble.
+* [`03_surface_water`](https://github.com/amanzi/ats-regression-tests/tree/master/03_surface_water) Solve some form of diffusion wave equation.  In particular BCs, including the plethora of outflow options, cause trouble.
   * [`rainfall_fv`](https://github.com/amanzi/ats-regression-tests/blob/master/03_surface_water/surface_water-rainfall_fv.xml) A simple rainfall problem, with finite volumes.
   * [`rainfall_fv_jac`](https://github.com/amanzi/ats-regression-tests/blob/master/03_surface_water/surface_water-rainfall_fv_jac.xml) The same problem, with Jacobian terms.
   * [`rainfall_fv_simplified`](https://github.com/amanzi/ats-regression-tests/blob/master/03_surface_water/surface_water-rainfall_fv.xml) The same problem, but with constant, non-temperature-based densities and viscosities.
@@ -94,7 +94,7 @@ Note that missing links mean the test does not yet exist.  Please feel free to h
   * [`downhill_head`](https://github.com/amanzi/ats-regression-tests/tree/master/03_surface_water/surface_water-downhill_head.xml) Part of a series of problems dealing with transient BCs and flow causality causing difficulties in upwinding.
   * [`downhill_piecewise_head`](https://github.com/amanzi/ats-regression-tests/tree/master/03_surface_water/surface_water-downhill_piecewise_head.xml) Part of a series of problems dealing with transient BCs and flow causality causing difficulties in upwinding.
 
-* `04_integrated_hydro` Coupled flow on the surface and subsurface
+* [`04_integrated_hydro`](https://github.com/amanzi/ats-regression-tests/tree/master/04_integrated_hydro) Coupled flow on the surface and subsurface
   * [`column_sat`](https://github.com/amanzi/ats-regression-tests/blob/master/04_integrated_hydro/integrated_hydro-column_sat_orig.xml) A 1D column, saturation limited runoff generation.
   * [`column_inf`](https://github.com/amanzi/ats-regression-tests/blob/master/04_integrated_hydro/integrated_hydro-column_inf_orig.xml) A 1D column, infiltration limited runoff generation.
   * [`hillslope_sat`](https://github.com/amanzi/ats-regression-tests/blob/master/04_integrated_hydro/integrated_hydro-hillslope_sat_orig.xml) A 2D hillslope, saturation limited runoff generation.
@@ -102,19 +102,19 @@ Note that missing links mean the test does not yet exist.  Please feel free to h
   * [`hillslope_sat-np2`](https://github.com/amanzi/ats-regression-tests/blob/master/04_integrated_hydro/integrated_hydro-hillslope_sat-np2_orig.xml) A 2D hillslope, saturation limited runoff generation, on two cores.
   * [`hillslope_inf-np2`](https://github.com/amanzi/ats-regression-tests/blob/master/04_integrated_hydro/integrated_hydro-hillslope_inf-np2_orig.xml) A 2D hillslope, infiltration limited runoff generation, on two cores.
 
-* `05_surface_balance` Surface energy balance equations that somehow calculate evaporation or transpiration or both.
+* [`05_surface_balance`](https://github.com/amanzi/ats-regression-tests/tree/master/05_surface_balance) Surface energy balance equations that somehow calculate evaporation or transpiration or both.
   * [`general`](https://github.com/amanzi/ats-regression-tests/blob/master/05_surface_balance/surface_balance-general.xml) A very simple balance ODE, solving exponential decay, to test general surface balance PKs and time integration.
   * [`lingzhang`](https://github.com/amanzi/ats-regression-tests/blob/master/05_surface_balance/surface_balance-lingzhang.xml) A simple test of the Ling & Zhang based surface energy balance model used in Arctic/Ecohydrology runs.
   * [`priestly_taylor`](https://github.com/amanzi/ats-regression-tests/blob/master/05_surface_balance/surface_balance-priestly_taylor.xml) A simple test of the Priestly-Taylor potential ET model.
   
-* `06_transport`  Surface and subsurface transport of nonreactive species.
+* [`06_transport`](https://github.com/amanzi/ats-regression-tests/tree/master/06_transport)  Surface and subsurface transport of nonreactive species.
   * [`surface_tracer`](https://github.com/amanzi/ats-regression-tests/blob/master/06_transport/transport-surface_tracer.xml) A single tracer in a 1D reach
   * `surface_tracer_logical` A single tracer on a logical mesh
   * `subsurface_tracer` A single tracer in a 2D transect domain
   * `integrated_tracer` An integrated surface and subsurface transport problem.
   * `integrated_tracer_coupled` The same integrated system but with a coupled flow solution.
 
-* `07_reactive_transport` Surface and subsurface reactive transport
+* [`07_reactive_transport`](https://github.com/amanzi/ats-regression-tests/tree/master/07_reactive_transport) Surface and subsurface reactive transport
   * [`surface_decay_ingrowth`](https://github.com/amanzi/ats-regression-tests/blob/master/07_reactive_transport/reactive_transport-surface_decay_ingrowth.xml) A two-specie system where the first specie decays into the second (daughter) specie.  A radioactive decay problem.
   * `surface_decay_ingrowth_logical` The same problem on a logical mesh.
   * `subsurface_decay_ingrowth` The same problem on a 2D transect.
