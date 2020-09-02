@@ -28,8 +28,8 @@ python regression_tests.py --help
 ```
 
 
-New tests
---------------
+Creating new tests
+------------------
 
 **Follow the naming convention:**  `test_category-test_name` where `test_category` is the subdirectory name.
 
@@ -45,7 +45,7 @@ New tests
 
 
 Updating tests:
----------------------
+---------------
 * Update xml files, etc
 * run the update: `python regression_tests.py -u path_to.cfg -t "my_category-my_name"
 * clean out the resulting gold directory: `./clean_gold.sh XX_my_category/my_category-my_name.regression.gold` to make sure that only the checkpoint files and the ats_version.txt files are left.
@@ -54,4 +54,42 @@ Updating tests:
 Note that any non-bitwise reproducible result should likely get updated.  It is extremely useful to be able to rely on bitwise reproducibility (when it is available).  So, if changes result in bitwise changes in the solution, prefer to first verify that the tests pass (bitwise deltas should still pass!) and only then update the tests using the above procedure.  This way, if someone else makes a change that shouldn't affect bitwise reproducibility, they can assume safely that they should have it. 
 
 Obviously any changes that cause a test to fail should be checked extensively, confirmed that the change is acceptible (or better), and the document carefully in a commit message why the solution changed.
+
+
+Test Index:
+-----------
+
+Note that missing links mean the test does not yet exist.  Please feel free to help!
+
+* `01_richards_steadystate`. These tests solve Richards equation in steadystate form.
+* `02_richards` Transient Richards equation tests
+* `03_surface_water` Solve some form of diffusion wave equation under assorted DEMs and boundary conditions.
+* `04_integrated_hydro` Coupled flow on the surface and subsurface
+* `05_surface_balance` Surface energy balance equations that somehow calculate evaporation or transpiration or both.
+* `06_transport`  Surface and subsurface transport of nonreactive species.
+  * `surface_tracer` A single tracer in a 1D reach
+  * **`surface_tracer_logical` A single tracer on a logical mesh**
+  * **`subsurface_tracer` A single tracer in a 2D transect domain**
+  * **`integrated_tracer` An integrated surface and subsurface transport problem.**
+  * **`integrated_tracer_coupled` The same integrated system but with a coupled flow solution.**
+* `07_reactive_transport` Surface and subsurface reactive transport
+  * `surface_decay_ingrowth` A two-specie system where the first specie decays into the second (daughter) specie.  A radioactive decay problem.
+  * **`surface_decay_ingrowth_logical` The same problem on a logical mesh.**
+  * **`subsurface_decay_ingrowth` The same problem on a 2D transect.**
+  * **`integrated_decay_ingrowth` The same problem on surface + subsurface.**
+  * **`integrated_decay_ingrowth_coupled` The same integrated system but with a coupled flow solution.**
+  * `surface_denitrification` Dual-monod kinetics reaction system for aerobic respiration and DOM denitrification.  6 primary species and reactions.
+  * **`surface_denitrification_logical` The same problem on a logical mesh.**
+  * **`subsurface_denitrification` The same problem on a 2D transect.**
+  * **`integrated_denitrification` The same problem on surface + subsurface.**  
+  * **`integrated_denitrification_coupled` The same integrated system but with a coupled flow solution.**
+* `08_energy`
+  * **`advection` A simple surface-based advection-dominated problem.**
+  * **`diffusion` A simple subsurface-based diffusion-dominated problem.**
+  * **`permafrost` Some form of columnar permafrost test?** 
+  * **`snow_distribution` Some form of 2D snow distribution test.**
+* `09_subgrid_models`
+  * **`columnar_permafrost` Four-column example of the 1D + 2D surface star system on an energy+flow system.**
+  * **`columnar_permafrost_subcycled` Four-column example of the 1D + 2D surface star system on an energy+flow system with subcycling of columns**
+  * **`hyporheic_exchange` Single reach example of the ADELS model.**
 
