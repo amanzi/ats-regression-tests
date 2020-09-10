@@ -99,6 +99,7 @@ Solve some form of diffusion wave equation.  In particular BCs, including the pl
 * [`uphill_piecewise_head`](https://github.com/amanzi/ats-regression-tests/tree/master/03_surface_water/surface_water-uphill_piecewise_head.xml) Part of a series of problems dealing with transient BCs and flow causality causing difficulties in upwinding.
 * [`downhill_head`](https://github.com/amanzi/ats-regression-tests/tree/master/03_surface_water/surface_water-downhill_head.xml) Part of a series of problems dealing with transient BCs and flow causality causing difficulties in upwinding.
 * [`downhill_piecewise_head`](https://github.com/amanzi/ats-regression-tests/tree/master/03_surface_water/surface_water-downhill_piecewise_head.xml) Part of a series of problems dealing with transient BCs and flow causality causing difficulties in upwinding.
+* `subgrid_microtopography` An example of the model for representing subgrid microtopography in surface flow.
 
 ### [`04_integrated_hydro`](https://github.com/amanzi/ats-regression-tests/tree/master/04_integrated_hydro)
 
