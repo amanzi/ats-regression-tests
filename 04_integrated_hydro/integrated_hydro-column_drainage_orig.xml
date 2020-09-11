@@ -69,6 +69,7 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
+
   <ParameterList name="PKs" type="ParameterList">
 
     <ParameterList name="Top level MPC" type="ParameterList">
@@ -77,7 +78,7 @@
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="from file" />
+        <Parameter name="timestep controller type" type="string" value="smarter" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
           <Parameter name="nka lag iterations" type="int" value="2" />
           <Parameter name="max backtrack steps" type="int" value="5" />
@@ -86,7 +87,7 @@
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
           <Parameter name="nonlinear tolerance" type="double" value="1e-10" />
           <Parameter name="diverged tolerance" type="double" value="10000000000.0" />
-          <Parameter name="limit iterations" type="int" value="100" />
+          <Parameter name="limit iterations" type="int" value="21" />
           <ParameterList name="verbose object" type="ParameterList">
             <Parameter name="verbosity level" type="string" value="high" />
           </ParameterList>
@@ -98,14 +99,11 @@
           <Parameter name="max iterations" type="int" value="18" />
           <Parameter name="min iterations" type="int" value="10" />
           <Parameter name="time step reduction factor" type="double" value="0.5" />
-          <Parameter name="time step increase factor" type="double" value="2.0" />
+          <Parameter name="time step increase factor" type="double" value="2" />
           <Parameter name="max time step" type="double" value="3000000.0" />
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
-        </ParameterList>
-        <ParameterList name="timestep controller from file parameters" type="ParameterList">
-          <Parameter name="file name" type="string" value="../data/integrated_hydro-column_drainage_dts.h5" />
         </ParameterList>
       </ParameterList>
 
@@ -169,10 +167,9 @@
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="hydrostatic head [m]" type="double" value="-0.1" />
-        <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000.0" />
+        <Parameter name="hydrostatic head [m]" type="double" value="-.1" />
+        <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000" />
       </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="overland flow" type="ParameterList">
@@ -228,27 +225,23 @@
 
       <ParameterList name="surface-mass_density_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="1000.0" />
+        <Parameter name="value" type="double" value="1000" />
       </ParameterList>
-
       <ParameterList name="surface-molar_density_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="55000.0" />
+        <Parameter name="value" type="double" value="55000" />
       </ParameterList>
-
       <ParameterList name="mass_density_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="1000.0" />
+        <Parameter name="value" type="double" value="1000" />
       </ParameterList>
-
       <ParameterList name="molar_density_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="55000.0" />
+        <Parameter name="value" type="double" value="55000" />
       </ParameterList>
-
       <ParameterList name="viscosity_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="0.00089" />
+        <Parameter name="value" type="double" value="8.9e-4" />
       </ParameterList>
 
       <ParameterList name="surface-manning_coefficient" type="ParameterList">
@@ -273,12 +266,12 @@
 
       <ParameterList name="permeability" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="1e-12" />
+        <Parameter name="value" type="double" value="1.e-12" />
       </ParameterList>
 
       <ParameterList name="surface-relative_permeability" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="1.0" />
+        <Parameter name="value" type="double" value="1." />
       </ParameterList>
 
       <ParameterList name="surface-overland_conductivity" type="ParameterList">
@@ -307,6 +300,7 @@
       </ParameterList>
 
     </ParameterList>
+    
     <ParameterList name="initial conditions" type="ParameterList">
 
       <ParameterList name="atmospheric_pressure" type="ParameterList">
@@ -319,7 +313,10 @@
 
     </ParameterList>
   </ParameterList>
+
   <ParameterList name="checkpoint">
-    <Parameter name="cycles" type="Array(int)" value="{0,4,8,10,12,16,20,22,24,26,30}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0.0,0.05,-1.0}" />
+    <Parameter name="times start period stop units" type="string" value="noleap" />
   </ParameterList>
+
 </ParameterList>
