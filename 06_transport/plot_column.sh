@@ -1,0 +1,1 @@
+python $ATS_SRC_DIR/tools/utils/plot_column_data.py --color-mode=time --layout="[[surface-pressure,surface-ponded_depth,surface-total_component_concentration],[pressure,saturation_liquid,total_component_concentration]]" .
