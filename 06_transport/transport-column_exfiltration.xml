@@ -181,7 +181,7 @@
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="hydrostatic head [m]" type="double" value="1.0" />
+        <Parameter name="hydrostatic head [m]" type="double" value="-1.0" />
         <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000" />
       </ParameterList>
 
@@ -280,10 +280,12 @@
         <Parameter name="limiter extension for transport" type="bool" value="true" />
       </ParameterList>
 
+<!--      
       <ParameterList name="molecular diffusion">
         <Parameter name="aqueous names" type="Array(string)" value="{Tc-99}" />
         <Parameter name="aqueous values" type="Array(double)" value="{0.001}" />
       </ParameterList>
+-->
 
       <ParameterList name="material properties">
         <ParameterList name="domain">
@@ -328,15 +330,13 @@
 
       <ParameterList name="boundary conditions">
         <ParameterList name="concentration">
-          <ParameterList name="coupling">
-            <ParameterList name="BC coupling">
-              <Parameter name="spatial distribution method" type="string" value="domain coupling" />
-              <Parameter name="submodel" type="string" value="field" />
-              <Parameter name="regions" type="Array(string)" value="{surface}" />
-              <ParameterList name="boundary concentration">
-                <Parameter name="field_out_key" type="string" value="surface-total_component_concentration" />
-                <Parameter name="copy_field_out_key" type="string" value="default" />
-              </ParameterList>
+          <ParameterList name="BC coupling">
+            <Parameter name="spatial distribution method" type="string" value="domain coupling" />
+            <Parameter name="submodel" type="string" value="field" />
+            <Parameter name="regions" type="Array(string)" value="{surface}" />
+            <ParameterList name="fields">
+              <Parameter name="field_out_key" type="string" value="surface-total_component_concentration" />
+              <Parameter name="copy_field_out_key" type="string" value="default" />
             </ParameterList>
           </ParameterList>
         </ParameterList>
@@ -405,17 +405,15 @@
 
       <ParameterList name="source terms">
         <ParameterList name="concentration">
-          <ParameterList name="coupling">
-            <ParameterList name="Surface">
-              <Parameter name="regions" type="Array(string)" value="{surface domain}" />
-              <Parameter name="spatial distribution method" type="string" value="domain coupling" />
-              <Parameter name="submodel" type="string" value="rate" />
-              <ParameterList name="sink">
-                <Parameter name="flux_key" type="string" value="mass_flux" />
-                <Parameter name="copy_flux_key" type="string" value="next_timestep" />
-                <Parameter name="field_out_key" type="string" value="total_component_concentration" />
-                <Parameter name="field_in_key" type="string" value="surface-total_component_concentration" />
-              </ParameterList>
+          <ParameterList name="surface coupling">
+            <Parameter name="regions" type="Array(string)" value="{surface domain}" />
+            <Parameter name="spatial distribution method" type="string" value="domain coupling" />
+            <Parameter name="submodel" type="string" value="rate" />
+            <ParameterList name="fields">
+              <Parameter name="flux_key" type="string" value="mass_flux" />
+              <Parameter name="copy_flux_key" type="string" value="next_timestep" />
+              <Parameter name="field_out_key" type="string" value="total_component_concentration" />
+              <Parameter name="field_in_key" type="string" value="surface-total_component_concentration" />
             </ParameterList>
           </ParameterList>
         </ParameterList>

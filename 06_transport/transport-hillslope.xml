@@ -118,7 +118,6 @@
             <Parameter name="verbosity level" type="string" value="medium" />
           </ParameterList>
         </ParameterList>
-<!--        
         <ParameterList name="gmres parameters" type="ParameterList">
           <Parameter name="preconditioning strategy" type="string" value="left" />
           <Parameter name="error tolerance" type="double" value="1e-10" />
@@ -127,7 +126,6 @@
             <Parameter name="verbosity level" type="string" value="high" />
           </ParameterList>
         </ParameterList>
--->
       </ParameterList>
 
       <ParameterList name="verbose object">
@@ -182,7 +180,7 @@
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="hydrostatic head [m]" type="double" value="2.0" />
+        <Parameter name="hydrostatic head [m]" type="double" value="0.0" />
         <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000" />
       </ParameterList>
 
@@ -196,21 +194,6 @@
       <ParameterList name="boundary conditions">
       </ParameterList>
 
-      <ParameterList name="water retention evaluator" type="ParameterList">
-        <Parameter name="minimum rel perm cutoff" type="double" value="0.0" />
-        <Parameter name="use surface rel perm" type="bool" value="true" />
-        <ParameterList name="WRM parameters" type="ParameterList">
-          <ParameterList name="rest domain" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00010224" />
-            <Parameter name="van Genuchten n [-]" type="double" value="2.0" />
-            <Parameter name="residual saturation [-]" type="double" value="0.2" />
-            <Parameter name="smoothing interval width [saturation]" type="double" value="0.0" />
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="overland flow">
@@ -219,7 +202,7 @@
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="mass source in meters" type="bool" value="true" />
-      <Parameter name="initial time step" type="double" value="60" />
+      <Parameter name="initial time step" type="double" value="60." />
 
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object">
@@ -340,15 +323,13 @@
 
       <ParameterList name="boundary conditions">
         <ParameterList name="concentration">
-          <ParameterList name="coupling">
-            <ParameterList name="BC coupling">
-              <Parameter name="spatial distribution method" type="string" value="domain coupling" />
-              <Parameter name="submodel" type="string" value="field" />
-              <Parameter name="regions" type="Array(string)" value="{surface}" />
-              <ParameterList name="boundary concentration">
-                <Parameter name="field_out_key" type="string" value="surface-total_component_concentration" />
-                <Parameter name="copy_field_out_key" type="string" value="default" />
-              </ParameterList>
+          <ParameterList name="surface coupling">
+            <Parameter name="spatial distribution method" type="string" value="domain coupling" />
+            <Parameter name="submodel" type="string" value="field" />
+            <Parameter name="regions" type="Array(string)" value="{surface}" />
+            <ParameterList name="fields">
+              <Parameter name="field_out_key" type="string" value="surface-total_component_concentration" />
+              <Parameter name="copy_field_out_key" type="string" value="default" />
             </ParameterList>
           </ParameterList>
         </ParameterList>
@@ -381,7 +362,7 @@
       </ParameterList>
 
       <ParameterList name="verbose object">
-        <Parameter name="verbosity level" type="string" value="extreme" />
+        <Parameter name="verbosity level" type="string" value="high" />
         <Parameter name="name" type="string" value="Surface Transport" />
       </ParameterList>
 
@@ -417,15 +398,14 @@
 
       <ParameterList name="source terms">
         <ParameterList name="concentration">
-          <ParameterList name="Tc-99">
-            <ParameterList name="SOURCE: Tracer">
-              <Parameter name="component names" type="Array(string)" value="{Tc-99}" />
-              <Parameter name="regions" type="Array(string)" value="{rainfall patch}" />
-              <Parameter name="spatial distribution method" type="string" value="volume" />
-              <ParameterList name="sink">
-                <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="1.0" />
-                </ParameterList>
+          <ParameterList name="Tc-99 injection">
+            <Parameter name="component names" type="Array(string)" value="{Tc-99}" />
+            <Parameter name="regions" type="Array(string)" value="{rainfall patch}" />
+            <Parameter name="spatial distribution method" type="string" value="none" />
+            <ParameterList name="source function">
+              <ParameterList name="function-constant">
+                <Parameter name="value" type="double" value="1.0" />
+              </ParameterList>
                 
 <!--
                 <ParameterList name="function-tabular">
@@ -434,20 +414,17 @@
                   <Parameter name="forms" type="Array(string)" value="{constant}" />
                 </ParameterList>
 -->
-              </ParameterList>
             </ParameterList>
           </ParameterList>
-          <ParameterList name="coupling">
-            <ParameterList name="Surface">
-              <Parameter name="regions" type="Array(string)" value="{surface domain}" />
-              <Parameter name="spatial distribution method" type="string" value="domain coupling" />
-              <Parameter name="submodel" type="string" value="rate" />
-              <ParameterList name="sink">
-                <Parameter name="flux_key" type="string" value="mass_flux" />
-                <Parameter name="copy_flux_key" type="string" value="next_timestep" />
-                <Parameter name="field_out_key" type="string" value="total_component_concentration" />
-                <Parameter name="field_in_key" type="string" value="surface-total_component_concentration" />
-              </ParameterList>
+          <ParameterList name="surface coupling">
+            <Parameter name="regions" type="Array(string)" value="{surface domain}" />
+            <Parameter name="spatial distribution method" type="string" value="domain coupling" />
+            <Parameter name="submodel" type="string" value="rate" />
+            <ParameterList name="fields">
+              <Parameter name="flux_key" type="string" value="mass_flux" />
+              <Parameter name="copy_flux_key" type="string" value="next_timestep" />
+              <Parameter name="field_out_key" type="string" value="total_component_concentration" />
+              <Parameter name="field_in_key" type="string" value="surface-total_component_concentration" />
             </ParameterList>
           </ParameterList>
         </ParameterList>
@@ -537,29 +514,19 @@
         <Parameter name="value" type="double" value="0.15" />
       </ParameterList>
 
-      <ParameterList name="base_porosity">
-        <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="0.25" />
-      </ParameterList>
-
       <ParameterList name="surface_porosity">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value="1.0" />
       </ParameterList>
 
       <ParameterList name="porosity">
-        <Parameter name="field evaluator type" type="string" value="compressible porosity" />
-        <ParameterList name="compressible porosity model parameters">
-          <ParameterList name="computational domain">
-            <Parameter name="region" type="string" value="computational domain" />
-            <Parameter name="pore compressibility [Pa^-1]" type="double" value="1e-09" />
-          </ParameterList>
-        </ParameterList>
+        <Parameter name="field evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="value" type="double" value="0.25" />
       </ParameterList>
 
       <ParameterList name="permeability">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="1.15e-11" />
+        <Parameter name="value" type="double" value="5e-11" />
       </ParameterList>
 
       <ParameterList name="surface-relative_permeability">
@@ -576,6 +543,20 @@
         <Parameter name="field evaluator type" type="string" value="overland source from subsurface via flux" />
       </ParameterList>
 
+      <ParameterList name="saturation_liquid" type="ParameterList">
+        <Parameter name="field evaluator type" type="string" value="WRM" />
+        <Parameter name="checkpoint" type="bool" value="true" />
+        <ParameterList name="WRM parameters" type="ParameterList">
+          <ParameterList name="computation domain" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain" />
+            <Parameter name="WRM Type" type="string" value="van Genuchten" />
+            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00010224" />
+            <Parameter name="van Genuchten n [-]" type="double" value="2.0" />
+            <Parameter name="residual saturation [-]" type="double" value="0.2" />
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+      
       <ParameterList name="surface-overland_conductivity">
         <Parameter name="field evaluator type" type="string" value="overland conductivity" />
         <ParameterList name="overland conductivity model">
