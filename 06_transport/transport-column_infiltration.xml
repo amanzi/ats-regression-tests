@@ -324,7 +324,7 @@
             <Parameter name="regions" type="Array(string)" value="{surface}" />
             <ParameterList name="fields">
               <Parameter name="field_out_key" type="string" value="surface-total_component_concentration" />
-              <Parameter name="copy_field_out_key" type="string" value="default" />
+              <Parameter name="copy_field_out_key" type="string" value="with source" />
             </ParameterList>
           </ParameterList>
         </ParameterList>
@@ -341,6 +341,7 @@
       <Parameter name="molar_density_key" type="string" value="surface-molar_density_liquid" />
       <Parameter name="porosity key" type="string" value="surface-one" />
       <Parameter name="component names" type="Array(string)" value="{Tc-99}" />
+      <Parameter name="special source" type="bool" value="true" />
       <Parameter name="number of liquid components" type="int" value="1" />
       <Parameter name="component molar masses" type="Array(double)" value="{1.0}" />
       <Parameter name="spatial discretization order" type="int" value="1" />
@@ -418,7 +419,9 @@
               <Parameter name="flux_key" type="string" value="mass_flux" />
               <Parameter name="copy_flux_key" type="string" value="next_timestep" />
               <Parameter name="field_out_key" type="string" value="total_component_concentration" />
+              <Parameter name="copy_field_out_key" type="string" value="default" />
               <Parameter name="field_in_key" type="string" value="surface-total_component_concentration" />
+              <Parameter name="copy_field_in_key" type="string" value="with source" />
             </ParameterList>
           </ParameterList>
         </ParameterList>
