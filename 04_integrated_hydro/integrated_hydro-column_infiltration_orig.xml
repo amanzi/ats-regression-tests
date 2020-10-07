@@ -157,7 +157,7 @@
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="hydrostatic head [m]" type="double" value="2" />
+        <Parameter name="hydrostatic head [m]" type="double" value="-2" />
         <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000" />
       </ParameterList>
     </ParameterList>
@@ -331,6 +331,16 @@
   <ParameterList name="checkpoint">
     <Parameter name="times start period stop" type="Array(double)" value="{0.0,0.1,-1.0}" />
     <Parameter name="times start period stop units" type="string" value="noleap" />
+  </ParameterList>
+  <ParameterList name="visualization">
+    <ParameterList name="domain">
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0,0.1,-1.0}" />
+      <Parameter name="times start period stop units" type="string" value="noleap" />
+    </ParameterList>
+    <ParameterList name="surface">
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0,0.1,-1.0}" />
+      <Parameter name="times start period stop units" type="string" value="noleap" />
+    </ParameterList>
   </ParameterList>
 
 </ParameterList>

@@ -159,7 +159,7 @@
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="hydrostatic head [m]" type="double" value="2.0" />
+        <Parameter name="hydrostatic head [m]" type="double" value="-2.0" />
         <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000.0" />
       </ParameterList>
 
@@ -334,6 +334,6 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint">
-    <Parameter name="cycles" type="Array(int)" value="{0,9,15,23,31,39}" />
+    <Parameter name="cycles" type="Array(int)" value="{0,8,15,19,26,34}" />
   </ParameterList>
 </ParameterList>

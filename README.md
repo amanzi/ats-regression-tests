@@ -105,6 +105,10 @@ Solve some form of diffusion wave equation.  In particular BCs, including the pl
 
 Coupled flow on the surface and subsurface
 
+* [`column_infiltration`](https://github.com/amanzi/ats-regression-tests/blob/master/04_integrated_hydro/integrated_hydro-column_infiltration_orig.xml) A 1D column, initially unsaturated, rained on.  Very similar to column_sat.
+* [`column_exfiltration`](https://github.com/amanzi/ats-regression-tests/blob/master/04_integrated_hydro/integrated_hydro-column_exfiltration_orig.xml) A 1D column, initially unsaturated, with a flux in from the bottom until water expresses at the surface.
+* [`column_drainage`](https://github.com/amanzi/ats-regression-tests/blob/master/04_integrated_hydro/integrated_hydro-column_exfiltration_orig.xml) A 1D column, initially saturated with surface water, with a flux out of the bottom until the surface is dry.
+* [`column_inf`](https://github.com/amanzi/ats-regression-tests/blob/master/04_integrated_hydro/integrated_hydro-column_inf_orig.xml) A 1D column, infiltration limited runoff generation.
 * [`column_sat`](https://github.com/amanzi/ats-regression-tests/blob/master/04_integrated_hydro/integrated_hydro-column_sat_orig.xml) A 1D column, saturation limited runoff generation.
 * [`column_inf`](https://github.com/amanzi/ats-regression-tests/blob/master/04_integrated_hydro/integrated_hydro-column_inf_orig.xml) A 1D column, infiltration limited runoff generation.
 * [`hillslope_sat`](https://github.com/amanzi/ats-regression-tests/blob/master/04_integrated_hydro/integrated_hydro-hillslope_sat_orig.xml) A 2D hillslope, saturation limited runoff generation.
