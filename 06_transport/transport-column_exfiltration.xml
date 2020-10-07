@@ -132,7 +132,7 @@
           <Parameter name="backtrack lag" type="int" value="0" />
           <Parameter name="backtrack factor" type="double" value="0.5" />
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
-          <Parameter name="nonlinear tolerance" type="double" value="1e-10" />
+          <Parameter name="nonlinear tolerance" type="double" value="1e-08" />
           <Parameter name="diverged tolerance" type="double" value="10000000000.0" />
           <Parameter name="limit iterations" type="int" value="100" />
           <ParameterList name="verbose object">
@@ -544,17 +544,6 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint">
-    <Parameter name="cycles" type="Array(int)" value="{0,30,60,90,120,150,180,210,240,270,300}" />
-  </ParameterList>
-
-  <ParameterList name="visualization">
-    <ParameterList name="domain">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,5.0,-1.0}" />
-      <Parameter name="times start period stop units" type="string" value="d" />
-    </ParameterList>
-    <ParameterList name="surface">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,5.0,-1.0}" />
-      <Parameter name="times start period stop units" type="string" value="d" />
-    </ParameterList>
+    <Parameter name="cycles" type="Array(int)" value="{0,7,10,13,16,19,22,25,28,31,34}" />
   </ParameterList>
 </ParameterList>
