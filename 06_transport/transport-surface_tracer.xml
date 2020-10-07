@@ -53,7 +53,7 @@
     <Parameter name="end cycle" type="int" value="20000" />
     <Parameter name="start time" type="double" value="0.0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="2.0" />
+    <Parameter name="end time" type="double" value="0.75" />
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="surface transport" type="ParameterList">
@@ -77,12 +77,13 @@
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="file name base" type="string" value="visdump_surface" />
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,120.0,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0,1200.0,-1.0}" />
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="file name base" type="string" value="checkpoint" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0.0,3600.0,-1.0}" />
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
@@ -95,7 +96,7 @@
       <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
       <Parameter name="number of liquid components" type="int" value="2" />
       <Parameter name="component molar masses" type="Array(double)" value="{1.0,1.0}" />
-      <Parameter name="spatial discretization order" type="int" value="1" />
+      <Parameter name="spatial discretization order" type="int" value="2" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value="1.0" />
       <Parameter name="transport subcycling" type="bool" value="true" />
@@ -168,14 +169,14 @@
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-tabular" type="ParameterList">
                   <Parameter name="y values" type="Array(double)" value="{0.1,0.0}" />
-                  <Parameter name="x values" type="Array(double)" value="{0.0,86400.0}" />
+                  <Parameter name="x values" type="Array(double)" value="{0.0,43200.0}" />
                   <Parameter name="forms" type="Array(string)" value="{constant}" />
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
                 <ParameterList name="function-tabular" type="ParameterList">
                   <Parameter name="y values" type="Array(double)" value="{0.1,0.0}" />
-                  <Parameter name="x values" type="Array(double)" value="{0.0,86400.0}" />
+                  <Parameter name="x values" type="Array(double)" value="{0.0,43200.0}" />
                   <Parameter name="forms" type="Array(string)" value="{constant}" />
                 </ParameterList>
               </ParameterList>
