@@ -1,5 +1,4 @@
 <ParameterList name="Main" type="ParameterList">
-
   <ParameterList name="mesh" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="mesh type" type="string" value="surface" />
@@ -187,7 +186,6 @@
       <Parameter name="initial time step" type="double" value="10.0" />
       <Parameter name="permeability rescaling" type="double" value="10000000.0" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
-
       <Parameter name="debug cells" type="Array(int)" value="{0,99}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
@@ -450,7 +448,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1.e-13" />
+                <Parameter name="value" type="double" value="1e-13" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -530,19 +528,18 @@
 
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="checkpoint">
-    <Parameter name="times" type="Array(double)" value="{0.0,864.0,2592.,8640.,43200.,86400.,129600,172800}" />
+    <Parameter name="times" type="Array(double)" value="{0.0,864.0,2592.0,8640.0,43200.0,86400.0,129600.0,172800.0}" />
   </ParameterList>
 
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="file name base" type="string" value="visdump" />
-      <Parameter name="times" type="Array(double)" value="{0.0,864.0,2592.,8640.,43200.,86400.,129600,172800}" />
+      <Parameter name="times" type="Array(double)" value="{0.0,864.0,2592.0,8640.0,43200.0,86400.0,129600.0,172800.0}" />
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="file name base" type="string" value="visdump_surface" />
-      <Parameter name="times" type="Array(double)" value="{0.0,864.0,2592.,8640.,43200.,86400.,129600,172800}" />
+      <Parameter name="times" type="Array(double)" value="{0.0,864.0,2592.0,8640.0,43200.0,86400.0,129600.0,172800.0}" />
     </ParameterList>
   </ParameterList>
 </ParameterList>

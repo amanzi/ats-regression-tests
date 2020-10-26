@@ -48,8 +48,8 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="PKs" type="ParameterList">
+
     <ParameterList name="overland flow" type="ParameterList">
       <Parameter name="PK type" type="string" value="overland flow, pressure basis" />
       <Parameter name="primary variable key" type="string" value="surface-pressure" />
@@ -69,7 +69,7 @@
       <ParameterList name="diffusion preconditioner" type="ParameterList">
         <Parameter name="include Newton correction" type="bool" value="true" />
       </ParameterList>
-      
+
       <ParameterList name="preconditioner" type="ParameterList">
         <Parameter name="preconditioner type" type="string" value="block ilu" />
       </ParameterList>
@@ -287,9 +287,8 @@
 
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="checkpoint">
-    <Parameter name="times" type="Array(double)" value="{0.0,1200.0,3600.,4200.,10800.}" />
+    <Parameter name="times" type="Array(double)" value="{0.0,1200.0,3600.0,4200.0,10800.0}" />
   </ParameterList>
 
   <ParameterList name="visualization">

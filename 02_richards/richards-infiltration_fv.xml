@@ -71,7 +71,6 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="times start period stop" type="Array(double)" value="{0.0,0.1,-1.0}" />
     <Parameter name="times start period stop units" type="string" value="noleap" />
@@ -194,7 +193,7 @@
             <Parameter name="van Genuchten residual saturation" type="double" value="0.0" />
           </ParameterList>
         </ParameterList>
-        <Parameter name="checkpoint" type="bool" value="true" /> <!-- for testing -->
+        <Parameter name="checkpoint" type="bool" value="true" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
@@ -209,7 +208,7 @@
 
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="richards water content" />
-        <Parameter name="checkpoint" type="bool" value="true" /> <!-- for testing -->
+        <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
 
       <ParameterList name="capillary_pressure_gas_liq" type="ParameterList">
@@ -346,7 +345,6 @@
 
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="file name base" type="string" value="visdump" />
