@@ -1,3 +1,4 @@
 #!/bin/bash
 cd $1
-for i in `ls *_orig.xml`; do mv $i `basename $i _orig.xml`.xml; done
+rm -rf $2.regression $2.regression.gold
+mv $2_orig.xml $2.xml

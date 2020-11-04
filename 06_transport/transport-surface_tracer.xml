@@ -11,21 +11,18 @@
       <ParameterList name="generate mesh parameters" type="ParameterList">
         <Parameter name="number of cells" type="Array(int)" value="{100,1}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{0.0,0.0}" />
-        <Parameter name="domain high coordinate" type="Array(double)" value="{1000.0,1}" />
+        <Parameter name="domain high coordinate" type="Array(double)" value="{1000.0,1.0}" />
       </ParameterList>
     </ParameterList>
-
   </ParameterList>
 
   <ParameterList name="regions" type="ParameterList">
-    
     <ParameterList name="surface domain" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
         <Parameter name="low coordinate" type="Array(double)" value="{0.0,0.0}" />
         <Parameter name="high coordinate" type="Array(double)" value="{1000.0,1.0}" />
       </ParameterList>
     </ParameterList>
-
     <ParameterList name="surface west" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
         <Parameter name="low coordinate" type="Array(double)" value="{0.0,0.0}" />
@@ -50,52 +47,43 @@
         <Parameter name="high coordinate" type="Array(double)" value="{1000.0,1.0}" />
       </ParameterList>
     </ParameterList>
-
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="end cycle" type="int" value="20000" />
     <Parameter name="start time" type="double" value="0.0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="2" />
+    <Parameter name="end time" type="double" value="0.75" />
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="PK tree" type="ParameterList">
-      
       <ParameterList name="surface transport" type="ParameterList">
         <Parameter name="PK type" type="string" value="transport ATS" />
       </ParameterList>
-      
     </ParameterList>
   </ParameterList>
-
-
   <ParameterList name="observations">
     <ParameterList name="surface-component_concentration">
-      <Parameter name="variable" type="string" value="surface-total_component_concentration"/>
+      <Parameter name="variable" type="string" value="surface-total_component_concentration" />
       <Parameter name="direction normalized flux" type="bool" value="true" />
-      <Parameter name="functional" type="string" value="observation data: extensive integral"/>
-      <Parameter name="region" type="string" value="surface outlet"/>
-      <Parameter name="delimiter" type="string" value=" "/>
-      <Parameter name="location name" type="string" value="cell"/>
-      <Parameter name="write interval" type="int" value="1"/>
-      <Parameter name="observation output filename" type="string" value="surface-outlet.dat"/>
-      <Parameter name="times start period stop" type="Array(double)" value="{0,3600.0,-1.}"/>
+      <Parameter name="functional" type="string" value="observation data: extensive integral" />
+      <Parameter name="region" type="string" value="surface outlet" />
+      <Parameter name="delimiter" type="string" value=" " />
+      <Parameter name="location name" type="string" value="cell" />
+      <Parameter name="write interval" type="int" value="1" />
+      <Parameter name="observation output filename" type="string" value="surface-outlet.dat" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0,3600.0,-1.0}" />
     </ParameterList>
   </ParameterList>
-  
-
-
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="file name base" type="string" value="visdump_surface" />
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,120.0,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0,1200.0,-1.0}" />
     </ParameterList>
   </ParameterList>
 
-
-
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="file name base" type="string" value="checkpoint" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0.0,3600.0,-1.0}" />
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
@@ -108,11 +96,9 @@
       <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
       <Parameter name="number of liquid components" type="int" value="2" />
       <Parameter name="component molar masses" type="Array(double)" value="{1.0,1.0}" />
-      <Parameter name="spatial discretization order" type="int" value="1" />
+      <Parameter name="spatial discretization order" type="int" value="2" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value="1.0" />
-      <Parameter name="solver" type="string" value="PCG with Hypre AMG" />
-      <Parameter name="enable internal tests" type="string" value="no" />
       <Parameter name="transport subcycling" type="bool" value="true" />
       <Parameter name="number of aqueous components" type="int" value="2" />
       <Parameter name="number of gaseous components" type="int" value="0" />
@@ -145,77 +131,65 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="operators">
-        <ParameterList name="diffusion operator">
-          <ParameterList name="matrix">
-            <Parameter name="discretization primary" type="string" value="fv: default" />
-            <Parameter name="discretization secondary" type="string" value="fv: default" />
-            <Parameter name="schema" type="Array(string)" value="{face, cell}" />
-            <Parameter name="preconditioner schema" type="Array(string)" value="{face}" />
+      <ParameterList name="diffusion">
+        <Parameter name="discretization primary" type="string" value="fv: default" />
+        <Parameter name="discretization secondary" type="string" value="fv: default" />
+        <Parameter name="schema" type="Array(string)" value="{face, cell}" />
+        <Parameter name="preconditioner schema" type="Array(string)" value="{face}" />
+      </ParameterList>
 
-            <ParameterList name="inverse">
-              <Parameter name="preconditioning method" type="string" value="boomer amg" />
-              <ParameterList name="boomer amg parameters">
-                <Parameter name="tolerance" type="double" value="0.0" />
-                <Parameter name="smoother sweeps" type="int" value="3" />
-                <Parameter name="cycle applications" type="int" value="5" />
-                <Parameter name="strong threshold" type="double" value="0.5" />
-              </ParameterList>
-              <Parameter name="iterative method" type="string" value="pcg" />
-              <ParameterList name="pcg parameters">
-                <Parameter name="maximum number of iterations" type="int" value="400" />
-                <Parameter name="error tolerance" type="double" value="1e-20" />
-                <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}" />
-                <Parameter name="size of Krylov space" type="int" value="5" />
-                <ParameterList name="verbose object">
-                  <Parameter name="verbosity level" type="string" value="low" />
-                </ParameterList>
-              </ParameterList>
-            </ParameterList>
-
+      <ParameterList name="inverse">
+        <Parameter name="preconditioning method" type="string" value="boomer amg" />
+        <ParameterList name="boomer amg parameters">
+          <Parameter name="tolerance" type="double" value="0.0" />
+          <Parameter name="smoother sweeps" type="int" value="3" />
+          <Parameter name="cycle applications" type="int" value="5" />
+          <Parameter name="strong threshold" type="double" value="0.5" />
+        </ParameterList>
+        <Parameter name="iterative method" type="string" value="pcg" />
+        <ParameterList name="pcg parameters">
+          <Parameter name="maximum number of iterations" type="int" value="400" />
+          <Parameter name="error tolerance" type="double" value="1e-20" />
+          <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}" />
+          <Parameter name="size of Krylov space" type="int" value="5" />
+          <ParameterList name="verbose object">
+            <Parameter name="verbosity level" type="string" value="low" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
-      
+
       <ParameterList name="source terms" type="ParameterList">
         <ParameterList name="concentration" type="ParameterList">
-          <ParameterList name="Tracer1" type="ParameterList">
-            <!-- input source term, in the first cell -->
-            <ParameterList name="SOURCE: Tracer" type="ParameterList">
-              <Parameter name="regions" type="Array(string)" value="{tracer source surface}" />
-              <Parameter name="spatial distribution method" type="string" value="volume" />
-	      <Parameter name="component names" type="Array(string)" value="{Tracer1,Tracer2}" />
-	      <ParameterList name="sink" type="ParameterList">
-                
-		<Parameter name="number of dofs" type="int" value="2"/>
-		<ParameterList name="dof 1 function">
-		  <ParameterList name="function-tabular" type="ParameterList">
-                    <Parameter name="y values" type="Array(double)" value="{0.1,0.0}" />
-                    <Parameter name="x values" type="Array(double)" value="{0.0,86400.0}" />
-                    <Parameter name="forms" type="Array(string)" value="{constant}" />
-                  </ParameterList>
+          <ParameterList name="SOURCE: Tracer1" type="ParameterList">
+            <Parameter name="regions" type="Array(string)" value="{tracer source surface}" />
+            <Parameter name="spatial distribution method" type="string" value="volume" />
+            <Parameter name="component names" type="Array(string)" value="{Tracer1,Tracer2}" />
+            <ParameterList name="source function" type="ParameterList">
+              <Parameter name="number of dofs" type="int" value="2" />
+              <ParameterList name="dof 1 function">
+                <ParameterList name="function-tabular" type="ParameterList">
+                  <Parameter name="y values" type="Array(double)" value="{0.1,0.0}" />
+                  <Parameter name="x values" type="Array(double)" value="{0.0,43200.0}" />
+                  <Parameter name="forms" type="Array(string)" value="{constant}" />
                 </ParameterList>
-		<ParameterList name="dof 2 function">
-		  <ParameterList name="function-tabular" type="ParameterList">
-                    <Parameter name="y values" type="Array(double)" value="{0.1,0.0}" />
-                    <Parameter name="x values" type="Array(double)" value="{0.0,86400.0}" />
-                    <Parameter name="forms" type="Array(string)" value="{constant}" />
-                  </ParameterList>
+              </ParameterList>
+              <ParameterList name="dof 2 function">
+                <ParameterList name="function-tabular" type="ParameterList">
+                  <Parameter name="y values" type="Array(double)" value="{0.1,0.0}" />
+                  <Parameter name="x values" type="Array(double)" value="{0.0,43200.0}" />
+                  <Parameter name="forms" type="Array(string)" value="{constant}" />
                 </ParameterList>
-                
               </ParameterList>
             </ParameterList>
-            
           </ParameterList>
         </ParameterList>
       </ParameterList>
-      
-    </ParameterList>
-    
-  </ParameterList>
-  
-  <ParameterList name="state" type="ParameterList">
 
+    </ParameterList>
+
+  </ParameterList>
+
+  <ParameterList name="state" type="ParameterList">
     <ParameterList name="field evaluators" type="ParameterList">
 
       <ParameterList name="surface-ponded_depth" type="ParameterList">
@@ -227,7 +201,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1" />
+                <Parameter name="value" type="double" value="1.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -237,7 +211,7 @@
       <ParameterList name="surface-mass_flux" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable from file" />
         <Parameter name="constant in time" type="bool" value="true" />
-	<Parameter name="filename" type="string" value="../data/Qface100.h5" />
+        <Parameter name="filename" type="string" value="../data/Qface100.h5" />
         <Parameter name="domain name" type="string" value="surface" />
         <Parameter name="variable name" type="string" value="surface-mass_flux" />
         <Parameter name="component name" type="string" value="face" />
@@ -274,7 +248,7 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-      
+
       <ParameterList name="surface-mass_density_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -320,8 +294,6 @@
         </ParameterList>
       </ParameterList>
 
-      
     </ParameterList>
   </ParameterList>
-  
 </ParameterList>
