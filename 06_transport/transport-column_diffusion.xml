@@ -319,9 +319,11 @@
         <ParameterList name="concentration">
           <ParameterList name="BC coupling">
             <Parameter name="spatial distribution method" type="string" value="domain coupling" />
-            <Parameter name="submodel" type="string" value="field" />
+            <Parameter name="submodel" type="string" value="conserved quantity" />
             <Parameter name="regions" type="Array(string)" value="{surface}" />
             <ParameterList name="fields">
+              <Parameter name="conserved_quantity_key" type="string" value="surface-conserved_quantity" />
+              <Parameter name="copy_field_out_key" type="string" value="default" />
               <Parameter name="field_out_key" type="string" value="surface-total_component_concentration" />
               <Parameter name="copy_field_out_key" type="string" value="default" />
             </ParameterList>
