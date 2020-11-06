@@ -8,12 +8,7 @@ The full set of these runs should always work, and should always be run and, if 
 
 ## Quickstart
 
-To run a quick set of the tests that run fairly quickly, but should
-not be considered complete, run:
-
-```
-python regression_tests.py --suite=standard .
-```
+A basic python environment is needed -- for full details see the ATS python environment installation in the ATS Users Guide (work in progress, link coming!).  In the near term, a python3 installation that includes numpy, matplotlib, and h5py is likely sufficient.
 
 To run the complete set of tests:
 
