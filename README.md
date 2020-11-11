@@ -125,9 +125,13 @@ Surface and subsurface transport of nonreactive species.
 
 * [`surface_tracer`](https://github.com/amanzi/ats-regression-tests/blob/master/06_transport/transport-surface_tracer.xml) A single tracer in a 1D reach
 * `surface_tracer_logical` A single tracer on a logical mesh
-* `subsurface_tracer` A single tracer in a 2D transect domain
-* `integrated_tracer` An integrated surface and subsurface transport problem.
-* `integrated_tracer_coupled` The same integrated system but with a coupled flow solution.
+* [`subsurface_tracer`](https://github.com/amanzi/ats-regression-tests/blob/master/06_transport/transport-subsurface_tracer.xml) A single tracer in a 2D transect.
+* [`column_infiltration`](https://github.com/amanzi/ats-regression-tests/blob/master/06_transport/transport-column_infiltration.xml) Integrated transport on a single column of cells; an infiltration problem where the new water includes the tracer.
+* [`column_exfiltration`](https://github.com/amanzi/ats-regression-tests/blob/master/06_transport/transport-column_exfiltration.xml) Integrated transport on a single column of cells; an exfiltration problem where water pushes up, making sure tracer ends up in the surface water.
+* [`column_drainage`](https://github.com/amanzi/ats-regression-tests/blob/master/06_transport/transport-column_drainage.xml) Integrated transport on a single column of cells; a drainage problem where the water table draws down.
+* [`column_infiltration_hot`](https://github.com/amanzi/ats-regression-tests/blob/master/06_transport/transport-column_infiltration_hot.xml) Same as above, but with a higher order transport discretization.
+* [`column_exfiltration_hot`](https://github.com/amanzi/ats-regression-tests/blob/master/06_transport/transport-column_exfiltration_hot.xml) Same as above, but with a higher order transport discretization.
+* [`column_drainage_hot`](https://github.com/amanzi/ats-regression-tests/blob/master/06_transport/transport-column_drainage_hot.xml) Same as above, but with a higher order transport discretization.
 
 ### [`07_reactive_transport`](https://github.com/amanzi/ats-regression-tests/tree/master/07_reactive_transport)
 
@@ -148,9 +152,9 @@ Surface and subsurface reactive transport
 
 A set of energy equations building toward freeze-thaw problems.
 
-* `advection` A simple surface-based advection-dominated problem.
-* `diffusion` A simple subsurface-based diffusion-dominated problem.
-* `permafrost` Some form of columnar permafrost test? 
+* [`surface_water`](https://github.com/amanzi/ats-regression-tests/blob/master/08_energy/energy-surface_water.xml) A sheet of ice gets thawed on the surface.
+* [`freezeup`](https://github.com/amanzi/ats-regression-tests/blob/master/08_energy/energy-freezeup.xml) Freezes a column of water from below.
+* [`permafrost`](https://github.com/amanzi/ats-regression-tests/blob/master/08_energy/energy-permafrost.xml) A typical full permafrost problem.
 * `snow_distribution` Some form of 2D snow distribution test.
 
 ### `09_subgrid_models`
