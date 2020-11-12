@@ -100,7 +100,8 @@ def commandline_options():
 
 def main(options):
     txtwrap = textwrap.TextWrapper(width=78, subsequent_indent=4*" ")
-    testlog = test_manager.setup_testlog(txtwrap)
+    silent = options.list_tests or options.list_suites
+    testlog = test_manager.setup_testlog(txtwrap, silent)
 
     root_dir = os.getcwd()
 
@@ -109,7 +110,8 @@ def main(options):
     mpiexec = test_manager.check_for_mpiexec(options, testlog)
     config_file_list = test_manager.generate_config_file_list(options)
 
-    print("Running ATS regression tests :")
+    if not options.list_tests and not options.list_suites:
+        print("Running ATS regression tests :")
 
     # loop through config files, cd into the appropriate directory,
     # read the appropriate config file and run the various tests.
@@ -156,15 +158,16 @@ def main(options):
             if options.list_tests:
                 tm.display_available_tests()
 
-            tm.run_tests(options.dry_run,
-                         options.update,
-                         options.new_tests,
-                         options.check_only,
-                         False,
-                         testlog,
-                         options.save_dt_history)
+            if not options.list_suites and not options.list_tests:
+                tm.run_tests(options.dry_run,
+                             options.update,
+                             options.new_tests,
+                             options.check_only,
+                             False,
+                             testlog,
+                             options.save_dt_history)
 
-            report[filename] = tm.run_status()
+                report[filename] = tm.run_status()
             os.chdir(root_dir)
         # except Exception as error:
         #     message = txtwrap.fill(
@@ -182,7 +185,7 @@ def main(options):
             
     stop = time.time()
     status = 0
-    if not options.dry_run and not options.update:
+    if not options.dry_run and not options.update and not options.list_tests and not options.list_suites:
         print("")
         run_time = stop - start
         test_manager.summary_report_by_file(report, testlog)
