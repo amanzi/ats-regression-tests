@@ -61,19 +61,6 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-  <ParameterList name="observations">
-    <ParameterList name="surface-component_concentration">
-      <Parameter name="variable" type="string" value="surface-total_component_concentration" />
-      <Parameter name="direction normalized flux" type="bool" value="true" />
-      <Parameter name="functional" type="string" value="extensive integral" />
-      <Parameter name="region" type="string" value="surface outlet" />
-      <Parameter name="delimiter" type="string" value=" " />
-      <Parameter name="location name" type="string" value="cell" />
-      <Parameter name="write interval" type="int" value="1" />
-      <Parameter name="observation output filename" type="string" value="surface-outlet.dat" />
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,3600.0,-1.0}" />
-    </ParameterList>
-  </ParameterList>
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="file name base" type="string" value="visdump_surface" />

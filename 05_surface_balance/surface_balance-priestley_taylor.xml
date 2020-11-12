@@ -262,17 +262,12 @@
 
       <ParameterList name="surface-total_transpiration" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="column sum evaluator" />
-        <Parameter name="evaluator dependency" type="string" value="transpiration" />
+        <Parameter name="evaluator dependency key" type="string" value="transpiration" />
       </ParameterList>
 
       <ParameterList name="surface-manning_coefficient">
-        <Parameter name="field evaluator type" type="string" value="secondary variable from function" />
-        <Parameter name="evaluator dependencies" type="Array(string)" value="{surface-total_transpiration}" />
-        <ParameterList name="function">
-          <ParameterList name="function-constant">
-            <Parameter name="value" type="double" value="100.0" />
-          </ParameterList>
-        </ParameterList>
+        <Parameter name="field evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="value" type="double" value="100.0" />
       </ParameterList>
 
       <ParameterList name="mass_source" type="ParameterList">

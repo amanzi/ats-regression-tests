@@ -64,19 +64,7 @@
   <ParameterList name="verbose object" type="ParameterList">
     <Parameter name="verbosity level" type="string" value="high" />
   </ParameterList>
-  <ParameterList name="observations" type="ParameterList">
-    <ParameterList name="surface DOM" type="ParameterList">
-      <Parameter name="variable" type="string" value="surface-total_component_concentration" />
-      <Parameter name="direction normalized flux" type="bool" value="true" />
-      <Parameter name="region" type="string" value="surface domain" />
-      <Parameter name="functional" type="string" value="point" />
-      <Parameter name="delimiter" type="string" value=" " />
-      <Parameter name="location name" type="string" value="cell" />
-      <Parameter name="write interval" type="int" value="1" />
-      <Parameter name="observation output filename" type="string" value="surface-DOM1.dat" />
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,10.0,-1.0}" />
-    </ParameterList>
-  </ParameterList>
+
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="file name base" type="string" value="visdump_surface" />
