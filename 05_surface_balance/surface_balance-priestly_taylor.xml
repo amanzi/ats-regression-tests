@@ -590,7 +590,7 @@
     <ParameterList name="surface-transpiration_mps" type="ParameterList">
       <Parameter name="variable" type="string" value="surface-potential_transpiration_mps" />
       <Parameter name="region" type="string" value="surface domain" />
-      <Parameter name="functional" type="string" value="observation data: point" />
+      <Parameter name="functional" type="string" value="point" />
       <Parameter name="delimiter" type="string" value=" " />
       <Parameter name="location name" type="string" value="cell" />
       <Parameter name="write interval" type="int" value="30" />
@@ -600,7 +600,7 @@
     <ParameterList name="total_transpiration" type="ParameterList">
       <Parameter name="variable" type="string" value="surface-total_transpiration" />
       <Parameter name="region" type="string" value="surface domain" />
-      <Parameter name="functional" type="string" value="observation data: point" />
+      <Parameter name="functional" type="string" value="point" />
       <Parameter name="delimiter" type="string" value=" " />
       <Parameter name="location name" type="string" value="cell" />
       <Parameter name="write interval" type="int" value="30" />
@@ -610,7 +610,7 @@
     <ParameterList name="ponded_depth" type="ParameterList">
       <Parameter name="variable" type="string" value="surface-ponded_depth" />
       <Parameter name="region" type="string" value="surface domain" />
-      <Parameter name="functional" type="string" value="observation data: point" />
+      <Parameter name="functional" type="string" value="point" />
       <Parameter name="delimiter" type="string" value=" " />
       <Parameter name="location name" type="string" value="cell" />
       <Parameter name="write interval" type="int" value="30" />
@@ -620,7 +620,7 @@
     <ParameterList name="water_content" type="ParameterList">
       <Parameter name="variable" type="string" value="water_content" />
       <Parameter name="region" type="string" value="computational domain" />
-      <Parameter name="functional" type="string" value="observation data: extensive integral" />
+      <Parameter name="functional" type="string" value="extensive integral" />
       <Parameter name="delimiter" type="string" value=" " />
       <Parameter name="location name" type="string" value="cell" />
       <Parameter name="write interval" type="int" value="30" />
@@ -630,7 +630,7 @@
     <ParameterList name="surface-water_content" type="ParameterList">
       <Parameter name="variable" type="string" value="surface-water_content" />
       <Parameter name="region" type="string" value="surface domain" />
-      <Parameter name="functional" type="string" value="observation data: extensive integral" />
+      <Parameter name="functional" type="string" value="extensive integral" />
       <Parameter name="delimiter" type="string" value=" " />
       <Parameter name="location name" type="string" value="cell" />
       <Parameter name="write interval" type="int" value="30" />

@@ -69,7 +69,7 @@
       <Parameter name="variable" type="string" value="surface-total_component_concentration" />
       <Parameter name="direction normalized flux" type="bool" value="true" />
       <Parameter name="region" type="string" value="surface outlet" />
-      <Parameter name="functional" type="string" value="observation data: point" />
+      <Parameter name="functional" type="string" value="point" />
       <Parameter name="delimiter" type="string" value=" " />
       <Parameter name="location name" type="string" value="cell" />
       <Parameter name="write interval" type="int" value="1" />
@@ -158,13 +158,13 @@
 
       <ParameterList name="inverse">
         <Parameter name="preconditioning method" type="string" value="boomer amg" />
+        <Parameter name="iterative method" type="string" value="pcg" />
         <ParameterList name="boomer amg parameters">
           <Parameter name="tolerance" type="double" value="0.0" />
           <Parameter name="smoother sweeps" type="int" value="3" />
           <Parameter name="cycle applications" type="int" value="5" />
           <Parameter name="strong threshold" type="double" value="0.5" />
         </ParameterList>
-        <Parameter name="iterative method" type="string" value="pcg" />
         <ParameterList name="pcg parameters">
           <Parameter name="maximum number of iterations" type="int" value="400" />
           <Parameter name="error tolerance" type="double" value="1e-20" />
