@@ -77,8 +77,10 @@
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="PKs order" type="Array(string)" value="{overland flow,surface energy}" />
       <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="false" />
+
       <ParameterList name="surface ewc delegate" type="ParameterList">
         <Parameter name="predictor type" type="string" value="smart ewc" />
+        <Parameter name="molar density ice key" type="string" value="surface-molar_density_ice" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
