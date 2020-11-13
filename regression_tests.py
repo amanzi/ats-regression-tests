@@ -106,8 +106,12 @@ def main(options):
     root_dir = os.getcwd()
 
     test_manager.check_options(options)
-    executable = test_manager.check_for_executable(options, testlog)
-    mpiexec = test_manager.check_for_mpiexec(options, testlog)
+    if not options.list_suites and not options.list_tests:
+        executable = test_manager.check_for_executable(options, testlog)
+        mpiexec = test_manager.check_for_mpiexec(options, testlog)
+    else:
+        executable = None
+        mpiexec = None
     config_file_list = test_manager.generate_config_file_list(options)
 
     if not options.list_tests and not options.list_suites:
