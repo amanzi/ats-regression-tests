@@ -583,11 +583,9 @@
 
   <ParameterList name="visualization">
     <ParameterList name="domain">
-      <Parameter name="file name base" type="string" value="visdump" />
       <Parameter name="times start period stop" type="Array(double)" value="{0,600,-1}" />
     </ParameterList>
     <ParameterList name="surface">
-      <Parameter name="file name base" type="string" value="visdump_surface" />
       <Parameter name="times start period stop" type="Array(double)" value="{0,600,-1}" />
     </ParameterList>
   </ParameterList>

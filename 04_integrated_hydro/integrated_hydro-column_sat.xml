@@ -537,11 +537,9 @@
 
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="file name base" type="string" value="visdump" />
       <Parameter name="times" type="Array(double)" value="{0.0,864.0,2592.0,8640.0,43200.0,86400.0,129600.0,172800.0}" />
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="file name base" type="string" value="visdump_surface" />
       <Parameter name="times" type="Array(double)" value="{0.0,864.0,2592.0,8640.0,43200.0,86400.0,129600.0,172800.0}" />
     </ParameterList>
   </ParameterList>

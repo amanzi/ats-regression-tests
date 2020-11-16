@@ -67,7 +67,6 @@
 
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="file name base" type="string" value="visdump_surface" />
       <Parameter name="times start period stop" type="Array(double)" value="{0.0,240.0,-1.0}" />
     </ParameterList>
   </ParameterList>

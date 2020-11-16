@@ -317,7 +317,6 @@
 
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="file name base" type="string" value="visdump" />
       <Parameter name="times start period stop" type="Array(double)" value="{0.0,0.01,-1.0}" />
       <Parameter name="times start period stop units" type="string" value="noleap" />
     </ParameterList>
