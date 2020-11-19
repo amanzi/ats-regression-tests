@@ -16,19 +16,15 @@ import sys,os
 import textwrap
 import time
 
-try:
-    import test_manager
-except ImportError:
-    sys.path.append(os.path.join(os.environ['ATS_SRC_DIR'], 'tools', 'testing'))
-    import test_manager
-
 def commandline_options():
     """
     Process the command line arguments and return them as a dict.
     """
     parser = argparse.ArgumentParser(description='Run an ATS regression '
                                      'tests or suite of tests.')
-
+    parser.add_argument('--ats', default=None,
+                        help='Path to ATS source directory')
+    
     parser.add_argument('--backtrace', action='store_true',
                         help='show exception backtraces as extra debugging '
                         'output')
@@ -100,21 +96,28 @@ def commandline_options():
 
 def main(options):
     txtwrap = textwrap.TextWrapper(width=78, subsequent_indent=4*" ")
+    root_dir = os.getcwd()
+
+    if options.ats is not None:
+        sys.path.append(os.path.join(options.ats, 'tools', 'testing'))
+    if 'ATS_SRC_DIR' in os.environ:
+        sys.path.append(os.path.join(os.environ['ATS_SRC_DIR'], 'tools', 'testing'))
+
+    import test_manager
     silent = options.list_tests or options.list_suites
     testlog = test_manager.setup_testlog(txtwrap, silent)
 
-    root_dir = os.getcwd()
-
     test_manager.check_options(options)
-    if not options.list_suites and not options.list_tests:
-        executable = test_manager.check_for_executable(options, testlog)
-        mpiexec = test_manager.check_for_mpiexec(options, testlog)
-    else:
+    if silent:
         executable = None
         mpiexec = None
+    else:
+        executable = test_manager.check_for_executable(options, testlog)
+        mpiexec = test_manager.check_for_mpiexec(options, testlog)
+
     config_file_list = test_manager.generate_config_file_list(options)
 
-    if not options.list_tests and not options.list_suites:
+    if not silent:
         print("Running ATS regression tests :")
 
     # loop through config files, cd into the appropriate directory,
