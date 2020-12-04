@@ -191,7 +191,7 @@
         <Parameter name="modify predictor damp and cap the water spurt" type="bool" value="true" />
         <Parameter name="damp and cap the water spurt" type="bool" value="true" />
         <Parameter name="cap over atmospheric" type="double" value="0.1" />
-        <Parameter name="debug cells" type="Array(int)" value="{1}" />
+        <Parameter name="debug cells" type="Array(int)" value="{0}" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
@@ -235,7 +235,6 @@
       <Parameter name="permeability rescaling" type="double" value="10000000.0" />
       <Parameter name="max valid change in saturation in a time step [-]" type="double" value="0.1" />
       <Parameter name="max valid change in ice saturation in a time step [-]" type="double" value="0.1" />
-
       <Parameter name="debug cells" type="Array(int)" value="{99}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
@@ -285,11 +284,10 @@
       <Parameter name="primary variable key" type="string" value="surface-pressure" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source term" type="bool" value="true" />
-      <Parameter name="source key" type="string" value="surface-mass_source" /> <!-- m/s -->
+      <Parameter name="source key" type="string" value="surface-mass_source" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
-      <Parameter name="mass source in meters" type="bool" value="true" /> <!-- so this makes it mol / m^2 / s -->
+      <Parameter name="mass source in meters" type="bool" value="true" />
       <Parameter name="initial time step" type="double" value="86400.0" />
-
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
@@ -319,7 +317,6 @@
       <Parameter name="source term is differentiable" type="bool" value="false" />
       <Parameter name="initial time step" type="double" value="86400.0" />
       <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
-
       <Parameter name="debug cells" type="Array(int)" value="{99}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
@@ -377,7 +374,6 @@
       <Parameter name="supress advective terms in preconditioner" type="bool" value="true" />
       <Parameter name="initial time step" type="double" value="86400.0" />
       <Parameter name="upwind conductivity method" type="string" value="arithmetic mean" />
-
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
@@ -423,7 +419,7 @@
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="constant" type="double" value="0.35" />
+        <Parameter name="constant" type="double" value="0.535" />
       </ParameterList>
 
       <ParameterList name="accumulation preconditioner" type="ParameterList">
@@ -832,22 +828,22 @@
 
       <ParameterList name="surface-microtopographic_relief" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="0.0" />
+        <Parameter name="value" type="double" value="0.361" />
       </ParameterList>
 
       <ParameterList name="surface-excluded_volume" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="0.0" />
+        <Parameter name="value" type="double" value="0.185" />
       </ParameterList>
 
       <ParameterList name="surface-depression_depth" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="0.0" />
+        <Parameter name="value" type="double" value="0.18" />
       </ParameterList>
 
       <ParameterList name="surface-drag_exponent" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="1.0" />
+        <Parameter name="value" type="double" value="7.0" />
       </ParameterList>
 
       <ParameterList name="surface-fractional_conductance" type="ParameterList">
