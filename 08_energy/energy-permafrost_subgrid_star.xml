@@ -478,7 +478,7 @@
       <Parameter name="PK type" type="string" value="icy surface" />
       <Parameter name="domain name" type="string" value="surface_star" />
       <Parameter name="PKs order" type="Array(string)" value="{surface star flow, surface star energy}" />
-      <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="false" />
+      <Parameter name="supress Jacobian terms: d div surface q / dT" type="bool" value="true" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
@@ -523,22 +523,12 @@
           <Parameter name="count before increasing increase factor" type="int" value="2" />
         </ParameterList>
       </ParameterList>
+      <ParameterList name="operator preconditioner" type="ParameterList">
+        <Parameter name="diagonal shift" type="double" value="1.e-6" />
+      </ParameterList>
       <ParameterList name="inverse" type="ParameterList">
         <!-- NOTE: boomer is a bad idea for advection-dominated problem -->
-        <Parameter name="preconditioning method" type="string" value="block ilu" />
-        <Parameter name="iterative method" type="string" value="gmres" />
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="high" />
-        </ParameterList>
-        <ParameterList name="gmres parameters" type="ParameterList">
-          <Parameter name="preconditioning strategy" type="string" value="left" />
-          <Parameter name="error tolerance" type="double" value="1e-06" />
-          <Parameter name="convergence criteria" type="Array(string)" value="{relative residual, make one iteration}" />
-          <Parameter name="maximum number of iterations" type="int" value="80" />
-          <ParameterList name="verbose object" type="ParameterList">
-            <Parameter name="verbosity level" type="string" value="high" />
-          </ParameterList>
-        </ParameterList>
+        <Parameter name="direct method" type="string" value="amesos: klu" />
       </ParameterList>
     </ParameterList>
     
@@ -1099,11 +1089,11 @@
       <Parameter name="times start period stop" type="Array(double)" value="{0.0,1.0,-1.0}" />
       <Parameter name="times start period stop units" type="string" value="d" />
     </ParameterList>
-    <ParameterList name="surface" type="ParameterList">
+    <ParameterList name="surface_column_0" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{0.0,1.0,-1.0}" />
       <Parameter name="times start period stop units" type="string" value="d" />
     </ParameterList>
-    <ParameterList name="snow" type="ParameterList">
+    <ParameterList name="snow_column_0" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{0.0,1.0,-1.0}" />
       <Parameter name="times start period stop units" type="string" value="d" />
     </ParameterList>
