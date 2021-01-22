@@ -262,7 +262,7 @@
 
       <ParameterList name="surface-total_transpiration" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="column sum evaluator" />
-        <Parameter name="evaluator dependency key" type="string" value="transpiration" />
+        <Parameter name="summed key" type="string" value="transpiration" />
       </ParameterList>
 
       <ParameterList name="surface-manning_coefficient">
