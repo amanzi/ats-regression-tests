@@ -122,7 +122,7 @@ END
 
 CONSTRAINT west
   CONCENTRATIONS
-    tracer  1.d-3      T
+    tracer  5.55      T
   /
 END
 
