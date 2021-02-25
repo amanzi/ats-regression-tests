@@ -961,7 +961,6 @@
 
       <ParameterList name="surface_star-manning_coefficient" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="secondary variable from function" />
-        <Parameter name="evaluator dependencies" type="Array(string)" value="{surface_star-maximum_thaw_depth,surface_star-moisture_content,surface_star-water_table,surface_star-volumetric_wc,surface_star-gas_content,surface_star-thaw_depth,surface_star-evaporative_flux,surface_star-column_avg_temp,surface_star-alt_avg_temp,surface_star-carbon_decomposition_rate,surface_star-saturated_fraction,surface_star-column_water_content,surface_star-snow_water_equivalent}" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="function-constant" type="ParameterList">
             <Parameter name="value" type="double" value="0.1" />
