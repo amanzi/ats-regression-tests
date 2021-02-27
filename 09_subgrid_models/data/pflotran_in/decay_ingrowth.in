@@ -90,3 +90,9 @@ CONSTRAINT initial
     Tracer2 1.0e-20
   /
 END
+CONSTRAINT upstream
+  CONCENTRATIONS
+    Tracer1 1.0
+    Tracer2 0.0
+  /
+END
