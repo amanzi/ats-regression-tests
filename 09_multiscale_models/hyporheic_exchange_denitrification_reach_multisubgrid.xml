@@ -24,7 +24,7 @@
       </ParameterList>
     </ParameterList>
     
-    <ParameterList name="subgrid_1:*" type="ParameterList">
+    <ParameterList name="subgrid_1" type="ParameterList">
       <Parameter name="mesh type" type="string" value="domain set indexed" />
       <ParameterList name="domain set indexed parameters" type="ParameterList">
         <Parameter name="indexing parent domain" type="string" value="surface" />
@@ -55,7 +55,7 @@
       </ParameterList>
     </ParameterList>
 
-    <ParameterList name="subgrid_2:*" type="ParameterList">
+    <ParameterList name="subgrid_2" type="ParameterList">
       <Parameter name="mesh type" type="string" value="domain set indexed" />
       <ParameterList name="domain set indexed parameters" type="ParameterList">
         <Parameter name="indexing parent domain" type="string" value="surface" />
@@ -302,7 +302,7 @@
 	<ParameterList name="concentration" type="ParameterList"> 
           <ParameterList name="SINK: to subgrid_1" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface domain}" />
-            <Parameter name="spatial distribution method" type="string" value="exponential decay" />
+            <Parameter name="spatial distribution method" type="string" value="first order exchange" />
 	    <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
 	    <ParameterList name="source function" type="ParameterList">
               <Parameter name="domain name" type="string" value="surface" />
@@ -328,7 +328,7 @@
 	    <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
             <ParameterList name="source function" type="ParameterList">
               <Parameter name="subgrid field suffix" type="string" value="total_component_concentration" />
-	      <Parameter name="subgrid field prefix" type="string" value="subgrid_1" />
+	      <Parameter name="subgrid domain name" type="string" value="subgrid_1" />
               <ParameterList name="function" type="ParameterList">
 		<Parameter name="number of dofs" type="int" value="2"/>
 		<ParameterList name="dof 1 function">
@@ -348,7 +348,7 @@
 
 	  <ParameterList name="SINK: to subgrid_2" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface domain}" />
-            <Parameter name="spatial distribution method" type="string" value="exponential decay" />
+            <Parameter name="spatial distribution method" type="string" value="first order exchange" />
 	    <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
 	    <ParameterList name="source function" type="ParameterList">
               <Parameter name="domain name" type="string" value="surface" />
@@ -374,7 +374,7 @@
 	    <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
             <ParameterList name="source function" type="ParameterList">
               <Parameter name="subgrid field suffix" type="string" value="total_component_concentration" />
-	      <Parameter name="subgrid field prefix" type="string" value="subgrid_2" />
+	      <Parameter name="subgrid domain name" type="string" value="subgrid_2" />
               <ParameterList name="function" type="ParameterList">
 		<Parameter name="number of dofs" type="int" value="2"/>
 		<ParameterList name="dof 1 function">
@@ -498,7 +498,7 @@
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="low" />
+        <Parameter name="verbosity level" type="string" value="none" />
         <Parameter name="name" type="string" value="TransportSG" />
       </ParameterList>
 
@@ -577,7 +577,7 @@
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="low" />
+        <Parameter name="verbosity level" type="string" value="none" />
         <Parameter name="name" type="string" value="TransportSG" />
       </ParameterList>
 

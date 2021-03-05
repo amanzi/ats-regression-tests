@@ -252,7 +252,7 @@
 	<ParameterList name="concentration" type="ParameterList"> 
           <ParameterList name="SINK: to subgrid" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface domain}" />
-            <Parameter name="spatial distribution method" type="string" value="exponential decay" />
+            <Parameter name="spatial distribution method" type="string" value="first order exchange" />
 	    <Parameter name="component names" type="Array(string)" value="{DOM1,O2(aq),NO3-,HCO3-,H+,N2(aq)}" />
 	    <ParameterList name="source function" type="ParameterList">
               <Parameter name="domain name" type="string" value="surface" />
