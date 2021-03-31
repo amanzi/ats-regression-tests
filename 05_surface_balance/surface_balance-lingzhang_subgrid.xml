@@ -145,7 +145,7 @@
       <Parameter name="PK type" type="string" value="richards flow" />
       <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="source term" type="bool" value="true" />
-      <Parameter name="source key" type="string" value="mass_source" />
+      <Parameter name="source key" type="string" value="water_source" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
       <Parameter name="initial time step" type="double" value="10.0" />
       <Parameter name="permeability rescaling" type="double" value="10000000.0" />
@@ -210,7 +210,7 @@
       <Parameter name="primary variable key" type="string" value="surface-pressure" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source term" type="bool" value="true" />
-      <Parameter name="mass source in meters" type="bool" value="true" />
+      <Parameter name="water source in meters" type="bool" value="true" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
       <Parameter name="initial time step" type="double" value="10.0" />
 
@@ -317,7 +317,7 @@
         <Parameter name="field evaluator type" type="string" value="fractional conductance" />
       </ParameterList>
       
-      <ParameterList name="mass_source" type="ParameterList">
+      <ParameterList name="water_source" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="surface balance subgrid" />
         <Parameter name="save diagnostic data" type="bool" value="true" />
         <Parameter name="dessicated zone thickness [m]" type="double" value="0.05" />

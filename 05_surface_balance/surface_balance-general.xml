@@ -61,7 +61,7 @@
       <Parameter name="primary variable key suffix" type="string" value="ponded_depth" />
       <Parameter name="conserved quantity key suffix" type="string" value="water_content" />
       <Parameter name="domain name" type="string" value="surface" />
-      <Parameter name="source key suffix" type="string" value="mass_source" />
+      <Parameter name="source key suffix" type="string" value="water_source" />
       <Parameter name="initial time step" type="double" value="1.0" />
       <Parameter name="absolute error tolerance" type="double" value="0.01" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
@@ -131,7 +131,7 @@
         <Parameter name="evaluator dependencies" type="Array(string)" value="{surface-ponded_depth, surface-cell_volume}" />
       </ParameterList>
 
-      <ParameterList name="surface-mass_source" type="ParameterList">
+      <ParameterList name="surface-water_source" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="additive evaluator" />
         <Parameter name="evaluator dependencies" type="Array(string)" value="{surface-ponded_depth}" />
         <Parameter name="surface-ponded_depth coefficient" type="double" value="-1.1574074074074074e-06" />

@@ -327,7 +327,7 @@
       <Parameter name="primary variable key suffix" type="string" value="pressure" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="conserved quantity key suffix" type="string" value="water_content" />
-      <Parameter name="source key suffix" type="string" value="mass_source" />
+      <Parameter name="source key suffix" type="string" value="water_source" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
       <Parameter name="initial time step" type="double" value="86400.0" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
@@ -384,7 +384,7 @@
       <Parameter name="PK type" type="string" value="general surface balance" />
       <Parameter name="primary variable key suffix" type="string" value="pressure" />
       <Parameter name="conserved quantity key suffix" type="string" value="water_content" />
-      <Parameter name="source key suffix" type="string" value="mass_source_sink" /> <!-- mol / m^2 / s -->
+      <Parameter name="source key suffix" type="string" value="water_source_sink" /> <!-- mol / m^2 / s -->
       <Parameter name="domain name" type="string" value="surface_column_*" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
@@ -1044,8 +1044,8 @@
         <Parameter name="field evaluator type" type="string" value="advected energy source" />
         <Parameter name="internal enthalpy key suffix" type="string" value="enthalpy_top_cell" />
         <Parameter name="external enthalpy key suffix" type="string" value="enthalpy" />
-        <Parameter name="mass source suffix" type="string" value="surface_subsurface_flux" />
-        <Parameter name="mass source units" type="string" value="mol s^-1" />
+        <Parameter name="water source suffix" type="string" value="surface_subsurface_flux" />
+        <Parameter name="water source units" type="string" value="mol s^-1" />
         <Parameter name="include conduction" type="bool" value="false" />
       </ParameterList>
 
@@ -1059,9 +1059,9 @@
         <Parameter name="include work term" type="bool" value="false" />
       </ParameterList>
       
-      <ParameterList name="surface_column_*-mass_source_sink" type="ParameterList">
+      <ParameterList name="surface_column_*-water_source_sink" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="evaluator dependency suffixes" type="Array(string)" value="{molar_density_liquid, mass_source}" />
+        <Parameter name="evaluator dependency suffixes" type="Array(string)" value="{molar_density_liquid, water_source}" />
       </ParameterList>
 
       <!-- elevation evaluator links to columns, which may deform -->
