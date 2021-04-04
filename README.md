@@ -147,6 +147,8 @@ Surface and subsurface reactive transport
 * `subsurface_denitrification` The same problem on a 2D transect.
 * `integrated_denitrification` The same problem on surface + subsurface.  
 * `integrated_denitrification_coupled` The same integrated system but with a coupled flow solution.
+* [`subsurface_sorption`](https://github.com/saubhagya-gatech/ats-regression-tests/blob/master/07_reactive_transport/reactive_transport-subsurface_sorption.xml) A single specie subsurface transport with equilibrium sorption in a generated mesh
+* [`subsurface_sorption_logical`](https://github.com/saubhagya-gatech/ats-regression-tests/blob/master/07_reactive_transport/reactive_transport-subsurface_sorption_logical.xml) Reactive transport (first order transformation taking place only in the aqueous phase) in subsurface where parent and daughter species have different sorption properties 
 
 ### `08_energy`
 
