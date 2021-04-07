@@ -1,4 +1,5 @@
 *~
+*.DS_Store
 *.regression
 *.regression.gold.old
 *.xmf
