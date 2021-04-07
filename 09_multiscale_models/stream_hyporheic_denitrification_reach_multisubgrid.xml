@@ -36,7 +36,7 @@
           <ParameterList name="logical mesh parameters" type="ParameterList">
 	    <Parameter name="infer cell centroids" type="bool" value="true"/>
 	    <ParameterList name="segments">
-	      <ParameterList name="tau_space">
+	      <ParameterList name="tau_space1">
 		<Parameter name="number of cells" type="int" value="20"/>
 		<Parameter name="cross sectional area [m^2]" type="double" value="1.0"/>
 		<Parameter name="first tip" type="Array(double)" value="{0.,0.,0.}"/>
@@ -67,7 +67,7 @@
           <ParameterList name="logical mesh parameters" type="ParameterList">
 	    <Parameter name="infer cell centroids" type="bool" value="true"/>
 	    <ParameterList name="segments">
-	      <ParameterList name="tau_space">
+	      <ParameterList name="tau_space2">
 		<Parameter name="number of cells" type="int" value="20"/>
 		<Parameter name="cross sectional area [m^2]" type="double" value="1.0"/>
 		<Parameter name="first tip" type="Array(double)" value="{0.,0.,0.}"/>
@@ -551,7 +551,7 @@
       <ParameterList name="initial condition" type="ParameterList">
         <ParameterList name="geochemical conditions" type="ParameterList">
           <ParameterList name="initial" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{tau_space}" />
+            <Parameter name="regions" type="Array(string)" value="{tau_space1}" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
@@ -630,7 +630,7 @@
       <ParameterList name="initial condition" type="ParameterList">
         <ParameterList name="geochemical conditions" type="ParameterList">
           <ParameterList name="initial" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{tau_space}" />
+            <Parameter name="regions" type="Array(string)" value="{tau_space2}" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
@@ -787,7 +787,7 @@
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
-            <Parameter name="region" type="string" value="tau_space" />
+            <Parameter name="region" type="string" value="tau_space1" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
@@ -897,7 +897,7 @@
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
-            <Parameter name="region" type="string" value="tau_space" />
+            <Parameter name="region" type="string" value="tau_space2" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
