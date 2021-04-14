@@ -79,7 +79,6 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="cycles start period stop" type="Array(int)" value="{0,100,-1}" />
   </ParameterList>
@@ -472,7 +471,7 @@
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="cycles start period stop" type="Array(int)" value="{0,100,-1}" />
-      <Parameter name="times" type="Array(double)" value="{1000.}" />
+      <Parameter name="times" type="Array(double)" value="{1000.0}" />
       <Parameter name="times units" type="string" value="y" />
     </ParameterList>
   </ParameterList>

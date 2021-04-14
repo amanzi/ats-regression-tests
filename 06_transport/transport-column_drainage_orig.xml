@@ -54,7 +54,7 @@
 
   <ParameterList name="cycle driver">
     <Parameter name="start time" type="double" value="0.0" />
-    <Parameter name="end time" type="double" value="150" />
+    <Parameter name="end time" type="double" value="150.0" />
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="PK tree">
       <ParameterList name="flow and transport">
@@ -80,7 +80,6 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="PKs">
 
     <ParameterList name="flow and transport">
@@ -90,12 +89,12 @@
       <ParameterList name="verbose object">
         <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="surface-subsurface flow coupler">
       <Parameter name="PK type" type="string" value="coupled water" />
       <Parameter name="PKs order" type="Array(string)" value="{flow, overland flow}" />
-
       <ParameterList name="water delegate" type="ParameterList">
         <Parameter name="modify predictor damp and cap the water spurt" type="bool" value="true" />
         <Parameter name="damp and cap the water spurt" type="bool" value="true" />
@@ -117,16 +116,6 @@
             <Parameter name="verbosity level" type="string" value="medium" />
           </ParameterList>
         </ParameterList>
-<!--        
-        <ParameterList name="gmres parameters" type="ParameterList">
-          <Parameter name="preconditioning strategy" type="string" value="left" />
-          <Parameter name="error tolerance" type="double" value="1e-10" />
-          <Parameter name="convergence criteria" type="Array(string)" value="{relative residual,make one iteration}" />
-          <ParameterList name="verbose object">
-            <Parameter name="verbosity level" type="string" value="high" />
-          </ParameterList>
-        </ParameterList>
--->
       </ParameterList>
 
       <ParameterList name="verbose object">
@@ -143,7 +132,7 @@
           <Parameter name="backtrack lag" type="int" value="0" />
           <Parameter name="backtrack factor" type="double" value="0.5" />
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
-          <Parameter name="nonlinear tolerance" type="double" value="1e-8" />
+          <Parameter name="nonlinear tolerance" type="double" value="1e-08" />
           <Parameter name="diverged tolerance" type="double" value="1000000.0" />
           <Parameter name="limit iterations" type="int" value="21" />
           <ParameterList name="verbose object">
@@ -171,23 +160,23 @@
       <Parameter name="PK type" type="string" value="richards flow" />
       <Parameter name="darcy flux key" type="string" value="mass_flux" />
       <Parameter name="primary variable key" type="string" value="pressure" />
-      <Parameter name="initial time step" type="double" value="86400" />
+      <Parameter name="initial time step" type="double" value="86400.0" />
       <Parameter name="permeability rescaling" type="double" value="10000000.0" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
-
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object">
         <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="hydrostatic head [m]" type="double" value=".1" />
-        <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000" />
+        <Parameter name="hydrostatic head [m]" type="double" value="0.1" />
+        <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000.0" />
       </ParameterList>
 
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation" />
       </ParameterList>
+
       <ParameterList name="diffusion preconditioner">
         <Parameter name="include Newton correction" type="bool" value="true" />
       </ParameterList>
@@ -212,8 +201,7 @@
       <Parameter name="primary variable key" type="string" value="surface-pressure" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source term" type="bool" value="false" />
-      <Parameter name="initial time step" type="double" value="86400" />
-
+      <Parameter name="initial time step" type="double" value="86400.0" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object">
         <Parameter name="verbosity level" type="string" value="low" />
@@ -222,6 +210,7 @@
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
+
       <ParameterList name="diffusion preconditioner">
         <Parameter name="include Newton correction" type="bool" value="true" />
       </ParameterList>
@@ -265,7 +254,6 @@
       <Parameter name="number of aqueous components" type="int" value="1" />
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
-
       <ParameterList name="verbose object">
         <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
@@ -280,12 +268,6 @@
         <Parameter name="limiter extension for transport" type="bool" value="true" />
       </ParameterList>
 
-<!--      
-      <ParameterList name="molecular diffusion">
-        <Parameter name="aqueous names" type="Array(string)" value="{Tc-99}" />
-        <Parameter name="aqueous values" type="Array(double)" value="{0.001}" />
-      </ParameterList>
--->
       <ParameterList name="material properties">
         <ParameterList name="domain">
           <Parameter name="regions" type="Array(string)" value="{computational domain}" />
@@ -364,12 +346,11 @@
       <Parameter name="number of aqueous components" type="int" value="1" />
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
-
+      <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="constant" type="double" value="1.0" />
       </ParameterList>
 
-        <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object">
         <Parameter name="verbosity level" type="string" value="extreme" />
       </ParameterList>
@@ -544,7 +525,7 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-      
+
     </ParameterList>
     <ParameterList name="initial conditions">
 
@@ -558,9 +539,8 @@
 
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="checkpoint">
-    <Parameter name="times start period stop" type="Array(double)" value="{0.0,15,-1.0}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0.0,15.0,-1.0}" />
     <Parameter name="times start period stop units" type="string" value="d" />
   </ParameterList>
 
@@ -570,10 +550,8 @@
       <Parameter name="times start period stop units" type="string" value="d" />
     </ParameterList>
     <ParameterList name="surface">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,5,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0,5.0,-1.0}" />
       <Parameter name="times start period stop units" type="string" value="d" />
     </ParameterList>
   </ParameterList>
-
-
 </ParameterList>

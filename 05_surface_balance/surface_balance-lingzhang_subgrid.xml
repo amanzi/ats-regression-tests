@@ -9,7 +9,7 @@
     <ParameterList name="snow" type="ParameterList">
       <Parameter name="mesh type" type="string" value="aliased" />
       <ParameterList name="aliased parameters" type="ParameterList">
-        <Parameter name="alias" type="string" value="surface" />
+        <Parameter name="target" type="string" value="surface" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="domain" type="ParameterList">
@@ -151,7 +151,6 @@
       <Parameter name="permeability rescaling" type="double" value="10000000.0" />
       <Parameter name="clobber surface rel perm" type="bool" value="false" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
-
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
@@ -213,7 +212,6 @@
       <Parameter name="mass source in meters" type="bool" value="true" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
       <Parameter name="initial time step" type="double" value="10.0" />
-
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
@@ -316,13 +314,12 @@
       <ParameterList name="surface-fractional_conductance" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="fractional conductance" />
       </ParameterList>
-      
+
       <ParameterList name="mass_source" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="surface balance subgrid" />
         <Parameter name="save diagnostic data" type="bool" value="true" />
         <Parameter name="dessicated zone thickness [m]" type="double" value="0.05" />
         <Parameter name="checkpoint" type="bool" value="true" />
-
         <Parameter name="debug cells" type="Array(int)" value="{0}" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="high" />
@@ -654,14 +651,14 @@
         <Parameter name="ponded_depth coefficient" type="double" value="1.0" />
         <Parameter name="depression_depth coefficient" type="double" value="-1.0" />
       </ParameterList>
-      
+
       <ParameterList name="surface-unfrozen_effective_mobile_depth" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="multiplicative evaluator" />
         <Parameter name="evaluator dependencies" type="Array(string)" value="{surface-mobile_depth,surface-unfrozen_fraction}" />
       </ParameterList>
 
       <ParameterList name="surface-overland_conductivity" type="ParameterList">
-	<Parameter name="mobile depth key" type="string" value="surface-unfrozen_effective_mobile_depth" />
+        <Parameter name="mobile depth key" type="string" value="surface-unfrozen_effective_mobile_depth" />
         <Parameter name="field evaluator type" type="string" value="overland conductivity subgrid" />
         <ParameterList name="overland conductivity model" type="ParameterList">
           <Parameter name="Manning exponent" type="double" value="0.6666666667" />

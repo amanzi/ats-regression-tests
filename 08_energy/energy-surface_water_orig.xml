@@ -11,7 +11,7 @@
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="mesh type" type="string" value="aliased" />
       <ParameterList name="aliased parameters" type="ParameterList">
-        <Parameter name="alias" type="string" value="domain" />
+        <Parameter name="target" type="string" value="domain" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -66,11 +66,10 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="times start period stop" type="Array(double)" value="{0.0,8640.0,-1.0}" />
   </ParameterList>
-  
+
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{0.0,8640.0,-1.0}" />
@@ -78,12 +77,12 @@
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
+
     <ParameterList name="surface thermal coupler" type="ParameterList">
       <Parameter name="PK type" type="string" value="icy surface" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="PKs order" type="Array(string)" value="{overland flow,surface energy}" />
       <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="false" />
-
       <ParameterList name="surface ewc delegate" type="ParameterList">
         <Parameter name="predictor type" type="string" value="smart ewc" />
         <ParameterList name="verbose object" type="ParameterList">
@@ -124,7 +123,6 @@
       </ParameterList>
 
       <ParameterList name="inverse" type="ParameterList">
-        <!-- NOTE: boomer is a bad idea for advection-dominated problem -->
         <Parameter name="preconditioning method" type="string" value="block ilu" />
         <Parameter name="iterative method" type="string" value="gmres" />
         <ParameterList name="verbose object" type="ParameterList">
@@ -140,10 +138,11 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-      
+
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="overland flow" type="ParameterList">
@@ -151,9 +150,7 @@
       <Parameter name="primary variable key" type="string" value="surface-pressure" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="initial time step" type="double" value="8640.0" />
-
       <Parameter name="source term" type="bool" value="false" />
-
       <Parameter name="debug cells" type="Array(int)" value="{0,9}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
@@ -168,7 +165,7 @@
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="constant" type="double" value="103325" />
+        <Parameter name="constant" type="double" value="103325.0" />
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
@@ -193,13 +190,9 @@
       <Parameter name="initial time step" type="double" value="8640.0" />
       <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
       <Parameter name="upwind conductivity method" type="string" value="arithmetic mean" />
-
-<!--      <Parameter name="modify predictor for freezing" type="bool" value="true" />-->
-      
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source term key" type="string" value="surface-total_energy_source" />
       <Parameter name="source term is differentiable" type="bool" value="true" />
-
       <Parameter name="debug cells" type="Array(int)" value="{0,9}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
@@ -255,9 +248,9 @@
 
       <ParameterList name="surface-total_energy_source" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="1.e-3" />
+        <Parameter name="value" type="double" value="0.001" />
       </ParameterList>
-      
+
       <ParameterList name="surface-molar_density_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
@@ -266,7 +259,7 @@
           <Parameter name="EOS type" type="string" value="liquid water" />
         </ParameterList>
       </ParameterList>
-      
+
       <ParameterList name="surface-unfrozen_fraction" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="unfrozen fraction" />
         <ParameterList name="unfrozen fraction model" type="ParameterList">
@@ -304,7 +297,7 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-      
+
       <ParameterList name="surface-internal_energy_ice" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="iem" />
         <ParameterList name="IEM parameters" type="ParameterList">

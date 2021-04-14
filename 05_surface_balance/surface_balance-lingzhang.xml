@@ -9,7 +9,7 @@
     <ParameterList name="snow" type="ParameterList">
       <Parameter name="mesh type" type="string" value="aliased" />
       <ParameterList name="aliased parameters" type="ParameterList">
-        <Parameter name="alias" type="string" value="surface" />
+        <Parameter name="target" type="string" value="surface" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="domain" type="ParameterList">
@@ -294,12 +294,14 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface-fractional_areas" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="surface balance area fractions" />
+      <ParameterList name="snow-area_fraction" type="ParameterList">
+        <Parameter name="field evaluator type" type="string" value="snow area fraction" />
       </ParameterList>
 
-      <ParameterList name="surface-subgrid_albedos" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="albedo" />
+      <ParameterList name="surface-albedos" type="ParameterList">
+        <Parameter name="field evaluator type" type="string" value="ground albedo" />
+        <Parameter name="albedos key" type="string" value="surface-albedos" />
+        <Parameter name="emissivities key" type="string" value="surface-emissivities" />
       </ParameterList>
 
       <ParameterList name="depth" type="ParameterList">

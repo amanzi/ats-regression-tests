@@ -316,7 +316,13 @@
       </ParameterList>
 
       <ParameterList name="surface-potential_transpiration_mps" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="potential evapotranspiration" />
+        <Parameter name="field evaluator type" type="string" value="potential evapotranspiration, Priestley-Taylor" />
+        <Parameter name="air temperature key" type="string" value="surface-air_temperature" />
+        <Parameter name="ground temperature key" type="string" value="surface-air_temperature_inter" />
+        <Parameter name="relative humidity key" type="string" value="surface-relative_humidity" />
+        <Parameter name="elevation key" type="string" value="surface-elevation" />
+        <Parameter name="net radiation key" type="string" value="surface-shortwave_radiation" />
+        <Parameter name="units" type="string" value="m s^-1" />
       </ParameterList>
 
       <ParameterList name="surface-air_temperature" type="ParameterList">
