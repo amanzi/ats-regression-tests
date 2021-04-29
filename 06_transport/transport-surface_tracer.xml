@@ -41,9 +41,9 @@
         <Parameter name="high coordinate" type="Array(double)" value="{10.0,1.0}" />
       </ParameterList>
     </ParameterList>
-    <ParameterList name="surface outlet" type="ParameterList">
+    <ParameterList name="observation point" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{1000.0,0.0}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{990.0,0.0}" />
         <Parameter name="high coordinate" type="Array(double)" value="{1000.0,1.0}" />
       </ParameterList>
     </ParameterList>
@@ -65,6 +65,23 @@
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{0.0,1200.0,-1.0}" />
     </ParameterList>
+  </ParameterList>
+
+  <ParameterList name="observations">
+    <ParameterList name="surface-component_concentration">
+      <Parameter name="variable" type="string" value="surface-total_component_concentration"/>
+      <!--Parameter name="direction normalized flux" type="bool" value="true" /-->
+      <Parameter name="functional" type="string" value="point"/>
+      <Parameter name="region" type="string" value="observation point"/>
+      <Parameter name="delimiter" type="string" value=" "/>
+      <Parameter name="location name" type="string" value="cell"/>
+      <Parameter name="number of vectors" type="int" value="2"/> <!-- for two tracers -->
+      <Parameter name="write interval" type="int" value="1"/>
+      <Parameter name="observation output filename" type="string" value="breakthrough_curve.dat"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0,120,-1.}"/>
+      <Parameter name="times start period stop units" type="string" value="s" />
+    </ParameterList>
+   
   </ParameterList>
 
   <ParameterList name="checkpoint" type="ParameterList">
@@ -102,7 +119,7 @@
 
       <ParameterList name="molecular diffusion" type="ParameterList">
         <Parameter name="aqueous names" type="Array(string)" value="{Tracer1, Tracer2}" />
-        <Parameter name="aqueous values" type="Array(double)" value="{0.2,0.2}" />
+        <Parameter name="aqueous values" type="Array(double)" value="{1e-40,1e-40}" />
       </ParameterList>
 
       <ParameterList name="material properties">
@@ -112,7 +129,7 @@
           <Parameter name="aqueous tortuosity" type="double" value="1.0" />
           <Parameter name="gaseous tortuosity" type="double" value="1.0" />
           <ParameterList name="parameters for scalar">
-            <Parameter name="alpha" type="double" value="0.0" />
+            <Parameter name="dispersion coefficient [m^2 s^-1]" type="double" value="1.0" />
           </ParameterList>
         </ParameterList>
       </ParameterList>

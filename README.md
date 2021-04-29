@@ -147,6 +147,8 @@ Surface and subsurface reactive transport
 * `subsurface_denitrification` The same problem on a 2D transect.
 * `integrated_denitrification` The same problem on surface + subsurface.  
 * `integrated_denitrification_coupled` The same integrated system but with a coupled flow solution.
+* [`subsurface_sorption`](https://github.com/saubhagya-gatech/ats-regression-tests/blob/master/07_reactive_transport/reactive_transport-subsurface_sorption.xml) A single specie subsurface transport with equilibrium sorption in a generated mesh
+* [`subsurface_sorption_logical`](https://github.com/saubhagya-gatech/ats-regression-tests/blob/master/07_reactive_transport/reactive_transport-subsurface_sorption_logical.xml) Reactive transport (first order transformation taking place only in the aqueous phase) in subsurface where parent and daughter species have different sorption properties 
 
 ### `08_energy`
 
@@ -157,11 +159,14 @@ A set of energy equations building toward freeze-thaw problems.
 * [`permafrost`](https://github.com/amanzi/ats-regression-tests/blob/master/08_energy/energy-permafrost.xml) A typical full permafrost problem.
 * `snow_distribution` Some form of 2D snow distribution test.
 
-### `09_subgrid_models`
+### `09_multiscale_models`
 
 A hodgepodge of subgrid models, including column-based 2.5D problems and more.
 
-* `columnar_permafrost` Four-column example of the 1D + 2D surface star system on an energy+flow system.
-* `columnar_permafrost_subcycled` Four-column example of the 1D + 2D surface star system on an energy+flow system with subcycling of columns
-* `hyporheic_exchange` Single reach example of the ADELS model.
+* [`columnar_permafrost`](https://github.com/amanzi/ats-regression-tests/blob/master/09_multiscale_models/columnar_permafrost.xml) Four-column example of 1D subsurface columns + 2D surface system on an energy+flow system.
+* [`columnar_permafrost_subgrid`](https://github.com/amanzi/ats-regression-tests/blob/master/09_multiscale_models/columnar_permafrost_subgrid.xml) Four-column example of 1D subsruface columns + 2D subgrid surface system on an energy+flow system with seb subgrid (soil, water, ice) model.
+* [`stream_hyporheic_conservative_tracer_reach`](https://github.com/amanzi/ats-regression-tests/blob/master/09_multiscale_models/stream_hyporheic_conservative_tracer_reach.xml) Single reach conservative tracer example of the ADELS model using Alquimia.
+* [`stream_hyporheic_denitrification_reach`](https://github.com/amanzi/ats-regression-tests/blob/master/09_multiscale_models/stream_hyporheic_denitrification_reach.xml) Single reach denitrification example (ADELS model + Alquimia) with single-subgrid hyporheic zone.
+* [`stream_hyporheic_denitrification_reach_multisubgrid`](https://github.com/amanzi/ats-regression-tests/blob/master/09_multiscale_models/stream_hyporheic_denitrification_reach_multisubgrid.xml) Single reach denitrification example (ADELS model + Alquimia) with multisubgrid hyporheic zones.
+* [`stream_hyporheic_denitrification_watershed`](https://github.com/amanzi/ats-regression-tests/blob/master/09_multiscale_models/stream_hyporheic_denitrification_watershed.xml) Watershed scale denitrification example (ADELS model + Alquimia) with single-subgrid hyporheic zones.
 

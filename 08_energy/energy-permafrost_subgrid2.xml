@@ -404,7 +404,6 @@
 
     <ParameterList name="SEB" type="ParameterList">
       <Parameter name="PK type" type="string" value="surface balance implicit subgrid" />
-      <Parameter name="layer name" type="string" value="snow" />
       <Parameter name="domain name" type="string" value="snow" />
       <Parameter name="primary variable key" type="string" value="snow-depth" />
       <Parameter name="conserved quantity key" type="string" value="snow-water_equivalent" />
