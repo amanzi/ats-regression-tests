@@ -310,17 +310,6 @@
         </ParameterList>
       </ParameterList>
       <ParameterList name="boundary conditions">
-        <ParameterList name="concentration">
-          <ParameterList name="BC coupling">
-            <Parameter name="spatial distribution method" type="string" value="domain coupling" />
-            <Parameter name="submodel" type="string" value="conserved quantity" />
-            <Parameter name="regions" type="Array(string)" value="{surface}" />
-            <ParameterList name="fields">
-              <Parameter name="conserved_quantity_key" type="string" value="surface-total_component_quantity" />
-              <Parameter name="field_out_key" type="string" value="surface-total_component_concentration" />
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
       </ParameterList>
 
     </ParameterList>
@@ -384,7 +373,7 @@
       </ParameterList>
 
       <ParameterList name="source terms">
-        <ParameterList name="concentration">
+        <ParameterList name="component mass source">
           <ParameterList name="Tc-99 injection">
             <Parameter name="component names" type="Array(string)" value="{Tc-99}" />
             <Parameter name="regions" type="Array(string)" value="{surface}" />
@@ -396,20 +385,7 @@
                 <Parameter name="forms" type="Array(string)" value="{constant}" />
               </ParameterList>
             </ParameterList>
-          </ParameterList>
-          <ParameterList name="surface coupling">
-            <Parameter name="regions" type="Array(string)" value="{surface domain}" />
-            <Parameter name="spatial distribution method" type="string" value="domain coupling" />
-            <Parameter name="submodel" type="string" value="rate" />
-            <ParameterList name="fields">
-              <Parameter name="flux_key" type="string" value="mass_flux" />
-              <Parameter name="copy_flux_key" type="string" value="next_timestep" />
-              <Parameter name="field_out_key" type="string" value="total_component_concentration" />
-              <Parameter name="copy_field_out_key" type="string" value="default" />
-              <Parameter name="field_in_key" type="string" value="surface-total_component_concentration" />
-              <Parameter name="copy_field_in_key" type="string" value="default" />
-            </ParameterList>
-          </ParameterList>
+          </ParameterList>          
         </ParameterList>
       </ParameterList>
 
