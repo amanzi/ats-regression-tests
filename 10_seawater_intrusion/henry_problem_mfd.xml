@@ -98,7 +98,7 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times start period stop" type="Array(double)" value="{0.0,31557600.0,-1.0}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0.0,34560000,-1.0}" />
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
@@ -117,7 +117,7 @@
     <ParameterList name="flow richards" type="ParameterList">
       <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="PK type" type="string" value="richards flow" />
-      <Parameter name="initial time step" type="double" value="1.0" />
+      <Parameter name="initial time step" type="double" value="864000" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="modify predictor for flux BCs" type="bool" value="false" />
       <Parameter name="permeability rescaling" type="double" value="10000000.0" />
@@ -157,7 +157,7 @@
           <Parameter name="count before increasing increase factor" type="int" value="2" />
         </ParameterList>
         <ParameterList name="timestep controller from file parameters" type="ParameterList">
-          <Parameter name="file name" type="string" value="../data/richards-infiltration_mfd_dts.h5" />
+          <Parameter name="file name" type="string" value="../data/hendy_mfd_dts.h5" />
         </ParameterList>
       </ParameterList>
 
@@ -466,24 +466,6 @@
       <ParameterList name="gravity" type="ParameterList">
         <Parameter name="value" type="Array(double)" value="{0.0,0.0,-9.80665}" />
       </ParameterList>
-
-      <!-- <ParameterList name="total_component_concentration"> -->
-      <!--   <ParameterList name="function"> -->
-      <!--     <ParameterList name="All"> -->
-      <!--       <Parameter name="regions" type="Array(string)" value="{computational domain}" /> -->
-      <!--       <Parameter name="component" type="string" value="cell" /> -->
-      <!--       <ParameterList name="function"> -->
-      <!--         <Parameter name="number of dofs" type="int" value="1" /> -->
-      <!--         <Parameter name="function type" type="string" value="composite function" /> -->
-      <!--         <ParameterList name="dof 1 function"> -->
-      <!--           <ParameterList name="function-constant"> -->
-      <!--             <Parameter name="value" type="double" value="0.0" /> -->
-      <!--           </ParameterList> -->
-      <!--         </ParameterList> -->
-      <!--       </ParameterList> -->
-      <!--     </ParameterList> -->
-      <!--   </ParameterList> -->
-      <!-- </ParameterList> -->
       
     </ParameterList>
   </ParameterList>
