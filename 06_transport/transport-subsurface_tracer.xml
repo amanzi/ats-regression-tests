@@ -164,7 +164,7 @@
       </ParameterList>
 
       <ParameterList name="source terms" type="ParameterList">
-        <ParameterList name="concentration" type="ParameterList">
+        <ParameterList name="component mass source" type="ParameterList">
           <ParameterList name="tracer2" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{well}" />
             <Parameter name="spatial distribution method" type="string" value="none" />

@@ -293,7 +293,7 @@
       </ParameterList>
       
       <ParameterList name="source terms" type="ParameterList">
-        <ParameterList name="concentration" type="ParameterList">
+        <ParameterList name="component mass source" type="ParameterList">
           <!-- input source term, in the first cell -->
 	  
           <ParameterList name="SOURCE: Tracer" type="ParameterList">
