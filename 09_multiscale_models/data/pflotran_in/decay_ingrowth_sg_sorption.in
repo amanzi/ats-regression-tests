@@ -1,0 +1,30 @@
+
+CHEMISTRY
+PRIMARY_SPECIES
+  Tracer1
+
+
+/
+
+
+SORPTION
+  ISOTHERM_REACTIONS
+    Tracer1
+     TYPE LINEAR
+     DISTRIBUTION_COEFFICIENT 100
+     /
+  
+   /
+  /
+
+LOG_FORMULATION
+DATABASE ./hanford.dat
+END
+
+CONSTRAINT initial
+  CONCENTRATIONS
+    Tracer1 1.0e-20
+    
+
+  /
+END

@@ -149,7 +149,7 @@
     <Parameter name="end cycle" type="int" value="100000" />
     <Parameter name="start time" type="double" value="0.0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="2" />
+    <Parameter name="end time" type="double" value="1" />
     <Parameter name="end time units" type="string" value="h" />
 
     <ParameterList name="PK tree" type="ParameterList">
