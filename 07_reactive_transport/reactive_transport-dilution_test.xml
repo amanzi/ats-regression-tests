@@ -276,7 +276,7 @@
         </ParameterList>
        </ParameterList-->
        
-
+ <!--this is in moles/m2s or m3/m2s (if liquid molar density =1) i.e. flow rate per unit cross section -->
        <ParameterList name="surface-mass_flux" type="ParameterList">
          <Parameter name="field evaluator type" type="string" value="independent variable constant" />
          <Parameter name="dot with normal" type="bool" value="true" />
@@ -315,7 +315,7 @@
              <Parameter name="components" type="Array(string)" value="{cell}" />
              <ParameterList name="function" type="ParameterList">
 	       <ParameterList name="function-constant" type="ParameterList">
-                 <Parameter name="value" type="double" value="0.074" />
+                 <Parameter name="value" type="double" value="0.074" /><!-- units [moles/(m^2*s)]-->
 	       </ParameterList>
              </ParameterList>
            </ParameterList>
