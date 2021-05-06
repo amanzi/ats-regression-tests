@@ -399,7 +399,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1" /> <!-- should be made equal to 55500 once the resoliution of ATS issue #72 is reflected in the master-->
+                <Parameter name="value" type="double" value="1" /> 
               </ParameterList>
             </ParameterList>
           </ParameterList>
