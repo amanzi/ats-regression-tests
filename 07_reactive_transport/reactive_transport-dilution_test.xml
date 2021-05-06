@@ -106,7 +106,6 @@
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value="1.0" />
       <Parameter name="solver" type="string" value="PCG with Hypre AMG" />
-      <Parameter name="enable internal tests" type="string" value="no" />
       <Parameter name="transport subcycling" type="bool" value="true" />
       <Parameter name="number of aqueous components" type="int" value="1" />
       <Parameter name="number of gaseous components" type="int" value="0" />
@@ -264,7 +263,7 @@
              <Parameter name="components" type="Array(string)" value="{cell}" />
              <ParameterList name="function" type="ParameterList">
 	       <ParameterList name="function-constant" type="ParameterList">
-                 <Parameter name="value" type="double" value="0.074" /><!-- units [moles/(m^2*s)]-->
+                 <Parameter name="value" type="double" value="0.074" /><!-- units [moles/(m^3*s)]-->
 	       </ParameterList>
              </ParameterList>
            </ParameterList>
