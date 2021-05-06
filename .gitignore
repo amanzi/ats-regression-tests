@@ -10,3 +10,4 @@ checkpoint_final.h5
 *.ipynb_checkpoints
 LOGS/
 *.pyc
+*.in.out.alquimia
