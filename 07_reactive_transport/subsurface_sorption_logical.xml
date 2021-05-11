@@ -149,7 +149,7 @@
           <Parameter name="regions" type="Array(string)" value="{subsurface domain}" />
 	  <Parameter name="model" type="string" value="scalar"/>
           <ParameterList name="parameters for scalar">
-            <Parameter name="alpha" type="double" value="0"/>
+            <Parameter name="alpha" type="double" value="1"/>
           </ParameterList>
           
           <Parameter name="aqueous tortuosity" type="double" value="1.0" />
@@ -293,7 +293,7 @@
               <Parameter name="number of dofs" type="int" value="3" />
               <ParameterList name="dof 1 function" type="ParameterList">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="0.00249955" />
+                  <Parameter name="value" type="double" value="0.0025" />
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function" type="ParameterList">
@@ -320,7 +320,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.00249955" /><!-- units [moles/(m^2*s)]-->
+                <Parameter name="value" type="double" value="0.0025" /><!-- units [moles/(m^2*s)]-->
               </ParameterList>
             </ParameterList>
           </ParameterList>
