@@ -137,7 +137,7 @@ Surface and subsurface transport of nonreactive species.
 
 Surface and subsurface reactive transport
 
-* [`surface_decay_ingrowth`](https://github.com/amanzi/ats-regression-tests/blob/master/07_reactive_transport/reactive_transport-surface_decay_ingrowth.xml) A two-specie system where the first specie decays into the second (daughter) specie.  A radioactive decay problem.
+* [`surface_decay_ingrowth`](https://github.com/amanzi/ats-regression-tests/blob/master/07_reactive_transport/reactive_transport-surface_decay_ingrowth.xml) A two-species system where the first species decays into the second (daughter) species.  A radioactive decay problem.
 * `surface_decay_ingrowth_logical` The same problem on a logical mesh.
 * `subsurface_decay_ingrowth` The same problem on a 2D transect.
 * `integrated_decay_ingrowth` The same problem on surface + subsurface.
@@ -147,8 +147,9 @@ Surface and subsurface reactive transport
 * `subsurface_denitrification` The same problem on a 2D transect.
 * `integrated_denitrification` The same problem on surface + subsurface.  
 * `integrated_denitrification_coupled` The same integrated system but with a coupled flow solution.
-* [`subsurface_sorption`](https://github.com/saubhagya-gatech/ats-regression-tests/blob/master/07_reactive_transport/reactive_transport-subsurface_sorption.xml) A single specie subsurface transport with equilibrium sorption in a generated mesh
+* [`subsurface_sorption`](https://github.com/saubhagya-gatech/ats-regression-tests/blob/master/07_reactive_transport/reactive_transport-subsurface_sorption.xml) A single species subsurface transport with equilibrium sorption in a generated mesh
 * [`subsurface_sorption_logical`](https://github.com/saubhagya-gatech/ats-regression-tests/blob/master/07_reactive_transport/reactive_transport-subsurface_sorption_logical.xml) Reactive transport (first order transformation taking place only in the aqueous phase) in subsurface where parent and daughter species have different sorption properties 
+* [`column_infiltration_alquimia_tracer`](https://github.com/amanzi/ats-regression-tests/blob/master/07_transport/column_infiltration_alquimia_tracer.xml) Integrated transport on a single column of cells; an infiltration problem where the new water includes the tracer using the alquimia and pflotran.
 
 ### `08_energy`
 
