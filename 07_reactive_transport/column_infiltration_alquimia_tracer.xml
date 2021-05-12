@@ -140,6 +140,15 @@
             <Parameter name="verbosity level" type="string" value="medium" />
           </ParameterList>
         </ParameterList>
+        <ParameterList name="gmres parameters">
+          <Parameter name="preconditioning strategy" type="string" value="left" />
+          <Parameter name="maximum number of iterations" type="int" value="100" />
+          <Parameter name="error tolerance" type="double" value="1e-16" />
+          <Parameter name="convergence criteria" type="Array(string)" value="{relative residual, make one iteration}" />
+          <ParameterList name="verbose object">
+            <Parameter name="verbosity level" type="string" value="high" />
+          </ParameterList>
+        </ParameterList>
       </ParameterList>
 
       <ParameterList name="verbose object">
@@ -304,8 +313,7 @@
       </ParameterList>
 
       <ParameterList name="diffusion">
-        <Parameter name="discretization primary" type="string" value="mfd: optimized for monotonicity" />
-        <Parameter name="discretization secondary" type="string" value="mfd: two-point flux approximation" />
+        <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation" />
         <Parameter name="schema" type="Array(string)" value="{face, cell}" />
         <Parameter name="preconditioner schema" type="Array(string)" value="{face}" />
       </ParameterList>
@@ -315,7 +323,7 @@
         <Parameter name="preconditioning method" type="string" value="boomer amg" />
         <ParameterList name="pcg parameters">
           <Parameter name="maximum number of iterations" type="int" value="400" />
-          <Parameter name="error tolerance" type="double" value="1e-10" />
+          <Parameter name="error tolerance" type="double" value="1e-16" />
           <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}" />
           <ParameterList name="verbose object">
             <Parameter name="verbosity level" type="string" value="high" />
@@ -626,7 +634,7 @@
         <Parameter name="field evaluator type" type="string" value="overland conductivity" />
         <ParameterList name="overland conductivity model">
           <Parameter name="overland conductivity type " type="string" value="manning" />
-          <Parameter name="Manning exponent" type="double" value="0.666666666667" />
+          <Parameter name="Manning exponent" type="double" value="0.66" />
           <Parameter name="slope regularization epsilon" type="double" value="0.01" />
         </ParameterList>
         <ParameterList name="verbose object">
@@ -642,7 +650,7 @@
           <ParameterList name="rest domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain" />
             <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00010224" />
+            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="1.0224e-4" />
             <Parameter name="van Genuchten n [-]" type="double" value="2.0" />
             <Parameter name="residual saturation [-]" type="double" value="0.2" />
             <Parameter name="smoothing interval width [saturation]" type="double" value="0.0" />
