@@ -111,7 +111,7 @@
       <Parameter name="PKs order" type="Array(string)" value="{surface-subsurface flow coupler, reactive transport}" />
       <Parameter name="master PK index" type="int" value="0" />
       <ParameterList name="verbose object">
-        <Parameter name="verbosity level" type="string" value="high" />
+        <Parameter name="verbosity level" type="string" value="default" />
       </ParameterList>
 
     </ParameterList>
@@ -124,7 +124,7 @@
         <Parameter name="damp and cap the water spurt" type="bool" value="true" />
         <Parameter name="cap over atmospheric" type="double" value="0.0001" />
         <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="high" />
+          <Parameter name="verbosity level" type="string" value="default" />
         </ParameterList>
       </ParameterList>
 
@@ -146,13 +146,13 @@
           <Parameter name="error tolerance" type="double" value="1e-16" />
           <Parameter name="convergence criteria" type="Array(string)" value="{relative residual, make one iteration}" />
           <ParameterList name="verbose object">
-            <Parameter name="verbosity level" type="string" value="high" />
+            <Parameter name="verbosity level" type="string" value="default" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
 
       <ParameterList name="verbose object">
-        <Parameter name="verbosity level" type="string" value="high" />
+        <Parameter name="verbosity level" type="string" value="default" />
       </ParameterList>
 
       <ParameterList name="time integrator">
@@ -169,11 +169,11 @@
           <Parameter name="diverged tolerance" type="double" value="10000000000.0" />
           <Parameter name="limit iterations" type="int" value="100" />
           <ParameterList name="verbose object">
-            <Parameter name="verbosity level" type="string" value="high" />
+            <Parameter name="verbosity level" type="string" value="default" />
           </ParameterList>
         </ParameterList>
         <ParameterList name="verbose object">
-          <Parameter name="verbosity level" type="string" value="high" />
+          <Parameter name="verbosity level" type="string" value="default" />
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters">
           <Parameter name="max iterations" type="int" value="15" />
@@ -199,9 +199,9 @@
       <Parameter name="initial time step" type="double" value="86400.0" />
       <Parameter name="permeability rescaling" type="double" value="10000000.0" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
-      <Parameter name="debug cells" type="Array(int)" value="{0}" />
+      <Parameter name="debug cells" type="Array(int)" value="{99}" />
       <ParameterList name="verbose object">
-        <Parameter name="verbosity level" type="string" value="high" />
+        <Parameter name="verbosity level" type="string" value="default" />
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
@@ -231,7 +231,7 @@
       <Parameter name="initial time step" type="double" value="86400.0" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object">
-        <Parameter name="verbosity level" type="string" value="low" />
+        <Parameter name="verbosity level" type="string" value="default" />
       </ParameterList>
 
       <ParameterList name="diffusion">
@@ -258,7 +258,7 @@
       <Parameter name="component names" type="Array(string)" value="{Tracer}" />
       <ParameterList name="verbose object">
         <Parameter name="name" type="string" value="Coupled TransportPK" />
-        <Parameter name="verbosity level" type="string" value="high" />
+        <Parameter name="verbosity level" type="string" value="default" />
       </ParameterList>
 
     </ParameterList> <!--surface-subsurface transport coupler-->
@@ -280,9 +280,10 @@
       <Parameter name="number of aqueous components" type="int" value="1" />
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
+
+      <Parameter name="debug cells" type="Array(int)" value="{99}" />
       <ParameterList name="verbose object">
-        <Parameter name="verbosity level" type="string" value="extreme" />
-        <Parameter name="name" type="string" value="Subsurface Transport" />
+        <Parameter name="verbosity level" type="string" value="default" />
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
@@ -326,7 +327,7 @@
           <Parameter name="error tolerance" type="double" value="1e-16" />
           <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}" />
           <ParameterList name="verbose object">
-            <Parameter name="verbosity level" type="string" value="high" />
+            <Parameter name="verbosity level" type="string" value="default" />
           </ParameterList>
         </ParameterList>
         <ParameterList name="boomer amg parameters">
@@ -388,7 +389,7 @@
           <Parameter name="error tolerance" type="double" value="1e-10" />
           <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}" />
           <ParameterList name="verbose object">
-            <Parameter name="verbosity level" type="string" value="high" />
+            <Parameter name="verbosity level" type="string" value="default" />
           </ParameterList>
         </ParameterList>
         <ParameterList name="boomer amg parameters">
@@ -470,7 +471,7 @@
       </ParameterList>
 
       <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="high" />
+        <Parameter name="verbosity level" type="string" value="default" />
       </ParameterList>
 
     </ParameterList>
@@ -508,7 +509,7 @@
       </ParameterList>
 
       <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="high" />
+        <Parameter name="verbosity level" type="string" value="default" />
       </ParameterList>
 
     </ParameterList>
@@ -636,9 +637,6 @@
           <Parameter name="overland conductivity type " type="string" value="manning" />
           <Parameter name="Manning exponent" type="double" value="0.66" />
           <Parameter name="slope regularization epsilon" type="double" value="0.01" />
-        </ParameterList>
-        <ParameterList name="verbose object">
-          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 
