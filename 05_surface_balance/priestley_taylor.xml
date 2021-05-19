@@ -274,6 +274,7 @@
         <Parameter name="field evaluator type" type="string" value="additive evaluator" />
         <Parameter name="evaluator dependencies" type="Array(string)" value="{transpiration}" />
         <Parameter name="transpiration coefficient" type="double" value="-1.0" />
+        <Parameter name="use model from ATS 1.1" type="bool" value="true" />
       </ParameterList>
 
       <ParameterList name="transpiration" type="ParameterList">
@@ -287,9 +288,6 @@
         <Parameter name="field evaluator type" type="string" value="rooting depth fraction" />
         <ParameterList name="rooting_depth_fraction parameters" type="ParameterList">
           <ParameterList name="generic PFT" type="ParameterList">
-            <Parameter name="alpha" type="double" value="7.0" />
-            <Parameter name="beta" type="double" value="1.75" />
-            <Parameter name="max rooting depth [m]" type="double" value="1.5" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
@@ -299,8 +297,6 @@
         <ParameterList name="plant_wilting_factor parameters" type="ParameterList">
           <ParameterList name="surface" type="ParameterList">
             <Parameter name="region" type="string" value="surface domain" />
-            <Parameter name="capillary pressure at fully open stomates [Pa]" type="double" value="10000.0" />
-            <Parameter name="capillary pressure at wilting point [Pa]" type="double" value="40000.0" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
@@ -316,7 +312,8 @@
       </ParameterList>
 
       <ParameterList name="surface-potential_transpiration_mps" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="potential evapotranspiration" />
+        <Parameter name="field evaluator type" type="string" value="potential evapotranspiration, Priestley-Taylor" />
+        <Parameter name="net radiation key suffix" type="string" value="shortwave_radiation" />
       </ParameterList>
 
       <ParameterList name="surface-air_temperature" type="ParameterList">
@@ -334,7 +331,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface-air_temperature_inter" type="ParameterList">
+      <ParameterList name="surface-temperature" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain rain" type="ParameterList">
@@ -559,6 +556,24 @@
 
       <ParameterList name="gravity" type="ParameterList">
         <Parameter name="value" type="Array(double)" value="{0.0,0.0,-9.80665}" />
+      </ParameterList>
+
+      <ParameterList name="land cover types" type="ParameterList">
+        <ParameterList name="surface domain" type="ParameterList">
+          <Parameter name="dessicated zone thickness [m]" type="double" value="0.1" />
+          <Parameter name="roughness length of bare ground [m]" type="double" value="0.04" />
+          <Parameter name="roughness length of snow-covered ground [m]" type="double" value="0.004" />
+          <Parameter name="snow transition depth [m]" type="double" value="0.02" />
+          <Parameter name="water transition depth [m]" type="double" value="0.02" />
+          <Parameter name="albedo of ground surface [-]" type="double" value="0.135" />
+          <Parameter name="emissivity of ground surface [-]" type="double" value="0.92" />
+
+          <Parameter name="rooting profile alpha [-]" type="double" value="7.0" />
+          <Parameter name="rooting profile beta [-]" type="double" value="1.75" />
+          <Parameter name="rooting depth max [m]" type="double" value="1.5" />
+          <Parameter name="mafic potential at fully open stomata [Pa]" type="double" value="10000.0" />
+          <Parameter name="mafic potential at fully closed stomata [Pa]" type="double" value="40000.0" />
+        </ParameterList>
       </ParameterList>
 
     </ParameterList>
