@@ -125,70 +125,52 @@ def main(options):
     start = time.time()
     report = {}
     for config_file in config_file_list:
-        # try:
-            # NOTE(bja): the try block is inside this loop so that if
-            # a single test throws an exception in a large batch of
-            # tests, we can recover and at least try running the other
-            # config files.
-            print(80 * '=', file=testlog)
+        print(80 * '=', file=testlog)
 
-            # get the absolute path of the directory
-            test_dir = os.path.dirname(config_file)
-            # cd into the test directory so that the relative paths in
-            # test files are correct
-            os.chdir(test_dir)
-            if options.debug:
-                print("Changed to working directory: {0}".format(test_dir))
+        # get the absolute path of the directory
+        test_dir = os.path.dirname(config_file)
+        # cd into the test directory so that the relative paths in
+        # test files are correct
+        os.chdir(test_dir)
+        if options.debug:
+            print("Changed to working directory: {0}".format(test_dir))
 
-            tm = test_manager.RegressionTestManager(executable, mpiexec)
+        tm = test_manager.RegressionTestManager(executable, mpiexec)
 
-            if options.debug:
-                tm.debug(True)
+        if options.debug:
+            tm.debug(True)
 
-            # get the relative file name
-            filename = os.path.basename(config_file)
+        # get the relative file name
+        filename = os.path.basename(config_file)
 
-            tm.generate_tests(filename,
-                              options.suites,
-                              options.tests,
-                              options.timeout,
-                              options.check_performance,
-                              testlog)
+        tm.generate_tests(filename,
+                          options.suites,
+                          options.tests,
+                          options.timeout,
+                          options.check_performance,
+                          testlog)
 
-            if options.debug:
-                print(70 * '-')
-                print(tm)
+        if options.debug:
+            print(70 * '-')
+            print(tm)
 
-            if options.list_suites:
-                tm.display_available_suites()
+        if options.list_suites:
+            tm.display_available_suites()
 
-            if options.list_tests:
-                tm.display_available_tests()
+        if options.list_tests:
+            tm.display_available_tests()
 
-            if not options.list_suites and not options.list_tests:
-                tm.run_tests(options.dry_run,
-                             options.update,
-                             options.new_tests,
-                             options.check_only,
-                             False,
-                             testlog,
-                             options.save_dt_history)
+        if not options.list_suites and not options.list_tests:
+            tm.run_tests(options.dry_run,
+                         options.update,
+                         options.new_tests,
+                         options.check_only,
+                         False,
+                         testlog,
+                         options.save_dt_history)
 
-                report[filename] = tm.run_status()
-            os.chdir(root_dir)
-        # except Exception as error:
-        #     message = txtwrap.fill(
-        #         "ERROR: a problem occured in file '{0}'.  This is "
-        #         "probably an error with commandline options, the "
-        #         "configuration file, or an internal error.  The "
-        #         "error is:\n{1}".format(config_file, str(error)))
-        #     print(''.join(['\n', message, '\n']), file=testlog)
-        #     if options.backtrace:
-        #         traceback.print_exc()
-        #     print('F', end='', file=sys.stdout)
-        #     report[filename] = TestStatus()
-        #     report[filename].fail = 1
-
+            report[filename] = tm.run_status()
+        os.chdir(root_dir)
             
     stop = time.time()
     status = 0

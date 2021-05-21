@@ -3,50 +3,47 @@
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="mesh type" type="string" value="aliased" />
       <ParameterList name="aliased parameters">
-        <Parameter name="alias" type="string" value="domain" />
+        <Parameter name="target" type="string" value="domain" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="logical mesh" />
       <ParameterList name="logical mesh parameters" type="ParameterList">
         <ParameterList name="segments" type="ParameterList">
-	  <ParameterList name="Stream" type="ParameterList">
+          <ParameterList name="Stream" type="ParameterList">
             <Parameter name="number of cells" type="int" value="101" />
-	    <Parameter name="total length" type="double" value="1010" />
-            <Parameter name="cross sectional area [m^2]" type="double" value="5" />
+            <Parameter name="total length" type="double" value="1010.0" />
+            <Parameter name="cross sectional area [m^2]" type="double" value="5.0" />
             <Parameter name="first tip" type="Array(double)" value="{0.0,0.0,0.0}" />
             <Parameter name="first tip type" type="string" value="boundary" />
             <Parameter name="last tip" type="Array(double)" value="{1010.0,0.0,0.0}" />
             <Parameter name="last tip type" type="string" value="boundary" />
           </ParameterList>
-	</ParameterList>
+        </ParameterList>
       </ParameterList>
     </ParameterList>
     <ParameterList name="subgrid" type="ParameterList">
       <Parameter name="mesh type" type="string" value="domain set indexed" />
       <ParameterList name="domain set indexed parameters" type="ParameterList">
-	<Parameter name="indexing parent domain" type="string" value="surface" />
+        <Parameter name="indexing parent domain" type="string" value="surface" />
         <Parameter name="entity kind" type="string" value="CELL" />
-	<Parameter name="regions" type="Array(string)" value="{surface domain}" />
-	
+        <Parameter name="regions" type="Array(string)" value="{surface domain}" />
         <ParameterList name="subgrid:*" type="ParameterList">
           <Parameter name="mesh type" type="string" value="logical mesh" />
           <ParameterList name="logical mesh parameters" type="ParameterList">
-	    <Parameter name="infer cell centroids" type="bool" value="true"/>
-	    <ParameterList name="segments">
-	      <ParameterList name="tau_space">
-		<Parameter name="number of cells" type="int" value="10"/>
-		<Parameter name="cross sectional area [m^2]" type="double" value="1.0"/>
-		<Parameter name="first tip" type="Array(double)" value="{0.,0.,0.}"/>
-		<Parameter name="orientation" type="Array(double)" value="{0.,0.,1.}"/>
-		<Parameter name="first tip type" type="string" value="boundary"/>
-		<Parameter name="last tip type" type="string" value="boundary"/>
-		<Parameter name="cell lengths [m]" type="Array(double)" value="{ 1459.55461558,  394.16916123,  326.44167297,  308.4760785 ,
-									       313.9038014 ,  339.42553974,  392.2459188 ,  498.37048427,
-									       763.56647914, 4080.33578189}"/>
-	      </ParameterList>
-	    </ParameterList>
-	    <ParameterList name="sets" type="ParameterList">
+            <Parameter name="infer cell centroids" type="bool" value="true" />
+            <ParameterList name="segments">
+              <ParameterList name="tau_space">
+                <Parameter name="number of cells" type="int" value="10" />
+                <Parameter name="cross sectional area [m^2]" type="double" value="1.0" />
+                <Parameter name="first tip" type="Array(double)" value="{0.0,0.0,0.0}" />
+                <Parameter name="orientation" type="Array(double)" value="{0.0,0.0,1.0}" />
+                <Parameter name="first tip type" type="string" value="boundary" />
+                <Parameter name="last tip type" type="string" value="boundary" />
+                <Parameter name="cell lengths [m]" type="Array(double)" value="{1459.55461558,394.16916123,326.44167297,308.4760785,313.9038014,339.42553974,392.2459188,498.37048427,763.56647914,4080.33578189}" />
+              </ParameterList>
+            </ParameterList>
+            <ParameterList name="sets" type="ParameterList">
             </ParameterList>
           </ParameterList>
         </ParameterList>
@@ -54,28 +51,23 @@
     </ParameterList>
   </ParameterList>
 
-
   <ParameterList name="regions" type="ParameterList">
     <ParameterList name="surface domain" type="ParameterList">
-      <ParameterList name="region: all" type="ParameterList"/>
+      <ParameterList name="region: all" type="ParameterList">
+      </ParameterList>
     </ParameterList>
-
-
     <ParameterList name="tracer source surface" type="ParameterList">
       <ParameterList name="region: enumerated set" type="ParameterList">
         <Parameter name="entity" type="string" value="cell" />
         <Parameter name="entity gids" type="Array(int)" value="{0}" />
       </ParameterList>
     </ParameterList>
-    
     <ParameterList name="surface west" type="ParameterList">
       <ParameterList name="region: enumerated set" type="ParameterList">
         <Parameter name="entity" type="string" value="cell" />
         <Parameter name="entity gids" type="Array(int)" value="{0}" />
       </ParameterList>
     </ParameterList>
-
-
     <ParameterList name="tracer source subgrid" type="ParameterList">
       <ParameterList name="region: enumerated set" type="ParameterList">
         <Parameter name="entity" type="string" value="face" />
@@ -88,85 +80,69 @@
         <Parameter name="entity gids" type="Array(int)" value="{100}" />
       </ParameterList>
     </ParameterList>
-    
   </ParameterList>
-
 
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="end cycle" type="int" value="20000" />
     <Parameter name="start time" type="double" value="0.0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="30000" />
+    <Parameter name="end time" type="double" value="30000.0" />
     <Parameter name="end time units" type="string" value="s" />
-
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="coupler" type="ParameterList">
         <Parameter name="PK type" type="string" value="weak MPC" />
-
-	<ParameterList name="Reactive Transport" type="ParameterList">
-	  
-	  <Parameter name="PK type" type="string" value="reactive transport" />
+        <ParameterList name="Reactive Transport" type="ParameterList">
+          <Parameter name="PK type" type="string" value="reactive transport" />
           <ParameterList name="surface chemistry" type="ParameterList">
             <Parameter name="PK type" type="string" value="chemistry alquimia" />
           </ParameterList>
           <ParameterList name="surface transport" type="ParameterList">
             <Parameter name="PK type" type="string" value="transport ATS" />
           </ParameterList>
-	  
-      	</ParameterList>
-
-
-	<ParameterList name="subgrid:*-coupler" type="ParameterList">
+        </ParameterList>
+        <ParameterList name="subgrid:*-coupler" type="ParameterList">
           <Parameter name="PK type" type="string" value="weakly coupled subdomain PKs" />
-	  <ParameterList name="subgrid:*-ReactiveTransport" type="ParameterList">
-	  
+          <ParameterList name="subgrid:*-ReactiveTransport" type="ParameterList">
             <Parameter name="PK type" type="string" value="reactive transport" />
-            
-	    <ParameterList name="subgrid:*-chemistry" type="ParameterList">
+            <ParameterList name="subgrid:*-chemistry" type="ParameterList">
               <Parameter name="PK type" type="string" value="chemistry alquimia" />
             </ParameterList>
-            
-	    <ParameterList name="subgrid:*-transport" type="ParameterList">
+            <ParameterList name="subgrid:*-transport" type="ParameterList">
               <Parameter name="PK type" type="string" value="transport ATS" />
             </ParameterList>
-	    
-	  </ParameterList>
-          
+          </ParameterList>
         </ParameterList>
-	
       </ParameterList>
     </ParameterList>
   </ParameterList>
   <ParameterList name="verbose object" type="ParameterList">
     <Parameter name="verbosity level" type="string" value="high" />
   </ParameterList>
-
-
   <ParameterList name="observations">
     <ParameterList name="surface-component_concentration">
-      <Parameter name="variable" type="string" value="surface-total_component_concentration"/>
-      <!--Parameter name="direction normalized flux" type="bool" value="true" /-->
-      <Parameter name="functional" type="string" value="point"/>
-      <Parameter name="region" type="string" value="surface outlet"/>
-      <Parameter name="delimiter" type="string" value=" "/>
-      <Parameter name="location name" type="string" value="cell"/>
-      <Parameter name="number of vectors" type="int" value="1"/>
-      <Parameter name="write interval" type="int" value="1"/>
-      <Parameter name="observation output filename" type="string" value="outlet.dat"/>
-      <Parameter name="times start period stop" type="Array(double)" value="{0,100,-1.}"/>
+      <Parameter name="variable" type="string" value="surface-total_component_concentration" />
+      <Parameter name="functional" type="string" value="point" />
+      <Parameter name="region" type="string" value="surface outlet" />
+      <Parameter name="delimiter" type="string" value=" " />
+      <Parameter name="location name" type="string" value="cell" />
+      <Parameter name="number of vectors" type="int" value="1" />
+      <Parameter name="write interval" type="int" value="1" />
+      <Parameter name="observation output filename" type="string" value="outlet.dat" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0,100.0,-1.0}" />
       <Parameter name="times start period stop units" type="string" value="s" />
-    </ParameterList> 
+    </ParameterList>
   </ParameterList>
-
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="file name base" type="string" value="checkpoint" />
-    <Parameter name="times start period stop" type="Array(double)" value="{0.0, 1000,20000}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0.0,1000.0,20000.0}" />
   </ParameterList>
-  
+
   <ParameterList name="PKs" type="ParameterList">
+
     <ParameterList name="coupler" type="ParameterList">
       <Parameter name="PK type" type="string" value="weak MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{Reactive Transport, subgrid:*-coupler}" />
+
     </ParameterList>
 
     <ParameterList name="subgrid:*-coupler" type="ParameterList">
@@ -178,6 +154,7 @@
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="low" />
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="subgrid:*-ReactiveTransport" type="ParameterList">
@@ -188,8 +165,9 @@
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="low" />
       </ParameterList>
+
     </ParameterList>
-    
+
     <ParameterList name="subgrid:*-transport" type="ParameterList">
       <Parameter name="PK type" type="string" value="transport ats" />
       <Parameter name="PK origin" type="string" value="Amanzi" />
@@ -210,13 +188,12 @@
         <Parameter name="name" type="string" value="Transport" />
       </ParameterList>
 
-
       <ParameterList name="reconstruction" type="ParameterList">
         <Parameter name="polynomial order" type="int" value="0" />
         <Parameter name="limiter" type="string" value="tensorial" />
         <Parameter name="limiter extension for transport" type="bool" value="true" />
       </ParameterList>
- 
+
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="concentration" type="ParameterList">
           <ParameterList name="subgrid" type="ParameterList">
@@ -228,6 +205,7 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="subgrid:*-chemistry" type="ParameterList">
@@ -249,12 +227,11 @@
       <Parameter name="time step control method" type="string" value="fixed" />
       <Parameter name="initial conditions time" type="double" value="0.0" />
       <Parameter name="number of component concentrations" type="int" value="1" />
+      <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="low" />
         <Parameter name="name" type="string" value="ChemistrySG" />
       </ParameterList>
-      
-      <Parameter name="debug cells" type="Array(int)" value="{0}" />
 
       <ParameterList name="initial condition" type="ParameterList">
         <ParameterList name="geochemical conditions" type="ParameterList">
@@ -266,7 +243,6 @@
 
     </ParameterList>
 
-    
     <ParameterList name="Reactive Transport" type="ParameterList">
       <Parameter name="PK type" type="string" value="reactive transport" />
       <Parameter name="PKs order" type="Array(string)" value="{surface chemistry, surface transport}" />
@@ -275,9 +251,9 @@
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="low" />
       </ParameterList>
-      
+
     </ParameterList>
-    
+
     <ParameterList name="surface chemistry" type="ParameterList">
       <Parameter name="PK type" type="string" value="chemistry alquimia" />
       <Parameter name="engine" type="string" value="PFloTran" />
@@ -298,10 +274,10 @@
       <Parameter name="time step control method" type="string" value="fixed" />
       <Parameter name="initial conditions time" type="double" value="0.0" />
       <Parameter name="number of component concentrations" type="int" value="1" />
+      <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="low" />
       </ParameterList>
-      <Parameter name="debug cells" type="Array(int)" value="{0}" />
 
       <ParameterList name="initial condition" type="ParameterList">
         <ParameterList name="geochemical conditions" type="ParameterList">
@@ -335,37 +311,36 @@
         <Parameter name="name" type="string" value="Transport" />
       </ParameterList>
 
-
       <ParameterList name="reconstruction" type="ParameterList">
         <Parameter name="polynomial order" type="int" value="0" />
         <Parameter name="limiter" type="string" value="tensorial" />
         <Parameter name="limiter extension for transport" type="bool" value="true" />
       </ParameterList>
-   
+
       <ParameterList name="molecular diffusion">
-        <Parameter name="aqueous names" type="Array(string)" value="{Tracer1}"/>
-        <Parameter name="aqueous values" type="Array(double)" value="{0.0}"/>
+        <Parameter name="aqueous names" type="Array(string)" value="{Tracer1}" />
+        <Parameter name="aqueous values" type="Array(double)" value="{0.0}" />
       </ParameterList>
-      
+
       <ParameterList name="material properties">
         <ParameterList name="domain">
-          <Parameter name="regions" type="Array(string)" value="{surface domain}"/>
-          <Parameter name="model" type="string" value="scalar"/>
-	  <Parameter name="aqueous tortuosity" type="double" value="1.0"/>
-          <Parameter name="gaseous tortuosity" type="double" value="1.0"/>
-	  <ParameterList name="parameters for scalar">
-            <Parameter name="dispersion coefficient [m^2 s^-1]" type="double" value="1"/>
+          <Parameter name="regions" type="Array(string)" value="{surface domain}" />
+          <Parameter name="model" type="string" value="scalar" />
+          <Parameter name="aqueous tortuosity" type="double" value="1.0" />
+          <Parameter name="gaseous tortuosity" type="double" value="1.0" />
+          <ParameterList name="parameters for scalar">
+            <Parameter name="dispersion coefficient [m^2 s^-1]" type="double" value="1.0" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
-      
+
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="fv: default" />
         <Parameter name="discretization secondary" type="string" value="fv: default" />
         <Parameter name="schema" type="Array(string)" value="{face, cell}" />
         <Parameter name="preconditioner schema" type="Array(string)" value="{face}" />
       </ParameterList>
-    
+
       <ParameterList name="inverse">
         <Parameter name="preconditioning method" type="string" value="boomer amg" />
         <Parameter name="iterative method" type="string" value="pcg" />
@@ -385,76 +360,66 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-      
-      <ParameterList name="source terms" type="ParameterList">
 
-	<ParameterList name="geochemical" type="ParameterList">
-	  <ParameterList name="west_bc" type="ParameterList">
+      <ParameterList name="source terms" type="ParameterList">
+        <ParameterList name="geochemical" type="ParameterList">
+          <ParameterList name="west_bc" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface west}" />
             <Parameter name="solutes" type="Array(string)" value="{Tracer1}" />
-            <Parameter name="times" type="Array(double)" value="{0 , 3000}" />
+            <Parameter name="times" type="Array(double)" value="{0.0,3000.0}" />
             <Parameter name="geochemical conditions" type="Array(string)" value="{upstream,  initial}" />
             <Parameter name="time functions" type="Array(string)" value="{constant, constant}" />
           </ParameterList>
         </ParameterList>
-	
-        <ParameterList name="component mass source" type="ParameterList">  
+        <ParameterList name="component mass source" type="ParameterList">
           <ParameterList name="SINK: to subgrid" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface domain}" />
             <Parameter name="spatial distribution method" type="string" value="first order exchange" />
-	    <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
+            <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
             <ParameterList name="source function" type="ParameterList">
               <Parameter name="domain name" type="string" value="surface" />
-	      <ParameterList name="function" type="ParameterList">
-		<Parameter name="number of dofs" type="int" value="1"/>
-		<ParameterList name="dof 1 function">
-		  <ParameterList name="function-constant" type="ParameterList">
-		    <Parameter name="value" type="double" value="5e-05" />
-		  </ParameterList>
+              <ParameterList name="function" type="ParameterList">
+                <Parameter name="number of dofs" type="int" value="1" />
+                <ParameterList name="dof 1 function">
+                  <ParameterList name="function-constant" type="ParameterList">
+                    <Parameter name="value" type="double" value="5e-05" />
+                  </ParameterList>
                 </ParameterList>
-	
               </ParameterList>
             </ParameterList>
           </ParameterList>
-	  
-          
           <ParameterList name="SOURCE: from subgrid" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface domain}" />
             <Parameter name="spatial distribution method" type="string" value="subgrid return" />
-	    <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
+            <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
             <ParameterList name="source function" type="ParameterList">
               <Parameter name="subgrid field suffix" type="string" value="total_component_concentration" />
               <Parameter name="subgrid domain set" type="string" value="subgrid" />
               <ParameterList name="function" type="ParameterList">
-		<Parameter name="number of dofs" type="int" value="1"/>
-		<ParameterList name="dof 1 function">
-		  <ParameterList name="function-constant" type="ParameterList">
-		    <Parameter name="value" type="double" value="5e-05" />
-		  </ParameterList>
+                <Parameter name="number of dofs" type="int" value="1" />
+                <ParameterList name="dof 1 function">
+                  <ParameterList name="function-constant" type="ParameterList">
+                    <Parameter name="value" type="double" value="5e-05" />
+                  </ParameterList>
                 </ParameterList>
-		
-	      </ParameterList>
+              </ParameterList>
             </ParameterList>
-	  </ParameterList>
+          </ParameterList>
         </ParameterList>
       </ParameterList>
 
-    
-
-      
-    
       <ParameterList name="physical models and assumptions" type="ParameterList">
         <Parameter name="effective transport porosity" type="bool" value="false" />
         <Parameter name="permeability field is required" type="bool" value="false" />
       </ParameterList>
-    </ParameterList>
-  </ParameterList>
 
+    </ParameterList>
+
+  </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
     <Parameter name="domain sets" type="Array(string)" value="{subgrid}" />
     <ParameterList name="field evaluators" type="ParameterList">
-
 
       <ParameterList name="surface-ponded_depth" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
@@ -465,13 +430,12 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1." />
+                <Parameter name="value" type="double" value="1.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
 
       <ParameterList name="surface-mass_flux" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
@@ -482,7 +446,7 @@
             <Parameter name="components" type="Array(string)" value="{face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="-1" />
+                <Parameter name="value" type="double" value="-1.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -497,7 +461,6 @@
             <Parameter name="region" type="string" value="surface west" />
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
-	    
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="0.02" />
               </ParameterList>
@@ -505,7 +468,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
 
       <ParameterList name="surface-porosity" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
@@ -522,7 +484,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
 
       <ParameterList name="surface-molar_density_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
@@ -556,7 +517,6 @@
         </ParameterList>
       </ParameterList>
 
-
       <ParameterList name="subgrid:*-saturation_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -573,7 +533,6 @@
         </ParameterList>
       </ParameterList>
 
-
       <ParameterList name="subgrid:*-mass_flux" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <Parameter name="checkpoint" type="bool" value="true" />
@@ -584,7 +543,7 @@
             <Parameter name="components" type="Array(string)" value="{face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="-0.25" /> <!-- Value of flux in the subgrid should be made equal to porosity to ensure velocity = 1m/s as required by ADELS framework (Painter, 2018) -->
+                <Parameter name="value" type="double" value="-0.25" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -600,7 +559,6 @@
         </ParameterList>
       </ParameterList>
 
-
       <ParameterList name="subgrid:*-porosity" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -610,7 +568,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.25" /> <!-- Using this value equal to unity have implications for subsurface processes like sorption, hence use a value that is reflective of sediments at the simulation site -->
+                <Parameter name="value" type="double" value="0.25" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -619,7 +577,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
 
       <ParameterList name="subgrid:*-molar_density_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
@@ -653,41 +610,34 @@
         </ParameterList>
       </ParameterList>
 
-
-
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
-
 
       <ParameterList name="atmospheric_pressure" type="ParameterList">
         <Parameter name="value" type="double" value="101325.0" />
       </ParameterList>
 
-
       <ParameterList name="gravity" type="ParameterList">
         <Parameter name="value" type="Array(double)" value="{0.0,0.0,-9.80665}" />
       </ParameterList>
 
-
       <ParameterList name="subgrid:*-isotherm_kd" type="ParameterList">
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="All" type="ParameterList">
-            <Parameter name="region" type="string" value="tau_space"/>
-            <Parameter name="component" type="string" value="cell"/>
+            <Parameter name="region" type="string" value="tau_space" />
+            <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
-              <Parameter name="number of dofs" type="int" value="1"/>
-              <Parameter name="function type" type="string" value="composite function"/>
+              <Parameter name="number of dofs" type="int" value="1" />
+              <Parameter name="function type" type="string" value="composite function" />
               <ParameterList name="dof 1 function" type="ParameterList">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="0"/> <!-- this value is overridden by the value provided in the PFLOTRAN file -->
+                  <Parameter name="value" type="double" value="0.0" />
                 </ParameterList>
               </ParameterList>
-              
             </ParameterList>
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
 
       <ParameterList name="surface-total_component_concentration" type="ParameterList">
         <ParameterList name="function" type="ParameterList">
@@ -706,9 +656,7 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-      
-      
+
     </ParameterList>
   </ParameterList>
-  
 </ParameterList>
