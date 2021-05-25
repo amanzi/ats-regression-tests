@@ -147,16 +147,12 @@
 
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value="0.0" />
-    <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="365.0" />
+    <Parameter name="start time units" type="string" value="d" />
+    <Parameter name="end time" type="double" value="150.0" />
     <Parameter name="end time units" type="string" value="d" />
-    <Parameter name="subcycled timestep" type="bool" value="true" />
-    <ParameterList name="required times" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{43200.0,86400.0,-1.0}" />
-    </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="top level MPC" type="ParameterList">
-        <Parameter name="PK type" type="string" value="permafrost columns operator splitting, flux, subcycled" />
+        <Parameter name="PK type" type="string" value="permafrost columns operator splitting, flux" />
         <ParameterList name="column:*-coupler" type="ParameterList">
           <Parameter name="PK type" type="string" value="weak MPC" />
           <ParameterList name="column:*-subsidence" type="ParameterList">
@@ -336,42 +332,20 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-  <ParameterList name="visualization" type="ParameterList">
-    <ParameterList name="column:*" type="ParameterList">
-      <Parameter name="file format" type="string" value="silo" />
-      <Parameter name="visualize individually" type="bool" value="true" />
-      <Parameter name="times start period stop" type="Array(double)" value="{0.5,5.0,-1.0}" />
-      <Parameter name="times start period stop units" type="string" value="d" />
-      <Parameter name="vis columns gids" type="Array(int)" value="{60,202,458,70,47,198}" />
-      <Parameter name="time units" type="string" value="noleap" />
-    </ParameterList>
-    <ParameterList name="surface_star" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.5,1.0,-1.0}" />
-      <Parameter name="times start period stop units" type="string" value="d" />
-      <Parameter name="visualize on 3D mesh" type="bool" value="false" />
-      <Parameter name="time units" type="string" value="noleap" />
-    </ParameterList>
-  </ParameterList>
-
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times start period stop" type="Array(double)" value="{0.5,73.0,-1.0}" />
-    <Parameter name="times start period stop units" type="string" value="d" />
-    <Parameter name="single file checkpoint" type="bool" value="false" />
-    <Parameter name="time units" type="string" value="noleap" />
+    <Parameter name="cycles" type="Array(int)" value="{14,87,160,164}" />
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
 
     <ParameterList name="top level MPC" type="ParameterList">
-      <Parameter name="PK type" type="string" value="permafrost columns operator splitting, flux, subcycled" />
+      <Parameter name="PK type" type="string" value="permafrost columns operator splitting, flux" />
       <Parameter name="PKs order" type="Array(string)" value="{surface star system, column:*-coupler}" />
       <Parameter name="domain name" type="string" value="surface_column" />
       <Parameter name="star domain name" type="string" value="surface_star" />
       <Parameter name="coupling type" type="string" value="pressure" />
-      <Parameter name="subcycling timestep type" type="string" value="global target" />
-      <Parameter name="subcycling timestep target" type="double" value="300.0" />
       <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="none" />
+        <Parameter name="verbosity level" type="string" value="medium" />
       </ParameterList>
 
     </ParameterList>
@@ -380,7 +354,7 @@
       <Parameter name="PK type" type="string" value="weak MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{column:*-subsidence,column:*-thermal_hydrology}" />
       <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="none" />
+        <Parameter name="verbosity level" type="string" value="medium" />
       </ParameterList>
 
     </ParameterList>
@@ -449,26 +423,26 @@
       <Parameter name="PK type" type="string" value="strong MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{snow_column:*-SEB,column:*-permafrost}" />
       <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="none" />
+        <Parameter name="verbosity level" type="string" value="medium" />
       </ParameterList>
 
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="smarter" />
+        <Parameter name="timestep controller type" type="string" value="from file" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
           <Parameter name="backtrack max steps" type="int" value="10" />
           <Parameter name="backtrack factor" type="double" value="0.25" />
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
           <Parameter name="nonlinear tolerance" type="double" value="5e-05" />
-          <Parameter name="diverged tolerance" type="double" value="1000000.0" />
-          <Parameter name="limit iterations" type="int" value="21" />
+          <Parameter name="diverged tolerance" type="double" value="10000000000.0" />
+          <Parameter name="limit iterations" type="int" value="100" />
           <ParameterList name="verbose object" type="ParameterList">
-            <Parameter name="verbosity level" type="string" value="none" />
+            <Parameter name="verbosity level" type="string" value="high" />
           </ParameterList>
         </ParameterList>
         <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="none" />
+          <Parameter name="verbosity level" type="string" value="medium" />
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
           <Parameter name="max iterations" type="int" value="18" />
@@ -479,6 +453,9 @@
           <Parameter name="min time step" type="double" value="1e-06" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+        </ParameterList>
+        <ParameterList name="timestep controller from file parameters" type="ParameterList">
+          <Parameter name="file name" type="string" value="../data/columnar_permafrost_dts.h5" />
         </ParameterList>
       </ParameterList>
 
@@ -496,7 +473,7 @@
       <Parameter name="absolute error tolerance" type="double" value="0.01" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="none" />
+        <Parameter name="verbosity level" type="string" value="medium" />
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
@@ -524,7 +501,7 @@
       <Parameter name="supress Jacobian terms: d div surface q / dT" type="bool" value="true" />
       <Parameter name="dump preconditioner" type="bool" value="false" />
       <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="none" />
+        <Parameter name="verbosity level" type="string" value="medium" />
       </ParameterList>
 
       <ParameterList name="ewc delegate" type="ParameterList">
@@ -532,7 +509,7 @@
       </ParameterList>
 
       <ParameterList name="surface ewc delegate" type="ParameterList">
-        <Parameter name="predictor type" type="string" value="none" />
+        <Parameter name="predictor type" type="string" value="medium" />
       </ParameterList>
 
       <ParameterList name="water delegate" type="ParameterList">
@@ -540,7 +517,7 @@
         <Parameter name="damp and cap the water spurt" type="bool" value="true" />
         <Parameter name="cap over atmospheric" type="double" value="0.1" />
         <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="none" />
+          <Parameter name="verbosity level" type="string" value="medium" />
         </ParameterList>
       </ParameterList>
 
@@ -553,11 +530,11 @@
           <Parameter name="convergence criteria" type="Array(string)" value="{relative residual, make one iteration}" />
           <Parameter name="maximum number of iterations" type="int" value="10" />
           <ParameterList name="verbose object" type="ParameterList">
-            <Parameter name="verbosity level" type="string" value="none" />
+            <Parameter name="verbosity level" type="string" value="medium" />
           </ParameterList>
         </ParameterList>
         <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="none" />
+          <Parameter name="verbosity level" type="string" value="medium" />
         </ParameterList>
       </ParameterList>
 
@@ -569,15 +546,16 @@
       <Parameter name="primary variable key suffix" type="string" value="pressure" />
       <Parameter name="conserved quantity key suffix" type="string" value="water_content" />
       <Parameter name="source term" type="bool" value="true" />
-      <Parameter name="water source in meters" type="bool" value="true" />
       <Parameter name="source key suffix" type="string" value="water_source_sink" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="initial condition" type="ParameterList">
       </ParameterList>
+
       <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="none" />
+        <Parameter name="verbosity level" type="string" value="medium" />
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="surface_column:*-energy" type="ParameterList">
@@ -592,10 +570,12 @@
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="initial condition" type="ParameterList">
       </ParameterList>
+
       <ParameterList name="boundary conditions" type="ParameterList">
       </ParameterList>
+
       <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="none" />
+        <Parameter name="verbosity level" type="string" value="medium" />
       </ParameterList>
 
     </ParameterList>
@@ -614,7 +594,7 @@
       <Parameter name="permeability rescaling" type="double" value="10000000.0" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="none" />
+        <Parameter name="verbosity level" type="string" value="medium" />
       </ParameterList>
 
       <ParameterList name="diffusion" type="ParameterList">
@@ -688,7 +668,7 @@
       <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="none" />
+        <Parameter name="verbosity level" type="string" value="medium" />
       </ParameterList>
 
       <ParameterList name="diffusion" type="ParameterList">
@@ -765,7 +745,7 @@
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="false" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="smarter" />
+        <Parameter name="timestep controller type" type="string" value="from file" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
           <Parameter name="nka lag interations" type="int" value="2" />
           <Parameter name="max backtrack steps" type="int" value="10" />
@@ -773,10 +753,10 @@
           <Parameter name="backtrack factor" type="double" value="0.25" />
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
           <Parameter name="nonlinear tolerance" type="double" value="5e-05" />
-          <Parameter name="diverged tolerance" type="double" value="1000000.0" />
-          <Parameter name="limit iterations" type="int" value="21" />
+          <Parameter name="diverged tolerance" type="double" value="10000000000.0" />
+          <Parameter name="limit iterations" type="int" value="100" />
           <ParameterList name="verbose object" type="ParameterList">
-            <Parameter name="verbosity level" type="string" value="none" />
+            <Parameter name="verbosity level" type="string" value="medium" />
           </ParameterList>
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
@@ -788,6 +768,9 @@
           <Parameter name="min time step" type="double" value="1e-06" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+        </ParameterList>
+        <ParameterList name="timestep controller from file parameters" type="ParameterList">
+          <Parameter name="file name" type="string" value="../data/columnar_permafrost_dts.h5" />
         </ParameterList>
       </ParameterList>
 
@@ -804,16 +787,16 @@
           <Parameter name="convergence criteria" type="Array(string)" value="{relative residual, make one iteration}" />
           <Parameter name="maximum number of iterations" type="int" value="80" />
           <ParameterList name="verbose object" type="ParameterList">
-            <Parameter name="verbosity level" type="string" value="none" />
+            <Parameter name="verbosity level" type="string" value="medium" />
           </ParameterList>
         </ParameterList>
         <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="none" />
+          <Parameter name="verbosity level" type="string" value="medium" />
         </ParameterList>
       </ParameterList>
 
       <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="none" />
+        <Parameter name="verbosity level" type="string" value="medium" />
       </ParameterList>
 
     </ParameterList>
@@ -827,7 +810,7 @@
       <Parameter name="initial time step" type="double" value="3600.0" />
       <Parameter name="debug cells" type="Array(int)" value="{3}" />
       <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="none" />
+        <Parameter name="verbosity level" type="string" value="medium" />
       </ParameterList>
 
       <ParameterList name="diffusion" type="ParameterList">
@@ -865,7 +848,7 @@
       <Parameter name="decoupled from subsurface" type="bool" value="true" />
       <Parameter name="debug cells" type="Array(int)" value="{0,1,2,3}" />
       <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="none" />
+        <Parameter name="verbosity level" type="string" value="medium" />
       </ParameterList>
 
       <ParameterList name="diffusion" type="ParameterList">

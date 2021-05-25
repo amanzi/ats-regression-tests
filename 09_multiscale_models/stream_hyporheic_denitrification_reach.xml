@@ -56,6 +56,10 @@
       <ParameterList name="region: all" type="ParameterList">
       </ParameterList>
     </ParameterList>
+    <ParameterList name="hyporheic domain" type="ParameterList">
+      <ParameterList name="region: all" type="ParameterList">
+      </ParameterList>
+    </ParameterList>
     <ParameterList name="surface west" type="ParameterList">
       <ParameterList name="region: enumerated set" type="ParameterList">
         <Parameter name="entity" type="string" value="cell" />
@@ -454,7 +458,7 @@
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
-            <Parameter name="region" type="string" value="ENTIRE_MESH_REGION" />
+            <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
@@ -470,7 +474,7 @@
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
-            <Parameter name="region" type="string" value="ENTIRE_MESH_REGION" />
+            <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
@@ -486,7 +490,7 @@
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
-            <Parameter name="region" type="string" value="ENTIRE_MESH_REGION" />
+            <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="components" type="Array(string)" value="{face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
@@ -566,7 +570,7 @@
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
-            <Parameter name="region" type="string" value="ENTIRE_MESH_REGION" />
+            <Parameter name="region" type="string" value="hyporheic domain" />
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
@@ -583,7 +587,7 @@
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
-            <Parameter name="region" type="string" value="ENTIRE_MESH_REGION" />
+            <Parameter name="region" type="string" value="hyporheic domain" />
             <Parameter name="components" type="Array(string)" value="{face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
@@ -627,7 +631,7 @@
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
-            <Parameter name="region" type="string" value="ENTIRE_MESH_REGION" />
+            <Parameter name="region" type="string" value="hyporheic domain" />
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
@@ -643,7 +647,7 @@
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
-            <Parameter name="region" type="string" value="ENTIRE_MESH_REGION" />
+            <Parameter name="region" type="string" value="hyporheic domain" />
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
@@ -659,7 +663,7 @@
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
-            <Parameter name="region" type="string" value="ENTIRE_MESH_REGION" />
+            <Parameter name="region" type="string" value="hyporheic domain" />
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">

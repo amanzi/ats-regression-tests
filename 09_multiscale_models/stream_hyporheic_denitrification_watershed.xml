@@ -46,6 +46,10 @@
       <ParameterList name="region: all" type="ParameterList">
       </ParameterList>
     </ParameterList>
+    <ParameterList name="hyporheic domain" type="ParameterList">
+      <ParameterList name="region: all" type="ParameterList">
+      </ParameterList>
+    </ParameterList>
     <ParameterList name="tracer source stream_3_10" type="ParameterList">
       <ParameterList name="region: enumerated set from file" type="ParameterList">
         <Parameter name="read from file" type="string" value="../data/regions/regions_coweeta_mc-100m.xml" />
@@ -632,7 +636,7 @@
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
-            <Parameter name="region" type="string" value="ENTIRE_MESH_REGION" />
+            <Parameter name="region" type="string" value="hyporheic domain" />
             <Parameter name="components" type="Array(string)" value="{face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
