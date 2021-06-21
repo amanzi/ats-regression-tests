@@ -11,8 +11,8 @@
       <Parameter name="build columns from set" type="string" value="surface" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
         <Parameter name="number of cells" type="Array(int)" value="{1,1,100}" />
-        <Parameter name="domain low coordinate" type="Array(double)" value="{0.0,0.0,0.0}" />
-        <Parameter name="domain high coordinate" type="Array(double)" value="{1.0,1.0,10.0}" />
+        <Parameter name="domain low coordinate" type="Array(double)" value="{ 0, 0, 0}" />
+        <Parameter name="domain high coordinate" type="Array(double)" value="{ 1, 1,10}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -28,25 +28,25 @@
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{0.5,0.5,10.0}" />
-        <Parameter name="normal" type="Array(double)" value="{0.0,0.0,1.0}" />
+        <Parameter name="point" type="Array(double)" value="{0.5,0.5,10}" />
+        <Parameter name="normal" type="Array(double)" value="{ 0, 0, 1}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="bottom face" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{0.5,0.5,0.0}" />
-        <Parameter name="normal" type="Array(double)" value="{0.0,0.0,-1.0}" />
+        <Parameter name="point" type="Array(double)" value="{0.5,0.5, 0}" />
+        <Parameter name="normal" type="Array(double)" value="{ 0, 0,-1}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
-    <Parameter name="start time" type="double" value="0.0" />
+    <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="30.0" />
+    <Parameter name="end time" type="double" value="30" />
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="required times" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400.0,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
     </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="surface-subsurface coupler" type="ParameterList">
@@ -81,7 +81,7 @@
           <Parameter name="cycle iterations" type="int" value="1" />
           <Parameter name="smoother sweeps" type="int" value="1" />
           <Parameter name="strong threshold" type="double" value="0.85" />
-          <Parameter name="tolerance" type="double" value="0.0" />
+          <Parameter name="tolerance" type="double" value=" 0" />
         </ParameterList>
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="high" />
@@ -109,7 +109,7 @@
           <Parameter name="backtrack factor" type="double" value="0.5" />
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
           <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
-          <Parameter name="diverged tolerance" type="double" value="1000000.0" />
+          <Parameter name="diverged tolerance" type="double" value="1000000" />
           <Parameter name="limit iterations" type="int" value="21" />
           <ParameterList name="verbose object" type="ParameterList">
             <Parameter name="verbosity level" type="string" value="high" />
@@ -122,8 +122,8 @@
           <Parameter name="max iterations" type="int" value="18" />
           <Parameter name="min iterations" type="int" value="10" />
           <Parameter name="time step reduction factor" type="double" value="0.5" />
-          <Parameter name="time step increase factor" type="double" value="2.0" />
-          <Parameter name="max time step" type="double" value="10000000.0" />
+          <Parameter name="time step increase factor" type="double" value=" 2" />
+          <Parameter name="max time step" type="double" value="10000000" />
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
@@ -137,8 +137,8 @@
       <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key" type="string" value="water_source" />
-      <Parameter name="initial time step" type="double" value="10.0" />
-      <Parameter name="permeability rescaling" type="double" value="10000000.0" />
+      <Parameter name="initial time step" type="double" value="10" />
+      <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="clobber surface rel perm" type="bool" value="false" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="debug cells" type="Array(int)" value="{2791}" />
@@ -164,9 +164,9 @@
             <Parameter name="components" type="Array(string)" value="{cell,face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-linear" type="ParameterList">
-                <Parameter name="x0" type="Array(double)" value="{0.0,0.0,0.0,9.0}" />
-                <Parameter name="y0" type="double" value="101325.0" />
-                <Parameter name="gradient" type="Array(double)" value="{0.0,0.0,0.0,-9806.2306853}" />
+                <Parameter name="x0" type="Array(double)" value="{ 0, 0, 0, 9}" />
+                <Parameter name="y0" type="double" value="101325" />
+                <Parameter name="gradient" type="Array(double)" value="{ 0, 0, 0,-9806.2307}" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -174,7 +174,7 @@
       </ParameterList>
 
       <ParameterList name="water retention evaluator" type="ParameterList">
-        <Parameter name="minimum rel perm cutoff" type="double" value="0.0" />
+        <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
         <Parameter name="use surface rel perm" type="bool" value="true" />
         <Parameter name="checkpoint" type="bool" value="true" />
         <ParameterList name="WRM parameters" type="ParameterList">
@@ -200,7 +200,7 @@
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="water source in meters" type="bool" value="true" />
-      <Parameter name="initial time step" type="double" value="10.0" />
+      <Parameter name="initial time step" type="double" value="10" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
@@ -247,8 +247,8 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="x values" type="Array(double)" value="{0.0,86400.0,777600.0,864000.0,1296000.0,1382400.0}" />
-                <Parameter name="y values" type="Array(double)" value="{3e-07,0.0,3e-07,0.0,3e-07,0.0}" />
+                <Parameter name="x values" type="Array(double)" value="{ 0,86400,777600,864000,1296000,1382400}" />
+                <Parameter name="y values" type="Array(double)" value="{3e-07, 0,3e-07, 0,3e-07, 0}" />
                 <Parameter name="forms" type="Array(string)" value="{constant, constant, constant, constant, constant}" />
               </ParameterList>
             </ParameterList>
@@ -267,20 +267,20 @@
 
       <ParameterList name="surface-manning_coefficient">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="100.0" />
+        <Parameter name="value" type="double" value="100" />
       </ParameterList>
 
       <ParameterList name="water_source" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="additive evaluator" />
         <Parameter name="evaluator dependencies" type="Array(string)" value="{transpiration}" />
-        <Parameter name="transpiration coefficient" type="double" value="-1.0" />
+        <Parameter name="transpiration coefficient" type="double" value="-1" />
         <Parameter name="use model from ATS 1.1" type="bool" value="true" />
       </ParameterList>
 
       <ParameterList name="transpiration" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="transpiration distribution via rooting depth" />
-        <Parameter name="transpiration turn on date" type="double" value="0.0" />
-        <Parameter name="transpiration turn off date" type="double" value="999.0" />
+        <Parameter name="transpiration turn on date" type="double" value=" 0" />
+        <Parameter name="transpiration turn off date" type="double" value="999" />
         <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
 
@@ -313,7 +313,13 @@
 
       <ParameterList name="surface-potential_transpiration_mps" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="potential evapotranspiration, Priestley-Taylor" />
+        <Parameter name="evaporation type" type="string" value="transpiration" />
+        <Parameter name="air temperature key" type="string" value="surface-air_temperature" />
+        <Parameter name="surface temperature key" type="string" value="surface-temperature" />
+        <Parameter name="relative humidity key" type="string" value="surface-relative_humidity" />
+        <Parameter name="elevation key" type="string" value="surface-elevation" />
         <Parameter name="net radiation key suffix" type="string" value="shortwave_radiation" />
+        <Parameter name="units" type="string" value="m s^-1" />
       </ParameterList>
 
       <ParameterList name="surface-air_temperature" type="ParameterList">
@@ -369,7 +375,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="400.0" />
+                <Parameter name="value" type="double" value="400" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -435,7 +441,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1.0" />
+                <Parameter name="value" type="double" value=" 1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -451,7 +457,7 @@
             <Parameter name="components" type="Array(string)" value="{cell, boundary_face}" />
             <ParameterList name="function">
               <ParameterList name="function-constant">
-                <Parameter name="value" type="double" value="55000.0" />
+                <Parameter name="value" type="double" value="55000" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -467,7 +473,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function">
               <ParameterList name="function-constant">
-                <Parameter name="value" type="double" value="997.0" />
+                <Parameter name="value" type="double" value="997" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -499,7 +505,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function">
               <ParameterList name="function-constant">
-                <Parameter name="value" type="double" value="55000.0" />
+                <Parameter name="value" type="double" value="55000" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -515,7 +521,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function">
               <ParameterList name="function-constant">
-                <Parameter name="value" type="double" value="55000.0" />
+                <Parameter name="value" type="double" value="55000" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -531,7 +537,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function">
               <ParameterList name="function-constant">
-                <Parameter name="value" type="double" value="997.0" />
+                <Parameter name="value" type="double" value="997" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -542,7 +548,7 @@
         <Parameter name="field evaluator type" type="string" value="overland conductivity" />
         <ParameterList name="overland conductivity model" type="ParameterList">
           <Parameter name="overland conductivity type " type="string" value="manning" />
-          <Parameter name="Manning exponent" type="double" value="0.666666666667" />
+          <Parameter name="Manning exponent" type="double" value="0.66666667" />
           <Parameter name="slope regularization epsilon" type="double" value="0.01" />
         </ParameterList>
       </ParameterList>
@@ -551,11 +557,11 @@
     <ParameterList name="initial conditions" type="ParameterList">
 
       <ParameterList name="atmospheric_pressure" type="ParameterList">
-        <Parameter name="value" type="double" value="101325.0" />
+        <Parameter name="value" type="double" value="101325" />
       </ParameterList>
 
       <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{0.0,0.0,-9.80665}" />
+        <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
       </ParameterList>
 
       <ParameterList name="land cover types" type="ParameterList">
@@ -567,12 +573,14 @@
           <Parameter name="water transition depth [m]" type="double" value="0.02" />
           <Parameter name="albedo of ground surface [-]" type="double" value="0.135" />
           <Parameter name="emissivity of ground surface [-]" type="double" value="0.92" />
-
-          <Parameter name="rooting profile alpha [-]" type="double" value="7.0" />
+          <Parameter name="rooting profile alpha [-]" type="double" value=" 7" />
           <Parameter name="rooting profile beta [-]" type="double" value="1.75" />
           <Parameter name="rooting depth max [m]" type="double" value="1.5" />
-          <Parameter name="mafic potential at fully open stomata [Pa]" type="double" value="10000.0" />
-          <Parameter name="mafic potential at fully closed stomata [Pa]" type="double" value="40000.0" />
+          <Parameter name="mafic potential at fully open stomata [Pa]" type="double" value="10000" />
+          <Parameter name="mafic potential at fully closed stomata [Pa]" type="double" value="40000" />
+          <Parameter name="Priestley-Taylor alpha of transpiration [-]" type="double" value="1.26" />
+          <Parameter name="leaf on time [doy]" type="double" value="-1" /><!-- evergreen -->
+          <Parameter name="leaf off time [doy]" type="double" value="-1" />
         </ParameterList>
       </ParameterList>
 
@@ -583,15 +591,15 @@
   </ParameterList>
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400.0,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400.0,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="checkpoint">
-    <Parameter name="times start period stop" type="Array(double)" value="{0.0,864000.0,-1.0}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{ 0,864000,-1}" />
   </ParameterList>
 
   <ParameterList name="observations" type="ParameterList">
@@ -603,7 +611,7 @@
       <Parameter name="location name" type="string" value="cell" />
       <Parameter name="write interval" type="int" value="30" />
       <Parameter name="observation output filename" type="string" value="surface-potential_transpiration_mps.dat" />
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400.0,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
     </ParameterList>
     <ParameterList name="total_transpiration" type="ParameterList">
       <Parameter name="variable" type="string" value="surface-total_transpiration" />
@@ -613,7 +621,7 @@
       <Parameter name="location name" type="string" value="cell" />
       <Parameter name="write interval" type="int" value="30" />
       <Parameter name="observation output filename" type="string" value="surface-total_transpiration.dat" />
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400.0,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
     </ParameterList>
     <ParameterList name="ponded_depth" type="ParameterList">
       <Parameter name="variable" type="string" value="surface-ponded_depth" />
@@ -623,7 +631,7 @@
       <Parameter name="location name" type="string" value="cell" />
       <Parameter name="write interval" type="int" value="30" />
       <Parameter name="observation output filename" type="string" value="surface-ponded_depth.dat" />
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400.0,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
     </ParameterList>
     <ParameterList name="water_content" type="ParameterList">
       <Parameter name="variable" type="string" value="water_content" />
@@ -633,7 +641,7 @@
       <Parameter name="location name" type="string" value="cell" />
       <Parameter name="write interval" type="int" value="30" />
       <Parameter name="observation output filename" type="string" value="water_content.dat" />
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400.0,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
     </ParameterList>
     <ParameterList name="surface-water_content" type="ParameterList">
       <Parameter name="variable" type="string" value="surface-water_content" />
@@ -643,7 +651,7 @@
       <Parameter name="location name" type="string" value="cell" />
       <Parameter name="write interval" type="int" value="30" />
       <Parameter name="observation output filename" type="string" value="surface-water_content.dat" />
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400.0,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
     </ParameterList>
   </ParameterList>
 </ParameterList>

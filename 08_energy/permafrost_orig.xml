@@ -526,7 +526,7 @@
         <ParameterList name="surface rel perm model" type="ParameterList">
           <Parameter name="surface rel perm model type" type="string" value="unfrozen fraction rel perm, limit one" />
           <Parameter name="unfrozen rel perm cutoff pressure [Pa]" type="double" value="10.0" />
-          <Parameter name="unfrozen rel perm cutoff pressure, below [Pa]" type="double" value="0.0" />
+          <Parameter name="unfrozen rel perm cutoff pressure, below [Pa]" type="double" value="-100.0" />
         </ParameterList>
       </ParameterList>
 
@@ -790,7 +790,6 @@
         <Parameter name="field evaluator type" type="string" value="surface energy balance, two components" />
         <Parameter name="save diagnostic data" type="bool" value="true" />
         <Parameter name="debug cells" type="Array(int)" value="{0}" />
-        <Parameter name="use model from ATS 1.1" type="bool" value="true" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
@@ -824,11 +823,11 @@
         <ParameterList name="surface domain" type="ParameterList">
           <Parameter name="dessicated zone thickness [m]" type="double" value="0.1" />
           <Parameter name="roughness length of bare ground [m]" type="double" value="0.04" />
-          <Parameter name="roughness length of snow-covered ground [m]" type="double" value="0.004" />
+          <Parameter name="roughness length of snow [m]" type="double" value="0.004" />
           <Parameter name="snow transition depth [m]" type="double" value="0.02" />
-          <Parameter name="water transition depth [m]" type="double" value="0.02" />
-          <Parameter name="albedo of ground surface [-]" type="double" value="0.135" />
-          <Parameter name="emissivity of ground surface [-]" type="double" value="0.92" />
+          <Parameter name="water transition depth [m]" type="double" value="0.001" />
+          <Parameter name="albedo of bare ground [-]" type="double" value="0.135" />
+          <Parameter name="emissivity of bare ground [-]" type="double" value="0.92" />
         </ParameterList>
       </ParameterList>
 
