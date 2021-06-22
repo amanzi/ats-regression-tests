@@ -3,49 +3,44 @@
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="mesh type" type="string" value="aliased" />
       <ParameterList name="aliased parameters">
-        <Parameter name="alias" type="string" value="domain" />
+        <Parameter name="target" type="string" value="domain" />
       </ParameterList>
     </ParameterList>
-
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="logical mesh" />
       <ParameterList name="logical mesh parameters" type="ParameterList">
         <ParameterList name="segments" type="ParameterList">
-	  <ParameterList name="Stream" type="ParameterList">
+          <ParameterList name="Stream" type="ParameterList">
             <Parameter name="number of cells" type="int" value="100" />
-	    <Parameter name="total length" type="double" value="1000" />
+            <Parameter name="total length" type="double" value="1000.0" />
             <Parameter name="cross sectional area [m^2]" type="double" value="1.0" />
             <Parameter name="first tip" type="Array(double)" value="{0.0,0.0,0.0}" />
             <Parameter name="first tip type" type="string" value="boundary" />
             <Parameter name="last tip" type="Array(double)" value="{1000.0,0.0,0.0}" />
             <Parameter name="last tip type" type="string" value="boundary" />
           </ParameterList>
-	</ParameterList>
+        </ParameterList>
       </ParameterList>
     </ParameterList>
-    
   </ParameterList>
 
   <ParameterList name="regions" type="ParameterList">
-
     <ParameterList name="surface domain" type="ParameterList">
-      <ParameterList name="region: all" type="ParameterList"/>
+      <ParameterList name="region: all" type="ParameterList">
+      </ParameterList>
     </ParameterList>
-
     <ParameterList name="surface west" type="ParameterList">
       <ParameterList name="region: enumerated set" type="ParameterList">
         <Parameter name="entity" type="string" value="cell" />
         <Parameter name="entity gids" type="Array(int)" value="{0}" />
       </ParameterList>
     </ParameterList>
-
     <ParameterList name="surface east" type="ParameterList">
       <ParameterList name="region: enumerated set" type="ParameterList">
         <Parameter name="entity" type="string" value="cell" />
         <Parameter name="entity gids" type="Array(int)" value="{99}" />
       </ParameterList>
     </ParameterList>
-    
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
@@ -69,17 +64,16 @@
   <ParameterList name="verbose object" type="ParameterList">
     <Parameter name="verbosity level" type="string" value="high" />
   </ParameterList>
-
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0,0.1,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0,0.1,-1.0}" />
       <Parameter name="times start period stop units" type="string" value="h" />
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="file name base" type="string" value="checkpoint" />
-    <Parameter name="times start period stop" type="Array(double)" value="{0,0.5,-1}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0.0,0.5,-1.0}" />
     <Parameter name="times start period stop units" type="string" value="h" />
   </ParameterList>
 

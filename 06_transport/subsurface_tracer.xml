@@ -35,14 +35,12 @@
         <Parameter name="entity" type="string" value="face" />
       </ParameterList>
     </ParameterList>
-
     <ParameterList name="well" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{990.0,-10.0,98.}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{1000.0,10.0,100.}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{990.0,-10.0,98.0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{1000.0,10.0,100.0}" />
       </ParameterList>
     </ParameterList>
-
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
@@ -57,7 +55,6 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{0.0,10.0,-1.0}" />
@@ -85,7 +82,6 @@
       <Parameter name="number of aqueous components" type="int" value="2" />
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
-
       <Parameter name="debug cells" type="Array(int)" value="{9999}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
@@ -99,7 +95,7 @@
 
       <ParameterList name="molecular diffusion" type="ParameterList">
         <Parameter name="aqueous names" type="Array(string)" value="{Tracer1,Tracer2}" />
-        <Parameter name="aqueous values" type="Array(double)" value="{1.e-10,1}" />
+        <Parameter name="aqueous values" type="Array(double)" value="{1e-10,1.0}" />
       </ParameterList>
 
       <ParameterList name="material properties">
@@ -122,13 +118,13 @@
 
       <ParameterList name="inverse">
         <Parameter name="preconditioning method" type="string" value="boomer amg" />
+        <Parameter name="iterative method" type="string" value="pcg" />
         <ParameterList name="boomer amg parameters">
           <Parameter name="tolerance" type="double" value="0.0" />
           <Parameter name="smoother sweeps" type="int" value="3" />
           <Parameter name="cycle applications" type="int" value="5" />
           <Parameter name="strong threshold" type="double" value="0.5" />
         </ParameterList>
-        <Parameter name="iterative method" type="string" value="pcg" />
         <ParameterList name="pcg parameters">
           <Parameter name="maximum number of iterations" type="int" value="400" />
           <Parameter name="error tolerance" type="double" value="1e-20" />
@@ -140,11 +136,10 @@
         </ParameterList>
       </ParameterList>
 
-
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="constant" type="double" value="0.0" />
       </ParameterList>
-      
+
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="concentration" type="ParameterList">
           <ParameterList name="tracer1" type="ParameterList">
@@ -155,7 +150,7 @@
               <Parameter name="number of dofs" type="int" value="1" />
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="1.0" /><!-- 1 mol Tracer1 / m^3 / s -->
+                  <Parameter name="value" type="double" value="1.0" />
                 </ParameterList>
               </ParameterList>
             </ParameterList>
@@ -180,7 +175,7 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-      
+
     </ParameterList>
 
   </ParameterList>
@@ -213,17 +208,10 @@
 
       <ParameterList name="molar_density_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="55000" />
+        <Parameter name="value" type="double" value="55000.0" />
       </ParameterList>
 
-      <!--
-      <ParameterList name="mass_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="1000" />
-      </ParameterList>
-      -->
     </ParameterList>
-
     <ParameterList name="initial conditions" type="ParameterList">
 
       <ParameterList name="atmospheric_pressure" type="ParameterList">

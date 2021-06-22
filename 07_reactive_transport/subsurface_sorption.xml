@@ -1,12 +1,11 @@
 <ParameterList name="Main" type="ParameterList">
   <ParameterList name="mesh" type="ParameterList">
-    
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="generate mesh" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
         <Parameter name="number of cells" type="Array(int)" value="{100,1,1}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{0.0,0.0,0.0}" />
-        <Parameter name="domain high coordinate" type="Array(double)" value="{100.0,2,1.5}" />
+        <Parameter name="domain high coordinate" type="Array(double)" value="{100.0,2.0,1.5}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -21,19 +20,19 @@
     <ParameterList name="west" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
         <Parameter name="low coordinate" type="Array(double)" value="{0.0,0.0,0.0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{0.0,2,1.5}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{0.0,2.0,1.5}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="east" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
         <Parameter name="low coordinate" type="Array(double)" value="{100.0,0.0,0.0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{100.0,2, 1.5}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{100.0,2.0,1.5}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="outlet" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{99.5, 0.0, 0.0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{100, 2, 1.5}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{99.5,0.0,0.0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{100.0,2.0,1.5}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -42,7 +41,7 @@
     <Parameter name="end cycle" type="int" value="-1" />
     <Parameter name="start time" type="double" value="0.0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="36000" />
+    <Parameter name="end time" type="double" value="36000.0" />
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="Reactive Transport" type="ParameterList">
@@ -59,45 +58,37 @@
   <ParameterList name="verbose object" type="ParameterList">
     <Parameter name="verbosity level" type="string" value="high" />
   </ParameterList>
-
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="file name base" type="string" value="checkpoint" />
     <Parameter name="cycles start period stop" type="Array(int)" value="{0,20,100}" />
   </ParameterList>
 
-    
   <ParameterList name="observations">
     <ParameterList name="subsurface-component_concentration">
-      <Parameter name="variable" type="string" value="total_component_concentration"/>
-      <!--Parameter name="direction normalized flux" type="bool" value="true" /-->
-      <Parameter name="functional" type="string" value="point"/>
-      <Parameter name="region" type="string" value="outlet"/>
-      <Parameter name="delimiter" type="string" value=" "/>
-      <Parameter name="location name" type="string" value="cell"/>
-      <Parameter name="number of vectors" type="int" value="1"/>
-      <Parameter name="write interval" type="int" value="1"/>
-      <Parameter name="observation output filename" type="string" value="outlet.dat"/>
-      <Parameter name="times start period stop" type="Array(double)" value="{0,100,-1.}"/> <!-- in (mole-solute/mol-water); in this case expected plateau at 0.018018  -->
+      <Parameter name="variable" type="string" value="total_component_concentration" />
+      <Parameter name="functional" type="string" value="point" />
+      <Parameter name="region" type="string" value="outlet" />
+      <Parameter name="delimiter" type="string" value=" " />
+      <Parameter name="location name" type="string" value="cell" />
+      <Parameter name="number of vectors" type="int" value="1" />
+      <Parameter name="write interval" type="int" value="1" />
+      <Parameter name="observation output filename" type="string" value="outlet.dat" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0,100.0,-1.0}" />
       <Parameter name="times start period stop units" type="string" value="s" />
     </ParameterList>
-
-     <ParameterList name="subsurface-sorbed_concentration">
-      <Parameter name="variable" type="string" value="total_sorbed"/>
-     
-      <Parameter name="functional" type="string" value="point"/>
-      <Parameter name="region" type="string" value="outlet"/>
-      <Parameter name="delimiter" type="string" value=" "/>
-      <Parameter name="location name" type="string" value="cell"/>
-      <Parameter name="number of vectors" type="int" value="1"/>
-      <Parameter name="write interval" type="int" value="1"/>
-      <Parameter name="observation output filename" type="string" value="outlet_sorbed.dat"/> <!-- in (mole-solute/m^3-bulk); in this case expected plateau at 100.18  -->
-      <Parameter name="times start period stop" type="Array(double)" value="{0,100,-1.}"/>
+    <ParameterList name="subsurface-sorbed_concentration">
+      <Parameter name="variable" type="string" value="total_sorbed" />
+      <Parameter name="functional" type="string" value="point" />
+      <Parameter name="region" type="string" value="outlet" />
+      <Parameter name="delimiter" type="string" value=" " />
+      <Parameter name="location name" type="string" value="cell" />
+      <Parameter name="number of vectors" type="int" value="1" />
+      <Parameter name="write interval" type="int" value="1" />
+      <Parameter name="observation output filename" type="string" value="outlet_sorbed.dat" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0,100.0,-1.0}" />
       <Parameter name="times start period stop units" type="string" value="s" />
     </ParameterList>
   </ParameterList>
-
-
-
   <ParameterList name="PKs" type="ParameterList">
 
     <ParameterList name="Reactive Transport" type="ParameterList">
@@ -121,7 +112,7 @@
       <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
       <Parameter name="number of liquid components" type="int" value="2" />
       <Parameter name="component molar masses" type="Array(double)" value="{1.0}" />
-      <Parameter name="spatial discretization order" type="int" value="2" /> <!-- lower order scheme with sorption will lead to numerical dispersion  -->
+      <Parameter name="spatial discretization order" type="int" value="2" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value="1.0" />
       <Parameter name="solver" type="string" value="PCG with Hypre AMG" />
@@ -140,20 +131,15 @@
         <Parameter name="limiter extension for transport" type="bool" value="true" />
       </ParameterList>
 
-      <!--ParameterList name="molecular diffusion" type="ParameterList">
-        <Parameter name="aqueous names" type="Array(string)" value="{Tracer1}" />
-        <Parameter name="aqueous values" type="Array(double)" value="{0.00000001}" />
-      </ParameterList-->
-
       <ParameterList name="material properties">
         <ParameterList name="domain">
           <Parameter name="regions" type="Array(string)" value="{subsurface domain}" />
           <Parameter name="model" type="string" value="Bear" />
           <Parameter name="aqueous tortuosity" type="double" value="1.0" />
           <Parameter name="gaseous tortuosity" type="double" value="1.0" />
-	  <ParameterList name="parameters for Bear">
-            <Parameter name="alpha_l" type="double" value="0"/>
-            <Parameter name="alpha_t" type="double" value="0"/>
+          <ParameterList name="parameters for Bear">
+            <Parameter name="alpha_l" type="double" value="0.0" />
+            <Parameter name="alpha_t" type="double" value="0.0" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
@@ -206,7 +192,6 @@
 
       <ParameterList name="physical models and assumptions" type="ParameterList">
         <Parameter name="effective transport porosity" type="bool" value="false" />
-        <!--Parameter name="permeability field is required" type="bool" value="false" /-->
       </ParameterList>
 
     </ParameterList>
@@ -220,7 +205,6 @@
       <Parameter name="activity model" type="string" value="unit" />
       <Parameter name="maximum Newton iterations" type="int" value="100" />
       <Parameter name="saturation liquid key" type="string" value="saturation_liquid" />
-    
       <Parameter name="tolerance" type="double" value="1e-12" />
       <Parameter name="max time step (s)" type="double" value="15778463.0" />
       <Parameter name="min time step (s)" type="double" value="10000000000.0" />
@@ -268,7 +252,6 @@
         </ParameterList>
       </ParameterList>
 
-      
       <ParameterList name="mass_flux" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
         <Parameter name="dot with normal" type="bool" value="true" />
@@ -280,7 +263,7 @@
               <Parameter name="number of dofs" type="int" value="3" />
               <ParameterList name="dof 1 function" type="ParameterList">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="138.75" /> <!-- in mol/m^2; equivalent to 0.0025 m^3/(m^2*s)-->
+                  <Parameter name="value" type="double" value="138.75" />
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function" type="ParameterList">
@@ -288,7 +271,7 @@
                   <Parameter name="value" type="double" value="0.0" />
                 </ParameterList>
               </ParameterList>
-	      <ParameterList name="dof 3 function" type="ParameterList">
+              <ParameterList name="dof 3 function" type="ParameterList">
                 <ParameterList name="function-constant" type="ParameterList">
                   <Parameter name="value" type="double" value="0.0" />
                 </ParameterList>
@@ -297,8 +280,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
-      
 
       <ParameterList name="porosity" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
@@ -309,7 +290,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.25" /> 
+                <Parameter name="value" type="double" value="0.25" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -319,7 +300,6 @@
         </ParameterList>
       </ParameterList>
 
-      
       <ParameterList name="saturation_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -329,7 +309,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1" />
+                <Parameter name="value" type="double" value="1.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -339,8 +319,6 @@
         </ParameterList>
       </ParameterList>
 
-
-	
       <ParameterList name="permeability" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -369,7 +347,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="55500" /> <!-- mol-water/m^3-water -->
+                <Parameter name="value" type="double" value="55500.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -393,7 +371,6 @@
       </ParameterList>
 
     </ParameterList>
-    
     <ParameterList name="initial conditions" type="ParameterList">
 
       <ParameterList name="atmospheric_pressure" type="ParameterList">
@@ -407,22 +384,20 @@
       <ParameterList name="isotherm_kd" type="ParameterList">
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="All" type="ParameterList">
-            <Parameter name="region" type="string" value="subsurface domain"/>
-            <Parameter name="component" type="string" value="cell"/>
+            <Parameter name="region" type="string" value="subsurface domain" />
+            <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
-              <Parameter name="number of dofs" type="int" value="1"/>
-              <Parameter name="function type" type="string" value="composite function"/>
+              <Parameter name="number of dofs" type="int" value="1" />
+              <Parameter name="function type" type="string" value="composite function" />
               <ParameterList name="dof 1 function" type="ParameterList">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="100"/>
-		  <!-- expected to retard advection by a factor of 1.40072 = Kd (𝑘𝑔 𝑤𝑎𝑡𝑒𝑟)/(𝑚^3 𝑏𝑢𝑙𝑘) 1/𝜌_𝑤  (𝑚^3 𝑤𝑎𝑡𝑒𝑟)/(𝑘𝑔 𝑤𝑎𝑡𝑒𝑟) 1/𝜃 (𝑚^3 𝑏𝑢𝑙𝑘)/(𝑚^3 𝑤𝑎𝑡𝑒𝑟)  -->
+                  <Parameter name="value" type="double" value="100.0" />
                 </ParameterList>
               </ParameterList>
             </ParameterList>
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
 
     </ParameterList>
   </ParameterList>

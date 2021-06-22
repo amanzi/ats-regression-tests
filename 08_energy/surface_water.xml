@@ -11,7 +11,7 @@
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="mesh type" type="string" value="aliased" />
       <ParameterList name="aliased parameters" type="ParameterList">
-        <Parameter name="alias" type="string" value="domain" />
+        <Parameter name="target" type="string" value="domain" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -77,7 +77,6 @@
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="PKs order" type="Array(string)" value="{overland flow,surface energy}" />
       <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="false" />
-
       <ParameterList name="surface ewc delegate" type="ParameterList">
         <Parameter name="predictor type" type="string" value="smart ewc" />
         <Parameter name="molar density ice key" type="string" value="surface-molar_density_ice" />

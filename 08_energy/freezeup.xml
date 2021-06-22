@@ -469,6 +469,18 @@
         <Parameter name="value" type="Array(double)" value="{0.0,0.0,-9.80665}" />
       </ParameterList>
 
+      <ParameterList name="land cover types" type="ParameterList">
+        <ParameterList name="surface domain" type="ParameterList">
+          <Parameter name="dessicated zone thickness [m]" type="double" value="0.1" />
+          <Parameter name="roughness length of bare ground [m]" type="double" value="0.04" />
+          <Parameter name="roughness length of snow-covered ground [m]" type="double" value="0.004" />
+          <Parameter name="snow transition depth [m]" type="double" value="0.02" />
+          <Parameter name="water transition depth [m]" type="double" value="0.02" />
+          <Parameter name="albedo of ground surface [-]" type="double" value="0.135" />
+          <Parameter name="emissivity of ground surface [-]" type="double" value="0.92" />
+        </ParameterList>
+      </ParameterList>
+
     </ParameterList>
   </ParameterList>
 </ParameterList>

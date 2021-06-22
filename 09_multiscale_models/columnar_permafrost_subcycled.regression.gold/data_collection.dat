@@ -1,0 +1,129 @@
+# Observation File: data_collection.dat column names:
+# -----------------------------------------------------------------------------
+# Observation Name: time [d]
+# -----------------------------------------------------------------------------
+# Observation Name: outlet discharge [mol d^-1]
+# Region: surface outlet
+# Functional: extensive integral
+# Variable: surface_star-mass_flux
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: total evaporation [m d^-1]
+# Region: surface domain
+# Functional: average
+# Variable: surface_star-evaporative_flux
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: snow precipitation [m d^-1]
+# Region: surface domain
+# Functional: average
+# Variable: surface_star-precipitation
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: rain precipitation [m d^-1]
+# Region: surface domain
+# Functional: average
+# Variable: surface_star-precipitation_rain
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: surface water content [mol]
+# Region: surface domain
+# Functional: extensive integral
+# Variable: surface_star-water_content
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: subsurface water content [mol]
+# Region: surface domain
+# Functional: extensive integral
+# Variable: surface_star-water_content_column
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: snow water content [mol]
+# Region: surface domain
+# Functional: extensive integral
+# Variable: surface_star-water_content_snow
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: surface air temperature [K]
+# Region: surface domain
+# Functional: average
+# Variable: surface_star-air_temperature
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: surface carbon decomposition rate [-]
+# Region: surface domain
+# Functional: average
+# Variable: surface_star-carbon_decomposition_rate
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: surface moisture content [-]
+# Region: surface domain
+# Functional: average
+# Variable: surface_star-moisture_content
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: surface gas content [-]
+# Region: surface domain
+# Functional: average
+# Variable: surface_star-gas_content
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: surface volumetric wc [-]
+# Region: surface domain
+# Functional: average
+# Variable: surface_star-volumetric_wc
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: surface column average temperature [K]
+# Region: surface domain
+# Functional: average
+# Variable: surface_star-column_avg_temp
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: surface ALT average temperature [K]
+# Region: surface domain
+# Functional: average
+# Variable: surface_star-alt_avg_temp
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: surface saturated_fraction [-]
+# Region: surface domain
+# Functional: average
+# Variable: surface_star-saturated_fraction
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: surface thaw depth min [m]
+# Region: surface domain
+# Functional: minimum
+# Variable: surface_star-thaw_depth
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: surface thaw depth max [m]
+# Region: surface domain
+# Functional: maximum
+# Variable: surface_star-thaw_depth
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: surface maximum thaw depth[m]
+# Region: surface domain
+# Functional: average
+# Variable: surface_star-maximum_thaw_depth
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: surface water table [m]
+# Region: surface domain
+# Functional: average
+# Variable: surface_star-water_table
+# Number of Vectors: 1
+# =============================================================================
+"time [d]","outlet discharge [mol d^-1]","total evaporation [m d^-1]","snow precipitation [m d^-1]","rain precipitation [m d^-1]","surface water content [mol]","subsurface water content [mol]","snow water content [mol]","surface air temperature [K]","surface carbon decomposition rate [-]","surface moisture content [-]","surface gas content [-]","surface volumetric wc [-]","surface column average temperature [K]","surface ALT average temperature [K]","surface saturated_fraction [-]","surface thaw depth min [m]","surface thaw depth max [m]","surface maximum thaw depth[m]","surface water table [m]"
+5.000000000000e-01,0.000000000000e+00,1.187009104252e-04,2.565190034163e-04,0.000000000000e+00,0.000000000000e+00,1.160758720748e+09,1.914080920999e-01,2.502185047243e+02,0.000000000000e+00,0.000000000000e+00,2.425293168571e-01,0.000000000000e+00,2.635692728584e+02,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00
+1.500000000000e+00,0.000000000000e+00,1.852527303325e-04,5.130380068327e-04,0.000000000000e+00,0.000000000000e+00,1.160754053636e+09,5.296807203433e-01,2.501020524143e+02,0.000000000000e+00,0.000000000000e+00,2.423870311841e-01,0.000000000000e+00,2.613218591240e+02,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00
+2.500000000000e+00,0.000000000000e+00,1.989667231894e-04,5.130380068327e-04,0.000000000000e+00,0.000000000000e+00,1.160750901438e+09,8.300262450937e-01,2.499661250828e+02,0.000000000000e+00,0.000000000000e+00,2.423090153032e-01,0.000000000000e+00,2.600473515202e+02,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00
+3.500000000000e+00,0.000000000000e+00,2.124397608867e-04,5.130380068327e-04,0.000000000000e+00,0.000000000000e+00,1.160748473073e+09,1.106883528908e+00,2.498193864092e+02,0.000000000000e+00,0.000000000000e+00,2.422562403585e-01,0.000000000000e+00,2.591283075779e+02,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00
+4.500000000000e+00,0.000000000000e+00,2.247523770348e-04,5.130380068327e-04,0.000000000000e+00,0.000000000000e+00,1.160746570347e+09,1.364722995642e+00,2.496660543869e+02,0.000000000000e+00,0.000000000000e+00,2.422180635815e-01,0.000000000000e+00,2.584280642979e+02,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00
+5.500000000000e+00,0.000000000000e+00,2.345605936978e-04,5.130380068327e-04,0.000000000000e+00,0.000000000000e+00,1.160745080274e+09,1.607522297004e+00,2.495004522693e+02,0.000000000000e+00,0.000000000000e+00,2.421885224261e-01,0.000000000000e+00,2.578763880608e+02,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00
+6.500000000000e+00,0.000000000000e+00,2.429943245062e-04,5.130380068327e-04,0.000000000000e+00,0.000000000000e+00,1.160743933156e+09,1.837602940597e+00,2.493463389818e+02,0.000000000000e+00,0.000000000000e+00,2.421650940703e-01,0.000000000000e+00,2.574426215137e+02,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00
+7.500000000000e+00,0.000000000000e+00,2.524369362330e-04,5.130380068327e-04,0.000000000000e+00,0.000000000000e+00,1.160743086170e+09,2.054953928430e+00,2.492336174214e+02,0.000000000000e+00,0.000000000000e+00,2.421473174709e-01,0.000000000000e+00,2.571180298821e+02,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00
+8.500000000000e+00,0.000000000000e+00,2.628164597356e-04,5.130380068327e-04,0.000000000000e+00,0.000000000000e+00,1.160742517214e+09,2.259246944708e+00,2.491541979046e+02,0.000000000000e+00,0.000000000000e+00,2.421354756319e-01,0.000000000000e+00,2.569033641986e+02,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00
+9.500000000000e+00,0.000000000000e+00,2.740773743955e-04,5.130380068327e-04,0.000000000000e+00,0.000000000000e+00,1.160742202543e+09,2.450874198561e+00,2.490688841413e+02,0.000000000000e+00,0.000000000000e+00,2.421296203192e-01,0.000000000000e+00,2.567963944838e+02,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00

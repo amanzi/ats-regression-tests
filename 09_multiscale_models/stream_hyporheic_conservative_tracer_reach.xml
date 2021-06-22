@@ -3,48 +3,47 @@
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="mesh type" type="string" value="aliased" />
       <ParameterList name="aliased parameters">
-        <Parameter name="alias" type="string" value="domain" />
+        <Parameter name="target" type="string" value="domain" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="logical mesh" />
       <ParameterList name="logical mesh parameters" type="ParameterList">
         <ParameterList name="segments" type="ParameterList">
-	  <ParameterList name="Stream" type="ParameterList">
+          <ParameterList name="Stream" type="ParameterList">
             <Parameter name="number of cells" type="int" value="10" />
-	    <Parameter name="total length" type="double" value="1000" />
+            <Parameter name="total length" type="double" value="1000.0" />
             <Parameter name="cross sectional area [m^2]" type="double" value="0.5496" />
             <Parameter name="first tip" type="Array(double)" value="{0.0,0.0,0.0}" />
             <Parameter name="first tip type" type="string" value="boundary" />
             <Parameter name="last tip" type="Array(double)" value="{1000.0,0.0,0.0}" />
             <Parameter name="last tip type" type="string" value="boundary" />
           </ParameterList>
-	</ParameterList>
+        </ParameterList>
       </ParameterList>
     </ParameterList>
     <ParameterList name="subgrid" type="ParameterList">
       <Parameter name="mesh type" type="string" value="domain set indexed" />
       <ParameterList name="domain set indexed parameters" type="ParameterList">
-	<Parameter name="indexing parent domain" type="string" value="surface" />
+        <Parameter name="indexing parent domain" type="string" value="surface" />
         <Parameter name="entity kind" type="string" value="CELL" />
-	<Parameter name="regions" type="Array(string)" value="{surface domain}" />
-	
+        <Parameter name="regions" type="Array(string)" value="{surface domain}" />
         <ParameterList name="subgrid:*" type="ParameterList">
           <Parameter name="mesh type" type="string" value="logical mesh" />
           <ParameterList name="logical mesh parameters" type="ParameterList">
-	    <Parameter name="infer cell centroids" type="bool" value="true"/>
-	    <ParameterList name="segments">
-	      <ParameterList name="tau_space">
-		<Parameter name="number of cells" type="int" value="20"/>
-		<Parameter name="cross sectional area [m^2]" type="double" value="1.0"/>
-		<Parameter name="first tip" type="Array(double)" value="{0.,0.,0.}"/>
-		<Parameter name="orientation" type="Array(double)" value="{0.,0.,1.}"/>
-		<Parameter name="first tip type" type="string" value="boundary"/>
-		<Parameter name="last tip type" type="string" value="boundary"/>
-		<Parameter name="cell lengths [m]" type="Array(double)" value="{3649.63, 1805.57, 1626.54, 1613.26, 1678.51, 1801.08, 1978.1, 2215.79, 2527.87, 2937.04, 3479.01, 4210.42, 5224.11, 6679.84, 8870.96, 12384.6, 18542.1, 30867.6, 61695.7, 185036.}"/>
-	      </ParameterList>
-	    </ParameterList>
-	    <ParameterList name="sets" type="ParameterList">
+            <Parameter name="infer cell centroids" type="bool" value="true" />
+            <ParameterList name="segments">
+              <ParameterList name="tau_space">
+                <Parameter name="number of cells" type="int" value="20" />
+                <Parameter name="cross sectional area [m^2]" type="double" value="1.0" />
+                <Parameter name="first tip" type="Array(double)" value="{0.0,0.0,0.0}" />
+                <Parameter name="orientation" type="Array(double)" value="{0.0,0.0,1.0}" />
+                <Parameter name="first tip type" type="string" value="boundary" />
+                <Parameter name="last tip type" type="string" value="boundary" />
+                <Parameter name="cell lengths [m]" type="Array(double)" value="{3649.63,1805.57,1626.54,1613.26,1678.51,1801.08,1978.1,2215.79,2527.87,2937.04,3479.01,4210.42,5224.11,6679.84,8870.96,12384.6,18542.1,30867.6,61695.7,185036.0}" />
+              </ParameterList>
+            </ParameterList>
+            <ParameterList name="sets" type="ParameterList">
             </ParameterList>
           </ParameterList>
         </ParameterList>
@@ -54,16 +53,19 @@
 
   <ParameterList name="regions" type="ParameterList">
     <ParameterList name="surface domain" type="ParameterList">
-      <ParameterList name="region: all" type="ParameterList"/>
+      <ParameterList name="region: all" type="ParameterList">
+      </ParameterList>
     </ParameterList>
-
+    <ParameterList name="hyporheic domain" type="ParameterList">
+      <ParameterList name="region: all" type="ParameterList">
+      </ParameterList>
+    </ParameterList>
     <ParameterList name="tracer source surface" type="ParameterList">
       <ParameterList name="region: enumerated set" type="ParameterList">
         <Parameter name="entity" type="string" value="cell" />
         <Parameter name="entity gids" type="Array(int)" value="{0}" />
       </ParameterList>
     </ParameterList>
-
     <ParameterList name="tracer source subgrid" type="ParameterList">
       <ParameterList name="region: enumerated set" type="ParameterList">
         <Parameter name="entity" type="string" value="face" />
@@ -76,14 +78,13 @@
         <Parameter name="entity gids" type="Array(int)" value="{9}" />
       </ParameterList>
     </ParameterList>
-    
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="end cycle" type="int" value="20000" />
     <Parameter name="start time" type="double" value="0.0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="2" />
+    <Parameter name="end time" type="double" value="2.0" />
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="coupler" type="ParameterList">
@@ -100,49 +101,36 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
-
   <ParameterList name="observations">
     <ParameterList name="surface-component_concentration">
-      <Parameter name="variable" type="string" value="surface-total_component_concentration"/>
-      <Parameter name="functional" type="string" value="point"/>
-      <Parameter name="region" type="string" value="surface outlet"/>
-      <Parameter name="delimiter" type="string" value=" "/>
-      <Parameter name="location name" type="string" value="cell"/>
-      <Parameter name="write interval" type="int" value="1"/>
-      <Parameter name="observation output filename" type="string" value="surface-outlet.dat"/>
-      <Parameter name="times start period stop" type="Array(double)" value="{0,3600.0,-1.}"/>
+      <Parameter name="variable" type="string" value="surface-total_component_concentration" />
+      <Parameter name="functional" type="string" value="point" />
+      <Parameter name="region" type="string" value="surface outlet" />
+      <Parameter name="delimiter" type="string" value=" " />
+      <Parameter name="location name" type="string" value="cell" />
+      <Parameter name="write interval" type="int" value="1" />
+      <Parameter name="observation output filename" type="string" value="surface-outlet.dat" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0,3600.0,-1.0}" />
     </ParameterList>
   </ParameterList>
-  
-
-
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="file name base" type="string" value="visdump" />
       <Parameter name="times start period stop" type="Array(double)" value="{0.0,120.0,-1.0}" />
     </ParameterList>
-    <!--
-    <ParameterList name="Ssubgrid:*" type="ParameterList">
-      <Parameter name="file name base" type="string" value="visdump" />
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,900.0,-1.0}" />
-    </ParameterList>
--->
   </ParameterList>
-
-
 
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="file name base" type="string" value="checkpoint" />
-    <Parameter name="times start period stop" type="Array(double)" value="{0.0,18000,-1.0}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0.0,18000.0,-1.0}" />
   </ParameterList>
 
-
-
   <ParameterList name="PKs" type="ParameterList">
+
     <ParameterList name="coupler" type="ParameterList">
       <Parameter name="PK type" type="string" value="weak MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{surface transport, subgrid:*-coupler}" />
+
     </ParameterList>
 
     <ParameterList name="subgrid:*-coupler" type="ParameterList">
@@ -151,8 +139,9 @@
       <Parameter name="entity kind" type="string" value="CELL" />
       <Parameter name="parent domain" type="string" value="surface" />
       <Parameter name="subgrid region name" type="string" value="surface domain" />
+
     </ParameterList>
-    
+
     <ParameterList name="subgrid:*-transport" type="ParameterList">
       <Parameter name="PK type" type="string" value="transport ats" />
       <Parameter name="PK origin" type="string" value="Amanzi" />
@@ -178,12 +167,6 @@
         <Parameter name="limiter" type="string" value="tensorial" />
         <Parameter name="limiter extension for transport" type="bool" value="true" />
       </ParameterList>
-      <!--
-      <ParameterList name="molecular diffusion" type="ParameterList">
-        <Parameter name="aqueous names" type="Array(string)" value="{}" />
-        <Parameter name="aqueous values" type="Array(double)" value="{}" />
-      </ParameterList>
-      -->
 
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="concentration" type="ParameterList">
@@ -200,7 +183,7 @@
       <ParameterList name="initial condition" type="ParameterList">
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="All" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{ENTIRE_MESH_REGION}" />
+            <Parameter name="regions" type="Array(string)" value="{hyporheic domain}" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <Parameter name="number of dofs" type="int" value="1" />
@@ -215,7 +198,6 @@
         </ParameterList>
       </ParameterList>
 
-      
     </ParameterList>
 
     <ParameterList name="surface transport" type="ParameterList">
@@ -245,31 +227,7 @@
         <Parameter name="limiter" type="string" value="tensorial" />
         <Parameter name="limiter extension for transport" type="bool" value="true" />
       </ParameterList>
-      <!--
-      <ParameterList name="molecular diffusion">
-        <Parameter name="aqueous names" type="Array(string)" value="{Tracer1}"/>
-        <Parameter name="aqueous values" type="Array(double)" value="{0.0,0.0}"/>
-      </ParameterList>
-      
-      <ParameterList name="material properties">
-        <ParameterList name="domain">
-          <Parameter name="regions" type="Array(string)" value="{surface domain}"/>
-          <Parameter name="model" type="string" value="scalar"/>
-	  <Parameter name="aqueous tortuosity" type="double" value="1.0"/>
-          <Parameter name="gaseous tortuosity" type="double" value="1.0"/>
-	  <ParameterList name="parameters for scalar">
-            <Parameter name="alpha" type="double" value="0.0"/>
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-      
-      <ParameterList name="diffusion">
-        <Parameter name="discretization primary" type="string" value="fv: default" />
-        <Parameter name="discretization secondary" type="string" value="fv: default" />
-        <Parameter name="schema" type="Array(string)" value="{face, cell}" />
-        <Parameter name="preconditioner schema" type="Array(string)" value="{face}" />
-      </ParameterList>
-      -->
+
       <ParameterList name="inverse">
         <Parameter name="preconditioning method" type="string" value="boomer amg" />
         <Parameter name="iterative method" type="string" value="pcg" />
@@ -289,15 +247,13 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-      
+
       <ParameterList name="source terms" type="ParameterList">
         <ParameterList name="component mass source" type="ParameterList">
-          <!-- input source term, in the first cell -->
-	  
           <ParameterList name="SOURCE: Tracer" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{tracer source surface}" />
             <Parameter name="spatial distribution method" type="string" value="volume" />
-	    <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
+            <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
             <ParameterList name="source function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
                 <Parameter name="y values" type="Array(double)" value="{0.1,0.0}" />
@@ -306,46 +262,41 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-	  
-          
           <ParameterList name="SINK: to subgrid" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface domain}" />
             <Parameter name="spatial distribution method" type="string" value="first order exchange" />
-	    <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
+            <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
             <ParameterList name="source function" type="ParameterList">
               <Parameter name="domain name" type="string" value="surface" />
               <ParameterList name="function" type="ParameterList">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="1.7e-5" />
+                  <Parameter name="value" type="double" value="1.7e-05" />
                 </ParameterList>
               </ParameterList>
             </ParameterList>
           </ParameterList>
-	  
-          
           <ParameterList name="SOURCE: from subgrid" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface domain}" />
             <Parameter name="spatial distribution method" type="string" value="subgrid return" />
-	    <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
+            <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
             <ParameterList name="source function" type="ParameterList">
               <Parameter name="subgrid field suffix" type="string" value="total_component_concentration" />
               <Parameter name="domain subgrid field" type="string" value="subgrid" />
               <ParameterList name="function" type="ParameterList">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="1.7e-5" />
+                  <Parameter name="value" type="double" value="1.7e-05" />
                 </ParameterList>
               </ParameterList>
             </ParameterList>
           </ParameterList>
-          
         </ParameterList>
       </ParameterList>
-    
+
       <ParameterList name="physical models and assumptions" type="ParameterList">
         <Parameter name="effective transport porosity" type="bool" value="false" />
         <Parameter name="permeability field is required" type="bool" value="false" />
       </ParameterList>
-      
+
     </ParameterList>
 
   </ParameterList>
@@ -359,11 +310,11 @@
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
-            <Parameter name="region" type="string" value="ENTIRE_MESH_REGION" />
+            <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1." />
+                <Parameter name="value" type="double" value="1.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -375,7 +326,7 @@
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
-            <Parameter name="region" type="string" value="ENTIRE_MESH_REGION" />
+            <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="components" type="Array(string)" value="{face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
@@ -423,7 +374,7 @@
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
-            <Parameter name="region" type="string" value="ENTIRE_MESH_REGION" />
+            <Parameter name="region" type="string" value="hyporheic domain" />
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
@@ -440,7 +391,7 @@
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
-            <Parameter name="region" type="string" value="ENTIRE_MESH_REGION" />
+            <Parameter name="region" type="string" value="hyporheic domain" />
             <Parameter name="components" type="Array(string)" value="{face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
@@ -484,7 +435,7 @@
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
-            <Parameter name="region" type="string" value="ENTIRE_MESH_REGION" />
+            <Parameter name="region" type="string" value="hyporheic domain" />
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
@@ -523,9 +474,7 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-      
-      
+
     </ParameterList>
   </ParameterList>
-  
 </ParameterList>
