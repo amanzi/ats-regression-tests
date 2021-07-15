@@ -180,8 +180,8 @@
           <Parameter name="debug cells" type="Array(int)" value="{0,49,99}" />
           <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
-        <ParameterList name="preconditioner" type="ParameterList">
-          <Parameter name="preconditioner type" type="string" value="diagonal" />
+        <ParameterList name="inverse" type="ParameterList">
+          <Parameter name="preconditioning method" type="string" value="diagonal" />
         </ParameterList>
       </ParameterList>
       
@@ -232,6 +232,7 @@
       <ParameterList name="darcy_flux_operator" type="ParameterList">
         <Parameter name="tensor coefficient key" type="string" value="permeability" />
         <Parameter name="scalar coefficient key" type="string" value="upwind_relative_hydraulic_conductivity" />
+        <Parameter name="scalar coefficient type" type="string" value="upwind: face" />
         <Parameter name="discretization primary" type="string" value="fv: default" />
         <Parameter name="gravity" type="bool" value="true" />
         <Parameter name="density key" type="string" value="mass_density_liquid" />
