@@ -138,19 +138,6 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="linear solver" type="ParameterList">
-        <Parameter name="iterative method" type="string" value="gmres" />
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="medium" />
-        </ParameterList>
-        <ParameterList name="gmres parameters" type="ParameterList">
-          <Parameter name="preconditioning strategy" type="string" value="left" />
-          <Parameter name="error tolerance" type="double" value="1e-06" />
-          <Parameter name="convergence criteria" type="Array(string)" value="{relative residual,make one iteration}" />
-          <Parameter name="maximum number of iterations" type="int" value="5" />
-        </ParameterList>
-      </ParameterList>
-
       <ParameterList name="initial conditions" type="ParameterList">
 <!--        <Parameter name="initialize faces from cells" type="bool" value="true" />-->
         <ParameterList name="function" type="ParameterList">
@@ -178,10 +165,17 @@
 <!--        <Parameter name="include Jacobian term ddarcy_flux_operator_dpressure" type="bool" value="true" />-->
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
-          <Parameter name="verbosity level" type="string" value="medium" />
+          <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
-        <ParameterList name="preconditioner" type="ParameterList">
-          <Parameter name="preconditioner type" type="string" value="ifpack2: SCHWARZ"/>
+        <ParameterList name="inverse" type="ParameterList">
+          <Parameter name="iterative method" type="string" value="gmres" />
+          <ParameterList name="gmres parameters" type="ParameterList">
+            <Parameter name="preconditioning strategy" type="string" value="left" />
+            <Parameter name="error tolerance" type="double" value="1e-06" />
+            <Parameter name="convergence criteria" type="Array(string)" value="{relative residual,make one iteration}" />
+            <Parameter name="maximum number of iterations" type="int" value="5" />
+          </ParameterList>
+          <Parameter name="preconditioning method" type="string" value="ifpack2: SCHWARZ"/>
           <ParameterList name="ifpack2: SCHWARZ parameters">
             <Parameter name="schwarz: combine mode" type="string" value="add"/>
             <Parameter name="schwarz: overlap level" type="int" value="1"/>
@@ -191,26 +185,23 @@
               <Parameter name="fact: ilut level-of-fill" type="double" value="2.0"/>
             </ParameterList>
           </ParameterList>
-          <ParameterList name="verbose object">
-            <Parameter name="verbosity level" type="string" value="medium"/>
-          </ParameterList>
         </ParameterList>
       </ParameterList>
       
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative" />
         <Parameter name="checkpoint" type="bool" value="true" /> <!-- for testing -->
-        <Parameter name="dependencies" type="Array(string)" value="{porosity,saturation_liquid,molar_density_liquid}" /> <!-- for testing -->
+        <Parameter name="dependencies" type="Array(string)" value="{porosity,saturation_liquid,molar_density_liquid}" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
-          <Parameter name="verbosity level" type="string" value="medium" />
+          <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
       </ParameterList>
 
       <ParameterList name="water_content_t" type="ParameterList">
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
-          <Parameter name="verbosity level" type="string" value="medium" />
+          <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
       </ParameterList>
       
@@ -228,7 +219,7 @@
         <Parameter name="checkpoint" type="bool" value="true" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
-          <Parameter name="verbosity level" type="string" value="medium" />
+          <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
       </ParameterList>
 
@@ -242,7 +233,7 @@
         <Parameter name="checkpoint" type="bool" value="true" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
-          <Parameter name="verbosity level" type="string" value="medium" />
+          <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
       </ParameterList>
       
