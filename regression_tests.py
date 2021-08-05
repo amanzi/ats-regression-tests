@@ -126,6 +126,13 @@ def main(options):
     report = {}
     for config_file in config_file_list:
         print(80 * '=', file=testlog)
+        print(f'Running {config_file}', file=testlog)
+        header = os.path.split(config_file)[-1]
+        if len(header) > 20:
+            header = header[:20]
+        else:
+            header = header + ' '*(20-len(header))
+        print(f'{header} | ', end='')
 
         # get the absolute path of the directory
         test_dir = os.path.dirname(config_file)
