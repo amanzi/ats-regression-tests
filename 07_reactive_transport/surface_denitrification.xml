@@ -281,4 +281,19 @@
 
     </ParameterList>
   </ParameterList>
+
+
+  <ParameterList name="observations" type="ParameterList">
+    <ParameterList name="total component concentrations [mol C / mol H2O]" type="ParameterList">
+      <Parameter name="variable" type="string" value="surface-total_component_concentration" />
+      <Parameter name="region" type="string" value="surface domain" />
+      <Parameter name="functional" type="string" value="point" />
+      <Parameter name="delimiter" type="string" value=" " />
+      <Parameter name="location name" type="string" value="cell" />
+      <Parameter name="write interval" type="int" value="30" />
+      <Parameter name="observation output filename" type="string" value="tcc.dat" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,60,-1}" />
+    </ParameterList>
+  </ParameterList>
+
 </ParameterList>
