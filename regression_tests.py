@@ -132,7 +132,7 @@ def main(options):
             header = header[:20]
         else:
             header = header + ' '*(20-len(header))
-        print(f'{header} | ', end='')
+        print(f'{header} | ', end='', file=sys.stdout)
 
         # get the absolute path of the directory
         test_dir = os.path.dirname(config_file)
