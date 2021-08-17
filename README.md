@@ -192,7 +192,9 @@ Surface and subsurface reactive transport
 * [`subsurface_sorption`](https://github.com/amanzi/ats-regression-tests/blob/master/07_reactive_transport/subsurface_sorption.xml) A single species subsurface transport with equilibrium sorption in a generated mesh
 * [`subsurface_sorption_logical`](https://github.com/amanzi/ats-regression-tests/blob/master/07_reactive_transport/subsurface_sorption_logical.xml) Reactive transport (first order transformation taking place only in the aqueous phase) in subsurface where parent and daughter species have different sorption properties 
 * [`dilution_test`](https://github.com/amanzi/ats-regression-tests/blob/master/07_reactive_transport/dilution_test.xml) A single tracer injection using "water_source" and geochemical condition (PFLOTRAN) to test units of effective solute injection rate 
-* [`column_infiltration_alquimia_tracer`](https://github.com/amanzi/ats-regression-tests/blob/master/07_transport/column_infiltration_alquimia_tracer.xml) Integrated transport on a single column of cells; an infiltration problem where the new water includes the tracer using the alquimia and pflotran.
+* [`column_infiltration_alquimia_tracer`](https://github.com/amanzi/ats-regression-tests/blob/master/07_transport/column_infiltration_alquimia_tracer.xml) Integrated transport in a single column of cells; same infiltration problem as [`column_infiltration`](https://github.com/amanzi/ats-regression-tests/blob/master/06_transport/column_infiltration.xml) where the infiltrating water contains a tracer, the concentration of which is set in a pflotran input file, hence testing the alquimia-pflotran coupling as well as the surface-subsurface concentration coupling, and the geochemical source term for concentrations.
+* [`column_infiltration_alquimia_crunch_tracer`](https://github.com/amanzi/ats-regression-tests/blob/master/07_transport/column_infiltration_alquimia_crunch_tracer.xml) Same as  [`column_infiltration_alquimia_tracer`](https://github.com/amanzi/ats-regression-tests/blob/master/07_transport/column_infiltration_alquimia_tracer.xml) but using CrunchFlow as geochemical engine. 
+
 
 ### `08_energy`
 

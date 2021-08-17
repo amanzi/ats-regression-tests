@@ -38,13 +38,13 @@ END
 Condition initial
 units     mol/kg
 temperature      25.0
-tracer                1.0d-10
+tracer           1.d-10
 END
 
 Condition west
 units     mol/kg
 temperature      25.0
-tracer                5.55
+tracer           1.01081796081
 END
  
 POROSITY

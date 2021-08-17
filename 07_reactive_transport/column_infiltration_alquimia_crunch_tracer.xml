@@ -194,7 +194,7 @@
 
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="hydrostatic head [m]" type="double" value="-2.0" />
-        <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000.0" />
+        <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="997.075" />
       </ParameterList>
 
       <ParameterList name="diffusion">
@@ -273,8 +273,8 @@
         <Parameter name="verbosity level" type="string" value="default" />
       </ParameterList>
 
+      <!-- leave blank to let chemistry subsurface initialiaze concentrations via geochemical block -->
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="constant" type="double" value="0.0" />
       </ParameterList>
 
       <ParameterList name="reconstruction">
@@ -544,7 +544,7 @@
 
       <ParameterList name="surface-mass_density_liquid">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="1000.0" />
+        <Parameter name="value" type="double" value="997.075" />
       </ParameterList>
 
       <ParameterList name="surface-molar_density_liquid" type="ParameterList">
@@ -564,7 +564,7 @@
 
       <ParameterList name="mass_density_liquid">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="1000.0" />
+        <Parameter name="value" type="double" value="997.075" />
       </ParameterList>
 
       <ParameterList name="viscosity_liquid">
@@ -647,7 +647,8 @@
   <ParameterList name="checkpoint">
     <Parameter name="cycles" type="Array(int)" value="{0,7,10,13,16,19,22,25,28,31,34}" />
   </ParameterList>
-<!--
+
+  <!--
   <ParameterList name="visualization" type="ParameterList">
     <Parameter name="visualize on 3D mesh" type="bool" value="true"/>
     <ParameterList name="domain" type="ParameterList">
@@ -659,5 +660,6 @@
       <Parameter name="cycles start period stop" type="Array(int)" value="{0,1,200}" />
     </ParameterList>
   </ParameterList>
--->  
+  -->
+  
 </ParameterList>

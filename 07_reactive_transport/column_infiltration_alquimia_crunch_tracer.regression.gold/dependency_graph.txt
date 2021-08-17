@@ -1,0 +1,124 @@
+capillary_pressure_gas_liq
+  Type: secondary
+  Dep: pressure
+
+cell_volume
+  Type: independent
+
+mass_density_liquid
+  Type: independent
+
+mass_flux
+  Type: primary
+
+molar_density_liquid
+  Type: independent
+
+permeability
+  Type: independent
+
+porosity
+  Type: independent
+
+pressure
+  Type: primary
+
+relative_permeability
+  Type: secondary
+  Dep: molar_density_liquid
+  Dep: saturation_liquid
+  Dep: surface-relative_permeability
+  Dep: viscosity_liquid
+
+saturation_liquid,saturation_gas,
+  Type: secondary
+  Dep: capillary_pressure_gas_liq
+
+saturation_liquid,saturation_gas,
+  Type: secondary
+  Dep: capillary_pressure_gas_liq
+
+surface-elevation,surface-slope_magnitude,surface-aspect,
+  Type: secondary
+
+surface-cell_volume
+  Type: independent
+
+surface-elevation,surface-slope_magnitude,surface-aspect,
+  Type: secondary
+
+surface-manning_coefficient
+  Type: independent
+
+surface-mass_density_liquid
+  Type: independent
+
+surface-mass_flux
+  Type: primary
+
+surface-molar_density_liquid
+  Type: independent
+
+surface-one
+  Type: independent
+
+surface-overland_conductivity
+  Type: secondary
+  Dep: surface-manning_coefficient
+  Dep: surface-molar_density_liquid
+  Dep: surface-ponded_depth
+  Dep: surface-slope_magnitude
+
+surface-ponded_depth
+  Type: secondary
+  Dep: surface-mass_density_liquid
+  Dep: surface-pressure
+
+surface-ponded_depth_bar
+  Type: secondary
+  Dep: surface-mass_density_liquid
+  Dep: surface-pressure
+
+surface-porosity
+  Type: independent
+
+surface-pres_elev
+  Type: secondary
+  Dep: surface-elevation
+  Dep: surface-ponded_depth
+
+surface-pressure
+  Type: primary
+
+surface-relative_permeability
+  Type: independent
+
+surface-elevation,surface-slope_magnitude,surface-aspect,
+  Type: secondary
+
+surface-source_molar_density
+  Type: independent
+
+surface-water_content
+  Type: secondary
+  Dep: surface-cell_volume
+  Dep: surface-pressure
+
+surface-water_content_bar
+  Type: secondary
+  Dep: surface-cell_volume
+  Dep: surface-pressure
+
+surface-water_source
+  Type: independent
+
+viscosity_liquid
+  Type: independent
+
+water_content
+  Type: secondary
+  Dep: cell_volume
+  Dep: molar_density_liquid
+  Dep: porosity
+  Dep: saturation_liquid
+
