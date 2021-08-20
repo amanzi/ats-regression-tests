@@ -203,7 +203,7 @@
       <Parameter name="time step increase factor" type="double" value="1.2" />
       <Parameter name="time step control method" type="string" value="fixed" />
       <Parameter name="initial conditions time" type="double" value="0.0" />
-      <Parameter name="number of component concentrations" type="int" value="6" />
+      <Parameter name="number of component concentrations" type="string" value="6" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
@@ -289,6 +289,7 @@
       <Parameter name="region" type="string" value="surface domain" />
       <Parameter name="functional" type="string" value="point" />
       <Parameter name="delimiter" type="string" value=" " />
+      <Parameter name="number of vectors" type="int" value="6" />
       <Parameter name="location name" type="string" value="cell" />
       <Parameter name="write interval" type="int" value="30" />
       <Parameter name="observation output filename" type="string" value="tcc.dat" />

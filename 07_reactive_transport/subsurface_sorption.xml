@@ -70,7 +70,6 @@
       <Parameter name="region" type="string" value="outlet" />
       <Parameter name="delimiter" type="string" value=" " />
       <Parameter name="location name" type="string" value="cell" />
-      <Parameter name="number of vectors" type="int" value="1" />
       <Parameter name="write interval" type="int" value="1" />
       <Parameter name="observation output filename" type="string" value="outlet.dat" />
       <Parameter name="times start period stop" type="Array(double)" value="{0.0,100.0,-1.0}" />
@@ -82,7 +81,6 @@
       <Parameter name="region" type="string" value="outlet" />
       <Parameter name="delimiter" type="string" value=" " />
       <Parameter name="location name" type="string" value="cell" />
-      <Parameter name="number of vectors" type="int" value="1" />
       <Parameter name="write interval" type="int" value="1" />
       <Parameter name="observation output filename" type="string" value="outlet_sorbed.dat" />
       <Parameter name="times start period stop" type="Array(double)" value="{0.0,100.0,-1.0}" />
