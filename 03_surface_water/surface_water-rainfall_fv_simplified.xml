@@ -208,6 +208,7 @@
         <Parameter name="operator argument key" type="double" value="surface-pres_elev" />
         <Parameter name="tensor coefficient key" type="string" value="none" />
         <Parameter name="scalar coefficient key" type="string" value="surface-upwind_manning_conductivity" />
+        <Parameter name="scalar coefficient type" type="string" value="upwind: face" />
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
 
@@ -235,8 +236,8 @@
           <Parameter name="debug cells" type="Array(int)" value="{0,9}" />
           <Parameter name="verbosity level" type="string" value="extreme" />
         </ParameterList>
-        <ParameterList name="preconditioner" type="ParameterList">
-          <Parameter name="preconditioner type" type="string" value="diagonal" />
+        <ParameterList name="inverse" type="ParameterList">
+          <Parameter name="preconditioning method" type="string" value="diagonal" />
         </ParameterList>
       </ParameterList>
 
