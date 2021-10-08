@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/bin/env python3
 """
 Program to manage and run ATS regression tests.
 
@@ -7,9 +7,6 @@ PFloTran regression test suite.
 
 Author: Ethan Coon (ecoon@lanl.gov)
 """
-
-from __future__ import print_function
-from __future__ import division
 
 import argparse
 import sys,os
@@ -48,13 +45,17 @@ def commandline_options():
     parser.add_argument('-e', '--executable', nargs=1, default=None,
                         help='path to executable to use for testing')
 
-    parser.add_argument('--list-suites', default=False, action='store_true',
+    parser.add_argument('--list-available-suites', default=False, action='store_true',
                         help='print the list of test suites from the config '
                         'file and exit')
 
-    parser.add_argument('--list-tests', default=False, action='store_true',
+    parser.add_argument('--list-available-tests', default=False, action='store_true',
                         help='print the list of tests from the config file '
                         'and exit')
+
+    parser.add_argument('--list-tests', default=False, action='store_true',
+                        help='print the list of selected tests from the config '
+                        'file and exit')
 
     parser.add_argument('-m', '--mpiexec', nargs=1, default=None,
                         help="path to the executable for mpiexec (mpirun, etc)"
@@ -104,7 +105,7 @@ def main(options):
         sys.path.append(os.path.join(os.environ['ATS_SRC_DIR'], 'tools', 'testing'))
 
     import test_manager
-    silent = options.list_tests or options.list_suites
+    silent = options.list_tests or options.list_available_suites or options.list_available_tests
     testlog = test_manager.setup_testlog(txtwrap, silent)
 
     test_manager.check_options(options)
@@ -163,13 +164,16 @@ def main(options):
             print(70 * '-')
             print(tm)
 
-        if options.list_suites:
+        if options.list_available_suites:
             tm.display_available_suites()
 
-        if options.list_tests:
+        if options.list_available_tests:
             tm.display_available_tests()
 
-        if not options.list_suites and not options.list_tests:
+        if options.list_tests:
+            tm.display_selected_tests()
+
+        if not silent:
             tm.run_tests(options.dry_run,
                          options.update,
                          options.new_tests,
