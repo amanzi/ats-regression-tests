@@ -1,0 +1,417 @@
+<ParameterList>
+  <ParameterList name="mesh">
+    <ParameterList name="domain">
+      <Parameter name="mesh type" type="string" value="generate mesh"/>
+      <ParameterList name="generate mesh parameters">
+        <Parameter name="number of cells" type="Array(int)" value="{54, 60}"/>
+        <Parameter name="domain low coordinate" type="Array(double)" value="{0.0, 0.0}"/>
+        <Parameter name="domain high coordinate" type="Array(double)" value="{216.0, 120.0}"/>
+      </ParameterList>
+    </ParameterList>
+  </ParameterList>
+
+  <ParameterList name="regions">
+    <ParameterList name="Bottom Surface">
+      <ParameterList name="region: plane">
+        <Parameter name="point" type="Array(double)" value="{2.16000000000000000e+02, 0.00000000000000000e+00}"/>
+        <Parameter name="normal" type="Array(double)" value="{0.00000000000000000e+00, -1.00000000000000000e+00}"/>
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="All">
+      <ParameterList name="region: box">
+        <Parameter name="low coordinate" type="Array(double)" value="{-9.99999999999999967e+98, -9.99999999999999967e+98}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{9.99999999999999967e+98, 9.99999999999999967e+98}"/>
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="computational domain">
+      <ParameterList name="region: all" type="ParameterList">
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="RegionBottom">
+      <ParameterList name="region: box">
+        <Parameter name="low coordinate" type="Array(double)" value="{0.00000000000000000e+00, 0.00000000000000000e+00}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{2.16000000000000000e+02, 4.00000000000000000e+01}"/>
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="RegionMiddle">
+      <ParameterList name="region: box">
+        <Parameter name="low coordinate" type="Array(double)" value="{0.00000000000000000e+00, 4.00000000000000000e+01}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{2.16000000000000000e+02, 8.00000000000000000e+01}"/>
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="RegionTop">
+      <ParameterList name="region: box">
+        <Parameter name="low coordinate" type="Array(double)" value="{0.00000000000000000e+00, 8.00000000000000000e+01}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{2.16000000000000000e+02, 1.20000000000000000e+02}"/>
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="SurfaceTop">
+      <ParameterList name="region: box">
+        <Parameter name="low coordinate" type="Array(double)" value="{   0.0, 120.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{216.0, 120.0}"/>
+      </ParameterList>
+    </ParameterList>
+  </ParameterList>
+
+  <ParameterList name="state">
+    <ParameterList name="evaluators">
+      <ParameterList name="pressure_res">
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="none"/>
+        </ParameterList>
+        <ParameterList name="inverse">
+          <Parameter name="preconditioning method" type="string" value="hypre: boomer amg"/>
+          <ParameterList name="hypre: boomer amg parameters">
+            <Parameter name="cycle applications" type="int" value="2"/>
+            <Parameter name="smoother sweeps" type="int" value="3"/>
+            <Parameter name="cycle type" type="int" value="1"/>
+            <Parameter name="strong threshold" type="double" value="0.25"/>
+            <Parameter name="relaxation type down" type="int" value="13"/>
+            <Parameter name="relaxation type up" type="int" value="14"/>
+            <Parameter name="coarsen type" type="int" value="0"/>
+            <Parameter name="tolerance" type="double" value="0.0"/>
+            <Parameter name="verbosity" type="int" value="0"/>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+      
+      <ParameterList name="water_content">
+        <Parameter name="evaluator type" type="string" value="multiplicative" />
+        <Parameter name="checkpoint" type="bool" value="true" /> <!-- for testing -->
+        <Parameter name="dependencies" type="Array(string)" value="{porosity,saturation_liquid,molar_density_liquid}" />
+      </ParameterList>
+
+      <ParameterList name="porosity">
+        <Parameter name="evaluator type" type="string" value="independent variable"/>
+        <ParameterList name="function">
+          <ParameterList name="RegionMiddle">
+            <Parameter name="regions" type="Array(string)" value="{RegionMiddle}"/>
+            <Parameter name="component" type="string" value="cell"/>
+            <ParameterList name="function">
+              <ParameterList name="function-constant">
+                <Parameter name="value" type="double" value="4.08200000000000007e-01"/>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+          <ParameterList name="RegionBottom">
+            <Parameter name="regions" type="Array(string)" value="{RegionBottom}"/>
+            <Parameter name="component" type="string" value="cell"/>
+            <ParameterList name="function">
+              <ParameterList name="function-constant">
+                <Parameter name="value" type="double" value="2.20599999999999991e-01"/>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+          <ParameterList name="RegionTop">
+            <Parameter name="regions" type="Array(string)" value="{RegionTop}"/>
+            <Parameter name="component" type="string" value="cell"/>
+            <ParameterList name="function">
+              <ParameterList name="function-constant">
+                <Parameter name="value" type="double" value="2.34000000000000014e-01"/>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+
+      <ParameterList name="saturation_liquid">
+        <Parameter name="evaluator type" type="string" value="WRM van Genuchten by material"/>
+        <ParameterList name="model parameters" type="ParameterList">
+          <ParameterList name="RegionMiddle">
+            <Parameter name="van Genuchten m [-]" type="double" value="2.29399999999999993e-01"/>
+            <Parameter name="Mualem exponent l [-]" type="double" value="5.00000000000000000e-01"/>
+            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="1.94670000000000005e-04"/>
+            <Parameter name="van Genuchten residual saturation [-]" type="double" value="0.0" />
+            <Parameter name="Krel function name" type="string" value="Mualem"/>
+            <Parameter name="regularization interval" type="double" value="0.00000000000000000e+00"/>
+          </ParameterList>
+          <ParameterList name="RegionBottom">
+            <Parameter name="van Genuchten m [-]" type="double" value="2.13600000000000012e-01"/>
+            <Parameter name="Mualem exponent l [-]" type="double" value="5.00000000000000000e-01"/>
+            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="2.02600000000000002e-03"/>
+            <Parameter name="van Genucten residual saturation [-]" type="double" value="0.0"/>
+            <Parameter name="Krel function namel" type="string" value="Mualem"/>
+            <Parameter name="regularization interval" type="double" value="0.0"/>
+          </ParameterList>
+          <ParameterList name="RegionTop">
+            <Parameter name="van Genuchten m [-]" type="double" value="3.00599999999999978e-01"/>
+            <Parameter name="Mualem exponent l [-]" type="double" value="0.5"/>
+            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="2.06740000000000005e-03"/>
+            <Parameter name="van Genuchten residual saturation [-]" type="double" value="0.0"/>
+            <Parameter name="relative permeability model" type="string" value="Mualem"/>
+            <Parameter name="regularization interval" type="double" value="0.0"/>
+          </ParameterList>
+        </ParameterList>
+        <ParameterList name="verbose object">
+          <Parameter name="verbosity level" type="string" value="low"/>
+        </ParameterList>
+      </ParameterList>
+
+      <ParameterList name="capillary_pressure_gas_liq">
+        <Parameter name="evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid"/>
+      </ParameterList>
+
+      <ParameterList name="molar_density_liquid">
+        <Parameter name="evaluator type" type="string" value="independent variable constant value"/>
+        <Parameter name="value" type="double" value="55408.51988"/>
+      </ParameterList>
+      <ParameterList name="mass_density_liquid">
+        <Parameter name="evaluator type" type="string" value="independent variable constant value" />
+        <Parameter name="value" type="double" value="998.2" />
+      </ParameterList>
+
+      <ParameterList name="viscosity_liquid">
+        <Parameter name="evaluator type" type="string" value="independent variable constant value" />
+        <Parameter name="value" type="double" value="1.002e-3"/>
+      </ParameterList>
+
+      <ParameterList name="cell_volume" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="cell volume"/>
+      </ParameterList>
+
+      <!-- note, using Kr = sat! -->
+      <ParameterList name="relative_hydraulic_conductivity">
+        <Parameter name="evaluator type" type="string" value="multiplicative"/>
+        <Parameter name="dependencies" type="Array(string)" value="{molar_density_liquid,relative_permeability,viscosity_liquid}"/>
+        <Parameter name="reciprocal" type="bool" value="true" />
+      </ParameterList>
+      <ParameterList name="upwind_relative_hydraulic_conductivity">
+        <Parameter name="evaluator type" type="string" value="cell-to-face" />
+        <Parameter name="dependencies" type="Array(string)" value="{relative_hydraulic_conductivity}"/>
+        <Parameter name="averaging algorithm" type="string" value="arithmetic" />
+      </ParameterList>
+
+      <ParameterList name="permeability">
+        <Parameter name="evaluator type" type="string" value="tensor independent variable"/>
+        <Parameter name="constant in time" type="bool" value="true"/>
+        <Parameter name="tensor rank" type="int" value="1"/>
+        <ParameterList name="function">
+          <ParameterList name="RegionMiddle">
+            <Parameter name="region" type="string" value="RegionMiddle"/>
+            <Parameter name="component" type="string" value="cell"/>
+            <ParameterList name="function">
+              <ParameterList name="function-constant">
+                <Parameter name="value" type="double" value="1.99759999999999989e-13"/>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+          <ParameterList name="RegionBottom">
+            <Parameter name="regions" type="Array(string)" value="{RegionBottom}"/>
+            <Parameter name="component" type="string" value="cell"/>
+            <ParameterList name="function">
+              <ParameterList name="function-constant">
+                <Parameter name="value" type="double" value="6.93649999999999978e-12"/>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+          <ParameterList name="RegionTop">
+            <Parameter name="regions" type="Array(string)" value="{RegionTop}"/>
+            <Parameter name="component" type="string" value="cell"/>
+            <ParameterList name="function">
+              <ParameterList name="function-constant">
+                <Parameter name="value" type="double" value="2.07060000000000007e-10"/>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+
+      <ParameterList name="relative_permeability">
+        <Parameter name="evaluator type" type="string" value="Kr van Genuchten by material"/>
+        <ParameterList name="model parameters" type="ParameterList">
+          <ParameterList name="RegionMiddle">
+            <Parameter name="van Genuchten m [-]" type="double" value="2.29399999999999993e-01"/>
+            <Parameter name="Mualem exponent l [-]" type="double" value="5.00000000000000000e-01"/>
+            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="1.94670000000000005e-04"/>
+            <Parameter name="van Genuchten residual saturation [-]" type="double" value="0.0" />
+            <Parameter name="Krel function name" type="string" value="Mualem"/>
+            <Parameter name="regularization interval" type="double" value="0.00000000000000000e+00"/>
+          </ParameterList>
+          <ParameterList name="RegionBottom">
+            <Parameter name="van Genuchten m [-]" type="double" value="2.13600000000000012e-01"/>
+            <Parameter name="Mualem exponent l [-]" type="double" value="5.00000000000000000e-01"/>
+            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="2.02600000000000002e-03"/>
+            <Parameter name="van Genucten residual saturation [-]" type="double" value="0.0"/>
+            <Parameter name="Krel function namel" type="string" value="Mualem"/>
+            <Parameter name="regularization interval" type="double" value="0.0"/>
+          </ParameterList>
+          <ParameterList name="RegionTop">
+            <Parameter name="van Genuchten m [-]" type="double" value="3.00599999999999978e-01"/>
+            <Parameter name="Mualem exponent l [-]" type="double" value="0.5"/>
+            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="2.06740000000000005e-03"/>
+            <Parameter name="van Genuchten residual saturation [-]" type="double" value="0.0"/>
+            <Parameter name="relative permeability model" type="string" value="Mualem"/>
+            <Parameter name="regularization interval" type="double" value="0.0"/>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+      
+      <ParameterList name="darcy_flux_operator">
+        <Parameter name="tensor coefficient key" type="string" value="permeability"/>
+        <Parameter name="scalar coefficient key" type="string" value="upwind_relative_hydraulic_conductivity"/>
+        <Parameter name="scalar coefficient type" type="string" value="upwind: face"/>
+        <Parameter name="discretization primary" type="string" value="mfd: default"/>
+        <Parameter name="gravity" type="bool" value="true" />
+        <Parameter name="density key" type="string" value="mass_density_liquid" />
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="low" />
+        </ParameterList>
+      </ParameterList>
+
+      <ParameterList name="darcy_flux_operator_bcs">
+        <Parameter name="evaluator type" type="string" value="boundary condition aggregator"/>
+        <ParameterList name="boundary functions">
+          <ParameterList name="exterior_boundary_dirichlet">
+            <Parameter name="boundary condition type" type="string" value="Dirichlet"/>
+          </ParameterList>
+          <ParameterList name="exterior_boundary_neumann">
+            <Parameter name="boundary condition type" type="string" value="Neumann"/>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+
+      <ParameterList name="exterior_boundary_dirichlet">
+        <Parameter name="evaluator type" type="string" value="boundary condition function" />
+        <Parameter name="boundary condition type" type="string" value="Dirichlet"/>
+        <Parameter name="list name" type="string" value="pressure" />
+        <Parameter name="function name" type="string" value="pressure" />
+        <ParameterList name="pressure">
+          <ParameterList name="sides">
+            <Parameter name="regions" type="Array(string)" value="{Bottom Surface}" />
+            <ParameterList name="pressure">
+              <ParameterList name="function-static-head">
+                <Parameter name="space dimension" type="int" value="2"/>
+                <Parameter name="density" type="double" value="998.2"/>
+                <Parameter name="gravity" type="double" value="9.80665"/>
+                <Parameter name="p0" type="double" value="1.01325000000000000e+05"/>
+                <ParameterList name="water table elevation">
+                  <ParameterList name="function-constant">
+                    <Parameter name="value" type="double" value="0.00000000000000000e+00"/>
+                  </ParameterList>
+                </ParameterList>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+      <ParameterList name="exterior_boundary_neumann">
+        <Parameter name="evaluator type" type="string" value="boundary condition function"/>
+        <Parameter name="boundary condition type" type="string" value="Neumann" />
+        <Parameter name="list name" type="string" value="flux" />
+        <Parameter name="function name" type="string" value="outward normal flux"/>
+        <ParameterList name="flux">
+          <ParameterList name="BC 1">
+            <Parameter name="regions" type="Array(string)" value="{SurfaceTop}"/>
+            <ParameterList name="outward normal flux">
+              <ParameterList name="function-tabular">
+                <Parameter name="x values" type="Array(double)" value="{0.0, 6.17266656e+10, 6.1729344e+10}"/>
+                <Parameter name="y values" type="Array(double)" value="{-6.1395e-06, -1.4087e-01, -8.2444e-05}"/>
+                <Parameter name="forms" type="Array(string)" value="{constant, constant}"/>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="constants" type="ParameterList">
+      <Parameter name="atmospheric pressure" type="double" value="101325.0" />
+      <Parameter name="gravity" type="Array(double)" value="{0,0,-9.80665}" />
+    </ParameterList>
+
+    <ParameterList name="mesh partitions">
+      <ParameterList name="materials">
+        <Parameter name="region list" type="Array(string)" value="{RegionMiddle, RegionBottom, RegionTop}"/>
+      </ParameterList>
+    </ParameterList>
+  </ParameterList>
+
+  <ParameterList name="visualization">
+    <ParameterList name="domain">
+      <Parameter name="file name base" type="string" value="plot"/>
+      <Parameter name="cycles start period stop 0" type="Array(int)" value="{0, 50, -1}"/>
+      <Parameter name="times start period stop units" type="string" value="y"/>
+    </ParameterList>
+  </ParameterList>
+
+  <ParameterList name="cycle driver">
+    <Parameter name="start time" type="double" value="0.0" />
+    <Parameter name="start time units" type="string" value="s" />
+    <Parameter name="end time" type="double" value="6.17266656000000000e+10"/>
+    <Parameter name="end time units" type="string" value="s" />
+    <ParameterList name="PK tree">
+      <ParameterList name="steady:flow">
+        <Parameter name="PK type" type="string" value="mixed form parabolic PDE"/>
+      </ParameterList>
+    </ParameterList>
+  </ParameterList>
+  <ParameterList name="checkpoint">
+  </ParameterList>
+
+  <ParameterList name="PKs">
+    <ParameterList name="steady:flow">
+      <Parameter name="PK type" type="string" value="mixed form parabolic PDE"/>
+      <Parameter name="primary variable key" type="string" value="pressure"/>
+      <Parameter name="conserved quantity key" type="string" value="water_content"/>
+      <Parameter name="diffusion operator key" type="string" value="darcy_flux_operator"/>
+      <Parameter name="is source term" type="bool" value="false"/>
+
+      <Parameter name="initial time step" type="double" value="1000.0"/>
+      <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux"/>
+      <Parameter name="permeability rescaling" type="double" value="10000000.0"/>
+      <Parameter name="domain name" type="string" value="domain" />
+
+      <ParameterList name="time integrator">
+        <Parameter name="timestep controller type" type="string" value="standard"/>
+        <ParameterList name="timestep controller standard parameters">
+          <Parameter name="max iterations" type="int" value="15"/>
+          <Parameter name="min iterations" type="int" value="10"/>
+          <Parameter name="time step increase factor" type="double" value="1.19999999999999996e+00"/>
+          <Parameter name="time step reduction factor" type="double" value="8.00000000000000044e-01"/>
+          <Parameter name="max time step" type="double" value="4.32340000000000000e+17"/>
+          <Parameter name="min time step" type="double" value="9.99999999999999955e-07"/>
+        </ParameterList>
+        <Parameter name="solver type" type="string" value="nka"/>
+        <ParameterList name="nka parameters">
+          <Parameter name="nonlinear tolerance" type="double" value="1.0e-05"/>
+          <Parameter name="diverged tolerance" type="double" value="1.0e+10"/>
+          <Parameter name="diverged l2 tolerance" type="double" value="1.0e+10"/>
+          <Parameter name="max du growth factor" type="double" value="1000.0"/>
+          <Parameter name="max divergent iterations" type="int" value="3"/>
+          <Parameter name="max nka vectors" type="int" value="10"/>
+          <Parameter name="limit iterations" type="int" value="20"/>
+          <Parameter name="modify correction" type="bool" value="false"/>
+        </ParameterList>
+        <Parameter name="max preconditioner lag iterations" type="int" value="5"/>
+        <Parameter name="extrapolate initial guess" type="bool" value="true"/>
+        <Parameter name="restart tolerance relaxation factor" type="double" value="1.0"/>
+        <Parameter name="restart tolerance relaxation factor damping" type="double" value="1.0"/>
+        <Parameter name="nonlinear iteration initial guess extrapolation order" type="int" value="1"/>
+        <Parameter name="nonlinear iteration damping factor" type="double" value="1.0"/>
+        <ParameterList name="verbose object">
+          <Parameter name="verbosity level" type="string" value="high"/>
+        </ParameterList>
+      </ParameterList>
+
+      <ParameterList name="initial conditions">
+        <ParameterList name="function">
+          <ParameterList name="initial pressure cells">
+            <Parameter name="region" type="string" value="All"/>
+            <Parameter name="components" type="Array(string)" value="{cell,face}"/>
+            <ParameterList name="function">
+              <ParameterList name="function-linear">
+                <Parameter name="x0" type="Array(double)" value="{0.0,0.0,0.0}"/>
+                <Parameter name="y0" type="double" value="101325.0" />
+                <Parameter name="gradient" type="Array(double)" value="{0.0,0.0,-9.7935e+03}"/>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+      <ParameterList name="verbose object">
+        <Parameter name="verbosity level" type="string" value="none"/>
+      </ParameterList>
+    </ParameterList>
+  </ParameterList>
+
+</ParameterList>
