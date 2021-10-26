@@ -2,6 +2,7 @@
   <ParameterList name="mesh" type="ParameterList">
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="generate mesh" />
+      <Parameter name="build columns from set" type="string" value="surface" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
         <Parameter name="number of cells" type="Array(int)" value="{100,1,50}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{0.0,0.0,0.0}" />
@@ -220,19 +221,8 @@
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <ParameterList name="function" type="ParameterList">
-          <ParameterList name="initial pressure cells" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain" />
-            <Parameter name="components" type="Array(string)" value="{cell,face}" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-linear" type="ParameterList">
-                <Parameter name="x0" type="Array(double)" value="{0.0,0.0,0.0,100.0}" />
-                <Parameter name="y0" type="double" value="101325.0" />
-                <Parameter name="gradient" type="Array(double)" value="{0.0,0.0,0.0,-9806.2306853}" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
+        <Parameter name="hydrostatic water level [m]" type="double" value="100.0" />
+        <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="997.0" />        
       </ParameterList>
 
       <ParameterList name="water retention evaluator" type="ParameterList">
@@ -328,6 +318,9 @@
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
+    <ParameterList name="verbose object" type="ParameterList">
+      <Parameter name="verbosity level" type="string" value="extreme" />
+    </ParameterList>
     <ParameterList name="field evaluators" type="ParameterList">
 
       <ParameterList name="water_content" type="ParameterList">
@@ -342,12 +335,15 @@
       </ParameterList>
 
       <ParameterList name="molar_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="eos" />
+        <Parameter name="field evaluator type" type="string" value="eos ctp" />
         <Parameter name="EOS basis" type="string" value="both" />
         <Parameter name="molar density key" type="string" value="molar_density_liquid" />
         <Parameter name="mass density key" type="string" value="mass_density_liquid" />
         <ParameterList name="EOS parameters" type="ParameterList">
-          <Parameter name="EOS type" type="string" value="liquid water" />
+          <Parameter name="EOS type" type="string" value="salt water" />
+          <Parameter name="fresh water mass density [kg/m^3]" type="double" value="997.0" />
+          <!-- <Parameter name="sea water density coefficient" type="double" value="714.29" />           -->
+          <Parameter name="sea water density coefficient" type="double" value="700" />          
         </ParameterList>
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="low" />
