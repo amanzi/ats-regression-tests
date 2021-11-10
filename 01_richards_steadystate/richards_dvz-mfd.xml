@@ -3,9 +3,9 @@
     <ParameterList name="domain">
       <Parameter name="mesh type" type="string" value="generate mesh"/>
       <ParameterList name="generate mesh parameters">
-        <Parameter name="number of cells" type="Array(int)" value="{54, 60}"/>
-        <Parameter name="domain low coordinate" type="Array(double)" value="{0.0, 0.0}"/>
-        <Parameter name="domain high coordinate" type="Array(double)" value="{216.0, 120.0}"/>
+        <Parameter name="number of cells" type="Array(int)" value="{27, 1, 30}"/>
+        <Parameter name="domain low coordinate" type="Array(double)" value="{   0.0, 0.0,   0.0}"/>
+        <Parameter name="domain high coordinate" type="Array(double)" value="{216.0, 1.0, 120.0}"/>
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -13,14 +13,14 @@
   <ParameterList name="regions">
     <ParameterList name="Bottom Surface">
       <ParameterList name="region: plane">
-        <Parameter name="point" type="Array(double)" value="{2.16000000000000000e+02, 0.00000000000000000e+00}"/>
-        <Parameter name="normal" type="Array(double)" value="{0.00000000000000000e+00, -1.00000000000000000e+00}"/>
+        <Parameter name="point" type="Array(double)" value="{216.0, 0.0, 0.0}"/>
+        <Parameter name="normal" type="Array(double)" value="{ 0.0, 0.0,-1.0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="All">
       <ParameterList name="region: box">
-        <Parameter name="low coordinate" type="Array(double)" value="{-9.99999999999999967e+98, -9.99999999999999967e+98}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{9.99999999999999967e+98, 9.99999999999999967e+98}"/>
+        <Parameter name="low coordinate" type="Array(double)" value="{-9.9999999999999997e+98, 0.0,-9.9999999999999997e+98}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{9.9999999999999997e+98, 1.0, 9.9999999999999997e+98}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="computational domain">
@@ -29,31 +29,34 @@
     </ParameterList>
     <ParameterList name="RegionBottom">
       <ParameterList name="region: box">
-        <Parameter name="low coordinate" type="Array(double)" value="{0.00000000000000000e+00, 0.00000000000000000e+00}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{2.16000000000000000e+02, 4.00000000000000000e+01}"/>
+        <Parameter name="low coordinate" type="Array(double)" value="{   0.0, 0.0,  0.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{216.0, 1.0, 40.0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="RegionMiddle">
       <ParameterList name="region: box">
-        <Parameter name="low coordinate" type="Array(double)" value="{0.00000000000000000e+00, 4.00000000000000000e+01}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{2.16000000000000000e+02, 8.00000000000000000e+01}"/>
+        <Parameter name="low coordinate" type="Array(double)" value="{   0.0, 0.0, 40.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{216.0, 1.0, 80.0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="RegionTop">
       <ParameterList name="region: box">
-        <Parameter name="low coordinate" type="Array(double)" value="{0.00000000000000000e+00, 8.00000000000000000e+01}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{2.16000000000000000e+02, 1.20000000000000000e+02}"/>
+        <Parameter name="low coordinate" type="Array(double)" value="{   0.0, 0.0,  80.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{216.0, 1.0, 120.0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="SurfaceTop">
       <ParameterList name="region: box">
-        <Parameter name="low coordinate" type="Array(double)" value="{   0.0, 120.0}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{216.0, 120.0}"/>
+        <Parameter name="low coordinate" type="Array(double)" value="{   0.0, 0.0, 120.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{216.0, 1.0, 120.0}"/>
       </ParameterList>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="state">
+    <ParameterList name="verbose object" type="ParameterList">
+      <Parameter name="verbosity level" type="string" value="none"/>
+    </ParameterList>
     <ParameterList name="evaluators">
       <ParameterList name="pressure_res">
         <ParameterList name="verbose object" type="ParameterList">
@@ -98,7 +101,7 @@
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function">
               <ParameterList name="function-constant">
-                <Parameter name="value" type="double" value="2.20599999999999991e-01"/>
+                <Parameter name="value" type="double" value="2.206e-01"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -107,7 +110,7 @@
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function">
               <ParameterList name="function-constant">
-                <Parameter name="value" type="double" value="2.34000000000000014e-01"/>
+                <Parameter name="value" type="double" value="2.34e-01"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -123,7 +126,7 @@
             <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="1.94670000000000005e-04"/>
             <Parameter name="van Genuchten residual saturation [-]" type="double" value="0.0" />
             <Parameter name="Krel function name" type="string" value="Mualem"/>
-            <Parameter name="regularization interval" type="double" value="0.00000000000000000e+00"/>
+            <Parameter name="regularization interval" type="double" value="100.0"/>
           </ParameterList>
           <ParameterList name="RegionBottom">
             <Parameter name="van Genuchten m [-]" type="double" value="2.13600000000000012e-01"/>
@@ -131,7 +134,7 @@
             <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="2.02600000000000002e-03"/>
             <Parameter name="van Genucten residual saturation [-]" type="double" value="0.0"/>
             <Parameter name="Krel function namel" type="string" value="Mualem"/>
-            <Parameter name="regularization interval" type="double" value="0.0"/>
+            <Parameter name="regularization interval" type="double" value="100.0"/>
           </ParameterList>
           <ParameterList name="RegionTop">
             <Parameter name="van Genuchten m [-]" type="double" value="3.00599999999999978e-01"/>
@@ -139,7 +142,7 @@
             <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="2.06740000000000005e-03"/>
             <Parameter name="van Genuchten residual saturation [-]" type="double" value="0.0"/>
             <Parameter name="relative permeability model" type="string" value="Mualem"/>
-            <Parameter name="regularization interval" type="double" value="0.0"/>
+            <Parameter name="regularization interval" type="double" value="100.0"/>
           </ParameterList>
         </ParameterList>
         <ParameterList name="verbose object">
@@ -176,9 +179,10 @@
         <Parameter name="reciprocal" type="bool" value="true" />
       </ParameterList>
       <ParameterList name="upwind_relative_hydraulic_conductivity">
-        <Parameter name="evaluator type" type="string" value="cell-to-face" />
+        <Parameter name="evaluator type" type="string" value="cell-to-face-upwind" />
         <Parameter name="dependencies" type="Array(string)" value="{relative_hydraulic_conductivity}"/>
-        <Parameter name="averaging algorithm" type="string" value="arithmetic" />
+        <Parameter name="flux direction key" type="string" value="darcy_flux_operator_flux"/>
+        <Parameter name="averaging algorithm" type="string" value="upwind" />
       </ParameterList>
 
       <ParameterList name="permeability">
@@ -280,13 +284,13 @@
             <Parameter name="regions" type="Array(string)" value="{Bottom Surface}" />
             <ParameterList name="pressure">
               <ParameterList name="function-static-head">
-                <Parameter name="space dimension" type="int" value="2"/>
+                <Parameter name="space dimension" type="int" value="3"/>
                 <Parameter name="density" type="double" value="998.2"/>
                 <Parameter name="gravity" type="double" value="9.80665"/>
-                <Parameter name="p0" type="double" value="1.01325000000000000e+05"/>
+                <Parameter name="p0" type="double" value="1.01325e+05"/>
                 <ParameterList name="water table elevation">
                   <ParameterList name="function-constant">
-                    <Parameter name="value" type="double" value="0.00000000000000000e+00"/>
+                    <Parameter name="value" type="double" value="0.0"/>
                   </ParameterList>
                 </ParameterList>
               </ParameterList>
@@ -316,7 +320,7 @@
 
     <ParameterList name="constants" type="ParameterList">
       <Parameter name="atmospheric pressure" type="double" value="101325.0" />
-      <Parameter name="gravity" type="Array(double)" value="{0,0,-9.80665}" />
+      <Parameter name="gravity" type="Array(double)" value="{0,0, 0.0, -9.80665}" />
     </ParameterList>
 
     <ParameterList name="mesh partitions">
@@ -400,9 +404,9 @@
             <Parameter name="components" type="Array(string)" value="{cell,face}"/>
             <ParameterList name="function">
               <ParameterList name="function-linear">
-                <Parameter name="x0" type="Array(double)" value="{0.0,0.0,0.0}"/>
+                <Parameter name="x0" type="Array(double)" value="{0.0, 0.0, 0.0, 0.0}"/>
                 <Parameter name="y0" type="double" value="101325.0" />
-                <Parameter name="gradient" type="Array(double)" value="{0.0,0.0,-9.7935e+03}"/>
+                <Parameter name="gradient" type="Array(double)" value="{0.0, 0.0, 0.0, -9.7935e+03}"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
