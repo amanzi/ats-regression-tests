@@ -187,7 +187,7 @@ def main(options):
             
     stop = time.time()
     status = 0
-    if not options.dry_run and not options.update and not options.list_tests and not options.list_suites:
+    if not options.dry_run and not options.update and not options.list_tests:
         print("")
         run_time = stop - start
         test_manager.summary_report_by_file(report, testlog)
