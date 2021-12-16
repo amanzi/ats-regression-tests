@@ -83,15 +83,15 @@
       <Parameter name="PK type" type="string" value="mixed form parabolic PDE" />
       <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="conserved quantity key" type="string" value="water_content" />
+      <Parameter name="potential key" type="string" value="pressure" />
       <Parameter name="diffusion operator key" type="string" value="darcy_flux_operator" />
       <Parameter name="absolute error tolerance factor" type="double" value="2750." />
       <Parameter name="domain name" type="string" value="domain" />
       <Parameter name="is source term" type="bool" value="false" />
       <Parameter name="initial time step" type="double" value="1.0" />
       <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="debug cells" type="Array(int)" value="{0,49,99}" />
+        <Parameter name="debug cells" type="Array(int)" value="{0}" />
         <Parameter name="debug variables" type="Array(string)" value="{water_content, saturation_liquid, upwind_relative_hydraulic_conductivity}" />
-        <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
       
       <ParameterList name="time integrator" type="ParameterList">
@@ -104,12 +104,6 @@
           <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
           <Parameter name="diverged tolerance" type="double" value="100000.0" />
           <Parameter name="limit iterations" type="int" value="21" />
-          <ParameterList name="verbose object" type="ParameterList">
-            <Parameter name="verbosity level" type="string" value="high" />
-          </ParameterList>
-        </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
           <Parameter name="max iterations" type="int" value="18" />
@@ -123,11 +117,9 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="linear solver" type="ParameterList">
+      <ParameterList name="inverse" type="ParameterList">
+        <Parameter name="preconditioning method" type="string" value="amesos2: KLU" />
         <Parameter name="iterative method" type="string" value="gmres" />
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="high" />
-        </ParameterList>
         <ParameterList name="gmres parameters" type="ParameterList">
           <Parameter name="preconditioning strategy" type="string" value="left" />
           <Parameter name="error tolerance" type="double" value="1e-06" />
@@ -175,25 +167,18 @@
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="evaluators" type="ParameterList">
 
-      <ParameterList name="pressure_res">
+      <ParameterList name="water_content_res">
         <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="debug cells" type="Array(int)" value="{0,49,99}" />
-          <Parameter name="verbosity level" type="string" value="high" />
-        </ParameterList>
-        <ParameterList name="preconditioner" type="ParameterList">
-          <Parameter name="preconditioner type" type="string" value="diagonal" />
+          <Parameter name="debug cells" type="Array(int)" value="{0}" />
         </ParameterList>
       </ParameterList>
-      
-
       
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative" />
         <Parameter name="checkpoint" type="bool" value="true" /> <!-- for testing -->
         <Parameter name="dependencies" type="Array(string)" value="{porosity,saturation_liquid,molar_density_liquid}" /> <!-- for testing -->
         <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="debug cells" type="Array(int)" value="{0,49,99}" />
-          <Parameter name="verbosity level" type="string" value="high" />
+          <Parameter name="debug cells" type="Array(int)" value="{0}" />
         </ParameterList>
       </ParameterList>
 
@@ -210,8 +195,7 @@
         </ParameterList>
         <Parameter name="checkpoint" type="bool" value="true" />
         <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="debug cells" type="Array(int)" value="{0,49,99}" />
-          <Parameter name="verbosity level" type="string" value="high" />
+          <Parameter name="debug cells" type="Array(int)" value="{0}" />
         </ParameterList>
       </ParameterList>
 
@@ -224,14 +208,14 @@
         </ParameterList>
         <Parameter name="checkpoint" type="bool" value="true" />
         <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="debug cells" type="Array(int)" value="{0,49,99}" />
-          <Parameter name="verbosity level" type="string" value="high" />
+          <Parameter name="debug cells" type="Array(int)" value="{0}" />
         </ParameterList>
       </ParameterList>
       
       <ParameterList name="darcy_flux_operator" type="ParameterList">
         <Parameter name="tensor coefficient key" type="string" value="permeability" />
         <Parameter name="scalar coefficient key" type="string" value="upwind_relative_hydraulic_conductivity" />
+        <Parameter name="scalar coefficient type" type="string" value="upwind: face" />
         <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation" />
         <Parameter name="gravity" type="bool" value="true" />
         <Parameter name="density key" type="string" value="mass_density_liquid" />
@@ -264,8 +248,7 @@
         <Parameter name="dependencies" type="Array(string)" value="{molar_density_liquid,relative_permeability,viscosity_liquid}" />
         <Parameter name="reciprocal" type="bool" value="true" />
         <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="debug cells" type="Array(int)" value="{0,49,99}" />
-          <Parameter name="verbosity level" type="string" value="high" />
+          <Parameter name="debug cells" type="Array(int)" value="{0}" />
         </ParameterList>
       </ParameterList>
 
@@ -293,9 +276,6 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
 
       <ParameterList name="darcy_flux_operator_bcs" type="ParameterList">
@@ -304,9 +284,6 @@
           <ParameterList name="exterior_boundary_neumann_data" type="ParameterList">
             <Parameter name="boundary condition type" type="string" value="Neumann" />
           </ParameterList>
-        </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 
@@ -324,9 +301,6 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-        </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 

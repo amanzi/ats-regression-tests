@@ -98,15 +98,15 @@
       <Parameter name="PK type" type="string" value="mixed form parabolic PDE" />
       <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="conserved quantity key" type="string" value="water_content" />
+      <Parameter name="potential key" type="string" value="pressure" />
       <Parameter name="diffusion operator key" type="string" value="darcy_flux_operator" />
       <Parameter name="absolute error tolerance factor" type="double" value="2750." />
       <Parameter name="domain name" type="string" value="domain" />
       <Parameter name="is source term" type="bool" value="true" />
       <Parameter name="initial time step" type="double" value="1.0" />
       <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
+        <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
         <Parameter name="debug variables" type="Array(string)" value="{water_content, saturation_liquid, upwind_relative_hydraulic_conductivity}" />
-        <Parameter name="verbosity level" type="string" value="medium" />
       </ParameterList>
       
       <ParameterList name="time integrator" type="ParameterList">
@@ -119,12 +119,6 @@
           <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
           <Parameter name="diverged tolerance" type="double" value="100000.0" />
           <Parameter name="limit iterations" type="int" value="21" />
-          <ParameterList name="verbose object" type="ParameterList">
-            <Parameter name="verbosity level" type="string" value="medium" />
-          </ParameterList>
-        </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="medium" />
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
           <Parameter name="max iterations" type="int" value="18" />
@@ -138,16 +132,23 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="linear solver" type="ParameterList">
+      <ParameterList name="inverse" type="ParameterList">
         <Parameter name="iterative method" type="string" value="gmres" />
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="medium" />
-        </ParameterList>
         <ParameterList name="gmres parameters" type="ParameterList">
           <Parameter name="preconditioning strategy" type="string" value="left" />
           <Parameter name="error tolerance" type="double" value="1e-06" />
           <Parameter name="convergence criteria" type="Array(string)" value="{relative residual,make one iteration}" />
           <Parameter name="maximum number of iterations" type="int" value="5" />
+        </ParameterList>
+        <Parameter name="preconditioning method" type="string" value="ifpack2: SCHWARZ"/>
+        <ParameterList name="ifpack2: SCHWARZ parameters">
+          <Parameter name="schwarz: combine mode" type="string" value="add"/>
+          <Parameter name="schwarz: overlap level" type="int" value="1"/>
+          <Parameter name="schwarz: use reordering" type="bool" value="false"/>-->
+          <Parameter name="schwarz: inner preconditioner name" type="string" value="ILUT"/>
+          <ParameterList name="schwarz: inner preconditioner parameters">
+            <Parameter name="fact: ilut level-of-fill" type="double" value="2.0"/>
+          </ParameterList>
         </ParameterList>
       </ParameterList>
 
@@ -178,22 +179,6 @@
 <!--        <Parameter name="include Jacobian term ddarcy_flux_operator_dpressure" type="bool" value="true" />-->
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
-          <Parameter name="verbosity level" type="string" value="medium" />
-        </ParameterList>
-        <ParameterList name="preconditioner" type="ParameterList">
-          <Parameter name="preconditioner type" type="string" value="ifpack2: SCHWARZ"/>
-          <ParameterList name="ifpack2: SCHWARZ parameters">
-            <Parameter name="schwarz: combine mode" type="string" value="add"/>
-            <Parameter name="schwarz: overlap level" type="int" value="1"/>
-            <Parameter name="schwarz: use reordering" type="bool" value="false"/>-->
-            <Parameter name="schwarz: inner preconditioner name" type="string" value="ILUT"/>
-            <ParameterList name="schwarz: inner preconditioner parameters">
-              <Parameter name="fact: ilut level-of-fill" type="double" value="2.0"/>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="verbose object">
-            <Parameter name="verbosity level" type="string" value="medium"/>
-          </ParameterList>
         </ParameterList>
       </ParameterList>
       
@@ -203,14 +188,12 @@
         <Parameter name="dependencies" type="Array(string)" value="{porosity,saturation_liquid,molar_density_liquid}" /> <!-- for testing -->
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
-          <Parameter name="verbosity level" type="string" value="medium" />
         </ParameterList>
       </ParameterList>
 
       <ParameterList name="water_content_t" type="ParameterList">
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
-          <Parameter name="verbosity level" type="string" value="medium" />
         </ParameterList>
       </ParameterList>
       
@@ -228,7 +211,6 @@
         <Parameter name="checkpoint" type="bool" value="true" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
-          <Parameter name="verbosity level" type="string" value="medium" />
         </ParameterList>
       </ParameterList>
 
@@ -242,7 +224,6 @@
         <Parameter name="checkpoint" type="bool" value="true" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
-          <Parameter name="verbosity level" type="string" value="medium" />
         </ParameterList>
       </ParameterList>
       
@@ -253,9 +234,6 @@
         <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation" />
         <Parameter name="gravity" type="bool" value="true" />
         <Parameter name="density key" type="string" value="mass_density_liquid" />
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
       
       <ParameterList name="molar_density_liquid" type="ParameterList">
@@ -286,7 +264,6 @@
         <Parameter name="reciprocal" type="bool" value="true" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="debug cells" type="Array(int)" value="{9,590,600,609}" />
-          <Parameter name="verbosity level" type="string" value="medium" />
         </ParameterList>
       </ParameterList>
 
@@ -315,9 +292,6 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="medium" />
-        </ParameterList>
       </ParameterList>
 
       <ParameterList name="darcy_flux_operator_bcs" type="ParameterList">
@@ -326,9 +300,6 @@
           <ParameterList name="exterior_boundary_dirichlet" type="ParameterList">
             <Parameter name="boundary condition type" type="string" value="Dirichlet" />
           </ParameterList>
-        </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="medium" />
         </ParameterList>
       </ParameterList>
 
@@ -349,9 +320,6 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="medium" />
-        </ParameterList>
       </ParameterList>
 
       <ParameterList name="water_content_source" type="ParameterList">
@@ -368,9 +336,6 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-        </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="medium" />
         </ParameterList>
       </ParameterList>
 
