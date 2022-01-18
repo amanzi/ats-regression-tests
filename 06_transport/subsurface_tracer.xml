@@ -181,10 +181,10 @@
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
-    <ParameterList name="field evaluators" type="ParameterList">
+    <ParameterList name="evaluators" type="ParameterList">
 
       <ParameterList name="saturation_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable from file" />
+        <Parameter name="evaluator type" type="string" value="independent variable from file" />
         <Parameter name="constant in time" type="bool" value="true" />
         <Parameter name="filename" type="string" value="../data/richards-hillslope_steadystate.h5" />
         <Parameter name="variable name" type="string" value="saturation_liquid" />
@@ -193,7 +193,7 @@
       </ParameterList>
 
       <ParameterList name="mass_flux" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable from file" />
+        <Parameter name="evaluator type" type="string" value="independent variable from file" />
         <Parameter name="constant in time" type="bool" value="true" />
         <Parameter name="filename" type="string" value="../data/richards-hillslope_steadystate.h5" />
         <Parameter name="variable name" type="string" value="mass_flux" />
@@ -202,12 +202,12 @@
       </ParameterList>
 
       <ParameterList name="porosity" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value="0.25" />
       </ParameterList>
 
       <ParameterList name="molar_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value="55000.0" />
       </ParameterList>
 
