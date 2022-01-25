@@ -193,9 +193,6 @@
           <Parameter name="EOS type" type="string" value="constant" />
           <Parameter name="density [kg/m^3]" type="double" value="1000.0" />
         </ParameterList>
-        <ParameterList name="verbose object">
-          <Parameter name="verbosity level" type="string" value="none" />
-        </ParameterList>
       </ParameterList>
 
       <ParameterList name="surface-molar_density_liquid">
