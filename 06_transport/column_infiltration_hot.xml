@@ -377,7 +377,7 @@
         <ParameterList name="component mass source">
           <ParameterList name="Tc-99 injection">
             <Parameter name="component names" type="Array(string)" value="{Tc-99}" />
-            <Parameter name="regions" type="Array(string)" value="{surface}" />
+            <Parameter name="regions" type="Array(string)" value="{surface domain}" />
             <Parameter name="spatial distribution method" type="string" value="none" />
             <ParameterList name="source function">
               <ParameterList name="function-tabular">
@@ -422,7 +422,7 @@
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function">
           <ParameterList name="domain rain">
-            <Parameter name="region" type="string" value="surface" />
+            <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function">
               <ParameterList name="function-tabular">

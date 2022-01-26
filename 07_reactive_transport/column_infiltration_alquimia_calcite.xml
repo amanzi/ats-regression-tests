@@ -396,7 +396,7 @@
       <ParameterList name="source terms">
         <ParameterList name="geochemical" type="ParameterList">
           <ParameterList name="Tracer injection" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{surface}" />
+            <Parameter name="regions" type="Array(string)" value="{surface domain}" />
             <Parameter name="solutes" type="Array(string)" value="{H+,HCO3-,Ca++,Tracer}" />
             <Parameter name="times" type="Array(double)" value="{0.0,8640000.0}" />
             <Parameter name="geochemical conditions" type="Array(string)" value="{rain, rain}" />
@@ -526,7 +526,7 @@
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function">
           <ParameterList name="domain rain">
-            <Parameter name="region" type="string" value="surface" />
+            <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function">
               <ParameterList name="function-tabular">
