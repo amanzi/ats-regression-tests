@@ -11,8 +11,8 @@
       <Parameter name="build columns from set" type="string" value="surface" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
         <Parameter name="number of cells" type="Array(int)" value="{1,1,100}" />
-        <Parameter name="domain low coordinate" type="Array(double)" value="{0.0,0.0,0.0}" />
-        <Parameter name="domain high coordinate" type="Array(double)" value="{1.0,1.0,10.0}" />
+        <Parameter name="domain low coordinate" type="Array(double)" value="{ 0, 0, 0}" />
+        <Parameter name="domain high coordinate" type="Array(double)" value="{ 1, 1,10}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -28,25 +28,25 @@
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{0.5,0.5,10.0}" />
-        <Parameter name="normal" type="Array(double)" value="{0.0,0.0,1.0}" />
+        <Parameter name="point" type="Array(double)" value="{0.5,0.5,10}" />
+        <Parameter name="normal" type="Array(double)" value="{ 0, 0, 1}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="bottom face" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{0.5,0.5,0.0}" />
-        <Parameter name="normal" type="Array(double)" value="{0.0,0.0,-1.0}" />
+        <Parameter name="point" type="Array(double)" value="{0.5,0.5, 0}" />
+        <Parameter name="normal" type="Array(double)" value="{ 0, 0,-1}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
-    <Parameter name="start time" type="double" value="0.0" />
+    <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="30.0" />
+    <Parameter name="end time" type="double" value="30" />
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="required times" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400.0,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
     </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="surface balance" type="ParameterList">
@@ -62,7 +62,7 @@
       <Parameter name="conserved quantity key suffix" type="string" value="water_content" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source key suffix" type="string" value="water_source" />
-      <Parameter name="initial time step" type="double" value="1.0" />
+      <Parameter name="initial time step" type="double" value=" 1" />
       <Parameter name="absolute error tolerance" type="double" value="0.01" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
@@ -80,7 +80,7 @@
           <Parameter name="backtrack factor" type="double" value="0.5" />
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
           <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
-          <Parameter name="diverged tolerance" type="double" value="1000000.0" />
+          <Parameter name="diverged tolerance" type="double" value="1000000" />
           <Parameter name="limit iterations" type="int" value="21" />
           <ParameterList name="verbose object" type="ParameterList">
             <Parameter name="verbosity level" type="string" value="high" />
@@ -93,8 +93,8 @@
           <Parameter name="max iterations" type="int" value="18" />
           <Parameter name="min iterations" type="int" value="10" />
           <Parameter name="time step reduction factor" type="double" value="0.5" />
-          <Parameter name="time step increase factor" type="double" value="2.0" />
-          <Parameter name="max time step" type="double" value="10000000.0" />
+          <Parameter name="time step increase factor" type="double" value=" 2" />
+          <Parameter name="max time step" type="double" value="10000000" />
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
@@ -112,7 +112,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1.0" />
+                <Parameter name="value" type="double" value=" 1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -134,18 +134,18 @@
       <ParameterList name="surface-water_source" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="additive evaluator" />
         <Parameter name="evaluator dependencies" type="Array(string)" value="{surface-ponded_depth}" />
-        <Parameter name="surface-ponded_depth coefficient" type="double" value="-1.1574074074074074e-06" />
+        <Parameter name="surface-ponded_depth coefficient" type="double" value="-1.1574074074074e-06" />
       </ParameterList>
 
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 
       <ParameterList name="atmospheric_pressure" type="ParameterList">
-        <Parameter name="value" type="double" value="101325.0" />
+        <Parameter name="value" type="double" value="101325" />
       </ParameterList>
 
       <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{0.0,0.0,-9.80665}" />
+        <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
       </ParameterList>
 
       <ParameterList name="land cover types" type="ParameterList">
@@ -165,15 +165,15 @@
   </ParameterList>
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400.0,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400.0,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="checkpoint">
-    <Parameter name="times start period stop" type="Array(double)" value="{0.0,864000.0,-1.0}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{ 0,864000,-1}" />
   </ParameterList>
 
   <ParameterList name="observations" type="ParameterList">
@@ -185,7 +185,7 @@
       <Parameter name="location name" type="string" value="cell" />
       <Parameter name="write interval" type="int" value="30" />
       <Parameter name="observation output filename" type="string" value="surface-ponded_depth.dat" />
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400.0,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
     </ParameterList>
     <ParameterList name="surface-water_content" type="ParameterList">
       <Parameter name="variable" type="string" value="surface-water_content" />
@@ -195,7 +195,7 @@
       <Parameter name="location name" type="string" value="cell" />
       <Parameter name="write interval" type="int" value="30" />
       <Parameter name="observation output filename" type="string" value="surface-water_content.dat" />
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400.0,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
     </ParameterList>
   </ParameterList>
 </ParameterList>

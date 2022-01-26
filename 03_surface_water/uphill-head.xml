@@ -51,20 +51,20 @@
     </ParameterList>
     <ParameterList name="surface inlet" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{0.0,0.0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{1.0,0.0}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{ 0, 0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{ 1, 0}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface outlet" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{0.0,5.0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{1.0,5.0}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{ 0, 5}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{ 1, 5}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="cycle driver">
-    <Parameter name="start time" type="double" value="0.0" />
+    <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
     <Parameter name="end time" type="double" value="0.25" />
     <Parameter name="end time units" type="string" value="d" />
@@ -76,12 +76,12 @@
   </ParameterList>
   <ParameterList name="visualization">
     <ParameterList name="surface">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,3600.0,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,3600,-1}" />
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400.0,-1.0}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
   </ParameterList>
 
   <ParameterList name="PKs">
@@ -90,7 +90,7 @@
       <Parameter name="PK type" type="string" value="overland flow, pressure basis" />
       <Parameter name="primary variable key" type="string" value="surface-pressure" />
       <Parameter name="source term" type="bool" value="false" />
-      <Parameter name="initial time step" type="double" value="1.0" />
+      <Parameter name="initial time step" type="double" value=" 1" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="flux key" type="string" value="surface-mass_flux" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
@@ -111,11 +111,11 @@
         <Parameter name="solver type" type="string" value="nka" />
         <Parameter name="timestep controller type" type="string" value="smarter" />
         <ParameterList name="nka parameters" type="ParameterList">
-          <Parameter name="max error growth factor" type="double" value="1000.0" />
+          <Parameter name="max error growth factor" type="double" value="1000" />
           <Parameter name="modify correction" type="bool" value="true" />
           <Parameter name="monitor" type="string" value="monitor residual" />
           <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
-          <Parameter name="diverged tolerance" type="double" value="1000.0" />
+          <Parameter name="diverged tolerance" type="double" value="1000" />
           <Parameter name="limit iterations" type="int" value="41" />
           <ParameterList name="verbose object" type="ParameterList">
             <Parameter name="verbosity level" type="string" value="none" />
@@ -129,7 +129,7 @@
           <Parameter name="min iterations" type="int" value="20" />
           <Parameter name="time step reduction factor" type="double" value="0.5" />
           <Parameter name="time step increase factor" type="double" value="1.25" />
-          <Parameter name="max time step" type="double" value="3600.0" />
+          <Parameter name="max time step" type="double" value="3600" />
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
@@ -147,7 +147,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function">
               <ParameterList name="function-constant">
-                <Parameter name="value" type="double" value="101325.0" />
+                <Parameter name="value" type="double" value="101325" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -160,7 +160,7 @@
             <Parameter name="regions" type="Array(string)" value="{surface inlet}" />
             <ParameterList name="boundary head" type="ParameterList">
               <ParameterList name="function-tabular">
-                <Parameter name="x values" type="Array(double)" value="{0.0,864000.0}" />
+                <Parameter name="x values" type="Array(double)" value="{ 0,864000}" />
                 <Parameter name="y values" type="Array(double)" value="{0.05,0.05}" />
                 <Parameter name="forms" type="Array(string)" value="{constant}" />
               </ParameterList>
@@ -196,7 +196,7 @@
         <Parameter name="mass density key" type="string" value="surface-mass_density_liquid" />
         <ParameterList name="EOS parameters">
           <Parameter name="EOS type" type="string" value="constant" />
-          <Parameter name="density [kg/m^3]" type="double" value="1000.0" />
+          <Parameter name="density [kg/m^3]" type="double" value="1000" />
         </ParameterList>
         <ParameterList name="verbose object">
           <Parameter name="verbosity level" type="string" value="none" />
@@ -210,7 +210,7 @@
         <Parameter name="mass density key" type="string" value="surface-mass_density_liquid" />
         <ParameterList name="EOS parameters">
           <Parameter name="EOS type" type="string" value="constant" />
-          <Parameter name="density [kg/m^3]" type="double" value="1000.0" />
+          <Parameter name="density [kg/m^3]" type="double" value="1000" />
         </ParameterList>
       </ParameterList>
 
@@ -219,10 +219,10 @@
         <ParameterList name="function">
           <ParameterList name="domain">
             <Parameter name="region" type="string" value="surface domain" />
-            <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
+            <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function">
               <ParameterList name="function-constant">
-                <Parameter name="value" type="double" value="100.0" />
+                <Parameter name="value" type="double" value="100" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -251,7 +251,7 @@
       <ParameterList name="surface-overland_conductivity">
         <Parameter name="field evaluator type" type="string" value="overland conductivity" />
         <ParameterList name="overland conductivity model">
-          <Parameter name="Manning exponent" type="double" value="0.6666666666666667" />
+          <Parameter name="Manning exponent" type="double" value="0.66666666666667" />
           <Parameter name="slope regularization epsilon" type="double" value="0.01" />
         </ParameterList>
       </ParameterList>
@@ -260,11 +260,11 @@
     <ParameterList name="initial conditions">
 
       <ParameterList name="atmospheric_pressure">
-        <Parameter name="value" type="double" value="101325.0" />
+        <Parameter name="value" type="double" value="101325" />
       </ParameterList>
 
       <ParameterList name="gravity">
-        <Parameter name="value" type="Array(double)" value="{0.0,0.0,-9.80665}" />
+        <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
       </ParameterList>
 
     </ParameterList>

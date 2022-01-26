@@ -579,7 +579,7 @@
           <Parameter name="mafic potential at fully open stomata [Pa]" type="double" value="10000" />
           <Parameter name="mafic potential at fully closed stomata [Pa]" type="double" value="40000" />
           <Parameter name="Priestley-Taylor alpha of transpiration [-]" type="double" value="1.26" />
-          <Parameter name="leaf on time [doy]" type="double" value="-1" /><!-- evergreen -->
+          <Parameter name="leaf on time [doy]" type="double" value="-1" />
           <Parameter name="leaf off time [doy]" type="double" value="-1" />
         </ParameterList>
       </ParameterList>
