@@ -352,7 +352,7 @@
       <Parameter name="PKs order" type="Array(string)" value="{surface_star-coupler, column-coupler}" />
       <Parameter name="domain name" type="string" value="surface_column" />
       <Parameter name="star domain name" type="string" value="surface_star" />
-      <Parameter name="coupling type" type="string" value="pressure" />
+      <Parameter name="coupling type" type="string" value="hybrid" />
     </ParameterList>
 
     <!-- this couples the columns together -->
