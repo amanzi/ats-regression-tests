@@ -192,7 +192,7 @@
         <Parameter name="mesh entity" type="string" value="cell" />
       </ParameterList>
 
-      <ParameterList name="mass_flux" type="ParameterList">
+      <ParameterList name="water_flux" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable from file" />
         <Parameter name="constant in time" type="bool" value="true" />
         <Parameter name="filename" type="string" value="../data/richards-hillslope_steadystate.h5" />

@@ -158,7 +158,7 @@
       <ParameterList name="top level MPC" type="ParameterList">
         <Parameter name="PK type" type="string" value="operator split permafrost" />
         <ParameterList name="column-coupler" type="ParameterList">
-	  <Parameter name="PK type" type="string" value="domain set weak MPC" />
+          <Parameter name="PK type" type="string" value="domain set weak MPC" />
           <ParameterList name="column:*-coupler" type="ParameterList">
             <Parameter name="PK type" type="string" value="weak MPC" />
             <ParameterList name="column:*-deformation" type="ParameterList">
@@ -178,18 +178,16 @@
                   <Parameter name="PK type" type="string" value="three-phase energy" />
                 </ParameterList>
                 <ParameterList name="surface_column:*-flow" type="ParameterList">
-                  <!-- NOTE: these are not the usual overland flow in the case of the ISM -->
                   <Parameter name="PK type" type="string" value="general surface balance" />
                 </ParameterList>
                 <ParameterList name="surface_column:*-energy" type="ParameterList">
-                  <!-- NOTE: these are not the usual overland energy in the case of the ISM -->
                   <Parameter name="PK type" type="string" value="general surface balance" />
                 </ParameterList>
               </ParameterList>
             </ParameterList>
           </ParameterList>
         </ParameterList>
-	<ParameterList name="surface_star-coupler" type="ParameterList">
+        <ParameterList name="surface_star-coupler" type="ParameterList">
           <Parameter name="PK type" type="string" value="icy surface" />
           <ParameterList name="surface_star-flow" type="ParameterList">
             <Parameter name="PK type" type="string" value="overland flow with ice" />
@@ -201,10 +199,9 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="observations">
     <ParameterList name="surface-flux-cycle">
-      <Parameter name="variable" type="string" value="surface_star-mass_flux" />
+      <Parameter name="variable" type="string" value="surface_star-water_flux" />
       <Parameter name="functional" type="string" value="extensive integral" />
       <Parameter name="direction normalized flux" type="bool" value="true" />
       <Parameter name="region" type="string" value="surface outlet" />
@@ -221,7 +218,7 @@
       <Parameter name="times start period stop units" type="string" value="d" />
       <ParameterList name="observed quantities" type="ParameterList">
         <ParameterList name="outlet discharge [mol d^-1]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-mass_flux" />
+          <Parameter name="variable" type="string" value="surface_star-water_flux" />
           <Parameter name="direction normalized flux" type="bool" value="true" />
           <Parameter name="region" type="string" value="surface outlet" />
           <Parameter name="functional" type="string" value="extensive integral" />
@@ -386,25 +383,25 @@
 
   <ParameterList name="PKs" type="ParameterList">
 
-    <!-- this coupled surface star system to the columns -->
     <ParameterList name="top level MPC" type="ParameterList">
       <Parameter name="PK type" type="string" value="operator split permafrost" />
       <Parameter name="PKs order" type="Array(string)" value="{surface_star-coupler, column-coupler}" />
       <Parameter name="domain name" type="string" value="surface_column" />
       <Parameter name="star domain name" type="string" value="surface_star" />
       <Parameter name="coupling type" type="string" value="hybrid" />
+
     </ParameterList>
 
-    <!-- this couples the columns together -->
     <ParameterList name="column-coupler" type="ParameterList">
       <Parameter name="PK type" type="string" value="domain set weak MPC" />
-      <Parameter name="PKs order" type="Array(string)" value="{column:*-coupler}" />  
+      <Parameter name="PKs order" type="Array(string)" value="{column:*-coupler}" />
+
     </ParameterList>
 
-    <!-- this couples deformation and thermal hydrology in each individual column -->
     <ParameterList name="column:*-coupler" type="ParameterList">
       <Parameter name="PK type" type="string" value="weak MPC" />
-      <Parameter name="PKs order" type="Array(string)" value="{column:*-deformation, column:*-thermal_hydrology}" />  
+      <Parameter name="PKs order" type="Array(string)" value="{column:*-deformation, column:*-thermal_hydrology}" />
+
     </ParameterList>
 
     <ParameterList name="column:*-deformation" type="ParameterList">
@@ -506,12 +503,15 @@
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="constant" type="double" value=" 0" />
       </ParameterList>
+
       <ParameterList name="accumulation preconditioner" type="ParameterList">
         <Parameter name="diagonal shift" type="double" value="1e-06" />
       </ParameterList>
+
       <ParameterList name="inverse" type="ParameterList">
         <Parameter name="preconditioning method" type="string" value="diagonal" />
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="column:*-permafrost" type="ParameterList">
@@ -527,9 +527,11 @@
       <ParameterList name="ewc delegate" type="ParameterList">
         <Parameter name="predictor type" type="string" value="smart ewc" />
       </ParameterList>
+
       <ParameterList name="surface ewc delegate" type="ParameterList">
         <Parameter name="predictor type" type="string" value="none" />
       </ParameterList>
+
       <ParameterList name="water delegate" type="ParameterList">
         <Parameter name="modify predictor damp and cap the water spurt" type="bool" value="true" />
         <Parameter name="damp and cap the water spurt" type="bool" value="true" />
@@ -539,6 +541,7 @@
           <Parameter name="verbosity level" type="string" value="none" />
         </ParameterList>
       </ParameterList>
+
       <ParameterList name="inverse" type="ParameterList">
         <Parameter name="preconditioning method" type="string" value="block ilu" />
         <Parameter name="iterative method" type="string" value="gmres" />
@@ -555,6 +558,7 @@
           <Parameter name="verbosity level" type="string" value="none" />
         </ParameterList>
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="surface_column:*-flow" type="ParameterList">
@@ -569,6 +573,7 @@
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="initial condition" type="ParameterList">
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="surface_column:*-energy" type="ParameterList">
@@ -583,8 +588,10 @@
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="initial condition" type="ParameterList">
       </ParameterList>
+
       <ParameterList name="boundary conditions" type="ParameterList">
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="column:*-flow" type="ParameterList">
@@ -603,11 +610,14 @@
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation" />
       </ParameterList>
+
       <ParameterList name="diffusion preconditioner" type="ParameterList">
         <Parameter name="include Newton correction" type="bool" value="true" />
       </ParameterList>
+
       <ParameterList name="boundary conditions" type="ParameterList">
       </ParameterList>
+
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="initialize faces from cells" type="bool" value="true" />
         <ParameterList name="initialize from 1D column" type="ParameterList">
@@ -670,6 +680,7 @@
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation" />
       </ParameterList>
+
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="temperature" type="ParameterList">
           <ParameterList name="bottom" type="ParameterList">
@@ -682,6 +693,7 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
+
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="initialize faces from cells" type="bool" value="true" />
         <ParameterList name="initialize from 1D column" type="ParameterList">
@@ -692,6 +704,7 @@
           <Parameter name="surface sideset" type="string" value="surface" />
         </ParameterList>
       </ParameterList>
+
       <ParameterList name="thermal conductivity evaluator" type="ParameterList">
         <ParameterList name="thermal conductivity parameters" type="ParameterList">
           <ParameterList name="computational domain moss" type="ParameterList">
@@ -760,9 +773,11 @@
           <Parameter name="count before increasing increase factor" type="int" value="2" />
         </ParameterList>
       </ParameterList>
+
       <ParameterList name="operator preconditioner" type="ParameterList">
         <Parameter name="diagonal shift" type="double" value="1e-05" />
       </ParameterList>
+
       <ParameterList name="inverse" type="ParameterList">
         <Parameter name="preconditioning method" type="string" value="block ilu" />
         <Parameter name="iterative method" type="string" value="gmres" />
@@ -773,6 +788,7 @@
           <Parameter name="maximum number of iterations" type="int" value="80" />
         </ParameterList>
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="surface_star-flow" type="ParameterList">
@@ -786,6 +802,7 @@
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
+
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="head" type="ParameterList">
           <ParameterList name="surface boundary" type="ParameterList">
@@ -798,9 +815,11 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
+
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="initialize faces from cells" type="bool" value="true" />
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="surface_star-energy" type="ParameterList">
@@ -817,11 +836,14 @@
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
+
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="initialize faces from cells" type="bool" value="true" />
       </ParameterList>
+
       <ParameterList name="boundary conditions" type="ParameterList">
       </ParameterList>
+
       <ParameterList name="thermal conductivity evaluator" type="ParameterList">
         <Parameter name="thermal conductivity key" type="string" value="surface_star-thermal_conductivity" />
         <Parameter name="ponded depth key" type="string" value="surface_star-volumetric_ponded_depth" />
@@ -829,10 +851,13 @@
           <Parameter name="minimum thermal conductivity" type="double" value="1e-15" />
         </ParameterList>
       </ParameterList>
+
       <ParameterList name="enthalpy evaluator" type="ParameterList">
         <Parameter name="include work term" type="bool" value="false" />
       </ParameterList>
+
     </ParameterList>
+
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">

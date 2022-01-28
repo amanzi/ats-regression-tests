@@ -197,7 +197,7 @@
   </ParameterList>
   <ParameterList name="observations">
     <ParameterList name="surface-flux-cycle">
-      <Parameter name="variable" type="string" value="surface_star-mass_flux" />
+      <Parameter name="variable" type="string" value="surface_star-water_flux" />
       <Parameter name="functional" type="string" value="extensive integral" />
       <Parameter name="direction normalized flux" type="bool" value="true" />
       <Parameter name="region" type="string" value="surface outlet" />
@@ -214,7 +214,7 @@
       <Parameter name="times start period stop units" type="string" value="d" />
       <ParameterList name="observed quantities" type="ParameterList">
         <ParameterList name="outlet discharge [mol d^-1]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-mass_flux" />
+          <Parameter name="variable" type="string" value="surface_star-water_flux" />
           <Parameter name="direction normalized flux" type="bool" value="true" />
           <Parameter name="region" type="string" value="surface outlet" />
           <Parameter name="functional" type="string" value="extensive integral" />

@@ -246,7 +246,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="mass_flux" type="ParameterList">
+      <ParameterList name="water_flux" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
         <Parameter name="dot with normal" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">

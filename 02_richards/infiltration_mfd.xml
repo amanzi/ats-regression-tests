@@ -157,10 +157,10 @@
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
-        <ParameterList name="mass flux" type="ParameterList">
+        <ParameterList name="water flux" type="ParameterList">
           <ParameterList name="top" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface}" />
-            <ParameterList name="outward mass flux" type="ParameterList">
+            <ParameterList name="outward water flux" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="-0.0005" />
               </ParameterList>

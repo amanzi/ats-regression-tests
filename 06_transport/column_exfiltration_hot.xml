@@ -161,7 +161,7 @@
 
     <ParameterList name="flow">
       <Parameter name="PK type" type="string" value="richards flow" />
-      <Parameter name="darcy flux key" type="string" value="mass_flux" />
+      <Parameter name="darcy flux key" type="string" value="water_flux" />
       <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
@@ -185,10 +185,10 @@
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
-        <ParameterList name="mass flux" type="ParameterList">
+        <ParameterList name="water flux" type="ParameterList">
           <ParameterList name="bottom" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{bottom face}" />
-            <ParameterList name="outward mass flux" type="ParameterList">
+            <ParameterList name="outward water flux" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="-0.0005" />
               </ParameterList>

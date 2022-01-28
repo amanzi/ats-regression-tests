@@ -208,7 +208,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface-mass_flux" type="ParameterList">
+      <ParameterList name="surface-water_flux" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable from file" />
         <Parameter name="constant in time" type="bool" value="true" />
         <Parameter name="filename" type="string" value="../data/Qface100.h5" />

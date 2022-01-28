@@ -161,10 +161,10 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="mass flux" type="ParameterList">
+        <ParameterList name="water flux" type="ParameterList">
           <ParameterList name="top" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface}" />
-            <ParameterList name="outward mass flux" type="ParameterList">
+            <ParameterList name="outward water flux" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
                 <Parameter name="x values" type="Array(double)" value="{ 0,12623040}" />
                 <Parameter name="y values" type="Array(double)" value="{-0.004, 0}" />
@@ -174,7 +174,7 @@
           </ParameterList>
           <ParameterList name="bottom" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{bottom face}" />
-            <ParameterList name="outward mass flux" type="ParameterList">
+            <ParameterList name="outward water flux" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
                 <Parameter name="x values" type="Array(double)" value="{ 0,47304000,53611200}" />
                 <Parameter name="y values" type="Array(double)" value="{ 0,0.004, 0}" />

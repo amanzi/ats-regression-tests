@@ -108,7 +108,7 @@
       <Parameter name="previous saturation liquid key" type="string" value="prev_saturation_liquid" />
       <Parameter name="PK origin" type="string" value="Amanzi" />
       <Parameter name="domain name" type="string" value="domain" />
-      <Parameter name="mass flux key suffix" type="string" value="mass_flux" />
+      <Parameter name="water flux key suffix" type="string" value="water_flux" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
       <Parameter name="number of liquid components" type="int" value="2" />
       <Parameter name="component molar masses" type="Array(double)" value="{ 1}" />
@@ -252,7 +252,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="mass_flux" type="ParameterList">
+      <ParameterList name="water_flux" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
         <Parameter name="dot with normal" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">

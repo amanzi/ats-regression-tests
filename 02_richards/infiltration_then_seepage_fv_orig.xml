@@ -152,17 +152,17 @@
         <ParameterList name="seepage face with infiltration" type="ParameterList">
           <ParameterList name="top" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface}" />
-            <ParameterList name="outward mass flux" type="ParameterList">
+            <ParameterList name="outward water flux" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="-0.001" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="mass flux" type="ParameterList">
+        <ParameterList name="water flux" type="ParameterList">
           <ParameterList name="bottom" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{bottom face}" />
-            <ParameterList name="outward mass flux" type="ParameterList">
+            <ParameterList name="outward water flux" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
                 <Parameter name="x values" type="Array(double)" value="{ 0,15768000,23652000}" />
                 <Parameter name="y values" type="Array(double)" value="{ 0,0.004,0.001}" />

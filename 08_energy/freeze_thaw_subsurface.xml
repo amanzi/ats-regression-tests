@@ -5,7 +5,7 @@
       <ParameterList name="generate mesh parameters" type="ParameterList">
         <Parameter name="number of cells" type="Array(int)" value="{1,1,1}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{ 0, 0, 0}" />
-        <Parameter name="domain high coordinate" type="Array(double)" value="{1, 1, 1}" />
+        <Parameter name="domain high coordinate" type="Array(double)" value="{ 1, 1, 1}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -14,7 +14,7 @@
     <ParameterList name="subsurface domain" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
         <Parameter name="low coordinate" type="Array(double)" value="{ 0, 0, 0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{1, 1, 1}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{ 1, 1, 1}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -22,7 +22,7 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="2" />
+    <Parameter name="end time" type="double" value=" 2" />
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="coupler" type="ParameterList">
@@ -59,6 +59,7 @@
         <Parameter name="predictor type" type="string" value="smart ewc" />
         <Parameter name="preconditioner type" type="string" value="none" />
       </ParameterList>
+
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
@@ -90,6 +91,7 @@
           <Parameter name="count before increasing increase factor" type="int" value="2" />
         </ParameterList>
       </ParameterList>
+
       <ParameterList name="inverse" type="ParameterList">
         <Parameter name="preconditioning method" type="string" value="block ilu" />
         <Parameter name="iterative method" type="string" value="gmres" />
@@ -106,6 +108,7 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="flow" type="ParameterList">
@@ -119,6 +122,7 @@
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="constant" type="double" value="80000" />
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="energy" type="ParameterList">
@@ -134,6 +138,7 @@
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="constant" type="double" value="270.15" />
       </ParameterList>
+
     </ParameterList>
 
   </ParameterList>
@@ -186,7 +191,7 @@
           <Parameter name="minimum dsi_dpressure magnitude" type="double" value="1e-12" />
         </ParameterList>
       </ParameterList>
-      
+
       <ParameterList name="molar_density_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
@@ -293,7 +298,6 @@
         </ParameterList>
       </ParameterList>
 
-
       <ParameterList name="density_rock" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -320,8 +324,8 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="x values" type="Array(double)" value="{0,86400}" />
-                <Parameter name="y values" type="Array(double)" value="{0.002, -0.002}" />
+                <Parameter name="x values" type="Array(double)" value="{ 0,86400}" />
+                <Parameter name="y values" type="Array(double)" value="{0.002,-0.002}" />
                 <Parameter name="forms" type="Array(string)" value="{constant}" />
               </ParameterList>
             </ParameterList>

@@ -626,7 +626,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface-mass_flux" type="ParameterList">
+      <ParameterList name="surface-water_flux" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
@@ -722,7 +722,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="subgrid_1:*-mass_flux" type="ParameterList">
+      <ParameterList name="subgrid_1:*-water_flux" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <Parameter name="checkpoint" type="bool" value="true" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -831,7 +831,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="subgrid_2:*-mass_flux" type="ParameterList">
+      <ParameterList name="subgrid_2:*-water_flux" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <Parameter name="checkpoint" type="bool" value="true" />
         <Parameter name="constant in time" type="bool" value="true" />

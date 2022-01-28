@@ -52,7 +52,7 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="5" />
+    <Parameter name="end time" type="double" value=" 5" />
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="surface energy" type="ParameterList">
@@ -133,7 +133,7 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-      
+
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
@@ -168,6 +168,7 @@
       <ParameterList name="enthalpy evaluator" type="ParameterList">
         <Parameter name="include work term" type="bool" value="false" />
       </ParameterList>
+
     </ParameterList>
 
   </ParameterList>
@@ -181,13 +182,11 @@
       </ParameterList>
 
       <ParameterList name="surface-water_content" type="ParameterList">
-        <!-- note this assumes always water -->
         <Parameter name="field evaluator type" type="string" value="multiplicative evaluator" />
         <Parameter name="evaluator dependencies" type="Array(string)" value="{surface-molar_density_liquid,surface-ponded_depth,surface-cell_volume}" />
       </ParameterList>
-      
+
       <ParameterList name="surface-pressure" type="ParameterList">
-        <!-- note, this is inconsistent with the PD, but it is only here for densities -->
         <Parameter name="field evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value="101325" />
       </ParameterList>
@@ -195,12 +194,7 @@
       <ParameterList name="surface-water_flux" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="multiplicative evaluator" />
         <Parameter name="evaluator dependencies" type="Array(string)" value="{surface-water_flux_zeropointone}" />
-        <Parameter name="coefficient" type="double" value="642.43250882920293" />
-        <!-- this value is calculated to "flux in" the entire initial amount of water in 1 day
-             The flux provided in the file is 0.1 mol / s.
-             The ponded depth is 1m, with a 10m^2 cell area
-             The molar density is 555061.6876284314
-        -->
+        <Parameter name="coefficient" type="double" value="642.4325088292" />
       </ParameterList>
 
       <ParameterList name="surface-water_flux_zeropointone" type="ParameterList">
@@ -212,7 +206,7 @@
         <Parameter name="component name" type="string" value="face" />
         <Parameter name="mesh entity" type="string" value="face" />
       </ParameterList>
-      
+
       <ParameterList name="surface-energy" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="surface ice energy" />
       </ParameterList>

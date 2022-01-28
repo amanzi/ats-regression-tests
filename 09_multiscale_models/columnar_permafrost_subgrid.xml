@@ -200,10 +200,9 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="observations">
     <ParameterList name="surface-flux-cycle">
-      <Parameter name="variable" type="string" value="surface_star-mass_flux" />
+      <Parameter name="variable" type="string" value="surface_star-water_flux" />
       <Parameter name="functional" type="string" value="extensive integral" />
       <Parameter name="direction normalized flux" type="bool" value="true" />
       <Parameter name="region" type="string" value="surface outlet" />
@@ -220,7 +219,7 @@
       <Parameter name="times start period stop units" type="string" value="d" />
       <ParameterList name="observed quantities" type="ParameterList">
         <ParameterList name="outlet discharge [mol d^-1]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-mass_flux" />
+          <Parameter name="variable" type="string" value="surface_star-water_flux" />
           <Parameter name="direction normalized flux" type="bool" value="true" />
           <Parameter name="region" type="string" value="surface outlet" />
           <Parameter name="functional" type="string" value="extensive integral" />
@@ -353,18 +352,19 @@
       <Parameter name="domain name" type="string" value="surface_column" />
       <Parameter name="star domain name" type="string" value="surface_star" />
       <Parameter name="coupling type" type="string" value="hybrid" />
+
     </ParameterList>
 
-    <!-- this couples the columns together -->
     <ParameterList name="column-coupler" type="ParameterList">
       <Parameter name="PK type" type="string" value="domain set weak MPC" />
-      <Parameter name="PKs order" type="Array(string)" value="{column:*-coupler}" />  
+      <Parameter name="PKs order" type="Array(string)" value="{column:*-coupler}" />
+
     </ParameterList>
 
-    <!-- this couples deformation and thermal hydrology in each individual column -->
     <ParameterList name="column:*-coupler" type="ParameterList">
       <Parameter name="PK type" type="string" value="weak MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{column:*-subsidence,column:*-thermal_hydrology}" />
+
     </ParameterList>
 
     <ParameterList name="column:*-subsidence" type="ParameterList">

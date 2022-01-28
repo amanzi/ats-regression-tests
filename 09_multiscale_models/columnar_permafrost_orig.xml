@@ -197,7 +197,7 @@
   </ParameterList>
   <ParameterList name="observations">
     <ParameterList name="surface-flux-cycle">
-      <Parameter name="variable" type="string" value="surface_star-mass_flux" />
+      <Parameter name="variable" type="string" value="surface_star-water_flux" />
       <Parameter name="functional" type="string" value="extensive integral" />
       <Parameter name="direction normalized flux" type="bool" value="true" />
       <Parameter name="region" type="string" value="surface outlet" />
@@ -214,7 +214,7 @@
       <Parameter name="times start period stop units" type="string" value="d" />
       <ParameterList name="observed quantities" type="ParameterList">
         <ParameterList name="outlet discharge [mol d^-1]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-mass_flux" />
+          <Parameter name="variable" type="string" value="surface_star-water_flux" />
           <Parameter name="direction normalized flux" type="bool" value="true" />
           <Parameter name="region" type="string" value="surface outlet" />
           <Parameter name="functional" type="string" value="extensive integral" />
@@ -1106,7 +1106,7 @@
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
             <Parameter name="region" type="string" value="surface domain" />
-            <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
+            <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="0.1" />
@@ -1117,7 +1117,7 @@
       </ParameterList>
 
       <ParameterList name="surface_star-overland_conductivity" type="ParameterList">
-        <Parameter name="depth key" type="string" value="surface_star-unfrozen_effective_depth" />
+        <Parameter name="mobile depth key" type="string" value="surface_star-unfrozen_effective_depth" />
         <Parameter name="overland conductivity key" type="string" value="surface_star-overland_conductivity" />
         <Parameter name="field evaluator type" type="string" value="overland conductivity" />
         <ParameterList name="overland conductivity model" type="ParameterList">

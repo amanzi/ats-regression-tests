@@ -588,7 +588,7 @@
         <Parameter name="value" type="double" value=" 1" />
       </ParameterList>
 
-      <ParameterList name="surface-mass_flux" type="ParameterList">
+      <ParameterList name="surface-water_flux" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable from file" />
         <Parameter name="constant in time" type="bool" value="true" />
         <Parameter name="filename" type="string" value="../data/discharge/faceQ-100m.h5" />
@@ -628,7 +628,7 @@
         <Parameter name="value" type="double" value=" 1" />
       </ParameterList>
 
-      <ParameterList name="subgrid:*-mass_flux" type="ParameterList">
+      <ParameterList name="subgrid:*-water_flux" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="independent variable" />
         <Parameter name="checkpoint" type="bool" value="true" />
         <Parameter name="constant in time" type="bool" value="true" />
