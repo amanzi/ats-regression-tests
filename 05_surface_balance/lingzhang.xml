@@ -211,19 +211,15 @@
 
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="evaluators" type="ParameterList">
-
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="richards water content" />
       </ParameterList>
-
       <ParameterList name="surface-ponded_depth" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="ponded depth" />
       </ParameterList>
-
       <ParameterList name="surface-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="overland pressure water content" />
       </ParameterList>
-
       <ParameterList name="surface-precipitation_rain" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -240,11 +236,9 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="capillary_pressure_gas_liq" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
       </ParameterList>
-
       <ParameterList name="surface-manning_coefficient">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -259,7 +253,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="water_source" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="surface energy balance, two components" />
         <Parameter name="save diagnostic data" type="bool" value="true" />
@@ -267,20 +260,16 @@
         <Parameter name="use model from ATS 1.1" type="bool" value="true" />
         <Parameter name="debug cells" type="Array(int)" value="{0}" />
       </ParameterList>
-
       <ParameterList name="surface-area_fractions" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="area fractions, two components" />
       </ParameterList>
-
       <ParameterList name="surface-albedos" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="subgrid albedos, two components" />
       </ParameterList>
-
       <ParameterList name="depth" type="ParameterList">
         <Parameter name="constant in time" type="bool" value="true" />
         <Parameter name="evaluator type" type="string" value="depth" />
       </ParameterList>
-
       <ParameterList name="surface-air_temperature" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -295,7 +284,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="snow-death_rate" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -310,7 +298,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="snow-density" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -325,7 +312,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="snow-depth" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -340,7 +326,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="snow-precipitation" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -355,7 +340,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-unfrozen_fraction" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -370,7 +354,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-temperature" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -385,7 +368,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-wind_speed" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -400,7 +382,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-relative_humidity" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -415,7 +396,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-incoming_shortwave_radiation" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -430,11 +410,9 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-incoming_longwave_radiation" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="incoming longwave radiation" />
       </ParameterList>
-
       <ParameterList name="base_porosity" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -450,7 +428,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="porosity" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="compressible porosity" />
         <ParameterList name="compressible porosity model parameters" type="ParameterList">
@@ -460,7 +437,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -476,15 +452,12 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="effective_pressure" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="effective_pressure" />
       </ParameterList>
-
       <ParameterList name="surface-effective_pressure" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="effective_pressure" />
       </ParameterList>
-
       <ParameterList name="surface-relative_permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -500,7 +473,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="molar_density_liquid">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -516,7 +488,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="mass_density_liquid">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -532,7 +503,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="viscosity_liquid">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -548,7 +518,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-molar_density_liquid">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -564,7 +533,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-source_molar_density">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -580,7 +548,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-mass_density_liquid">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -596,7 +563,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-overland_conductivity" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="overland conductivity" />
         <ParameterList name="overland conductivity model" type="ParameterList">
@@ -605,7 +571,6 @@
           <Parameter name="slope regularization epsilon" type="double" value="0.01" />
         </ParameterList>
       </ParameterList>
-
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 

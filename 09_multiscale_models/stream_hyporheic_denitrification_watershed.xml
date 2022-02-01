@@ -581,15 +581,13 @@
 
   <ParameterList name="state" type="ParameterList">
     <Parameter name="domain sets" type="Array(string)" value="{subgrid}" />
-    <ParameterList name="field evaluators" type="ParameterList">
-
+    <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="surface-ponded_depth" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value=" 1" />
       </ParameterList>
-
       <ParameterList name="surface-water_flux" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable from file" />
+        <Parameter name="evaluator type" type="string" value="independent variable from file" />
         <Parameter name="constant in time" type="bool" value="true" />
         <Parameter name="filename" type="string" value="../data/discharge/faceQ-100m.h5" />
         <Parameter name="domain name" type="string" value="surface" />
@@ -597,9 +595,8 @@
         <Parameter name="component name" type="string" value="face" />
         <Parameter name="mesh entity" type="string" value="face" />
       </ParameterList>
-
       <ParameterList name="surface-water_source" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable from file" />
+        <Parameter name="evaluator type" type="string" value="independent variable from file" />
         <Parameter name="constant in time" type="bool" value="true" />
         <Parameter name="filename" type="string" value="../data/implied_source/impliedsource-100m.h5" />
         <Parameter name="domain name" type="string" value="surface" />
@@ -607,29 +604,24 @@
         <Parameter name="component name" type="string" value="cell" />
         <Parameter name="mesh entity" type="string" value="cell" />
       </ParameterList>
-
       <ParameterList name="surface-porosity" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value=" 1" />
       </ParameterList>
-
       <ParameterList name="surface-molar_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value=" 1" />
       </ParameterList>
-
       <ParameterList name="surface-mass_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value="1000" />
       </ParameterList>
-
       <ParameterList name="subgrid:*-saturation_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value=" 1" />
       </ParameterList>
-
       <ParameterList name="subgrid:*-water_flux" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="checkpoint" type="bool" value="true" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
@@ -653,27 +645,22 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="subgrid:*-porosity" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value=" 1" />
       </ParameterList>
-
       <ParameterList name="subgrid:*-molar_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value=" 1" />
       </ParameterList>
-
       <ParameterList name="subgrid:*-mass_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value="1000" />
       </ParameterList>
-
       <ParameterList name="subgrid:*-ponded_depth" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value=" 1" />
       </ParameterList>
-
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 

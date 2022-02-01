@@ -180,15 +180,12 @@
 
   <ParameterList name="state">
     <ParameterList name="evaluators">
-
       <ParameterList name="surface-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="overland pressure water content" />
       </ParameterList>
-
       <ParameterList name="surface-ponded_depth" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="ponded depth" />
       </ParameterList>
-
       <ParameterList name="surface-mass_density_liquid">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
@@ -200,7 +197,6 @@
           <Parameter name="verbosity level" type="string" value="none" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-molar_density_liquid">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
@@ -209,7 +205,6 @@
           <Parameter name="density [kg/m^3]" type="double" value="1000" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-manning_coefficient">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function">
@@ -224,11 +219,9 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-effective_pressure">
         <Parameter name="evaluator type" type="string" value="effective_pressure" />
       </ParameterList>
-
       <ParameterList name="surface-temperature">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function">
@@ -243,7 +236,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-overland_conductivity">
         <Parameter name="evaluator type" type="string" value="overland conductivity" />
         <ParameterList name="overland conductivity model">
@@ -251,7 +243,6 @@
           <Parameter name="slope regularization epsilon" type="double" value="0.01" />
         </ParameterList>
       </ParameterList>
-
     </ParameterList>
     <ParameterList name="initial conditions">
 

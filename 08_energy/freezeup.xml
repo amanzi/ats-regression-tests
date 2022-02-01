@@ -276,22 +276,18 @@
 
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="evaluators" type="ParameterList">
-
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="liquid+ice water content" />
       </ParameterList>
-
       <ParameterList name="energy" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="liquid+ice energy" />
       </ParameterList>
-
       <ParameterList name="capillary_pressure_gas_liq" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="capillary_pressure_liq_ice" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="capillary pressure, water over ice" />
         <ParameterList name="capillary pressure of ice-water" type="ParameterList">
@@ -304,7 +300,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="molar_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
@@ -317,7 +312,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="viscosity_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="viscosity" />
         <Parameter name="viscosity key" type="string" value="viscosity_liquid" />
@@ -328,7 +322,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="molar_density_gas" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="molar" />
@@ -343,7 +336,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="molar_density_ice" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="molar" />
@@ -355,7 +347,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="internal_energy_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="iem" />
         <Parameter name="internal energy key" type="string" value="internal_energy_liquid" />
@@ -367,7 +358,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="internal_energy_rock" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="iem" />
         <Parameter name="internal energy key" type="string" value="internal_energy_rock" />
@@ -379,7 +369,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="internal_energy_ice" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="iem" />
         <Parameter name="internal energy key" type="string" value="internal_energy_ice" />
@@ -393,7 +382,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="base_porosity" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -411,7 +399,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="porosity" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="compressible porosity" />
         <ParameterList name="compressible porosity model parameters" type="ParameterList">
@@ -421,7 +408,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -439,7 +425,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="density_rock" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -457,7 +442,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 

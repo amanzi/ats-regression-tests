@@ -215,19 +215,16 @@
 
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="evaluators" type="ParameterList">
-
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="richards water content" />
         <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
-
       <ParameterList name="capillary_pressure_gas_liq" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="molar_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
@@ -240,7 +237,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="viscosity_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="viscosity" />
         <Parameter name="viscosity key" type="string" value="viscosity_liquid" />
@@ -251,7 +247,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="molar_density_gas" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="molar" />
@@ -266,7 +261,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="mol_frac_gas" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="molar fraction gas" />
         <Parameter name="molar fraction key" type="string" value="mol_frac_gas" />
@@ -277,7 +271,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="porosity" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -296,7 +289,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -315,7 +307,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="temperature" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -334,14 +325,12 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="effective_pressure" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="effective_pressure" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 
