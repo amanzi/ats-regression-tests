@@ -747,7 +747,7 @@
       </ParameterList>
       <ParameterList name="snow-water_equivalent" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="evaluator dependencies" type="Array(string)" value="{snow-depth,snow-density,snow-cell_volume}" />
+        <Parameter name="dependencies" type="Array(string)" value="{snow-depth,snow-density,snow-cell_volume}" />
         <Parameter name="coefficient" type="double" value="0.001" />
       </ParameterList>
       <ParameterList name="snow-source_sink" type="ParameterList">

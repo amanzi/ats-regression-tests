@@ -748,7 +748,7 @@
       </ParameterList>
       <ParameterList name="snow-water_equivalent" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="evaluator dependencies" type="Array(string)" value="{snow-volumetric_depth,snow-density,snow-cell_volume}" />
+        <Parameter name="dependencies" type="Array(string)" value="{snow-volumetric_depth,snow-density,snow-cell_volume}" />
         <Parameter name="coefficient" type="double" value="0.001" />
       </ParameterList>
       <ParameterList name="snow-source_sink" type="ParameterList">
@@ -772,7 +772,7 @@
       </ParameterList>
       <ParameterList name="surface-unfrozen_effective_mobile_depth" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="evaluator dependencies" type="Array(string)" value="{surface-mobile_depth,surface-unfrozen_fraction}" />
+        <Parameter name="dependencies" type="Array(string)" value="{surface-mobile_depth,surface-unfrozen_fraction}" />
       </ParameterList>
       <ParameterList name="surface-mobile_depth" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="additive evaluator" />

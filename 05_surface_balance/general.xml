@@ -102,7 +102,7 @@
       </ParameterList>
 
       <ParameterList name="inverse" type="ParameterList">
-        <Parameter name="preconditioning method" type="string" value="block ilu" />
+        <Parameter name="preconditioning method" type="string" value="diagonal" />
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
@@ -125,13 +125,15 @@
 
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="evaluators" type="ParameterList">
+
       <ParameterList name="surface-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="evaluator dependencies" type="Array(string)" value="{surface-ponded_depth, surface-cell_volume}" />
+        <Parameter name="dependencies" type="Array(string)" value="{surface-ponded_depth, surface-cell_volume}" />
       </ParameterList>
+
       <ParameterList name="surface-water_source" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="additive evaluator" />
-        <Parameter name="evaluator dependencies" type="Array(string)" value="{surface-ponded_depth}" />
+        <Parameter name="dependencies" type="Array(string)" value="{surface-ponded_depth}" />
         <Parameter name="surface-ponded_depth coefficient" type="double" value="-1.1574074074074e-06" />
       </ParameterList>
     </ParameterList>

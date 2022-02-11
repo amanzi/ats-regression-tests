@@ -181,7 +181,7 @@
       </ParameterList>
       <ParameterList name="surface-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="evaluator dependencies" type="Array(string)" value="{surface-molar_density_liquid,surface-ponded_depth,surface-cell_volume}" />
+        <Parameter name="dependencies" type="Array(string)" value="{surface-molar_density_liquid,surface-ponded_depth,surface-cell_volume}" />
       </ParameterList>
       <ParameterList name="surface-pressure" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
@@ -189,7 +189,7 @@
       </ParameterList>
       <ParameterList name="surface-water_flux" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="evaluator dependencies" type="Array(string)" value="{surface-water_flux_zeropointone}" />
+        <Parameter name="dependencies" type="Array(string)" value="{surface-water_flux_zeropointone}" />
         <Parameter name="coefficient" type="double" value="642.4325088292" />
       </ParameterList>
       <ParameterList name="surface-water_flux_zeropointone" type="ParameterList">

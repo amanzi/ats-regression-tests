@@ -116,7 +116,6 @@
         </ParameterList>
       </ParameterList>
 
-
     </ParameterList>
 
     <ParameterList name="flow" type="ParameterList">
@@ -126,7 +125,6 @@
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation" />
       </ParameterList>
@@ -155,7 +153,6 @@
       <Parameter name="initial time step" type="double" value="315360" />
       <Parameter name="source term is differentiable" type="bool" value="true" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>

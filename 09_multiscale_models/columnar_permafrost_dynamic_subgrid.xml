@@ -965,7 +965,7 @@
       </ParameterList>
       <ParameterList name="surface_star-depression_depth_evolve" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="secondary variable from function" />
-        <Parameter name="evaluator dependencies" type="Array(string)" value="{surface_star-subsidence}" />
+        <Parameter name="dependencies" type="Array(string)" value="{surface_star-subsidence}" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="function-tabular">
             <Parameter name="y values" type="Array(double)" value="{0.15,0.05,0.05}" />

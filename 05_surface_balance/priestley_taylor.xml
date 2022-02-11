@@ -264,7 +264,7 @@
       </ParameterList>
       <ParameterList name="water_source" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="additive evaluator" />
-        <Parameter name="evaluator dependencies" type="Array(string)" value="{transpiration}" />
+        <Parameter name="dependencies" type="Array(string)" value="{transpiration}" />
         <Parameter name="transpiration coefficient" type="double" value="-1" />
         <Parameter name="use model from ATS 1.1" type="bool" value="true" />
       </ParameterList>
@@ -295,7 +295,7 @@
       </ParameterList>
       <ParameterList name="surface-potential_transpiration" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="evaluator dependencies" type="Array(string)" value="{surface-potential_transpiration_mps,surface-molar_density_liquid}" />
+        <Parameter name="dependencies" type="Array(string)" value="{surface-potential_transpiration_mps,surface-molar_density_liquid}" />
       </ParameterList>
       <ParameterList name="surface-potential_transpiration_mps" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="potential evapotranspiration, Priestley-Taylor" />
