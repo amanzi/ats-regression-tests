@@ -137,9 +137,6 @@
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
         </ParameterList>
-        <ParameterList name="timestep controller from file parameters" type="ParameterList">
-          <Parameter name="file name" type="string" value="../data/hendy_mfd_dts.h5" />
-        </ParameterList>
       </ParameterList>
 
       <ParameterList name="diffusion" type="ParameterList">
