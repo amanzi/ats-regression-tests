@@ -4,7 +4,7 @@
       <Parameter name="mesh type" type="string" value="generate mesh" />
       <Parameter name="build columns from set" type="string" value="surface" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{100,1,50}" />
+        <Parameter name="number of cells" type="Array(int)" value="{50,1,25}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{ 0, 0, 0}" />
         <Parameter name="domain high coordinate" type="Array(double)" value="{200, 1,100}" />
       </ParameterList>
