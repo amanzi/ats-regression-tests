@@ -112,7 +112,7 @@
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="modify predictor for flux BCs" type="bool" value="false" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
-      <Parameter name="debug cells" type="Array(int)" value="{0,49,4950,4999}" />
+      <Parameter name="debug cells" type="Array(int)" value="{0,49}" />
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
@@ -123,7 +123,7 @@
           <Parameter name="backtrack lag" type="int" value="0" />
           <Parameter name="backtrack factor" type="double" value="0.5" />
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
-          <Parameter name="nonlinear tolerance" type="double" value="1e-07" />
+          <Parameter name="nonlinear tolerance" type="double" value="1e-10" />
           <Parameter name="diverged tolerance" type="double" value="10000000000" />
           <Parameter name="limit iterations" type="int" value="20" />
         </ParameterList>
@@ -133,7 +133,7 @@
           <Parameter name="time step reduction factor" type="double" value="0.5" />
           <Parameter name="time step increase factor" type="double" value="1.25" />
           <Parameter name="max time step" type="double" value="864000" />
-          <Parameter name="min time step" type="double" value="1e-10" />
+          <Parameter name="min time step" type="double" value="864000" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
         </ParameterList>
@@ -209,8 +209,7 @@
       <Parameter name="PK type" type="string" value="transport ats" />
       <Parameter name="saturation liquid key" type="string" value="saturation_liquid" />
       <Parameter name="previous saturation liquid key" type="string" value="prev_saturation_liquid" />
-      <Parameter name="flux_key" type="string" value="mass_flux" />
-      <Parameter name="molar_density_key" type="string" value="molar_density_liquid" />
+      <Parameter name="molar density key" type="string" value="molar_density_liquid" />
       <Parameter name="component names" type="Array(string)" value="{salt}" />
       <Parameter name="number of liquid components" type="int" value="1" />
       <Parameter name="component molar masses" type="Array(double)" value="{ 1}" />
@@ -292,6 +291,22 @@
         </ParameterList>
       </ParameterList>
 
+
+      <!-- <ParameterList name="molar_density_liquid" type="ParameterList"> -->
+      <!--   <Parameter name="field evaluator type" type="string" value="eos" /> -->
+      <!--   <Parameter name="EOS basis" type="string" value="both" /> -->
+      <!--   <Parameter name="molar density key" type="string" value="molar_density_liquid" /> -->
+      <!--   <Parameter name="mass density key" type="string" value="mass_density_liquid" /> -->
+      <!--   <ParameterList name="EOS parameters" type="ParameterList"> -->
+      <!--     <Parameter name="EOS type" type="string" value="liquid water" /> -->
+      <!--   </ParameterList> -->
+      <!--   <ParameterList name="verbose object" type="ParameterList"> -->
+      <!--     <Parameter name="verbosity level" type="string" value="low" /> -->
+      <!--   </ParameterList> -->
+      <!-- </ParameterList> -->
+
+
+      
       <ParameterList name="viscosity_liquid" type="ParameterList">
         <Parameter name="field evaluator type" type="string" value="viscosity" />
         <Parameter name="viscosity key" type="string" value="viscosity_liquid" />
