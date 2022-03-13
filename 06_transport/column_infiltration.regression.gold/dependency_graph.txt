@@ -8,9 +8,6 @@ cell_volume
 mass_density_liquid
   Type: independent
 
-mass_flux
-  Type: primary
-
 molar_density_liquid
   Type: independent
 
@@ -51,12 +48,6 @@ surface-manning_coefficient
   Type: independent
 
 surface-mass_density_liquid
-  Type: independent
-
-surface-mass_flux
-  Type: primary
-
-surface-mass_source
   Type: independent
 
 surface-molar_density_liquid
@@ -109,6 +100,12 @@ surface-water_content_bar
   Dep: surface-cell_volume
   Dep: surface-pressure
 
+surface-water_flux
+  Type: primary
+
+surface-water_source
+  Type: independent
+
 viscosity_liquid
   Type: independent
 
@@ -118,4 +115,7 @@ water_content
   Dep: molar_density_liquid
   Dep: porosity
   Dep: saturation_liquid
+
+water_flux
+  Type: primary
 
