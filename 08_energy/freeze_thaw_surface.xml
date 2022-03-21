@@ -129,7 +129,7 @@
     </ParameterList>
 
     <ParameterList name="energy" type="ParameterList">
-      <Parameter name="PK type" type="string" value="surface energy" />
+      <Parameter name="PK type" type="string" value="general surface balance" />
       <Parameter name="primary variable key" type="string" value="surface-temperature" />
       <Parameter name="conserved quantity key suffix" type="string" value="energy" />
       <Parameter name="domain name" type="string" value="surface" />
