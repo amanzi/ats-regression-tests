@@ -58,7 +58,7 @@
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="PK tree">
       <ParameterList name="flow and transport">
-        <Parameter name="PK type" type="string" value="flow reactive transport" />
+        <Parameter name="PK type" type="string" value="subcycling MPC" />
         <ParameterList name="surface-subsurface flow coupler">
           <Parameter name="PK type" type="string" value="coupled water" />
           <ParameterList name="flow">
