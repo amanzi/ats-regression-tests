@@ -169,7 +169,7 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-      <ParameterList name="saturation_ice" type="ParameterList">
+      <ParameterList name="saturation_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="permafrost WRM" />
         <ParameterList name="WRM parameters" type="ParameterList">
           <ParameterList name="mineral" type="ParameterList">
