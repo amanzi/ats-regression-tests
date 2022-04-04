@@ -446,7 +446,7 @@
       </ParameterList>
       <ParameterList name="surface-energy" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="surface ice energy" />
-        <Parameter name="molar density ice key suffix" type="string" value="molar_density_liquid" />
+        <Parameter name="molar density ice key suffix" type="string" value="molar_density_ice" />
       </ParameterList>
       <ParameterList name="surface-ponded_depth" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="icy ponded depth" />
@@ -482,8 +482,6 @@
       <ParameterList name="molar_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
-        <Parameter name="molar density key" type="string" value="molar_density_liquid" />
-        <Parameter name="mass density key" type="string" value="mass_density_liquid" />
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="liquid water" />
         </ParameterList>
@@ -491,8 +489,6 @@
       <ParameterList name="surface-molar_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
-        <Parameter name="molar density key" type="string" value="surface-molar_density_liquid" />
-        <Parameter name="mass density key" type="string" value="surface-mass_density_liquid" />
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="liquid water" />
         </ParameterList>
@@ -513,33 +509,14 @@
       </ParameterList>
       <ParameterList name="molar_density_ice" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
-        <Parameter name="EOS basis" type="string" value="molar" />
-        <Parameter name="molar density key" type="string" value="molar_density_ice" />
+        <Parameter name="EOS basis" type="string" value="both" />
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="ice" />
         </ParameterList>
       </ParameterList>
-
-
-
       <ParameterList name="surface-molar_density_ice" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
-        <Parameter name="EOS basis" type="string" value="molar" />
-        <ParameterList name="EOS parameters" type="ParameterList">
-          <Parameter name="EOS type" type="string" value="ice" />
-        </ParameterList>
-      </ParameterList>
-      <ParameterList name="mass_density_ice" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="eos" />
-        <Parameter name="EOS basis" type="string" value="mass" />
-        <Parameter name="mass density key" type="string" value="mass_density_ice" />
-        <ParameterList name="EOS parameters" type="ParameterList">
-          <Parameter name="EOS type" type="string" value="ice" />
-        </ParameterList>
-      </ParameterList>
-      <ParameterList name="surface-mass_density_ice" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="eos" />
-        <Parameter name="EOS basis" type="string" value="mass" />
+        <Parameter name="EOS basis" type="string" value="both" />
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="ice" />
         </ParameterList>
