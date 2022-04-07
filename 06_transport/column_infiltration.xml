@@ -58,7 +58,7 @@
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="PK tree">
       <ParameterList name="flow and transport">
-        <Parameter name="PK type" type="string" value="flow reactive transport" />
+        <Parameter name="PK type" type="string" value="subcycling MPC" />
         <ParameterList name="surface-subsurface flow coupler">
           <Parameter name="PK type" type="string" value="coupled water" />
           <ParameterList name="flow">
@@ -83,13 +83,12 @@
   <ParameterList name="PKs">
 
     <ParameterList name="flow and transport">
-      <Parameter name="PK type" type="string" value="flow reactive transport" />
+      <Parameter name="PK type" type="string" value="subcycling MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{surface-subsurface flow coupler, surface-subsurface transport coupler}" />
-      <Parameter name="master PK index" type="int" value="0" />
+      <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
       <ParameterList name="verbose object">
         <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="surface-subsurface flow coupler">
@@ -161,7 +160,6 @@
 
     <ParameterList name="flow">
       <Parameter name="PK type" type="string" value="richards flow" />
-      <Parameter name="darcy flux key" type="string" value="water_flux" />
       <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
@@ -186,7 +184,6 @@
 
       <ParameterList name="boundary conditions">
       </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="overland flow">
@@ -220,7 +217,6 @@
 
     <ParameterList name="surface-subsurface transport coupler">
       <Parameter name="PK type" type="string" value="surface subsurface transport" />
-      <Parameter name="PK name" type="string" value="surface subsurface transport" />
       <Parameter name="PKs order" type="Array(string)" value="{subsurface transport, surface transport}" />
       <Parameter name="component names" type="Array(string)" value="{Tc-99}" />
       <ParameterList name="verbose object">
@@ -234,7 +230,7 @@
       <Parameter name="PK type" type="string" value="transport ats" />
       <Parameter name="saturation liquid key" type="string" value="saturation_liquid" />
       <Parameter name="previous saturation liquid key" type="string" value="prev_saturation_liquid" />
-      <Parameter name="flux_key" type="string" value="mass_flux" />
+      <Parameter name="flux_key" type="string" value="water_flux" />
       <Parameter name="molar_density_key" type="string" value="molar_density_liquid" />
       <Parameter name="component names" type="Array(string)" value="{Tc-99}" />
       <Parameter name="number of liquid components" type="int" value="1" />
@@ -318,7 +314,7 @@
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="saturation liquid key" type="string" value="surface-ponded_depth" />
       <Parameter name="previous saturation liquid key" type="string" value="surface-prev_ponded_depth" />
-      <Parameter name="flux_key" type="string" value="surface-mass_flux" />
+      <Parameter name="flux_key" type="string" value="surface-water_flux" />
       <Parameter name="molar_density_key" type="string" value="surface-molar_density_liquid" />
       <Parameter name="porosity key" type="string" value="surface-one" />
       <Parameter name="water source in meters" type="bool" value="true" />
