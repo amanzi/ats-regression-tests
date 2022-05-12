@@ -58,7 +58,7 @@
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="PK tree">
       <ParameterList name="flow and transport">
-        <Parameter name="PK type" type="string" value="flow reactive transport" />
+        <Parameter name="PK type" type="string" value="subcycling MPC" />
         <ParameterList name="surface-subsurface flow coupler">
           <Parameter name="PK type" type="string" value="coupled water" />
           <ParameterList name="flow">
@@ -95,13 +95,12 @@
   <ParameterList name="PKs">
 
     <ParameterList name="flow and transport">
-      <Parameter name="PK type" type="string" value="flow reactive transport" />
+      <Parameter name="PK type" type="string" value="subcycling MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{surface-subsurface flow coupler, reactive transport}" />
-      <Parameter name="master PK index" type="int" value="0" />
+      <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
       <ParameterList name="verbose object">
         <Parameter name="verbosity level" type="string" value="default" />
       </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="surface-subsurface flow coupler">

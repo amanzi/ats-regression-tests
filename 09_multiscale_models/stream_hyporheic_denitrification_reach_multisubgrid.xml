@@ -126,7 +126,7 @@
           </ParameterList>
         </ParameterList>
         <ParameterList name="subgrid_1:*-coupler" type="ParameterList">
-          <Parameter name="PK type" type="string" value="weakly coupled subdomain PKs" />
+          <Parameter name="PK type" type="string" value="domain set weak MPC" />
           <ParameterList name="subgrid_1:*-ReactiveTransport" type="ParameterList">
             <Parameter name="PK type" type="string" value="reactive transport" />
             <ParameterList name="subgrid_1:*-chemistry" type="ParameterList">
@@ -138,7 +138,7 @@
           </ParameterList>
         </ParameterList>
         <ParameterList name="subgrid_2:*-coupler" type="ParameterList">
-          <Parameter name="PK type" type="string" value="weakly coupled subdomain PKs" />
+          <Parameter name="PK type" type="string" value="domain set weak MPC" />
           <ParameterList name="subgrid_2:*-ReactiveTransport" type="ParameterList">
             <Parameter name="PK type" type="string" value="reactive transport" />
             <ParameterList name="subgrid_2:*-chemistry" type="ParameterList">
@@ -173,7 +173,6 @@
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="low" />
       </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="surface transport" type="ParameterList">
@@ -391,7 +390,7 @@
     </ParameterList>
 
     <ParameterList name="subgrid_1:*-coupler" type="ParameterList">
-      <Parameter name="PK type" type="string" value="weakly coupled subdomain PKs" />
+      <Parameter name="PK type" type="string" value="domain set weak MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{subgrid_1:*-ReactiveTransport}" />
       <Parameter name="entity kind" type="string" value="CELL" />
       <Parameter name="parent domain" type="string" value="surface" />
@@ -399,11 +398,10 @@
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="low" />
       </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="subgrid_2:*-coupler" type="ParameterList">
-      <Parameter name="PK type" type="string" value="weakly coupled subdomain PKs" />
+      <Parameter name="PK type" type="string" value="domain set weak MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{subgrid_2:*-ReactiveTransport}" />
       <Parameter name="entity kind" type="string" value="CELL" />
       <Parameter name="parent domain" type="string" value="surface" />
@@ -411,7 +409,6 @@
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="low" />
       </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="subgrid_1:*-ReactiveTransport" type="ParameterList">
@@ -422,7 +419,6 @@
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="low" />
       </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="subgrid_2:*-ReactiveTransport" type="ParameterList">
@@ -433,7 +429,6 @@
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="low" />
       </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="subgrid_1:*-transport" type="ParameterList">

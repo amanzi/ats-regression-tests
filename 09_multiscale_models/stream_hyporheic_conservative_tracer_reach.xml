@@ -93,7 +93,7 @@
           <Parameter name="PK type" type="string" value="transport ATS" />
         </ParameterList>
         <ParameterList name="subgrid:*-coupler" type="ParameterList">
-          <Parameter name="PK type" type="string" value="weakly coupled subdomain PKs" />
+          <Parameter name="PK type" type="string" value="domain set weak MPC" />
           <ParameterList name="subgrid:*-transport" type="ParameterList">
             <Parameter name="PK type" type="string" value="transport ATS" />
           </ParameterList>
@@ -134,7 +134,7 @@
     </ParameterList>
 
     <ParameterList name="subgrid:*-coupler" type="ParameterList">
-      <Parameter name="PK type" type="string" value="weakly coupled subdomain PKs" />
+      <Parameter name="PK type" type="string" value="domain set weak MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{subgrid:*-transport}" />
       <Parameter name="entity kind" type="string" value="CELL" />
       <Parameter name="parent domain" type="string" value="surface" />

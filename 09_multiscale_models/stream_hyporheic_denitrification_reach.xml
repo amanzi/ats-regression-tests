@@ -99,7 +99,7 @@
           </ParameterList>
         </ParameterList>
         <ParameterList name="subgrid:*-coupler" type="ParameterList">
-          <Parameter name="PK type" type="string" value="weakly coupled subdomain PKs" />
+          <Parameter name="PK type" type="string" value="domain set weak MPC" />
           <ParameterList name="subgrid:*-ReactiveTransport" type="ParameterList">
             <Parameter name="PK type" type="string" value="reactive transport" />
             <ParameterList name="subgrid:*-chemistry" type="ParameterList">
@@ -349,7 +349,7 @@
     </ParameterList>
 
     <ParameterList name="subgrid:*-coupler" type="ParameterList">
-      <Parameter name="PK type" type="string" value="weakly coupled subdomain PKs" />
+      <Parameter name="PK type" type="string" value="domain set weak MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{subgrid:*-ReactiveTransport}" />
       <Parameter name="entity kind" type="string" value="CELL" />
       <Parameter name="parent domain" type="string" value="surface" />

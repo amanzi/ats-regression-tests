@@ -70,7 +70,7 @@
     </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="Flow and Reactive Transport" type="ParameterList">
-        <Parameter name="PK type" type="string" value="flow reactive transport" />
+        <Parameter name="PK type" type="string" value="subcycling MPC" />
         <ParameterList name="flow" type="ParameterList">
           <Parameter name="PK type" type="string" value="richards flow" />
         </ParameterList>
@@ -93,13 +93,12 @@
   <ParameterList name="PKs" type="ParameterList">
 
     <ParameterList name="Flow and Reactive Transport" type="ParameterList">
-      <Parameter name="PK type" type="string" value="flow reactive transport" />
+      <Parameter name="PK type" type="string" value="subcycling MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{flow, reactive transport}" />
-      <Parameter name="master PK index" type="int" value="0" />
+      <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="extreme" />
       </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="reactive transport" type="ParameterList">
