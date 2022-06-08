@@ -1,14 +1,26 @@
 <ParameterList name="Main" type="ParameterList">
   <ParameterList name="mesh" type="ParameterList">
     <ParameterList name="domain" type="ParameterList">
+      <Parameter name="build columns" type="bool" value="true" />
+      <Parameter name="mesh type" type="string" value="read mesh file" />
+      <ParameterList name="read mesh file parameters" type="ParameterList">
+        <Parameter name="file" type="string" value="../data/hillslope.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
+      </ParameterList>
+    </ParameterList>
+
+    <!--
+    <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="read mesh file" />
       <Parameter name="deformable mesh" type="bool" value="true" />
       <Parameter name="build columns" type="bool" value="true" />
       <ParameterList name="read mesh file parameters" type="ParameterList">
-        <Parameter name="file" type="string" value="../data/mesh/IR40/four-polygons-5layers-om10cm-icerich40cm.par" />
+        <Parameter name="file" type="string" value="../data/mesh/IR40/four_polygons_5layers-icerich40cm-2hcp-2lcp.exo"/>
         <Parameter name="format" type="string" value="Exodus II" />
       </ParameterList>
     </ParameterList>
+    -->
+
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="mesh type" type="string" value="surface" />
       <Parameter name="deformable mesh" type="bool" value="true" />
@@ -56,22 +68,6 @@
         </ParameterList>
       </ParameterList>
     </ParameterList>
-    <ParameterList name="snow_column:*" type="ParameterList">
-      <Parameter name="mesh type" type="string" value="domain set indexed" />
-      <ParameterList name="domain set indexed parameters" type="ParameterList">
-        <Parameter name="indexing parent domain" type="string" value="surface" />
-        <Parameter name="entity kind" type="string" value="cell" />
-        <Parameter name="referencing parent domain" type="string" value="surface" />
-        <Parameter name="regions" type="Array(string)" value="{surface domain}" />
-        <ParameterList name="snow_column:*" type="ParameterList">
-          <Parameter name="mesh type" type="string" value="aliased" />
-          <Parameter name="deformable mesh" type="bool" value="true" />
-          <ParameterList name="aliased parameters" type="ParameterList">
-            <Parameter name="target" type="string" value="surface_column:*" />
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-    </ParameterList>
   </ParameterList>
 
   <ParameterList name="regions" type="ParameterList">
@@ -83,40 +79,10 @@
       <ParameterList name="region: all" type="ParameterList">
       </ParameterList>
     </ParameterList>
-    <ParameterList name="computational domain moss" type="ParameterList">
-      <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{-1e-10,-1e-10,4.98}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{10000000000,10000000000, 5}" />
-      </ParameterList>
-    </ParameterList>
-    <ParameterList name="computational domain peat" type="ParameterList">
-      <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{-1e-10,-1e-10,4.9}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{10000000000,10000000000,4.98}" />
-      </ParameterList>
-    </ParameterList>
-    <ParameterList name="computational domain ice rich" type="ParameterList">
-      <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{-1e-10,-1e-10,2.4}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{10000000000,10000000000,4.8}" />
-      </ParameterList>
-    </ParameterList>
-    <ParameterList name="computational domain null subsidence" type="ParameterList">
-      <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{-1e-10,-1e-10,-35}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{10000000000,10000000000,-40}" />
-      </ParameterList>
-    </ParameterList>
-    <ParameterList name="computational domain mineral" type="ParameterList">
-      <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{-1e-10,-1e-10,-1000}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{10000000000,10000000000,4.9}" />
-      </ParameterList>
-    </ParameterList>
     <ParameterList name="surface" type="ParameterList">
       <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="2" />
-        <Parameter name="file" type="string" value="../data/mesh/IR40/four-polygons-5layers-om10cm-icerich40cm.par" />
+        <Parameter name="file" type="string" value="../data/hillslope.exo" />
         <Parameter name="format" type="string" value="Exodus II" />
         <Parameter name="entity" type="string" value="Face" />
       </ParameterList>
@@ -125,22 +91,22 @@
       <ParameterList name="region: boundary" type="ParameterList">
       </ParameterList>
     </ParameterList>
-    <ParameterList name="surface outletbox" type="ParameterList">
+    <ParameterList name="surface outlet" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{134.862,48.9144}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{148.82,61.2156}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{400, 0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{400,80}" />
       </ParameterList>
     </ParameterList>
-    <ParameterList name="surface outlet" type="ParameterList">
-      <ParameterList name="region: logical" type="ParameterList">
-        <Parameter name="operation" type="string" value="intersect" />
-        <Parameter name="regions" type="Array(string)" value="{surface outletbox, surface boundary}" />
+    <ParameterList name="surface inlet" type="ParameterList">
+      <ParameterList name="region: box" type="ParameterList">
+        <Parameter name="low coordinate" type="Array(double)" value="{0, 0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{0,80}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="bottom face" type="ParameterList">
       <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="1" />
-        <Parameter name="file" type="string" value="../data/mesh/IR40/four-polygons-5layers-om10cm-icerich40cm.par" />
+        <Parameter name="file" type="string" value="../data/hillslope.exo" />
         <Parameter name="format" type="string" value="Exodus II" />
         <Parameter name="entity" type="string" value="Face" />
       </ParameterList>
@@ -162,31 +128,19 @@
         <Parameter name="PK type" type="string" value="operator split permafrost" />
         <ParameterList name="column-coupler" type="ParameterList">
           <Parameter name="PK type" type="string" value="domain set weak MPC" />
-          <ParameterList name="column:*-coupler" type="ParameterList">
-            <Parameter name="PK type" type="string" value="weak MPC" />
-            <ParameterList name="column:*-subsidence" type="ParameterList">
-              <Parameter name="PK type" type="string" value="volumetric deformation" />
+          <ParameterList name="column:*-permafrost" type="ParameterList">
+            <Parameter name="PK type" type="string" value="permafrost model" />
+            <ParameterList name="column:*-flow" type="ParameterList">
+              <Parameter name="PK type" type="string" value="permafrost flow" />
             </ParameterList>
-            <ParameterList name="column:*-thermal_hydrology">
-              <Parameter name="PK type" type="string" value="strong MPC" />
-              <ParameterList name="snow_column:*-SEB" type="ParameterList">
-                <Parameter name="PK type" type="string" value="surface balance implicit subgrid" />
-              </ParameterList>
-              <ParameterList name="column:*-permafrost" type="ParameterList">
-                <Parameter name="PK type" type="string" value="permafrost model" />
-                <ParameterList name="column:*-flow" type="ParameterList">
-                  <Parameter name="PK type" type="string" value="permafrost flow" />
-                </ParameterList>
-                <ParameterList name="surface_column:*-flow" type="ParameterList">
-                  <Parameter name="PK type" type="string" value="general surface balance" />
-                </ParameterList>
-                <ParameterList name="column:*-energy" type="ParameterList">
-                  <Parameter name="PK type" type="string" value="three-phase energy" />
-                </ParameterList>
-                <ParameterList name="surface_column:*-energy" type="ParameterList">
-                  <Parameter name="PK type" type="string" value="general surface balance" />
-                </ParameterList>
-              </ParameterList>
+            <ParameterList name="surface_column:*-flow" type="ParameterList">
+              <Parameter name="PK type" type="string" value="general surface balance" />
+            </ParameterList>
+            <ParameterList name="column:*-energy" type="ParameterList">
+              <Parameter name="PK type" type="string" value="three-phase energy" />
+            </ParameterList>
+            <ParameterList name="surface_column:*-energy" type="ParameterList">
+              <Parameter name="PK type" type="string" value="general surface balance" />
             </ParameterList>
           </ParameterList>
         </ParameterList>
@@ -228,27 +182,6 @@
           <Parameter name="location name" type="string" value="face" />
           <Parameter name="time integrated" type="bool" value="true" />
         </ParameterList>
-        <ParameterList name="total evaporation [m d^-1]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-evaporative_flux" />
-          <Parameter name="region" type="string" value="surface domain" />
-          <Parameter name="functional" type="string" value="average" />
-          <Parameter name="location name" type="string" value="cell" />
-          <Parameter name="time integrated" type="bool" value="true" />
-        </ParameterList>
-        <ParameterList name="snow precipitation [m d^-1]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-precipitation" />
-          <Parameter name="region" type="string" value="surface domain" />
-          <Parameter name="functional" type="string" value="average" />
-          <Parameter name="location name" type="string" value="cell" />
-          <Parameter name="time integrated" type="bool" value="true" />
-        </ParameterList>
-        <ParameterList name="rain precipitation [m d^-1]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-precipitation_rain" />
-          <Parameter name="region" type="string" value="surface domain" />
-          <Parameter name="functional" type="string" value="average" />
-          <Parameter name="location name" type="string" value="cell" />
-          <Parameter name="time integrated" type="bool" value="true" />
-        </ParameterList>
         <ParameterList name="surface water content [mol]" type="ParameterList">
           <Parameter name="variable" type="string" value="surface_star-water_content" />
           <Parameter name="region" type="string" value="surface domain" />
@@ -261,56 +194,6 @@
           <Parameter name="functional" type="string" value="extensive integral" />
           <Parameter name="location name" type="string" value="cell" />
         </ParameterList>
-        <ParameterList name="snow water content [mol]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-water_content_snow" />
-          <Parameter name="region" type="string" value="surface domain" />
-          <Parameter name="functional" type="string" value="extensive integral" />
-          <Parameter name="location name" type="string" value="cell" />
-        </ParameterList>
-        <ParameterList name="surface air temperature [K]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-air_temperature" />
-          <Parameter name="region" type="string" value="surface domain" />
-          <Parameter name="functional" type="string" value="average" />
-          <Parameter name="location name" type="string" value="cell" />
-        </ParameterList>
-        <!--
-        <ParameterList name="surface carbon decomposition rate [-]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-carbon_decomposition_rate" />
-          <Parameter name="region" type="string" value="surface domain" />
-          <Parameter name="functional" type="string" value="average" />
-          <Parameter name="location name" type="string" value="cell" />
-        </ParameterList>
-        <ParameterList name="surface gas content [-]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-gas_content" />
-          <Parameter name="region" type="string" value="surface domain" />
-          <Parameter name="functional" type="string" value="average" />
-          <Parameter name="location name" type="string" value="cell" />
-        </ParameterList>
-        <ParameterList name="surface moisture content [-]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-moisture_content" />
-          <Parameter name="region" type="string" value="surface domain" />
-          <Parameter name="functional" type="string" value="average" />
-          <Parameter name="location name" type="string" value="cell" />
-        </ParameterList>
-        <ParameterList name="surface volumetric wc [-]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-volumetric_wc" />
-          <Parameter name="region" type="string" value="surface domain" />
-          <Parameter name="functional" type="string" value="average" />
-          <Parameter name="location name" type="string" value="cell" />
-        </ParameterList>
-        <ParameterList name="surface saturated_fraction [-]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-saturated_fraction" />
-          <Parameter name="region" type="string" value="surface domain" />
-          <Parameter name="functional" type="string" value="average" />
-          <Parameter name="location name" type="string" value="cell" />
-        </ParameterList>
-        <ParameterList name="surface column average temperature [K]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-column_avg_temp" />
-          <Parameter name="region" type="string" value="surface domain" />
-          <Parameter name="functional" type="string" value="average" />
-          <Parameter name="location name" type="string" value="cell" />
-        </ParameterList>
-        -->
         <ParameterList name="surface ALT average temperature [K]" type="ParameterList">
           <Parameter name="variable" type="string" value="surface_star-alt_avg_temp" />
           <Parameter name="region" type="string" value="surface domain" />
@@ -348,12 +231,23 @@
   </ParameterList>
 
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times" type="Array(double)" value="{0., 0.5, 5.5, 10}" />
-    <Parameter name="times units" type="string" value="d" />
-    <Parameter name="single file checkpoint" type="bool" value="false" />
-    <Parameter name="time units" type="string" value="noleap" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0.5, 5,-1}" />
+    <Parameter name="times start period stop units" type="string" value="d" />
   </ParameterList>
 
+  <ParameterList name="visualization" type="ParameterList">
+    <ParameterList name="column:*" type="ParameterList">
+      <Parameter name="cycles start period stop" type="Array(int)" value="{0, 1,-1}" />
+    </ParameterList>
+    <ParameterList name="surface_column:*" type="ParameterList">
+      <Parameter name="cycles start period stop" type="Array(int)" value="{0, 1,-1}" />
+      <Parameter name="aliases" type="Array(string)" value="{snow_column:*}" />
+    </ParameterList>
+    <ParameterList name="surface_star" type="ParameterList">
+      <Parameter name="cycles start period stop" type="Array(int)" value="{0, 1,-1}" />
+    </ParameterList>
+  </ParameterList>
+  
   <ParameterList name="PKs" type="ParameterList">
 
     <ParameterList name="top level MPC" type="ParameterList">
@@ -361,86 +255,32 @@
       <Parameter name="PKs order" type="Array(string)" value="{surface_star-coupler, column-coupler}" />
       <Parameter name="domain name" type="string" value="surface_column" />
       <Parameter name="star domain name" type="string" value="surface_star" />
-      <Parameter name="coupling type" type="string" value="hybrid" />
+      <Parameter name="coupling type" type="string" value="pressure" />
       <Parameter name="subcycle" type="Array(int)" value="{1,1}" />
       <Parameter name="subcycling target time step [s]" type="double" value="86400" />      
     </ParameterList>
 
     <ParameterList name="column-coupler" type="ParameterList">
       <Parameter name="PK type" type="string" value="domain set weak MPC" />
-      <Parameter name="PKs order" type="Array(string)" value="{column:*-coupler}" />
+      <Parameter name="PKs order" type="Array(string)" value="{column:*-permafrost}" />
       <Parameter name="subcycle" type="bool" value="true" />
       <Parameter name="subcycling target time step [s]" type="double" value="86400" />      
     </ParameterList>
 
-    <ParameterList name="column:*-coupler" type="ParameterList">
-      <Parameter name="PK type" type="string" value="weak MPC" />
-      <Parameter name="PKs order" type="Array(string)" value="{column:*-subsidence,column:*-thermal_hydrology}" />
-    </ParameterList>
-
-    <ParameterList name="column:*-subsidence" type="ParameterList">
-      <Parameter name="PK type" type="string" value="volumetric deformation" />
+    <ParameterList name="column:*-permafrost" type="ParameterList">
+      <Parameter name="PK type" type="string" value="permafrost model" />
+      <Parameter name="PKs order" type="Array(string)" value="{column:*-flow, column:*-energy, surface_column:*-flow, surface_column:*-energy}" />
       <Parameter name="domain name" type="string" value="column:*" />
-      <Parameter name="primary variable key suffix" type="string" value="base_porosity" />
-      <Parameter name="initial time step" type="double" value="86400" />
-      <Parameter name="deformation mode" type="string" value="structural" />
-      <Parameter name="deformation region" type="string" value="computational domain null subsidence" />
-      <Parameter name="deformation strategy" type="string" value="average" />
-      <Parameter name="deformation relaxation time [s]" type="double" value="43200" />
-      <Parameter name="volume fraction of solids required to be structural [-]" type="double" value="0.4" />
-      <Parameter name="bottom region" type="string" value="bottom face" />
-      <Parameter name="bottom region type" type="string" value="node" />
-      <Parameter name="debug cells" type="Array(int)" value="{0,20}" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="low" />
+      <Parameter name="preconditioner type" type="string" value="picard" />
+      <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="false" />
+      <Parameter name="supress Jacobian terms: d div K grad T / dp" type="bool" value="true" />
+      <Parameter name="supress Jacobian terms: d div hq / dp,T" type="bool" value="true" />
+      <Parameter name="supress Jacobian terms: d div surface q / dT" type="bool" value="true" />
+      <Parameter name="dump preconditioner" type="bool" value="false" />
+      <ParameterList name="ewc delegate" type="ParameterList">
+        <Parameter name="predictor type" type="string" value="smart ewc" />
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
-        <ParameterList name="function" type="ParameterList">
-          <ParameterList name="rest domain" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain mineral" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.56" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="ice rich" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain ice rich" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.8" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="moss" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain moss" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.9" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="peat" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain peat" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.87" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-
-    </ParameterList>
-
-    <ParameterList name="column:*-thermal_hydrology" type="ParameterList">
-      <Parameter name="PK type" type="string" value="strong MPC" />
-      <Parameter name="PKs order" type="Array(string)" value="{snow_column:*-SEB,column:*-permafrost}" />
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
@@ -464,48 +304,7 @@
           <Parameter name="count before increasing increase factor" type="int" value="2" />
         </ParameterList>
       </ParameterList>
-
-    </ParameterList>
-
-    <ParameterList name="snow_column:*-SEB" type="ParameterList">
-      <Parameter name="PK type" type="string" value="surface balance implicit subgrid" />
-      <Parameter name="domain name" type="string" value="snow_column:*" />
-      <Parameter name="primary variable key suffix" type="string" value="depth" />
-      <Parameter name="conserved quantity key suffix" type="string" value="water_content_snow" />
-      <Parameter name="source term" type="bool" value="true" />
-      <Parameter name="source key suffix" type="string" value="source_sink" />
-      <Parameter name="source term is differentiable" type="bool" value="false" />
-      <Parameter name="modify predictor positivity preserving" type="bool" value="true" />
-      <Parameter name="absolute error tolerance" type="double" value="0.01" />
-      <Parameter name="debug cells" type="Array(int)" value="{0}" />
-      <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="constant" type="double" value=" 0" />
-      </ParameterList>
-
-      <ParameterList name="accumulation preconditioner" type="ParameterList">
-        <Parameter name="diagonal shift" type="double" value="1e-06" />
-      </ParameterList>
-
-      <ParameterList name="inverse" type="ParameterList">
-        <Parameter name="preconditioning method" type="string" value="diagonal" />
-      </ParameterList>
-
-    </ParameterList>
-
-    <ParameterList name="column:*-permafrost" type="ParameterList">
-      <Parameter name="PK type" type="string" value="permafrost model" />
-      <Parameter name="PKs order" type="Array(string)" value="{column:*-flow, column:*-energy, surface_column:*-flow, surface_column:*-energy}" />
-      <Parameter name="domain name" type="string" value="column:*" />
-      <Parameter name="preconditioner type" type="string" value="picard" />
-      <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="false" />
-      <Parameter name="supress Jacobian terms: d div K grad T / dp" type="bool" value="true" />
-      <Parameter name="supress Jacobian terms: d div hq / dp,T" type="bool" value="true" />
-      <Parameter name="supress Jacobian terms: d div surface q / dT" type="bool" value="true" />
-      <Parameter name="dump preconditioner" type="bool" value="false" />
-      <ParameterList name="ewc delegate" type="ParameterList">
-        <Parameter name="predictor type" type="string" value="smart ewc" />
-      </ParameterList>
-
+      
       <ParameterList name="water delegate" type="ParameterList">
         <Parameter name="modify predictor damp and cap the water spurt" type="bool" value="true" />
         <Parameter name="damp and cap the water spurt" type="bool" value="true" />
@@ -542,10 +341,10 @@
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key suffix" type="string" value="water_source_sink" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
+      <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="initial condition" type="ParameterList">
       </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="surface_column:*-energy" type="ParameterList">
@@ -555,25 +354,19 @@
       <Parameter name="conserved quantity key suffix" type="string" value="energy" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key suffix" type="string" value="energy_source_sink" />
-      <Parameter name="source term is differentiable" type="bool" value="true" />
-      <Parameter name="source term finite difference" type="bool" value="true" />
+      <Parameter name="source term is differentiable" type="bool" value="false" />
+      <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="initial condition" type="ParameterList">
       </ParameterList>
-
-      <ParameterList name="boundary conditions" type="ParameterList">
-      </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="column:*-flow" type="ParameterList">
       <Parameter name="PK type" type="string" value="permafrost flow" />
       <Parameter name="domain name" type="string" value="column:*" />
       <Parameter name="primary variable key suffix" type="string" value="pressure" />
-      <Parameter name="source term" type="bool" value="true" />
+      <Parameter name="source term" type="bool" value="false" />
       <Parameter name="conserved quantity key suffix" type="string" value="water_content" />
-      <Parameter name="source term is differentiable" type="bool" value="false" />
-      <Parameter name="source key suffix" type="string" value="water_source" />
       <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="surface rel perm strategy" type="string" value="clobber" />
@@ -591,38 +384,16 @@
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="initialize faces from cells" type="bool" value="true" />
-        <ParameterList name="initialize from 1D column" type="ParameterList">
-          <Parameter name="file" type="string" value="../data/restart/column_data.h5" />
-          <Parameter name="z header" type="string" value="/z" />
-          <Parameter name="f header" type="string" value="/pressure" />
-          <Parameter name="coordinate orientation" type="string" value="depth" />
-          <Parameter name="surface sideset" type="string" value="surface" />
-        </ParameterList>
+        <Parameter name="hydrostatic head [m]" type="double" value="-1" />
+        <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000" />
       </ParameterList>
 
       <ParameterList name="water retention evaluator" type="ParameterList">
         <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
         <Parameter name="use surface rel perm" type="bool" value="true" />
         <ParameterList name="WRM parameters" type="ParameterList">
-          <ParameterList name="moss" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain moss" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.0023" />
-            <Parameter name="van Genuchten m [-]" type="double" value="0.2754" />
-            <Parameter name="residual saturation [-]" type="double" value=" 0" />
-            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
-          </ParameterList>
-          <ParameterList name="peat" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain peat" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00051" />
-            <Parameter name="van Genuchten m [-]" type="double" value="0.19" />
-            <Parameter name="residual saturation [-]" type="double" value=" 0" />
-            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
-          </ParameterList>
           <ParameterList name="upper mineral" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain mineral" />
+            <Parameter name="region" type="string" value="computational domain" />
             <Parameter name="WRM Type" type="string" value="van Genuchten" />
             <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00033" />
             <Parameter name="van Genuchten m [-]" type="double" value="0.2481" />
@@ -642,9 +413,7 @@
       <Parameter name="PK type" type="string" value="three-phase energy" />
       <Parameter name="domain name" type="string" value="column:*" />
       <Parameter name="primary variable key suffix" type="string" value="temperature" />
-      <Parameter name="source term" type="bool" value="true" />
-      <Parameter name="source key suffix" type="string" value="total_energy_source" />
-      <Parameter name="source term is differentiable" type="bool" value="false" />
+      <Parameter name="source term" type="bool" value="false" />
       <Parameter name="conserved quantity key suffix" type="string" value="energy" />
       <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
@@ -659,7 +428,7 @@
             <Parameter name="regions" type="Array(string)" value="{bottom face}" />
             <ParameterList name="boundary temperature" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="267.15" />
+                <Parameter name="value" type="double" value="280" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -667,38 +436,13 @@
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="initialize faces from cells" type="bool" value="true" />
-        <ParameterList name="initialize from 1D column" type="ParameterList">
-          <Parameter name="file" type="string" value="../data/restart/column_data.h5" />
-          <Parameter name="z header" type="string" value="/z" />
-          <Parameter name="f header" type="string" value="/temperature" />
-          <Parameter name="coordinate orientation" type="string" value="depth" />
-          <Parameter name="surface sideset" type="string" value="surface" />
-        </ParameterList>
+        <Parameter name="value" type="double" value="280" />
       </ParameterList>
 
       <ParameterList name="thermal conductivity evaluator" type="ParameterList">
         <ParameterList name="thermal conductivity parameters" type="ParameterList">
-          <ParameterList name="computational domain moss" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain moss" />
-            <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
-            <Parameter name="thermal conductivity, saturated (unfrozen) [W m^-1 K^-1]" type="double" value="0.75" />
-            <Parameter name="thermal conductivity, dry [W m^-1 K^-1]" type="double" value="0.1" />
-            <Parameter name="saturated beta frozen [-]" type="double" value="0.45" />
-            <Parameter name="unsaturated alpha frozen [-]" type="double" value=" 1" />
-            <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
-          </ParameterList>
-          <ParameterList name="computational domain peat" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain peat" />
-            <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
-            <Parameter name="thermal conductivity, saturated (unfrozen) [W m^-1 K^-1]" type="double" value="0.75" />
-            <Parameter name="thermal conductivity, dry [W m^-1 K^-1]" type="double" value="0.1" />
-            <Parameter name="saturated beta frozen [-]" type="double" value="0.48" />
-            <Parameter name="unsaturated alpha frozen [-]" type="double" value=" 1" />
-            <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
-          </ParameterList>
-          <ParameterList name="computational domain mineral" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain mineral" />
+          <ParameterList name="computational domain" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain" />
             <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
             <Parameter name="thermal conductivity, saturated (unfrozen) [W m^-1 K^-1]" type="double" value="1.1" />
             <Parameter name="thermal conductivity, dry [W m^-1 K^-1]" type="double" value="0.3" />
@@ -770,18 +514,26 @@
       <Parameter name="source term" type="bool" value="false" />
       <Parameter name="allow no negative ponded depths" type="bool" value="true" />
       <Parameter name="initial time step" type="double" value="86400" />
-      <Parameter name="debug cells" type="Array(int)" value="{3}" />
+      <Parameter name="debug cells" type="Array(int)" value="{0,1}" />
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="head" type="ParameterList">
-          <ParameterList name="surface boundary" type="ParameterList">
+          <ParameterList name="outlet" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface outlet}" />
             <ParameterList name="boundary head" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 0" />
+                <Parameter name="value" type="double" value="0" />
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+          <ParameterList name="inlet" type="ParameterList">
+            <Parameter name="regions" type="Array(string)" value="{surface inlet}" />
+            <ParameterList name="boundary head" type="ParameterList">
+              <ParameterList name="function-constant" type="ParameterList">
+                <Parameter name="value" type="double" value="0.05" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -801,10 +553,9 @@
       <Parameter name="source term" type="bool" value="false" />
       <Parameter name="flux key" type="string" value="surface_star-mass_flux" />
       <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
-      <Parameter name="initial time step" type="double" value="3600" />
+      <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="upwind conductivity method" type="string" value="arithmetic mean" />
       <Parameter name="decoupled from subsurface" type="bool" value="true" />
-      <Parameter name="debug cells" type="Array(int)" value="{0,1,2,3}" />
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
@@ -832,6 +583,9 @@
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
+    <ParameterList name="debug" type="ParameterList">
+      <Parameter name="data" type="Array(string)" value="{surface_star-alt_avg_temp}" />
+    </ParameterList>
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="column:*-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="liquid+ice water content" />
@@ -852,11 +606,6 @@
       <ParameterList name="surface_star-energy" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="surface ice energy" />
         <Parameter name="molar density ice key suffix" type="string" value="molar_density_liquid" />
-      </ParameterList>
-      <ParameterList name="snow_column:*-water_content_snow" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="dependency suffixes" type="Array(string)" value="{depth,density,cell_volume}" />
-        <Parameter name="coefficient" type="double" value="0.001" />
       </ParameterList>
       <ParameterList name="surface_column:*-ponded_depth" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="ponded depth" />
@@ -902,34 +651,38 @@
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
         <ParameterList name="EOS parameters" type="ParameterList">
-          <Parameter name="EOS type" type="string" value="liquid water" />
+          <Parameter name="EOS type" type="string" value="constant" />
+          <Parameter name="density [kg/m^3]" type="double" value="1000" />
         </ParameterList>
       </ParameterList>
       <ParameterList name="surface_column:*-molar_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
         <ParameterList name="EOS parameters" type="ParameterList">
-          <Parameter name="EOS type" type="string" value="liquid water" />
+          <Parameter name="EOS type" type="string" value="constant" />
+          <Parameter name="density [kg/m^3]" type="double" value="1000" />
         </ParameterList>
       </ParameterList>
       <ParameterList name="surface_star-molar_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
         <ParameterList name="EOS parameters" type="ParameterList">
-          <Parameter name="EOS type" type="string" value="liquid water" />
+          <Parameter name="EOS type" type="string" value="constant" />
+          <Parameter name="density [kg/m^3]" type="double" value="1000" />
         </ParameterList>
       </ParameterList>
       <ParameterList name="surface_column:*-mass_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
         <ParameterList name="EOS parameters" type="ParameterList">
-          <Parameter name="EOS type" type="string" value="liquid water" />
+          <Parameter name="EOS type" type="string" value="constant" />
+          <Parameter name="density [kg/m^3]" type="double" value="1000" />
         </ParameterList>
       </ParameterList>
       <ParameterList name="column:*-viscosity_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="viscosity" />
         <ParameterList name="viscosity model parameters" type="ParameterList">
-          <Parameter name="viscosity relation type" type="string" value="liquid water" />
+          <Parameter name="viscosity relation type" type="string" value="constant" />
         </ParameterList>
       </ParameterList>
       <ParameterList name="column:*-molar_density_ice" type="ParameterList">
@@ -1015,7 +768,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.1" />
+                <Parameter name="value" type="double" value="1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -1030,27 +783,21 @@
           <Parameter name="slope regularization epsilon" type="double" value="0.01" />
         </ParameterList>
       </ParameterList>
+
       <ParameterList name="column:*-porosity" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="compressible porosity" />
         <ParameterList name="compressible porosity model parameters" type="ParameterList">
-          <ParameterList name="moss" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain moss" />
-            <Parameter name="pore compressibility [Pa^-1]" type="double" value="5e-07" />
-          </ParameterList>
-          <ParameterList name="peat" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain peat" />
-            <Parameter name="pore compressibility [Pa^-1]" type="double" value="1e-07" />
-          </ParameterList>
-          <ParameterList name="upper mineral" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain mineral" />
-            <Parameter name="pore compressibility [Pa^-1]" type="double" value="1e-08" />
+          <ParameterList name="computational domain" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain" />
+            <Parameter name="pore compressibility [Pa^-1]" type="double" value="1.e-8" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
+
       <ParameterList name="column:*-permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
-          <ParameterList name="rest domain" type="ParameterList">
+          <ParameterList name="computational domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
@@ -1059,30 +806,29 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-          <ParameterList name="moss" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain moss" />
+        </ParameterList>
+      </ParameterList>
+
+
+      <ParameterList name="column:*-base_porosity" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable" />
+        <ParameterList name="function" type="ParameterList">
+          <ParameterList name="computational domain" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1.75e-11" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="peat" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain peat" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="9.38e-12" />
+                <Parameter name="value" type="double" value="0.4" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
         </ParameterList>
       </ParameterList>
+      
       <ParameterList name="column:*-density_rock" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
-          <ParameterList name="rest domain" type="ParameterList">
+          <ParameterList name="computational domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
@@ -1091,42 +837,19 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-          <ParameterList name="moss" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain moss" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="400" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="peat" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain peat" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="700" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
         </ParameterList>
       </ParameterList>
-      <ParameterList name="snow_column:*-source_sink" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="surface energy balance, two components" />
-        <Parameter name="save diagnostic data" type="bool" value="true" />
-        <Parameter name="debug cells" type="Array(int)" value="{0}" />
-        <Parameter name="use model from ATS 1.1" type="bool" value="true" />
+
+      <ParameterList name="surface_column:*-water_source_sink" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="value" type="double" value="0" />
       </ParameterList>
-      <ParameterList name="surface_column:*-albedos" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="subgrid albedos, two components" />
-      </ParameterList>
-      <ParameterList name="surface_column:*-area_fractions" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="area fractions, two components" />
-      </ParameterList>
+
       <ParameterList name="surface_column:*-energy_source_sink" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="additive evaluator" />
-        <Parameter name="dependency suffixes" type="Array(string)" value="{total_energy_source,surface_subsurface_advected_energy_flux}" />
+        <Parameter name="evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="value" type="double" value="0" />
       </ParameterList>
+      
       <ParameterList name="surface_column:*-surface_subsurface_advected_energy_flux" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="advected energy source" />
         <Parameter name="internal enthalpy key suffix" type="string" value="enthalpy_top_cell" />
@@ -1143,33 +866,14 @@
         <Parameter name="evaluator type" type="string" value="enthalpy" />
         <Parameter name="include work term" type="bool" value="false" />
       </ParameterList>
-      <ParameterList name="surface_column:*-water_source_sink" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="dependency suffixes" type="Array(string)" value="{molar_density_liquid, water_source}" />
-      </ParameterList>
+
       <ParameterList name="column:*-saturation_gas" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="permafrost WRM" />
         <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
         <Parameter name="use surface rel perm" type="bool" value="true" />
         <ParameterList name="WRM parameters" type="ParameterList">
-          <ParameterList name="moss" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain moss" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.0023" />
-            <Parameter name="van Genuchten m [-]" type="double" value="0.2754" />
-            <Parameter name="residual saturation [-]" type="double" value=" 0" />
-            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
-          </ParameterList>
-          <ParameterList name="peat" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain peat" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00051" />
-            <Parameter name="van Genuchten m [-]" type="double" value="0.19" />
-            <Parameter name="residual saturation [-]" type="double" value=" 0" />
-            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
-          </ParameterList>
-          <ParameterList name="upper mineral" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain mineral" />
+          <ParameterList name="computational domain" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain" />
             <Parameter name="WRM Type" type="string" value="van Genuchten" />
             <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00033" />
             <Parameter name="van Genuchten m [-]" type="double" value="0.2481" />
@@ -1182,122 +886,7 @@
           <Parameter name="minimum dsi_dpressure magnitude" type="double" value="1e-12" />
         </ParameterList>
       </ParameterList>
-      <ParameterList name="column:*-cell_volume" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="deforming cell volume" />
-        <Parameter name="deformation key suffix" type="string" value="porosity" />
-        <Parameter name="checkpoint" type="bool" value="true" />
-      </ParameterList>
-      <ParameterList name="surface_column:*-incoming_shortwave_radiation" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable" />
-        <ParameterList name="function" type="ParameterList">
-          <ParameterList name="domain" type="ParameterList">
-            <Parameter name="region" type="string" value="surface domain" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/spinup-10yr.h5" />
-                <Parameter name="x header" type="string" value="time [s]" />
-                <Parameter name="y header" type="string" value="incoming shortwave radiation [W m^-2]" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-      <ParameterList name="surface_column:*-incoming_longwave_radiation" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="incoming longwave radiation" />
-        <Parameter name="scaling factor [-]" type="double" value="1.1" />
-      </ParameterList>
-      <ParameterList name="surface_column:*-air_temperature" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable" />
-        <ParameterList name="function" type="ParameterList">
-          <ParameterList name="domain" type="ParameterList">
-            <Parameter name="region" type="string" value="surface domain" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/spinup-10yr.h5" />
-                <Parameter name="x header" type="string" value="time [s]" />
-                <Parameter name="y header" type="string" value="air temperature [K]" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-      <ParameterList name="surface_column:*-relative_humidity" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable" />
-        <ParameterList name="function" type="ParameterList">
-          <ParameterList name="domain" type="ParameterList">
-            <Parameter name="region" type="string" value="surface domain" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/spinup-10yr.h5" />
-                <Parameter name="x header" type="string" value="time [s]" />
-                <Parameter name="y header" type="string" value="relative humidity [-]" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-      <ParameterList name="surface_column:*-wind_speed" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable" />
-        <ParameterList name="function" type="ParameterList">
-          <ParameterList name="domain" type="ParameterList">
-            <Parameter name="region" type="string" value="surface domain" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/spinup-10yr.h5" />
-                <Parameter name="x header" type="string" value="time [s]" />
-                <Parameter name="y header" type="string" value="wind speed [m s^-1]" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-      <ParameterList name="surface_column:*-precipitation_rain" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable" />
-        <ParameterList name="function" type="ParameterList">
-          <ParameterList name="domain" type="ParameterList">
-            <Parameter name="region" type="string" value="surface domain" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/spinup-10yr.h5" />
-                <Parameter name="x header" type="string" value="time [s]" />
-                <Parameter name="y header" type="string" value="precipitation rain [m s^-1]" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-      <ParameterList name="snow_column:*-precipitation" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable" />
-        <ParameterList name="function" type="ParameterList">
-          <ParameterList name="domain" type="ParameterList">
-            <Parameter name="region" type="string" value="surface domain" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="file" type="string" value="../data/spinup-10yr.h5" />
-                <Parameter name="x header" type="string" value="time [s]" />
-                <Parameter name="y header" type="string" value="precipitation snow [m SWE s^-1]" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-      <!--
-      <ParameterList name="surface_star-maximum_thaw_depth" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
-        <Parameter name="source domain name" type="string" value="surface_column:*" />
-        <Parameter name="checkpoint" type="bool" value="true" />
-      </ParameterList>
-      <ParameterList name="surface_column:*-maximum_thaw_depth" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="maximum thaw depth" />
-        <Parameter name="checkpoint" type="bool" value="true" />
-      </ParameterList>
-      -->
+
       <ParameterList name="surface_star-thaw_depth" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
         <Parameter name="source domain name" type="string" value="surface_column:*" />
@@ -1307,77 +896,14 @@
         <Parameter name="evaluator type" type="string" value="thaw depth" />
         <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
-      <ParameterList name="surface_star-evaporative_flux" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
-        <Parameter name="source domain name" type="string" value="surface_column:*" />
-      </ParameterList>
-      <ParameterList name="surface_star-snowmelt" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
-        <Parameter name="source domain name" type="string" value="surface_column:*" />
-      </ParameterList>
       <ParameterList name="surface_star-surface_subsurface_flux" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
         <Parameter name="source domain name" type="string" value="surface_column:*" />
-      </ParameterList>
-      <ParameterList name="surface_star-precipitation_rain" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
-        <Parameter name="source domain name" type="string" value="surface_column:*" />
-      </ParameterList>
-      <ParameterList name="surface_star-precipitation" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
-        <Parameter name="source domain name" type="string" value="snow_column:*" />
       </ParameterList>
       <ParameterList name="surface_star-depth" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
         <Parameter name="source domain name" type="string" value="snow_column:*" />
       </ParameterList>
-      <ParameterList name="surface_star-water_content_snow" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
-        <Parameter name="source domain name" type="string" value="snow_column:*" />
-        <Parameter name="source key suffix" type="string" value="water_content" />
-      </ParameterList>
-      <ParameterList name="surface_star-air_temperature" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
-        <Parameter name="source domain name" type="string" value="surface_column:*" />
-      </ParameterList>
-      <!-- not column sum, but not sure what... -->
-      <!--
-      <ParameterList name="surface_star-carbon_decomposition_rate" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
-        <Parameter name="source domain name" type="string" value="surface_column:*" />
-      </ParameterList>
-      <ParameterList name="surface_column:*-carbon_decomposition_rate" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="column sum evaluator" />
-      </ParameterList>
-      <ParameterList name="column:*-carbon_decomposition_rate" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="carbon decomposition rate" />
-      </ParameterList>
-      -->
-      <!--
-      <ParameterList name="surface_star-moisture_content" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
-        <Parameter name="source domain name" type="string" value="surface_column:*" />
-      </ParameterList>
-      <ParameterList name="surface_column:*-moisture_content" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="moisture content" />
-        <Parameter name="average saturation" type="bool" value="true" />
-      </ParameterList>
-      <ParameterList name="surface_star-volumetric_wc" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
-        <Parameter name="source domain name" type="string" value="surface_column:*" />
-      </ParameterList>
-      <ParameterList name="surface_column:*-volumetric_wc" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="moisture content" />
-        <Parameter name="volumetric water content" type="bool" value="true" />
-      </ParameterList>
-      <ParameterList name="surface_star-saturated_fraction" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
-        <Parameter name="source domain name" type="string" value="surface_column:*" />
-      </ParameterList>
-      <ParameterList name="surface_column:*-saturated_fraction" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="moisture content" />
-      </ParameterList>
-      -->
       <ParameterList name="surface_star-water_content_column" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
         <Parameter name="source domain name" type="string" value="surface_column:*" />
@@ -1393,25 +919,6 @@
       <ParameterList name="surface_column:*-water_table" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="water table depth" />
       </ParameterList>
-      <!--
-      <ParameterList name="surface_star-gas_content" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
-        <Parameter name="source domain name" type="string" value="surface_column:*" />
-      </ParameterList>
-      <ParameterList name="surface_column:*-gas_content" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="gas content" />
-      </ParameterList>
-      -->
-      <!--
-      <ParameterList name="surface_star-column_avg_temp" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
-        <Parameter name="source domain name" type="string" value="surface_column:*" />
-      </ParameterList>
-      <ParameterList name="surface_column:*-column_avg_temp" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="column average temperature" />
-        <Parameter name="depth from surface [m]" type="double" value="1.5" />
-      </ParameterList>
-      -->
       <ParameterList name="surface_star-alt_avg_temp" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
         <Parameter name="source domain name" type="string" value="surface_column:*" />
@@ -1422,7 +929,7 @@
       <ParameterList name="surface_star-elevation" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="column elevation" />
         <Parameter name="includes non-rank-local dependencies" type="bool" value="true" />
-        <Parameter name="dependency tag" type="string" value="" />
+        <Parameter name="dependency tag" type="string" value="next" />
       </ParameterList>
       <ParameterList name="surface_star-pres_elev" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="additive evaluator" />
@@ -1437,18 +944,6 @@
 
       <ParameterList name="gravity" type="ParameterList">
         <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
-      </ParameterList>
-
-      <ParameterList name="land cover types" type="ParameterList">
-        <ParameterList name="surface domain" type="ParameterList">
-          <Parameter name="dessicated zone thickness [m]" type="double" value="0.1" />
-          <Parameter name="roughness length of bare ground [m]" type="double" value="0.04" />
-          <Parameter name="roughness length of snow [m]" type="double" value="0.004" />
-          <Parameter name="snow transition depth [m]" type="double" value="0.02" />
-          <Parameter name="water transition depth [m]" type="double" value="0.02" />
-          <Parameter name="albedo of bare ground [-]" type="double" value="0.135" />
-          <Parameter name="emissivity of bare ground [-]" type="double" value="0.92" />
-        </ParameterList>
       </ParameterList>
 
     </ParameterList>

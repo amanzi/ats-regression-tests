@@ -172,7 +172,7 @@
 
       <ParameterList name="ewc delegate" type="ParameterList">
         <Parameter name="predictor type" type="string" value="smart ewc" />
-        <Parameter name="debug cells" type="Array(int)" value="{0}" />
+        <Parameter name="debug cells" type="Array(int)" value="{99}" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
@@ -190,7 +190,7 @@
         <Parameter name="modify predictor damp and cap the water spurt" type="bool" value="true" />
         <Parameter name="damp and cap the water spurt" type="bool" value="true" />
         <Parameter name="cap over atmospheric" type="double" value="0.1" />
-        <Parameter name="debug cells" type="Array(int)" value="{1}" />
+        <Parameter name="debug cells" type="Array(int)" value="{99}" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
@@ -234,7 +234,7 @@
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="max valid change in saturation in a time step [-]" type="double" value="0.1" />
       <Parameter name="max valid change in ice saturation in a time step [-]" type="double" value="0.1" />
-      <Parameter name="debug cells" type="Array(int)" value="{0}" />
+      <Parameter name="debug cells" type="Array(int)" value="{99}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
@@ -313,7 +313,7 @@
       <Parameter name="source term is differentiable" type="bool" value="false" />
       <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
-      <Parameter name="debug cells" type="Array(int)" value="{0}" />
+      <Parameter name="debug cells" type="Array(int)" value="{99}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
@@ -407,9 +407,6 @@
       <Parameter name="source key" type="string" value="snow-source_sink" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="extreme" />
-      </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="constant" type="double" value="0.35" />
@@ -755,16 +752,10 @@
         <Parameter name="evaluator type" type="string" value="surface energy balance, three components" />
         <Parameter name="save diagnostic data" type="bool" value="true" />
         <Parameter name="debug cells" type="Array(int)" value="{0}" />
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="extreme" />
-        </ParameterList>
       </ParameterList>
 
       <ParameterList name="snow-density" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="primary variable" />
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="extreme" />
-        </ParameterList>
       </ParameterList>
       
       <ParameterList name="surface-albedos" type="ParameterList">

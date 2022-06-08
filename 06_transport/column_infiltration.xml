@@ -390,8 +390,9 @@
   </ParameterList>
 
   <ParameterList name="state">
-    <ParameterList name="verbose object">
-      <Parameter name="verbosity level" type="string" value="extreme" />
+    <ParameterList name="debug" type="ParameterList">
+      <Parameter name="data" type="Array(string)" value="{surface-ponded_depth}" />
+      <Parameter name="evaluators" type="Array(string)" value="{surface-ponded_depth}" />
     </ParameterList>
     <ParameterList name="evaluators">
       <ParameterList name="water_content" type="ParameterList">

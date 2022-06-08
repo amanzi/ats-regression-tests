@@ -257,7 +257,7 @@
           <Parameter name="transition width [K]" type="double" value="0.2" />
         </ParameterList>
       </ParameterList>
-      <ParameterList name="surface-molar_density_ice" type="ParameterList">
+      <ParameterList name="surface-mass_density_ice" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
         <ParameterList name="EOS parameters" type="ParameterList">

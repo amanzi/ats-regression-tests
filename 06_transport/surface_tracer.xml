@@ -184,6 +184,10 @@
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
+    <ParameterList name="debug" type="ParameterList">
+      <Parameter name="fields" type="Array(string)" value="{surface-total_component_concentration}" />
+      <Parameter name="evaluators" type="Array(string)" value="{surface-total_component_concentration}" />
+    </ParameterList>
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="surface-ponded_depth" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
