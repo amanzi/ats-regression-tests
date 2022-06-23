@@ -1,2 +1,2 @@
-ATS: b'ats-1.3-dev-89-geca9d8bf'
-Amanzi: unknown
+ATS: b'ec31d82f'
+Amanzi: b'448fe8d46'
