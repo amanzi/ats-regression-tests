@@ -126,7 +126,7 @@
           </ParameterList>
         </ParameterList>
         <ParameterList name="subgrid_1:*-coupler" type="ParameterList">
-          <Parameter name="PK type" type="string" value="weakly coupled subdomain PKs" />
+          <Parameter name="PK type" type="string" value="domain set weak MPC" />
           <ParameterList name="subgrid_1:*-ReactiveTransport" type="ParameterList">
             <Parameter name="PK type" type="string" value="reactive transport" />
             <ParameterList name="subgrid_1:*-chemistry" type="ParameterList">
@@ -138,7 +138,7 @@
           </ParameterList>
         </ParameterList>
         <ParameterList name="subgrid_2:*-coupler" type="ParameterList">
-          <Parameter name="PK type" type="string" value="weakly coupled subdomain PKs" />
+          <Parameter name="PK type" type="string" value="domain set weak MPC" />
           <ParameterList name="subgrid_2:*-ReactiveTransport" type="ParameterList">
             <Parameter name="PK type" type="string" value="reactive transport" />
             <ParameterList name="subgrid_2:*-chemistry" type="ParameterList">
@@ -173,7 +173,6 @@
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="low" />
       </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="surface transport" type="ParameterList">
@@ -391,7 +390,7 @@
     </ParameterList>
 
     <ParameterList name="subgrid_1:*-coupler" type="ParameterList">
-      <Parameter name="PK type" type="string" value="weakly coupled subdomain PKs" />
+      <Parameter name="PK type" type="string" value="domain set weak MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{subgrid_1:*-ReactiveTransport}" />
       <Parameter name="entity kind" type="string" value="CELL" />
       <Parameter name="parent domain" type="string" value="surface" />
@@ -399,11 +398,10 @@
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="low" />
       </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="subgrid_2:*-coupler" type="ParameterList">
-      <Parameter name="PK type" type="string" value="weakly coupled subdomain PKs" />
+      <Parameter name="PK type" type="string" value="domain set weak MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{subgrid_2:*-ReactiveTransport}" />
       <Parameter name="entity kind" type="string" value="CELL" />
       <Parameter name="parent domain" type="string" value="surface" />
@@ -411,7 +409,6 @@
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="low" />
       </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="subgrid_1:*-ReactiveTransport" type="ParameterList">
@@ -422,7 +419,6 @@
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="low" />
       </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="subgrid_2:*-ReactiveTransport" type="ParameterList">
@@ -433,7 +429,6 @@
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="low" />
       </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="subgrid_1:*-transport" type="ParameterList">
@@ -592,10 +587,9 @@
 
   <ParameterList name="state" type="ParameterList">
     <Parameter name="domain sets" type="Array(string)" value="{subgrid}" />
-    <ParameterList name="field evaluators" type="ParameterList">
-
+    <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="surface-saturation_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -609,9 +603,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-ponded_depth" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -625,9 +618,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-water_flux" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -641,9 +633,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-water_source" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -657,9 +648,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-porosity" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -673,9 +663,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-molar_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -689,9 +678,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-mass_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -705,9 +693,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="subgrid_1:*-saturation_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -721,9 +708,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="subgrid_1:*-water_flux" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="checkpoint" type="bool" value="true" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
@@ -747,9 +733,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="subgrid_1:*-porosity" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -766,9 +751,8 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="subgrid_1:*-molar_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -782,9 +766,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="subgrid_1:*-mass_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -798,9 +781,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="subgrid_1:*-ponded_depth" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -814,9 +796,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="subgrid_2:*-saturation_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -830,9 +811,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="subgrid_2:*-water_flux" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="checkpoint" type="bool" value="true" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
@@ -856,9 +836,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="subgrid_2:*-porosity" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -875,9 +854,8 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="subgrid_2:*-molar_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -891,9 +869,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="subgrid_2:*-mass_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -907,9 +884,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="subgrid_2:*-ponded_depth" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -923,7 +899,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 

@@ -200,22 +200,19 @@
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
-    <ParameterList name="field evaluators" type="ParameterList">
-
+    <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="water_content" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="richards water content" />
+        <Parameter name="evaluator type" type="string" value="richards water content" />
         <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
-
       <ParameterList name="capillary_pressure_gas_liq" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
+        <Parameter name="evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="molar_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="eos" />
+        <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
         <Parameter name="molar density key" type="string" value="molar_density_liquid" />
         <Parameter name="mass density key" type="string" value="mass_density_liquid" />
@@ -226,9 +223,8 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="viscosity_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="viscosity" />
+        <Parameter name="evaluator type" type="string" value="viscosity" />
         <Parameter name="viscosity key" type="string" value="viscosity_liquid" />
         <ParameterList name="viscosity model parameters" type="ParameterList">
           <Parameter name="viscosity relation type" type="string" value="liquid water" />
@@ -237,9 +233,8 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="porosity" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -256,10 +251,9 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="permeability" type="ParameterList">
         <Parameter name="permeability type" type="string" value="diagonal tensor" />
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -289,9 +283,8 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="temperature" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -308,14 +301,12 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="effective_pressure" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="effective_pressure" />
+        <Parameter name="evaluator type" type="string" value="effective_pressure" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 

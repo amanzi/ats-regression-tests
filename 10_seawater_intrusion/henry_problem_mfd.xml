@@ -4,7 +4,7 @@
       <Parameter name="mesh type" type="string" value="generate mesh" />
       <Parameter name="build columns from set" type="string" value="surface" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{100,1,50}" />
+        <Parameter name="number of cells" type="Array(int)" value="{50,1,25}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{ 0, 0, 0}" />
         <Parameter name="domain high coordinate" type="Array(double)" value="{200, 1,100}" />
       </ParameterList>
@@ -82,7 +82,7 @@
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="Flow and Transport">
-        <Parameter name="PK type" type="string" value="flow reactive transport" />
+        <Parameter name="PK type" type="string" value="subcycling MPC" />
         <ParameterList name="flow richards" type="ParameterList">
           <Parameter name="PK type" type="string" value="richards flow" />
         </ParameterList>
@@ -99,10 +99,9 @@
   <ParameterList name="PKs" type="ParameterList">
 
     <ParameterList name="Flow and Transport">
-      <Parameter name="PK type" type="string" value="flow reactive transport" />
+      <Parameter name="PK type" type="string" value="subcycling MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{flow richards, subsurface transport}" />
-      <Parameter name="master PK index" type="int" value="0" />
-
+      <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
     </ParameterList>
 
     <ParameterList name="flow richards" type="ParameterList">
@@ -270,18 +269,15 @@
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
-    <ParameterList name="field evaluators" type="ParameterList">
-
+    <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="water_content" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="richards water content" />
+        <Parameter name="evaluator type" type="string" value="richards water content" />
       </ParameterList>
-
       <ParameterList name="capillary_pressure_gas_liq" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
+        <Parameter name="evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
       </ParameterList>
-
       <ParameterList name="molar_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="eos ctp" />
+        <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
         <Parameter name="molar density key" type="string" value="molar_density_liquid" />
         <Parameter name="mass density key" type="string" value="mass_density_liquid" />
@@ -291,17 +287,15 @@
           <Parameter name="sea water density coefficient" type="double" value="700" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="viscosity_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="viscosity" />
+        <Parameter name="evaluator type" type="string" value="viscosity" />
         <Parameter name="viscosity key" type="string" value="viscosity_liquid" />
         <ParameterList name="viscosity model parameters" type="ParameterList">
           <Parameter name="viscosity relation type" type="string" value="liquid water" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="molar_density_gas" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="eos" />
+        <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="molar" />
         <Parameter name="molar density key" type="string" value="molar_density_gas" />
         <ParameterList name="EOS parameters" type="ParameterList">
@@ -311,17 +305,15 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="mol_frac_gas" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="molar fraction gas" />
+        <Parameter name="evaluator type" type="string" value="molar fraction gas" />
         <Parameter name="molar fraction key" type="string" value="mol_frac_gas" />
         <ParameterList name="vapor pressure model parameters" type="ParameterList">
           <Parameter name="vapor pressure model type" type="string" value="water vapor over water/ice" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="porosity" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -335,9 +327,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="permeability" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -351,9 +342,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="temperature" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -367,11 +357,9 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="effective_pressure" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="effective_pressure" />
+        <Parameter name="evaluator type" type="string" value="effective_pressure" />
       </ParameterList>
-
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 

@@ -5,7 +5,7 @@
 # Observation Name: surface-flux-cycle
 # Region: surface outlet
 # Functional: extensive integral
-# Variable: surface_star-mass_flux
+# Variable: surface_star-water_flux
 # Number of Vectors: 1
 # =============================================================================
 "time [s]" "surface-flux-cycle"

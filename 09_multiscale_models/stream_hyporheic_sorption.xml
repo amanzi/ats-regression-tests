@@ -105,7 +105,7 @@
           </ParameterList>
         </ParameterList>
         <ParameterList name="subgrid:*-coupler" type="ParameterList">
-          <Parameter name="PK type" type="string" value="weakly coupled subdomain PKs" />
+          <Parameter name="PK type" type="string" value="domain set weak MPC" />
           <ParameterList name="subgrid:*-ReactiveTransport" type="ParameterList">
             <Parameter name="PK type" type="string" value="reactive transport" />
             <ParameterList name="subgrid:*-chemistry" type="ParameterList">
@@ -118,9 +118,6 @@
         </ParameterList>
       </ParameterList>
     </ParameterList>
-  </ParameterList>
-  <ParameterList name="verbose object" type="ParameterList">
-    <Parameter name="verbosity level" type="string" value="high" />
   </ParameterList>
   <ParameterList name="observations">
     <ParameterList name="surface-component_concentration">
@@ -150,14 +147,11 @@
     </ParameterList>
 
     <ParameterList name="subgrid:*-coupler" type="ParameterList">
-      <Parameter name="PK type" type="string" value="weakly coupled subdomain PKs" />
+      <Parameter name="PK type" type="string" value="domain set weak MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{subgrid:*-ReactiveTransport}" />
       <Parameter name="entity kind" type="string" value="CELL" />
       <Parameter name="parent domain" type="string" value="surface" />
       <Parameter name="subgrid region name" type="string" value="surface domain" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="low" />
-      </ParameterList>
 
     </ParameterList>
 
@@ -166,9 +160,6 @@
       <Parameter name="PKs order" type="Array(string)" value="{subgrid:*-chemistry, subgrid:*-transport}" />
       <Parameter name="domain name" type="string" value="subgrid:*" />
       <Parameter name="transport index" type="int" value="1" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="low" />
-      </ParameterList>
 
     </ParameterList>
 
@@ -187,10 +178,6 @@
       <Parameter name="number of aqueous components" type="int" value="1" />
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="none" />
-        <Parameter name="name" type="string" value="Transport" />
-      </ParameterList>
 
       <ParameterList name="reconstruction" type="ParameterList">
         <Parameter name="polynomial order" type="int" value="0" />
@@ -232,10 +219,6 @@
       <Parameter name="initial conditions time" type="double" value=" 0" />
       <Parameter name="number of component concentrations" type="int" value="1" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="low" />
-        <Parameter name="name" type="string" value="ChemistrySG" />
-      </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
         <ParameterList name="geochemical conditions" type="ParameterList">
@@ -252,9 +235,6 @@
       <Parameter name="PKs order" type="Array(string)" value="{surface chemistry, surface transport}" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="transport index" type="int" value="1" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="low" />
-      </ParameterList>
 
     </ParameterList>
 
@@ -279,9 +259,6 @@
       <Parameter name="initial conditions time" type="double" value=" 0" />
       <Parameter name="number of component concentrations" type="int" value="1" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="low" />
-      </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
         <ParameterList name="geochemical conditions" type="ParameterList">
@@ -310,10 +287,7 @@
       <Parameter name="number of aqueous components" type="int" value="1" />
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="none" />
-        <Parameter name="name" type="string" value="Transport" />
-      </ParameterList>
+      <Parameter name="debug cells" type="Array(int)" value="{0}" />
 
       <ParameterList name="reconstruction" type="ParameterList">
         <Parameter name="polynomial order" type="int" value="0" />
@@ -359,9 +333,6 @@
           <Parameter name="error tolerance" type="double" value="1e-20" />
           <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}" />
           <Parameter name="size of Krylov space" type="int" value="5" />
-          <ParameterList name="verbose object">
-            <Parameter name="verbosity level" type="string" value="low" />
-          </ParameterList>
         </ParameterList>
       </ParameterList>
 
@@ -423,10 +394,9 @@
 
   <ParameterList name="state" type="ParameterList">
     <Parameter name="domain sets" type="Array(string)" value="{subgrid}" />
-    <ParameterList name="field evaluators" type="ParameterList">
-
+    <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="surface-ponded_depth" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -440,9 +410,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-water_flux" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -456,9 +425,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-water_source" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -472,9 +440,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-porosity" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -488,9 +455,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-molar_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -504,9 +470,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-mass_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -520,9 +485,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="subgrid:*-saturation_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -536,9 +500,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="subgrid:*-water_flux" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="checkpoint" type="bool" value="true" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
@@ -562,9 +525,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="subgrid:*-porosity" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -577,13 +539,9 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
-
       <ParameterList name="subgrid:*-molar_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -597,9 +555,8 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="subgrid:*-mass_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
@@ -613,7 +570,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 

@@ -179,43 +179,31 @@
   </ParameterList>
 
   <ParameterList name="state">
-    <ParameterList name="field evaluators">
-
+    <ParameterList name="evaluators">
       <ParameterList name="surface-water_content" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="overland pressure water content" />
+        <Parameter name="evaluator type" type="string" value="overland pressure water content" />
       </ParameterList>
-
       <ParameterList name="surface-ponded_depth" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="ponded depth" />
+        <Parameter name="evaluator type" type="string" value="ponded depth" />
       </ParameterList>
-
       <ParameterList name="surface-mass_density_liquid">
-        <Parameter name="field evaluator type" type="string" value="eos" />
+        <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
-        <Parameter name="molar density key" type="string" value="surface-molar_density_liquid" />
-        <Parameter name="mass density key" type="string" value="surface-mass_density_liquid" />
         <ParameterList name="EOS parameters">
           <Parameter name="EOS type" type="string" value="constant" />
           <Parameter name="density [kg/m^3]" type="double" value="1000" />
         </ParameterList>
-        <ParameterList name="verbose object">
-          <Parameter name="verbosity level" type="string" value="none" />
-        </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-molar_density_liquid">
-        <Parameter name="field evaluator type" type="string" value="eos" />
+        <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
-        <Parameter name="molar density key" type="string" value="surface-molar_density_liquid" />
-        <Parameter name="mass density key" type="string" value="surface-mass_density_liquid" />
         <ParameterList name="EOS parameters">
           <Parameter name="EOS type" type="string" value="constant" />
           <Parameter name="density [kg/m^3]" type="double" value="1000" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-manning_coefficient">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function">
           <ParameterList name="domain">
             <Parameter name="region" type="string" value="surface domain" />
@@ -228,13 +216,11 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-effective_pressure">
-        <Parameter name="field evaluator type" type="string" value="effective_pressure" />
+        <Parameter name="evaluator type" type="string" value="effective_pressure" />
       </ParameterList>
-
       <ParameterList name="surface-temperature">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function">
           <ParameterList name="domain">
             <Parameter name="region" type="string" value="surface domain" />
@@ -247,15 +233,13 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-overland_conductivity">
-        <Parameter name="field evaluator type" type="string" value="overland conductivity" />
+        <Parameter name="evaluator type" type="string" value="overland conductivity" />
         <ParameterList name="overland conductivity model">
           <Parameter name="Manning exponent" type="double" value="0.66666666666667" />
           <Parameter name="slope regularization epsilon" type="double" value="0.01" />
         </ParameterList>
       </ParameterList>
-
     </ParameterList>
     <ParameterList name="initial conditions">
 
