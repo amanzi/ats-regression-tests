@@ -1,0 +1,52 @@
+# Observation File: data_collection.dat column names:
+# -----------------------------------------------------------------------------
+# Observation Name: time [d]
+# -----------------------------------------------------------------------------
+# Observation Name: outlet discharge [mol d^-1]
+# Region: surface outlet
+# Functional: extensive integral
+# Variable: surface_star-water_flux
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: inlet runon [mol d^-1]
+# Region: surface inlet
+# Functional: extensive integral
+# Variable: surface_star-water_flux
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: surface star water content [mol]
+# Region: surface domain
+# Functional: extensive integral
+# Variable: surface_star-water_content
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: surface water content [mol]
+# Region: surface domain
+# Functional: extensive integral
+# Variable: surface_star-water_content_column_surface
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: subsurface water content [mol]
+# Region: surface domain
+# Functional: extensive integral
+# Variable: surface_star-water_content_column
+# Number of Vectors: 1
+# -----------------------------------------------------------------------------
+# Observation Name: surface water table [m]
+# Region: surface domain
+# Functional: average
+# Variable: surface_star-water_table
+# Number of Vectors: 1
+# =============================================================================
+"time [d]","outlet discharge [mol d^-1]","inlet runon [mol d^-1]","surface star water content [mol]","surface water content [mol]","subsurface water content [mol]","surface water table [m]"
+0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,3.433611832186e+09,6.400000000000e+03
+1.000000000000e+00,2.680047970965e-02,-1.538960783180e+07,0.000000000000e+00,0.000000000000e+00,3.449001439991e+09,6.400000000000e+03
+2.000000000000e+00,2.680047969883e-02,-1.538960783180e+07,0.000000000000e+00,0.000000000000e+00,3.464391047796e+09,5.888000000000e+03
+3.000000000000e+00,2.680047970965e-02,-1.538960783180e+07,3.877702993885e+06,3.877702993885e+06,3.475902952607e+09,4.864000000000e+03
+4.000000000000e+00,1.614205091897e-01,-1.363261076746e+07,1.031797579518e+07,1.031797579518e+07,3.483095290411e+09,4.608000000000e+03
+5.000000000000e+00,1.936334254629e+00,-1.080070298786e+07,1.245250814275e+07,1.245250814275e+07,3.491761459115e+09,3.584000000000e+03
+6.000000000000e+00,5.271507174328e+00,-1.008230716118e+07,1.910490512278e+07,1.910490512278e+07,3.495191364025e+09,3.584000000000e+03
+7.000000000000e+00,2.599249198924e+02,-9.375567682372e+06,2.221223240956e+07,2.221223240956e+07,3.501459344496e+09,3.328000000000e+03
+8.000000000000e+00,8.869666598082e+02,-8.980836514769e+06,2.354355462002e+07,2.354355462002e+07,3.509107971833e+09,3.072000000000e+03
+9.000000000000e+00,1.391477065362e+03,-8.794284138040e+06,2.668422843194e+07,2.668422843194e+07,3.514760190682e+09,2.560000000000e+03
+1.000000000000e+01,6.867211596818e+03,-8.671663360973e+06,3.166265309193e+07,3.166265309193e+07,3.518446562171e+09,2.304000000000e+03

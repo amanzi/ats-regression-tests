@@ -108,7 +108,7 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="cycles" type="Array(int)" value="{0,26,41,56,71,86,101,116,131,146,161,182,202,217,232,247,262,277,294,314,329,345,362,377,392}" />
+    <Parameter name="cycles" type="Array(int)" value="{0,118,216,231,251,281,517,604}" />
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
@@ -386,7 +386,6 @@
       </ParameterList>
       <ParameterList name="surface-ponded_depth" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="ponded depth" />
-        <!-- <Parameter name="evaluator type" type="string" value="icy ponded depth" /> update to this -->
       </ParameterList>
       <ParameterList name="surface-source_molar_density" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
@@ -704,7 +703,7 @@
           <Parameter name="roughness length of bare ground [m]" type="double" value="0.04" />
           <Parameter name="roughness length of snow [m]" type="double" value="0.004" />
           <Parameter name="snow transition depth [m]" type="double" value="0.02" />
-          <Parameter name="water transition depth [m]" type="double" value="0.001" />
+          <Parameter name="water transition depth [m]" type="double" value="0.02" />
           <Parameter name="albedo of bare ground [-]" type="double" value="0.135" />
           <Parameter name="emissivity of bare ground [-]" type="double" value="0.92" />
         </ParameterList>

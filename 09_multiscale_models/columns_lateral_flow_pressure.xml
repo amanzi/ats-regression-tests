@@ -114,6 +114,9 @@
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
+    <ParameterList name="verbose object" type="ParameterList">
+      <Parameter name="verbosity level" type="string" value="extreme" />
+    </ParameterList>
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="d" />
     <Parameter name="end time" type="double" value="10" />
@@ -121,7 +124,7 @@
 
     <Parameter name="subcycled timestep" type="bool" value="true" />
     <ParameterList name="required times" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{43200,86400,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0,86400,-1}" />
     </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="top level MPC" type="ParameterList">
@@ -156,22 +159,12 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
+
   <ParameterList name="observations">
-    <ParameterList name="surface-flux-cycle">
-      <Parameter name="variable" type="string" value="surface_star-water_flux" />
-      <Parameter name="functional" type="string" value="extensive integral" />
-      <Parameter name="direction normalized flux" type="bool" value="true" />
-      <Parameter name="region" type="string" value="surface outlet" />
-      <Parameter name="delimiter" type="string" value=" " />
-      <Parameter name="location name" type="string" value="face" />
-      <Parameter name="write interval" type="int" value="50" />
-      <Parameter name="observation output filename" type="string" value="surface_flux-cycle.dat" />
-      <Parameter name="cycles start period stop" type="Array(int)" value="{0,1,-1}" />
-    </ParameterList>
     <ParameterList name="water balance" type="ParameterList">
       <Parameter name="observation output filename" type="string" value="data_collection.dat" />
       <Parameter name="time units" type="string" value="d" />
-      <Parameter name="times start period stop" type="Array(double)" value="{0.5, 1,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0, 1,-1}" />
       <Parameter name="times start period stop units" type="string" value="d" />
       <ParameterList name="observed quantities" type="ParameterList">
         <ParameterList name="outlet discharge [mol d^-1]" type="ParameterList">
@@ -182,8 +175,22 @@
           <Parameter name="location name" type="string" value="face" />
           <Parameter name="time integrated" type="bool" value="true" />
         </ParameterList>
-        <ParameterList name="surface water content [mol]" type="ParameterList">
+        <ParameterList name="inlet runon [mol d^-1]" type="ParameterList">
+          <Parameter name="variable" type="string" value="surface_star-water_flux" />
+          <Parameter name="direction normalized flux" type="bool" value="true" />
+          <Parameter name="region" type="string" value="surface inlet" />
+          <Parameter name="functional" type="string" value="extensive integral" />
+          <Parameter name="location name" type="string" value="face" />
+          <Parameter name="time integrated" type="bool" value="true" />
+        </ParameterList>
+        <ParameterList name="surface star water content [mol]" type="ParameterList">
           <Parameter name="variable" type="string" value="surface_star-water_content" />
+          <Parameter name="region" type="string" value="surface domain" />
+          <Parameter name="functional" type="string" value="extensive integral" />
+          <Parameter name="location name" type="string" value="cell" />
+        </ParameterList>
+        <ParameterList name="surface water content [mol]" type="ParameterList">
+          <Parameter name="variable" type="string" value="surface_star-water_content_column_surface" />
           <Parameter name="region" type="string" value="surface domain" />
           <Parameter name="functional" type="string" value="extensive integral" />
           <Parameter name="location name" type="string" value="cell" />
@@ -194,32 +201,6 @@
           <Parameter name="functional" type="string" value="extensive integral" />
           <Parameter name="location name" type="string" value="cell" />
         </ParameterList>
-        <ParameterList name="surface ALT average temperature [K]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-alt_avg_temp" />
-          <Parameter name="region" type="string" value="surface domain" />
-          <Parameter name="functional" type="string" value="average" />
-          <Parameter name="location name" type="string" value="cell" />
-        </ParameterList>
-        <ParameterList name="surface thaw depth min [m]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-thaw_depth" />
-          <Parameter name="region" type="string" value="surface domain" />
-          <Parameter name="functional" type="string" value="minimum" />
-          <Parameter name="location name" type="string" value="cell" />
-        </ParameterList>
-        <ParameterList name="surface thaw depth max [m]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-thaw_depth" />
-          <Parameter name="region" type="string" value="surface domain" />
-          <Parameter name="functional" type="string" value="maximum" />
-          <Parameter name="location name" type="string" value="cell" />
-        </ParameterList>
-        <!--
-        <ParameterList name="surface maximum thaw depth[m]" type="ParameterList">
-          <Parameter name="variable" type="string" value="surface_star-maximum_thaw_depth" />
-          <Parameter name="region" type="string" value="surface domain" />
-          <Parameter name="functional" type="string" value="average" />
-          <Parameter name="location name" type="string" value="cell" />
-        </ParameterList>
-        -->
         <ParameterList name="surface water table [m]" type="ParameterList">
           <Parameter name="variable" type="string" value="surface_star-water_table" />
           <Parameter name="region" type="string" value="surface domain" />
@@ -231,8 +212,8 @@
   </ParameterList>
 
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times start period stop" type="Array(double)" value="{0.5, 5,-1}" />
-    <Parameter name="times start period stop units" type="string" value="d" />
+    <Parameter name="times" type="Array(double)" value="{0, 1, 5, 10}" />
+    <Parameter name="times units" type="string" value="d" />
   </ParameterList>
 
   <ParameterList name="visualization" type="ParameterList">
@@ -282,14 +263,14 @@
       </ParameterList>
 
       <ParameterList name="time integrator" type="ParameterList">
-        <Parameter name="extrapolate initial guess" type="bool" value="true" />
+        <Parameter name="extrapolate initial guess" type="bool" value="false" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="smarter" />
+        <Parameter name="timestep controller type" type="string" value="fixed" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
           <Parameter name="backtrack max steps" type="int" value="10" />
           <Parameter name="backtrack factor" type="double" value="0.25" />
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
-          <Parameter name="nonlinear tolerance" type="double" value="5e-05" />
+          <Parameter name="nonlinear tolerance" type="double" value="1.e-9" />
           <Parameter name="diverged tolerance" type="double" value="10000000000" />
           <Parameter name="limit iterations" type="int" value="100" />
         </ParameterList>
@@ -302,6 +283,9 @@
           <Parameter name="min time step" type="double" value="1e-06" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+        </ParameterList>
+        <ParameterList name="timestep controller fixed parameters" type="ParameterList">
+          <Parameter name="time step" type="double" value="86400" />
         </ParameterList>
       </ParameterList>
       
@@ -467,26 +451,29 @@
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="false" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="smarter" />
+        <Parameter name="timestep controller type" type="string" value="fixed" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
-          <Parameter name="nka lag interations" type="int" value="2" />
+          <Parameter name="nka lag interations" type="int" value="0" />
           <Parameter name="max backtrack steps" type="int" value="10" />
           <Parameter name="backtrack lag" type="int" value="0" />
           <Parameter name="backtrack factor" type="double" value="0.25" />
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
-          <Parameter name="nonlinear tolerance" type="double" value="5e-05" />
+          <Parameter name="nonlinear tolerance" type="double" value="1.e-9" />
           <Parameter name="diverged tolerance" type="double" value="10000000000" />
           <Parameter name="limit iterations" type="int" value="100" />
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
-          <Parameter name="max iterations" type="int" value="18" />
-          <Parameter name="min iterations" type="int" value="12" />
-          <Parameter name="time step reduction factor" type="double" value="0.5" />
+          <Parameter name="max iterations" type="int" value="100" />
+          <Parameter name="min iterations" type="int" value="0" />
+          <Parameter name="time step reduction factor" type="double" value="0." />
           <Parameter name="time step increase factor" type="double" value="1.25" />
           <Parameter name="max time step" type="double" value="86400" />
           <Parameter name="min time step" type="double" value="1e-06" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+        </ParameterList>
+        <ParameterList name="timestep controller fixed parameters" type="ParameterList">
+          <Parameter name="time step" type="double" value="86400" />
         </ParameterList>
       </ParameterList>
 
@@ -514,7 +501,7 @@
       <Parameter name="source term" type="bool" value="false" />
       <Parameter name="allow no negative ponded depths" type="bool" value="true" />
       <Parameter name="initial time step" type="double" value="86400" />
-      <Parameter name="debug cells" type="Array(int)" value="{0,1}" />
+      <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
@@ -559,6 +546,7 @@
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
+      <Parameter name="debug cells" type="Array(int)" value="{0}" />
 
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="initialize faces from cells" type="bool" value="true" />
@@ -908,6 +896,13 @@
         <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
         <Parameter name="source domain name" type="string" value="surface_column:*" />
       </ParameterList>
+
+      <ParameterList name="surface_star-water_content_column_surface" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="subgrid aggregate evaluator" />
+        <Parameter name="source domain name" type="string" value="surface_column:*" />
+        <Parameter name="aggregated key suffix" type="string" value="water_content" />
+      </ParameterList>
+
       <ParameterList name="surface_column:*-water_content_column" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="column sum evaluator" />
         <Parameter name="summed key suffix" type="string" value="water_content" />
@@ -929,7 +924,7 @@
       <ParameterList name="surface_star-elevation" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="column elevation" />
         <Parameter name="includes non-rank-local dependencies" type="bool" value="true" />
-        <Parameter name="dependency tag" type="string" value="next" />
+        <Parameter name="dependency tag" type="string" value="" />
       </ParameterList>
       <ParameterList name="surface_star-pres_elev" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="additive evaluator" />
