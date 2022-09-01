@@ -119,7 +119,7 @@
       <Parameter name="primary variable key" type="string" value="surface-pressure" />
       <Parameter name="conserved quantity key suffix" type="string" value="water_content" />
       <Parameter name="domain name" type="string" value="surface" />
-      <Parameter name="initial time step" type="double" value="8640" />
+      <Parameter name="initial time step [s]" type="double" value="8640" />
       <Parameter name="source term" type="bool" value="false" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="initial condition" type="ParameterList">
@@ -133,7 +133,7 @@
       <Parameter name="primary variable key" type="string" value="surface-temperature" />
       <Parameter name="conserved quantity key suffix" type="string" value="energy" />
       <Parameter name="domain name" type="string" value="surface" />
-      <Parameter name="initial time step" type="double" value="8640" />
+      <Parameter name="initial time step [s]" type="double" value="8640" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key" type="string" value="surface-total_energy_source" />
       <Parameter name="source term is differentiable" type="bool" value="true" />
@@ -185,7 +185,6 @@
           <Parameter name="transition width [K]" type="double" value="0.2" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-mass_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
@@ -193,7 +192,6 @@
           <Parameter name="EOS type" type="string" value="liquid water" />
         </ParameterList>
       </ParameterList>
-      
       <ParameterList name="surface-mass_density_ice" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />

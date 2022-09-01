@@ -149,7 +149,7 @@
       <Parameter name="PK type" type="string" value="overland flow with ice" />
       <Parameter name="primary variable key" type="string" value="surface-pressure" />
       <Parameter name="domain name" type="string" value="surface" />
-      <Parameter name="initial time step" type="double" value="8640" />
+      <Parameter name="initial time step [s]" type="double" value="8640" />
       <Parameter name="source term" type="bool" value="false" />
       <Parameter name="debug cells" type="Array(int)" value="{0,9}" />
       <ParameterList name="verbose object" type="ParameterList">
@@ -187,7 +187,7 @@
       <Parameter name="PK type" type="string" value="surface energy" />
       <Parameter name="primary variable key" type="string" value="surface-temperature" />
       <Parameter name="domain name" type="string" value="surface" />
-      <Parameter name="initial time step" type="double" value="8640" />
+      <Parameter name="initial time step [s]" type="double" value="8640" />
       <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
       <Parameter name="upwind conductivity method" type="string" value="arithmetic mean" />
       <Parameter name="source term" type="bool" value="true" />

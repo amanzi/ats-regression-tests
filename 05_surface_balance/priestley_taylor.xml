@@ -137,7 +137,7 @@
       <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key" type="string" value="water_source" />
-      <Parameter name="initial time step" type="double" value="10" />
+      <Parameter name="initial time step [s]" type="double" value="10" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="clobber surface rel perm" type="bool" value="false" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
@@ -200,7 +200,7 @@
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="water source in meters" type="bool" value="true" />
-      <Parameter name="initial time step" type="double" value="10" />
+      <Parameter name="initial time step [s]" type="double" value="10" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
@@ -254,14 +254,12 @@
       <ParameterList name="capillary_pressure_gas_liq" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
       </ParameterList>
-
       <ParameterList name="surface-total_transpiration" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="column sum evaluator" />
         <Parameter name="summed key" type="string" value="transpiration" />
         <Parameter name="divide by density" type="bool" value="true" />
         <Parameter name="include volume to surface area factor" type="bool" value="true" />
       </ParameterList>
-
       <ParameterList name="surface-manning_coefficient">
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value="100" />

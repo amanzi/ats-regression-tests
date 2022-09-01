@@ -62,7 +62,7 @@
       <Parameter name="conserved quantity key suffix" type="string" value="water_content" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source key suffix" type="string" value="water_source" />
-      <Parameter name="initial time step" type="double" value=" 1" />
+      <Parameter name="initial time step [s]" type="double" value=" 1" />
       <Parameter name="absolute error tolerance" type="double" value="0.01" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
@@ -125,12 +125,10 @@
 
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="evaluators" type="ParameterList">
-
       <ParameterList name="surface-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
         <Parameter name="dependencies" type="Array(string)" value="{surface-ponded_depth, surface-cell_volume}" />
       </ParameterList>
-
       <ParameterList name="surface-water_source" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="additive evaluator" />
         <Parameter name="dependencies" type="Array(string)" value="{surface-ponded_depth}" />

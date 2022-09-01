@@ -90,7 +90,7 @@
       <Parameter name="PK type" type="string" value="overland flow, pressure basis" />
       <Parameter name="primary variable key" type="string" value="surface-pressure" />
       <Parameter name="source term" type="bool" value="false" />
-      <Parameter name="initial time step" type="double" value=" 1" />
+      <Parameter name="initial time step [s]" type="double" value=" 1" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="flux key" type="string" value="surface-mass_flux" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />

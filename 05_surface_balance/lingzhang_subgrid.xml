@@ -147,7 +147,7 @@
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key" type="string" value="water_source" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
-      <Parameter name="initial time step" type="double" value="10" />
+      <Parameter name="initial time step [s]" type="double" value="10" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="clobber surface rel perm" type="bool" value="false" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
@@ -211,7 +211,7 @@
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="water source in meters" type="bool" value="true" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
-      <Parameter name="initial time step" type="double" value="10" />
+      <Parameter name="initial time step [s]" type="double" value="10" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />

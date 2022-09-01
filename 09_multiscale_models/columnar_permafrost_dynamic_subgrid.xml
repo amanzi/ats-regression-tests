@@ -408,7 +408,7 @@
       <Parameter name="PK type" type="string" value="volumetric deformation" />
       <Parameter name="domain name" type="string" value="column:*" />
       <Parameter name="primary variable key suffix" type="string" value="base_porosity" />
-      <Parameter name="initial time step" type="double" value="86400" />
+      <Parameter name="initial time step [s]" type="double" value="86400" />
       <Parameter name="deformation mode" type="string" value="structural" />
       <Parameter name="deformation region" type="string" value="computational domain ice rich" />
       <Parameter name="deformation strategy" type="string" value="average" />
@@ -602,7 +602,7 @@
       <Parameter name="conserved quantity key suffix" type="string" value="water_content" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
       <Parameter name="source key suffix" type="string" value="mass_source" />
-      <Parameter name="initial time step" type="double" value="86400" />
+      <Parameter name="initial time step [s]" type="double" value="86400" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="surface rel perm strategy" type="string" value="clobber" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
@@ -674,7 +674,7 @@
       <Parameter name="source key suffix" type="string" value="total_energy_source" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
       <Parameter name="conserved quantity key suffix" type="string" value="energy" />
-      <Parameter name="initial time step" type="double" value="3600" />
+      <Parameter name="initial time step [s]" type="double" value="3600" />
       <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="diffusion" type="ParameterList">
@@ -797,7 +797,7 @@
       <Parameter name="domain name" type="string" value="surface_star" />
       <Parameter name="source term" type="bool" value="false" />
       <Parameter name="allow no negative ponded depths" type="bool" value="true" />
-      <Parameter name="initial time step" type="double" value="3600" />
+      <Parameter name="initial time step [s]" type="double" value="3600" />
       <Parameter name="debug cells" type="Array(int)" value="{3}" />
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="fv: default" />
@@ -829,7 +829,7 @@
       <Parameter name="source term" type="bool" value="false" />
       <Parameter name="flux key" type="string" value="surface_star-mass_flux" />
       <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
-      <Parameter name="initial time step" type="double" value="86400" />
+      <Parameter name="initial time step [s]" type="double" value="86400" />
       <Parameter name="upwind conductivity method" type="string" value="arithmetic mean" />
       <Parameter name="decoupled from subsurface" type="bool" value="true" />
       <Parameter name="debug cells" type="Array(int)" value="{0,1,2,3}" />

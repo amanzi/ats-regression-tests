@@ -56,7 +56,7 @@
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="debug cells" type="Array(int)" value="{0,9}" />
-      <Parameter name="initial time step" type="double" value="600" />
+      <Parameter name="initial time step [s]" type="double" value="600" />
       <Parameter name="source term is differentiable" type="bool" value="true" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />

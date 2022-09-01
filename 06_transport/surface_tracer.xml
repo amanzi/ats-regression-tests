@@ -104,7 +104,6 @@
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
       <Parameter name="debug cells" type="Array(int)" value="{0,1}" />
-
       <ParameterList name="reconstruction" type="ParameterList">
         <Parameter name="polynomial order" type="int" value="0" />
         <Parameter name="limiter" type="string" value="tensorial" />

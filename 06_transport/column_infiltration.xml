@@ -89,6 +89,7 @@
       <ParameterList name="verbose object">
         <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="surface-subsurface flow coupler">
@@ -161,7 +162,7 @@
     <ParameterList name="flow">
       <Parameter name="PK type" type="string" value="richards flow" />
       <Parameter name="primary variable key" type="string" value="pressure" />
-      <Parameter name="initial time step" type="double" value="86400" />
+      <Parameter name="initial time step [s]" type="double" value="86400" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
@@ -184,6 +185,7 @@
 
       <ParameterList name="boundary conditions">
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="overland flow">
@@ -192,7 +194,7 @@
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="water source in meters" type="bool" value="true" />
-      <Parameter name="initial time step" type="double" value="86400" />
+      <Parameter name="initial time step [s]" type="double" value="86400" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object">
         <Parameter name="verbosity level" type="string" value="low" />

@@ -63,10 +63,10 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value=" 100" />
+    <Parameter name="end time" type="double" value="100" />
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="required times" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0,10,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,10,-1}" />
       <Parameter name="times start period stop units" type="string" value="d" />
     </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
@@ -78,22 +78,23 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="cycles start period stop" type="Array(int)" value="{0,1,-1}" />
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
+
     <ParameterList name="subcycler" type="ParameterList">
       <Parameter name="PK type" type="string" value="subcycling MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{Richards}" />
       <Parameter name="subcycle" type="Array(int)" value="{1}" />
+
     </ParameterList>
 
     <ParameterList name="Richards" type="ParameterList">
       <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="PK type" type="string" value="richards flow" />
-      <Parameter name="initial time step" type="double" value=" 1" />
+      <Parameter name="initial time step [s]" type="double" value=" 1" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="debug cells" type="Array(int)" value="{0,99}" />
