@@ -81,7 +81,6 @@
     <ParameterList name="Richards" type="ParameterList">
       <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="PK type" type="string" value="richards flow" />
-      <Parameter name="initial time step [s]" type="double" value=" 1" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="debug cells" type="Array(int)" value="{0,99}" />
@@ -121,6 +120,7 @@
         </ParameterList>
         <ParameterList name="timestep controller from file parameters" type="ParameterList">
           <Parameter name="file name" type="string" value="../data/richards-infiltration_then_seepage_fv_dts.h5" />
+          <Parameter name="initial time step [s]" type="double" value=" 1" />
         </ParameterList>
       </ParameterList>
 

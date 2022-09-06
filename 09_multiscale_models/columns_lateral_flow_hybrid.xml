@@ -272,6 +272,7 @@
         </ParameterList>
         <ParameterList name="timestep controller fixed parameters" type="ParameterList">
           <Parameter name="time step" type="double" value="86400" />
+          <Parameter name="initial time step [s]" type="double" value="86400" />
         </ParameterList>
       </ParameterList>
 
@@ -311,7 +312,6 @@
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key suffix" type="string" value="water_source_sink" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
-      <Parameter name="initial time step [s]" type="double" value="86400" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="initial condition" type="ParameterList">
       </ParameterList>
@@ -326,7 +326,6 @@
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key suffix" type="string" value="energy_source_sink" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
-      <Parameter name="initial time step [s]" type="double" value="86400" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="initial condition" type="ParameterList">
       </ParameterList>
@@ -339,7 +338,6 @@
       <Parameter name="primary variable key suffix" type="string" value="pressure" />
       <Parameter name="source term" type="bool" value="false" />
       <Parameter name="conserved quantity key suffix" type="string" value="water_content" />
-      <Parameter name="initial time step [s]" type="double" value="86400" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="surface rel perm strategy" type="string" value="clobber" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
@@ -387,7 +385,6 @@
       <Parameter name="primary variable key suffix" type="string" value="temperature" />
       <Parameter name="conserved quantity key suffix" type="string" value="energy" />
       <Parameter name="source term" type="bool" value="false" />
-      <Parameter name="initial time step [s]" type="double" value="86400" />
       <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="diffusion" type="ParameterList">
@@ -462,6 +459,7 @@
         </ParameterList>
         <ParameterList name="timestep controller fixed parameters" type="ParameterList">
           <Parameter name="time step" type="double" value="86400" />
+          <Parameter name="initial time step [s]" type="double" value="86400" />
         </ParameterList>
       </ParameterList>
 
@@ -488,7 +486,6 @@
       <Parameter name="domain name" type="string" value="surface_star" />
       <Parameter name="source term" type="bool" value="false" />
       <Parameter name="allow no negative ponded depths" type="bool" value="true" />
-      <Parameter name="initial time step [s]" type="double" value="86400" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="fv: default" />
@@ -527,7 +524,6 @@
       <Parameter name="domain name" type="string" value="surface_star" />
       <Parameter name="source term" type="bool" value="false" />
       <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
-      <Parameter name="initial time step [s]" type="double" value="86400" />
       <Parameter name="upwind conductivity method" type="string" value="arithmetic mean" />
       <Parameter name="decoupled from subsurface" type="bool" value="true" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
@@ -838,7 +834,7 @@
         <Parameter name="include conduction" type="bool" value="false" />
       </ParameterList>
       <ParameterList name="surface_column:*-enthalpy_top_cell" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="surface top cell evaluator" />
+        <Parameter name="evaluator type" type="string" value="surface from top cell evaluator" />
         <Parameter name="subsurface key suffix" type="string" value="enthalpy" />
       </ParameterList>
       <ParameterList name="surface_column:*-enthalpy" type="ParameterList">

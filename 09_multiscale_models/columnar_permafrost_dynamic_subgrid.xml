@@ -484,6 +484,7 @@
           <Parameter name="min time step" type="double" value="1e-06" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+          <Parameter name="initial time step [s]" type="double" value="3600" />
         </ParameterList>
       </ParameterList>
 
@@ -602,7 +603,6 @@
       <Parameter name="conserved quantity key suffix" type="string" value="water_content" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
       <Parameter name="source key suffix" type="string" value="mass_source" />
-      <Parameter name="initial time step [s]" type="double" value="86400" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="surface rel perm strategy" type="string" value="clobber" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
@@ -674,7 +674,6 @@
       <Parameter name="source key suffix" type="string" value="total_energy_source" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
       <Parameter name="conserved quantity key suffix" type="string" value="energy" />
-      <Parameter name="initial time step [s]" type="double" value="3600" />
       <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="diffusion" type="ParameterList">
@@ -771,6 +770,7 @@
           <Parameter name="min time step" type="double" value="1e-06" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+          <Parameter name="initial time step [s]" type="double" value="3600" />
         </ParameterList>
       </ParameterList>
 
@@ -797,7 +797,6 @@
       <Parameter name="domain name" type="string" value="surface_star" />
       <Parameter name="source term" type="bool" value="false" />
       <Parameter name="allow no negative ponded depths" type="bool" value="true" />
-      <Parameter name="initial time step [s]" type="double" value="3600" />
       <Parameter name="debug cells" type="Array(int)" value="{3}" />
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="fv: default" />
@@ -829,7 +828,6 @@
       <Parameter name="source term" type="bool" value="false" />
       <Parameter name="flux key" type="string" value="surface_star-mass_flux" />
       <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
-      <Parameter name="initial time step [s]" type="double" value="86400" />
       <Parameter name="upwind conductivity method" type="string" value="arithmetic mean" />
       <Parameter name="decoupled from subsurface" type="bool" value="true" />
       <Parameter name="debug cells" type="Array(int)" value="{0,1,2,3}" />
@@ -1288,7 +1286,7 @@
         <Parameter name="include conduction" type="bool" value="false" />
       </ParameterList>
       <ParameterList name="surface_column:*-enthalpy_top_cell" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="surface top cell evaluator" />
+        <Parameter name="evaluator type" type="string" value="surface from top cell evaluator" />
         <Parameter name="subsurface key suffix" type="string" value="enthalpy" />
       </ParameterList>
       <ParameterList name="surface_column:*-enthalpy" type="ParameterList">

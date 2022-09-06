@@ -56,7 +56,6 @@
       <Parameter name="domain name" type="string" value="domain" />
       <Parameter name="time discretization theta" type="double" value="0.5" />
       <Parameter name="source key" type="string" value="source" />
-      <Parameter name="initial time step [s]" type="double" value=" 1" />
       <Parameter name="absolute error tolerance" type="double" value=" 1" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="time integrator" type="ParameterList">
@@ -74,6 +73,7 @@
           <Parameter name="limit iterations" type="int" value="21" />
         </ParameterList>
         <ParameterList name="timestep controller fixed parameters">
+          <Parameter name="initial time step [s]" type="double" value=" 1" />
         </ParameterList>
       </ParameterList>
 
@@ -104,7 +104,6 @@
       <Parameter name="domain name" type="string" value="domain" />
       <Parameter name="time discretization theta" type="double" value="0.5" />
       <Parameter name="source key" type="string" value="source2" />
-      <Parameter name="initial time step [s]" type="double" value="10" />
       <Parameter name="absolute error tolerance" type="double" value=" 1" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="time integrator" type="ParameterList">
@@ -122,6 +121,7 @@
           <Parameter name="limit iterations" type="int" value="21" />
         </ParameterList>
         <ParameterList name="timestep controller fixed parameters">
+          <Parameter name="initial time step [s]" type="double" value="10" />
         </ParameterList>
       </ParameterList>
 

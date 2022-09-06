@@ -108,7 +108,6 @@
     <ParameterList name="flow richards" type="ParameterList">
       <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="PK type" type="string" value="richards flow" />
-      <Parameter name="initial time step [s]" type="double" value="864000" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="modify predictor for flux BCs" type="bool" value="false" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
@@ -136,6 +135,7 @@
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+          <Parameter name="initial time step [s]" type="double" value="864000" />
         </ParameterList>
       </ParameterList>
 

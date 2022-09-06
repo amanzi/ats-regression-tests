@@ -50,7 +50,6 @@
       <Parameter name="domain name" type="string" value="domain" />
       <Parameter name="source key" type="string" value="source" />
       <Parameter name="time discretization theta" type="double" value="0.5" />
-      <Parameter name="initial time step [s]" type="double" value=" 1" />
       <Parameter name="absolute error tolerance" type="double" value=" 1" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
@@ -75,6 +74,7 @@
           </ParameterList>
         </ParameterList>
         <ParameterList name="timestep controller fixed parameters">
+          <Parameter name="initial time step [s]" type="double" value=" 1" />
         </ParameterList>
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="high" />
