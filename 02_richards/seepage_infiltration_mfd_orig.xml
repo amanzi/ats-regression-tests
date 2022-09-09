@@ -192,7 +192,6 @@
       </ParameterList>
 
       <ParameterList name="water retention evaluator" type="ParameterList">
-        <Parameter name="checkpoint" type="bool" value="true" />
         <ParameterList name="WRM parameters" type="ParameterList">
           <ParameterList name="computational domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain" />
@@ -215,7 +214,6 @@
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="richards water content" />
-        <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
       <ParameterList name="capillary_pressure_gas_liq" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
