@@ -343,7 +343,7 @@
       <Parameter name="PK type" type="string" value="volumetric deformation" />
       <Parameter name="domain name" type="string" value="column:*" />
       <Parameter name="primary variable key suffix" type="string" value="base_porosity" />
-      <Parameter name="initial time step [s]" type="double" value="86400" />
+      <Parameter name="initial time step [s]" type="double" value=" 1" />
       <Parameter name="deformation mode" type="string" value="structural" />
       <Parameter name="deformation region" type="string" value="computational domain null subsidence" />
       <Parameter name="deformation strategy" type="string" value="average" />
@@ -423,7 +423,7 @@
           <Parameter name="min time step" type="double" value="1e-06" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
-          <Parameter name="initial time step [s]" type="double" value="86400" />
+          <Parameter name="initial time step [s]" type="double" value=" 1" />
         </ParameterList>
       </ParameterList>
 
@@ -665,7 +665,7 @@
           <Parameter name="min time step" type="double" value="1e-06" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
-          <Parameter name="initial time step [s]" type="double" value="86400" />
+          <Parameter name="initial time step [s]" type="double" value=" 1" />
         </ParameterList>
       </ParameterList>
 

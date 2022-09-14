@@ -362,7 +362,7 @@
         <Parameter name="mass density key" type="string" value="mass_density_liquid" />
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="constant" />
-          <Parameter name="density [kg/m^3]" type="double" value="1000" />
+          <Parameter name="density [kg m^-3]" type="double" value="1000" />
         </ParameterList>
       </ParameterList>
       <ParameterList name="viscosity_liquid" type="ParameterList">

@@ -165,7 +165,7 @@
         <Parameter name="molar density key" type="string" value="surface-source_molar_density" />
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="constant" />
-          <Parameter name="density [kg/m^3]" type="double" value="1000" />
+          <Parameter name="density [kg m^-3]" type="double" value="1000" />
         </ParameterList>
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="low" />
@@ -176,7 +176,7 @@
         <Parameter name="EOS basis" type="string" value="both" />
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="constant" />
-          <Parameter name="density [kg/m^3]" type="double" value="1000" />
+          <Parameter name="density [kg m^-3]" type="double" value="1000" />
         </ParameterList>
       </ParameterList>
       <ParameterList name="surface-molar_density_liquid" type="ParameterList">
@@ -184,7 +184,7 @@
         <Parameter name="EOS basis" type="string" value="both" />
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="constant" />
-          <Parameter name="density [kg/m^3]" type="double" value="1000" />
+          <Parameter name="density [kg m^-3]" type="double" value="1000" />
         </ParameterList>
       </ParameterList>
       <ParameterList name="surface-manning_coefficient" type="ParameterList">
