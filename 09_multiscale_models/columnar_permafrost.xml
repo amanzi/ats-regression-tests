@@ -298,7 +298,6 @@
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="times" type="Array(double)" value="{ 0, 1,73,125,150}" />
     <Parameter name="times units" type="string" value="d" />
-    <Parameter name="single file checkpoint" type="bool" value="false" />
     <Parameter name="time units" type="string" value="noleap" />
   </ParameterList>
 

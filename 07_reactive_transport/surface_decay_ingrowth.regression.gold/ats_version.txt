@@ -1,2 +1,2 @@
-ATS: 8bd7b049
-Amanzi: df98ee413
+ATS: b'ats-1.3-dev-260-g9f309880'
+Amanzi: b'8375de2e3'
