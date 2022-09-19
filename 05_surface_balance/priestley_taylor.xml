@@ -303,7 +303,6 @@
         <Parameter name="evaporation type" type="string" value="transpiration" />
         <Parameter name="air temperature key" type="string" value="surface-air_temperature" />
         <Parameter name="surface temperature key" type="string" value="surface-temperature" />
-        <Parameter name="relative humidity key" type="string" value="surface-relative_humidity" />
         <Parameter name="elevation key" type="string" value="surface-elevation" />
         <Parameter name="net radiation key suffix" type="string" value="shortwave_radiation" />
         <Parameter name="units" type="string" value="m s^-1" />
@@ -331,20 +330,6 @@
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="283.15" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-      <ParameterList name="surface-relative_humidity" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable" />
-        <ParameterList name="function" type="ParameterList">
-          <ParameterList name="domain rain" type="ParameterList">
-            <Parameter name="region" type="string" value="surface domain" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.6" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
