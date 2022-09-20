@@ -1135,7 +1135,7 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-      <ParameterList name="surface_column:*-relative_humidity" type="ParameterList">
+      <ParameterList name="surface_column:*-vapor_pressure_air" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -1145,7 +1145,7 @@
               <ParameterList name="function-tabular" type="ParameterList">
                 <Parameter name="file" type="string" value="../data/spinup-10yr.h5" />
                 <Parameter name="x header" type="string" value="time [s]" />
-                <Parameter name="y header" type="string" value="relative humidity [-]" />
+                <Parameter name="y header" type="string" value="vapor pressure air [Pa]" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
