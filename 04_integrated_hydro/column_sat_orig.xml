@@ -139,6 +139,7 @@
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+          <Parameter name="initial time step [s]" type="double" value="10" />
         </ParameterList>
       </ParameterList>
 
@@ -184,7 +185,6 @@
     <ParameterList name="flow" type="ParameterList">
       <Parameter name="PK type" type="string" value="richards flow" />
       <Parameter name="primary variable key" type="string" value="pressure" />
-      <Parameter name="initial time step" type="double" value="10" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <ParameterList name="verbose object" type="ParameterList">
@@ -256,7 +256,6 @@
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="water source in meters" type="bool" value="true" />
       <Parameter name="source key" type="string" value="precipitation_rain" />
-      <Parameter name="initial time step" type="double" value="10" />
       <Parameter name="source term is differentiable" type="bool" value="true" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />

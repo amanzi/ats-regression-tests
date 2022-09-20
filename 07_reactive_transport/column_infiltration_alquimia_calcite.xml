@@ -98,6 +98,7 @@
       <Parameter name="PK type" type="string" value="subcycling MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{surface-subsurface flow coupler, reactive transport}" />
       <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
+
     </ParameterList>
 
     <ParameterList name="surface-subsurface flow coupler">
@@ -152,6 +153,7 @@
         </ParameterList>
         <ParameterList name="timestep controller from file parameters" type="ParameterList">
           <Parameter name="file name" type="string" value="../data/transport-column_infiltration_dts.h5" />
+          <Parameter name="initial time step [s]" type="double" value="86400" />
         </ParameterList>
       </ParameterList>
 
@@ -161,7 +163,6 @@
       <Parameter name="PK type" type="string" value="richards flow" />
       <Parameter name="darcy flux key" type="string" value="water_flux" />
       <Parameter name="primary variable key" type="string" value="pressure" />
-      <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="debug cells" type="Array(int)" value="{98,99}" />
@@ -189,9 +190,7 @@
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="water source in meters" type="bool" value="true" />
-      <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
@@ -213,6 +212,7 @@
       <Parameter name="PK type" type="string" value="surface subsurface transport" />
       <Parameter name="PKs order" type="Array(string)" value="{subsurface transport, surface transport}" />
       <Parameter name="component names" type="Array(string)" value="{H+,HCO3-,Ca++,Tracer}" />
+
     </ParameterList>
 
     <ParameterList name="subsurface transport">
@@ -233,7 +233,6 @@
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
       <Parameter name="debug cells" type="Array(int)" value="{98,99}" />
-
       <ParameterList name="initial condition" type="ParameterList">
       </ParameterList>
 
@@ -403,6 +402,7 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="chemistry surface" type="ParameterList">
@@ -434,6 +434,7 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
+
     </ParameterList>
 
   </ParameterList>
@@ -443,7 +444,6 @@
       <Parameter name="evaluators" type="Array(string)" value="{total_component_concentration}" />
       <Parameter name="data" type="Array(string)" value="{total_component_concentration}" />
     </ParameterList>
-
     <ParameterList name="evaluators">
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="richards water content" />
@@ -675,5 +675,14 @@
   </ParameterList>
   <ParameterList name="checkpoint">
     <Parameter name="cycles" type="Array(int)" value="{0,7,10,13,16,19,22,25,28,31,34}" />
+  </ParameterList>
+
+  <ParameterList name="visualization">
+    <ParameterList name="surface">
+      <Parameter name="cycles" type="Array(int)" value="{0,7,10,13,16,19,22,25,28,31,34}" />
+    </ParameterList>
+    <ParameterList name="domain">
+      <Parameter name="cycles" type="Array(int)" value="{0,7,10,13,16,19,22,25,28,31,34}" />
+    </ParameterList>
   </ParameterList>
 </ParameterList>

@@ -5,7 +5,7 @@
       <ParameterList name="generate mesh parameters" type="ParameterList">
         <Parameter name="number of cells" type="Array(int)" value="{1,1}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{ 0, 0}" />
-        <Parameter name="domain high coordinate" type="Array(double)" value="{ 1.1, 1.1}" />
+        <Parameter name="domain high coordinate" type="Array(double)" value="{1.1,1.1}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -23,7 +23,7 @@
     <Parameter name="end time" type="double" value="1000" />
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="required times" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,1,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1,-1}" />
     </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="exponential decay" type="ParameterList">
@@ -40,8 +40,7 @@
       <Parameter name="domain name" type="string" value="domain" />
       <Parameter name="source key" type="string" value="source" />
       <Parameter name="time discretization theta" type="double" value="0.5" />
-      <Parameter name="initial time step" type="double" value="100" />
-      <Parameter name="absolute error tolerance" type="double" value="1" />
+      <Parameter name="absolute error tolerance" type="double" value=" 1" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
@@ -76,6 +75,7 @@
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+          <Parameter name="initial time step [s]" type="double" value="100" />
         </ParameterList>
       </ParameterList>
 
@@ -103,21 +103,18 @@
 
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="evaluators" type="ParameterList">
-
       <ParameterList name="source" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="additive evaluator" />
         <Parameter name="dependencies" type="Array(string)" value="{u}" />
-        <Parameter name="u coefficient" type="double" value="-.01" />
+        <Parameter name="u coefficient" type="double" value="-0.01" />
       </ParameterList>
-
       <ParameterList name="u_cv" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
         <Parameter name="dependencies" type="Array(string)" value="{u, cell_volume}" />
       </ParameterList>
-
     </ParameterList>
-
     <ParameterList name="initial conditions" type="ParameterList">
+
       <ParameterList name="atmospheric_pressure" type="ParameterList">
         <Parameter name="value" type="double" value="101325" />
       </ParameterList>
@@ -125,13 +122,12 @@
       <ParameterList name="gravity" type="ParameterList">
         <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
       </ParameterList>
-    </ParameterList>
 
+    </ParameterList>
     <ParameterList name="verbose object" type="ParameterList">
       <Parameter name="verbosity level" type="string" value="low" />
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{ 0,100,-1}" />

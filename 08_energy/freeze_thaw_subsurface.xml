@@ -89,6 +89,7 @@
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+          <Parameter name="initial time step [s]" type="double" value="8640" />
         </ParameterList>
       </ParameterList>
 
@@ -116,7 +117,6 @@
       <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="conserved quantity key suffix" type="string" value="water_content" />
       <Parameter name="domain name" type="string" value="domain" />
-      <Parameter name="initial time step" type="double" value="8640" />
       <Parameter name="source term" type="bool" value="false" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="initial condition" type="ParameterList">
@@ -130,7 +130,6 @@
       <Parameter name="primary variable key" type="string" value="temperature" />
       <Parameter name="conserved quantity key suffix" type="string" value="energy" />
       <Parameter name="domain name" type="string" value="domain" />
-      <Parameter name="initial time step" type="double" value="8640" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key" type="string" value="total_energy_source" />
       <Parameter name="source term is differentiable" type="bool" value="true" />
@@ -169,7 +168,6 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="saturation_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="permafrost WRM" />
         <ParameterList name="WRM parameters" type="ParameterList">
@@ -187,7 +185,6 @@
           <Parameter name="minimum dsi_dpressure magnitude" type="double" value="1e-12" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="mass_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
@@ -195,7 +192,6 @@
           <Parameter name="EOS type" type="string" value="liquid water" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="molar_density_gas" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="molar" />

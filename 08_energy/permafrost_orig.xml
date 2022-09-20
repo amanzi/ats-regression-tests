@@ -107,24 +107,23 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times" type="Array(double)" value="{0,80,160,170,190,220,300,360}" />
+    <Parameter name="times" type="Array(double)" value="{ 0,80,160,170,190,220,300,360}" />
     <Parameter name="times units" type="string" value="d" />
   </ParameterList>
 
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times" type="Array(double)" value="{0,80,160,170,190,220,300,360}" />
+      <Parameter name="times" type="Array(double)" value="{ 0,80,160,170,190,220,300,360}" />
       <Parameter name="times units" type="string" value="d" />
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times" type="Array(double)" value="{0,80,160,170,190,220,300,360}" />
+      <Parameter name="times" type="Array(double)" value="{ 0,80,160,170,190,220,300,360}" />
       <Parameter name="times units" type="string" value="d" />
       <Parameter name="aliased domains" type="Array(string)" value="{snow}" />
     </ParameterList>
   </ParameterList>
-  
+
   <ParameterList name="PKs" type="ParameterList">
 
     <ParameterList name="Top level MPC" type="ParameterList">
@@ -151,6 +150,7 @@
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+          <Parameter name="initial time step [s]" type="double" value="86400" />
         </ParameterList>
       </ParameterList>
 
@@ -201,7 +201,6 @@
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key" type="string" value="water_source" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
-      <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="surface rel perm strategy" type="string" value="clobber" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
@@ -252,7 +251,6 @@
       <Parameter name="source key" type="string" value="surface-water_source" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
       <Parameter name="water source in meters" type="bool" value="true" />
-      <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="fv: default" />
@@ -273,7 +271,6 @@
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key" type="string" value="total_energy_source" />
       <Parameter name="source term is differentiable" type="bool" value="false" />
-      <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
       <Parameter name="debug cells" type="Array(int)" value="{99}" />
       <ParameterList name="diffusion" type="ParameterList">
@@ -326,7 +323,6 @@
       <Parameter name="source term finite difference" type="bool" value="true" />
       <Parameter name="flux key" type="string" value="surface-mass_flux" />
       <Parameter name="supress advective terms in preconditioner" type="bool" value="true" />
-      <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="upwind conductivity method" type="string" value="arithmetic mean" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="diffusion" type="ParameterList">
@@ -397,7 +393,6 @@
       </ParameterList>
       <ParameterList name="surface-ponded_depth" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="ponded depth" />
-        <!-- <Parameter name="evaluator type" type="string" value="icy ponded depth" /> update to this -->
       </ParameterList>
       <ParameterList name="surface-source_molar_density" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />

@@ -154,6 +154,7 @@
         </ParameterList>
         <ParameterList name="timestep controller from file parameters" type="ParameterList">
           <Parameter name="file name" type="string" value="../data/transport-column_exfiltration_hot_dts.h5" />
+          <Parameter name="initial time step [s]" type="double" value="86400" />
         </ParameterList>
       </ParameterList>
 
@@ -163,7 +164,6 @@
       <Parameter name="PK type" type="string" value="richards flow" />
       <Parameter name="darcy flux key" type="string" value="water_flux" />
       <Parameter name="primary variable key" type="string" value="pressure" />
-      <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
@@ -204,7 +204,6 @@
       <Parameter name="primary variable key" type="string" value="surface-pressure" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source term" type="bool" value="false" />
-      <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object">
         <Parameter name="verbosity level" type="string" value="low" />

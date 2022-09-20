@@ -101,6 +101,7 @@
       <ParameterList name="verbose object">
         <Parameter name="verbosity level" type="string" value="default" />
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="surface-subsurface flow coupler">
@@ -174,6 +175,7 @@
         </ParameterList>
         <ParameterList name="timestep controller from file parameters" type="ParameterList">
           <Parameter name="file name" type="string" value="../data/transport-column_infiltration_dts.h5" />
+          <Parameter name="initial time step [s]" type="double" value="86400" />
         </ParameterList>
       </ParameterList>
 
@@ -183,7 +185,6 @@
       <Parameter name="PK type" type="string" value="richards flow" />
       <Parameter name="darcy flux key" type="string" value="water_flux" />
       <Parameter name="primary variable key" type="string" value="pressure" />
-      <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="debug cells" type="Array(int)" value="{99}" />
@@ -215,7 +216,6 @@
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="water source in meters" type="bool" value="true" />
-      <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object">
         <Parameter name="verbosity level" type="string" value="default" />

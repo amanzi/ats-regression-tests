@@ -76,7 +76,6 @@
       <Parameter name="PK type" type="string" value="surface energy" />
       <Parameter name="primary variable key" type="string" value="surface-temperature" />
       <Parameter name="domain name" type="string" value="surface" />
-      <Parameter name="initial time step" type="double" value="8640" />
       <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
       <Parameter name="upwind conductivity method" type="string" value="arithmetic mean" />
       <Parameter name="source term" type="bool" value="false" />
@@ -114,6 +113,7 @@
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+          <Parameter name="initial time step [s]" type="double" value="8640" />
         </ParameterList>
       </ParameterList>
 
