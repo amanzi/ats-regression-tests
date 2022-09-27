@@ -66,10 +66,10 @@
     <!-- <Parameter name="end cycle" type="int" value="10" /> -->
     <Parameter name="start time" type="double" value="0.0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="1" />
+    <Parameter name="end time" type="double" value="0.5" />
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="required times">
-      <Parameter name="times start period stop 0" type="Array(double)" value="{0.0,100.0,-1}" />
+      <Parameter name="times start period stop 0" type="Array(double)" value="{0.0,300.0,-1}" />
     </ParameterList>
     <ParameterList name="PK tree">
       <ParameterList name="Flow and Reactive Transport">
@@ -165,7 +165,7 @@
           <Parameter name="backtrack lag" type="int" value="0" />
           <Parameter name="backtrack factor" type="double" value="0.5" />
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
-          <Parameter name="nonlinear tolerance" type="double" value="1e-6" />
+          <Parameter name="nonlinear tolerance" type="double" value="1e-10" />
           <Parameter name="diverged tolerance" type="double" value="100000" />
           <Parameter name="limit iterations" type="int" value="100" />
           <ParameterList name="verbose object" type="ParameterList">
@@ -173,11 +173,11 @@
           </ParameterList>
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
-          <Parameter name="max iterations" type="int" value="80" />
-          <Parameter name="min iterations" type="int" value="30" />
+          <Parameter name="max iterations" type="int" value="20" />
+          <Parameter name="min iterations" type="int" value="3" />
           <Parameter name="time step reduction factor" type="double" value="0.5" />
           <Parameter name="time step increase factor" type="double" value="1.25" />
-          <Parameter name="max time step" type="double" value="100.0" />
+          <Parameter name="max time step" type="double" value="60.0" />
           <Parameter name="min time step" type="double" value="1e-3" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
@@ -490,7 +490,7 @@
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
       <ParameterList name="verbose object">
-        <Parameter name="verbosity level" type="string" value="low" />
+        <Parameter name="verbosity level" type="string" value="high" />
         <Parameter name="name" type="string" value="Surface Transport" />
       </ParameterList>
 
@@ -728,12 +728,12 @@
     <ParameterList name="domain">
       <Parameter name="file name base" type="string" value="visdump_subsurface" />
       <!--<Parameter name="cycles start period stop" type="Array(int)" value="{0,60,-1}" />-->
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,1000,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0,8640,-1.0}" />
     </ParameterList>
     <ParameterList name="surface">
       <Parameter name="file name base" type="string" value="visdump_surface" />
       <!--<Parameter name="cycles start period stop" type="Array(int)" value="{0,60,-1}" />-->
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,1000,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0,8640,-1.0}" />
       <Parameter name="visualize on 3D mesh" type="bool" value="false" />
     </ParameterList>
   </ParameterList> 
