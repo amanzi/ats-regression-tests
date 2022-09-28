@@ -55,19 +55,13 @@
     </ParameterList>
   </ParameterList>
 
-  <ParameterList name="verbose object" type="ParameterList">
-    <Parameter name="verbosity level" type="string" value="extreme" />
-  </ParameterList>
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
     <Parameter name="end time" type="double" value=" 1" />
     <Parameter name="end time units" type="string" value="y" />
-    <Parameter name="end cycle" type="int" value="1004" />
+    <Parameter name="end cycle" type="int" value="1006" />
     <Parameter name="restart from checkpoint file" type="string" value="../data/restart.h5" />
-    <ParameterList name="verbose object" type="ParameterList">
-      <Parameter name="verbosity level" type="string" value="extreme" />
-    </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="Flow and Reactive Transport" type="ParameterList">
         <Parameter name="PK type" type="string" value="subcycling MPC" />
@@ -96,20 +90,12 @@
       <Parameter name="PK type" type="string" value="subcycling MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{flow, reactive transport}" />
       <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="extreme" />
-      </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="reactive transport" type="ParameterList">
       <Parameter name="PK type" type="string" value="reactive transport" />
       <Parameter name="PKs order" type="Array(string)" value="{chemistry subsurface, subsurface transport}" />
       <Parameter name="transport index" type="int" value="1" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="extreme" />
-      </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="flow" type="ParameterList">
@@ -118,9 +104,7 @@
       <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="low" />
-      </ParameterList>
+      <Parameter name="debug cells" type="Array(int)" value="{0}" />
 
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
@@ -135,20 +119,14 @@
           <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
           <Parameter name="diverged tolerance" type="double" value="1000000" />
           <Parameter name="limit iterations" type="int" value="21" />
-          <ParameterList name="verbose object" type="ParameterList">
-            <Parameter name="verbosity level" type="string" value="none" />
-          </ParameterList>
-        </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="medium" />
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
           <Parameter name="max iterations" type="int" value="18" />
           <Parameter name="min iterations" type="int" value="10" />
           <Parameter name="time step reduction factor" type="double" value="0.909090909091" />
           <Parameter name="time step increase factor" type="double" value="1.1" />
-          <Parameter name="max time step" type="double" value="3000000" />
-          <Parameter name="min time step" type="double" value="1e-10" />
+          <Parameter name="max time step [s]" type="double" value="3000000" />
+          <Parameter name="min time step [s]" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
           <Parameter name="initial time step [s]" type="double" value="10" />
@@ -172,9 +150,6 @@
           <Parameter name="strong threshold" type="double" value="0.85" />
           <Parameter name="tolerance" type="double" value=" 0" />
           <Parameter name="number of functions" type="int" value="1" />
-        </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="medium" />
         </ParameterList>
         <ParameterList name="gmres parameters" type="ParameterList">
           <Parameter name="preconditioning strategy" type="string" value="left" />
@@ -266,9 +241,6 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="medium" />
-      </ParameterList>
 
     </ParameterList>
 
@@ -290,10 +262,6 @@
       <Parameter name="number of aqueous components" type="int" value="3" />
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="low" />
-        <Parameter name="name" type="string" value="Subsurface Transport" />
-      </ParameterList>
 
       <ParameterList name="reconstruction" type="ParameterList">
         <Parameter name="polynomial order" type="int" value="0" />
@@ -351,9 +319,6 @@
       </ParameterList>
       <ParameterList name="capillary_pressure_gas_liq" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
       <ParameterList name="molar_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
@@ -362,7 +327,7 @@
         <Parameter name="mass density key" type="string" value="mass_density_liquid" />
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="constant" />
-          <Parameter name="density [kg/m^3]" type="double" value="1000" />
+          <Parameter name="density [kg m^-3]" type="double" value="1000" />
         </ParameterList>
       </ParameterList>
       <ParameterList name="viscosity_liquid" type="ParameterList">

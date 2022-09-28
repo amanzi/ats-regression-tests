@@ -191,7 +191,7 @@
         <Parameter name="EOS basis" type="string" value="both" />
         <ParameterList name="EOS parameters">
           <Parameter name="EOS type" type="string" value="constant" />
-          <Parameter name="density [kg/m^3]" type="double" value="1000" />
+          <Parameter name="density [kg m^-3]" type="double" value="1000" />
         </ParameterList>
         <ParameterList name="verbose object">
           <Parameter name="verbosity level" type="string" value="none" />
@@ -202,7 +202,7 @@
         <Parameter name="EOS basis" type="string" value="both" />
         <ParameterList name="EOS parameters">
           <Parameter name="EOS type" type="string" value="constant" />
-          <Parameter name="density [kg/m^3]" type="double" value="1000" />
+          <Parameter name="density [kg m^-3]" type="double" value="1000" />
         </ParameterList>
       </ParameterList>
       <ParameterList name="surface-manning_coefficient">

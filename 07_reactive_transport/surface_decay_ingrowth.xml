@@ -72,7 +72,8 @@
 
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="file name base" type="string" value="checkpoint" />
-    <Parameter name="cycles start period stop" type="Array(int)" value="{0,5000,-1}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0,4,-1}" />
+    <Parameter name="times start period stop units" type="string" value="h" />
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">

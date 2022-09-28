@@ -703,6 +703,7 @@
           <Parameter name="water transition depth [m]" type="double" value="0.02" />
           <Parameter name="albedo of bare ground [-]" type="double" value="0.135" />
           <Parameter name="emissivity of bare ground [-]" type="double" value="0.92" />
+          <Parameter name="Clapp and Hornberger b [-]" type="double" value="3" />
         </ParameterList>
       </ParameterList>
 
