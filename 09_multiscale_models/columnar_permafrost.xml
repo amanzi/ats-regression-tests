@@ -11,14 +11,12 @@
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="mesh type" type="string" value="surface" />
-      <Parameter name="deformable mesh" type="bool" value="true" />
       <ParameterList name="surface parameters" type="ParameterList">
         <Parameter name="surface sideset name" type="string" value="surface" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface_star" type="ParameterList">
       <Parameter name="mesh type" type="string" value="aliased" />
-      <Parameter name="deformable mesh" type="bool" value="true" />
       <ParameterList name="aliased parameters" type="ParameterList">
         <Parameter name="target" type="string" value="surface" />
       </ParameterList>
@@ -49,7 +47,6 @@
         <Parameter name="regions" type="Array(string)" value="{surface domain}" />
         <ParameterList name="surface_column:*" type="ParameterList">
           <Parameter name="mesh type" type="string" value="column surface" />
-          <Parameter name="deformable mesh" type="bool" value="true" />
           <ParameterList name="column surface parameters" type="ParameterList">
             <Parameter name="parent domain" type="string" value="column:*" />
           </ParameterList>
@@ -65,7 +62,6 @@
         <Parameter name="regions" type="Array(string)" value="{surface domain}" />
         <ParameterList name="snow_column:*" type="ParameterList">
           <Parameter name="mesh type" type="string" value="aliased" />
-          <Parameter name="deformable mesh" type="bool" value="true" />
           <ParameterList name="aliased parameters" type="ParameterList">
             <Parameter name="target" type="string" value="surface_column:*" />
           </ParameterList>

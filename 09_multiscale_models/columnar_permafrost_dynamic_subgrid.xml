@@ -3,6 +3,7 @@
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="read mesh file" />
       <Parameter name="build columns from set" type="string" value="surface" />
+      <Parameter name="deformable mesh" type="bool" value="true" />
       <ParameterList name="read mesh file parameters" type="ParameterList">
         <Parameter name="file" type="string" value="../data/mesh/four-polygons-5layers-om10cm-icerich40cm.exo" />
         <Parameter name="format" type="string" value="Exodus II" />
