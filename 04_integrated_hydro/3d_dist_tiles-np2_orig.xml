@@ -214,7 +214,7 @@
 
       <ParameterList name="catchments_id">
         <Parameter name="evaluator type" type="string" value="independent variable from file"/>
-        <Parameter name="filename" type="string" value="../data/sink_map.new.h5"/>
+        <Parameter name="filename" type="string" value="../data/sink_map3d_2p.h5"/>
         <Parameter name="domain name" type="string" value="domain"/>
         <Parameter name="variable name" type="string" value="catchments_id"/>
         <Parameter name="component name" type="string" value="cell"/>
@@ -225,7 +225,7 @@
 
       <ParameterList name="surface-catchments_id">
         <Parameter name="evaluator type" type="string" value="independent variable from file"/>
-        <Parameter name="filename" type="string" value="../data/source_map.new.h5"/>
+        <Parameter name="filename" type="string" value="../data/source_map3d_2p.h5"/>
         <Parameter name="domain name" type="string" value="surface"/>
         <Parameter name="variable name" type="string" value="catchments_id"/>
         <Parameter name="component name" type="string" value="cell"/>
@@ -236,7 +236,7 @@
 
       <ParameterList name="surface-catchments_frac">
         <Parameter name="evaluator type" type="string" value="independent variable from file"/>
-        <Parameter name="filename" type="string" value="../data/source_map.new.h5"/>
+        <Parameter name="filename" type="string" value="../data/source_map3d_2p.h5"/>
         <Parameter name="domain name" type="string" value="surface"/>
         <Parameter name="variable name" type="string" value="catchments_frac"/>
         <Parameter name="component name" type="string" value="cell"/>
