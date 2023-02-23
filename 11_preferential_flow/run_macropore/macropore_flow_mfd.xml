@@ -17,7 +17,7 @@
     <ParameterList name="macropore" type="ParameterList">
       <Parameter name="mesh type" type="string" value="aliased" />
       <ParameterList name="aliased parameters" type="ParameterList">
-        <Parameter name="alias" type="string" value="domain" />
+        <Parameter name="target" type="string" value="domain" />
       </ParameterList>
     </ParameterList>
     
@@ -269,22 +269,22 @@
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
-    <ParameterList name="field evaluators" type="ParameterList">
+    <ParameterList name="evaluators" type="ParameterList">
 
       <ParameterList name="macropore-water_content" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="richards water content" />
+        <Parameter name="evaluator type" type="string" value="richards water content" />
         <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
 
       <ParameterList name="macropore-capillary_pressure_gas_liq" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
+        <Parameter name="evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
 
       <ParameterList name="macropore-molar_density_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="eos" />
+        <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
         <Parameter name="molar density key" type="string" value="macropore-molar_density_liquid" />
         <Parameter name="mass density key" type="string" value="macropore-mass_density_liquid" />
@@ -297,7 +297,7 @@
       </ParameterList>
 
       <ParameterList name="macropore-viscosity_liquid" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="viscosity" />
+        <Parameter name="evaluator type" type="string" value="viscosity" />
         <Parameter name="viscosity key" type="string" value="viscosity_liquid" />
         <ParameterList name="viscosity model parameters" type="ParameterList">
           <Parameter name="viscosity relation type" type="string" value="liquid water" />
@@ -308,7 +308,7 @@
       </ParameterList>
 
       <ParameterList name="macropore-molar_density_gas" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="eos" />
+        <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="molar" />
         <Parameter name="molar density key" type="string" value="molar_density_gas" />
         <ParameterList name="EOS parameters" type="ParameterList">
@@ -323,7 +323,7 @@
       </ParameterList>
 
       <ParameterList name="macropore-mol_frac_gas" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="molar fraction gas" />
+        <Parameter name="evaluator type" type="string" value="molar fraction gas" />
         <Parameter name="molar fraction key" type="string" value="mol_frac_gas" />
         <ParameterList name="vapor pressure model parameters" type="ParameterList">
           <Parameter name="vapor pressure model type" type="string" value="water vapor over water/ice" />
@@ -334,7 +334,7 @@
       </ParameterList>
 
       <ParameterList name="macropore-porosity" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -353,7 +353,7 @@
       </ParameterList>
 
       <ParameterList name="macropore-permeability" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -372,7 +372,7 @@
       </ParameterList>
 
       <ParameterList name="macropore-temperature" type="ParameterList">
-        <Parameter name="field evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -391,7 +391,7 @@
       </ParameterList>
 
       <!-- <ParameterList name="macropore-effective_pressure" type="ParameterList"> -->
-      <!--   <Parameter name="field evaluator type" type="string" value="effective_pressure" /> -->
+      <!--   <Parameter name="evaluator type" type="string" value="effective_pressure" /> -->
       <!--   <ParameterList name="verbose object" type="ParameterList"> -->
       <!--     <Parameter name="verbosity level" type="string" value="low" /> -->
       <!--   </ParameterList> -->

@@ -176,9 +176,9 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value="0.0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="2" />
+    <Parameter name="end time" type="double" value="10" />
     <Parameter name="end time units" type="string" value="d" />
-    <Parameter name="end cycle" type="int" value="10" />
+    <!-- <Parameter name="end cycle" type="int" value="-10" /> -->
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="Top level MPC" type="ParameterList">
 	<Parameter name="PK type" type="string" value="strong MPC" />
@@ -328,20 +328,22 @@
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
-        <ParameterList name="pressure">
-          <ParameterList name="bottom" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{bottom face}" />
-            <ParameterList name="boundary pressure" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="98763.06626014091" />				
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
+        <!-- <ParameterList name="pressure"> -->
+        <!--   <ParameterList name="bottom" type="ParameterList"> -->
+        <!--     <Parameter name="regions" type="Array(string)" value="{bottom face}" /> -->
+        <!--     <ParameterList name="boundary pressure" type="ParameterList"> -->
+        <!--       <ParameterList name="function-constant" type="ParameterList"> -->
+        <!--         <Parameter name="value" type="double" value="98763.06626014091" />				 -->
+        <!--       </ParameterList> -->
+        <!--     </ParameterList> -->
+        <!--   </ParameterList> -->
+        <!-- </ParameterList> -->
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <!-- <Parameter name="initialize faces from cells" type="bool" value="true" /> -->
+        <Parameter name="hydrostatic water level [m]" type="double" value="7.0" />
+        <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000.0" />
+        <Parameter name="initialize faces from cells" type="bool" value="true" />
         <!-- <ParameterList name="function" type="ParameterList"> -->
         <!--   <ParameterList name="initial pressure cells" type="ParameterList"> -->
         <!--     <Parameter name="region" type="string" value="computational domain" /> -->
@@ -353,7 +355,7 @@
         <!--     </ParameterList> -->
         <!--   </ParameterList> -->
         <!-- </ParameterList> -->
-	<Parameter name="restart file" type="string" value="restart5.h5" />        		
+	<!-- <Parameter name="restart file" type="string" value="restart5.h5" />        		 -->
       </ParameterList>
 
       <ParameterList name="water retention evaluator" type="ParameterList">
@@ -469,20 +471,20 @@
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
-        <ParameterList name="pressure">
-          <ParameterList name="bottom" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{bottom face}" />
-            <ParameterList name="boundary pressure" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="97358.3" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
+        <!-- <ParameterList name="pressure"> -->
+        <!--   <ParameterList name="bottom" type="ParameterList"> -->
+        <!--     <Parameter name="regions" type="Array(string)" value="{bottom face}" /> -->
+        <!--     <ParameterList name="boundary pressure" type="ParameterList"> -->
+        <!--       <ParameterList name="function-constant" type="ParameterList"> -->
+        <!--         <Parameter name="value" type="double" value="97358.3" /> -->
+        <!--       </ParameterList> -->
+        <!--     </ParameterList> -->
+        <!--   </ParameterList> -->
+        <!-- </ParameterList> -->
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-	<Parameter name="restart file" type="string" value="restart5.h5" />        	
+	<!-- <Parameter name="restart file" type="string" value="restart5.h5" />        	 -->
       </ParameterList>
 
       <ParameterList name="water retention evaluator" type="ParameterList">
@@ -896,19 +898,24 @@
 
     </ParameterList>
   </ParameterList>
+
+  <ParameterList name="checkpoint" type="ParameterList">
+    <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400,-1.0}" />
+  </ParameterList>
+  
   <ParameterList name="visualization">
     <ParameterList name="macropore" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,600,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400,-1.0}" />
       <Parameter name="cycles start period stop" type="Array(int)" value="{0, 1, -1}" />
       <Parameter name="times start period stop units" type="string" value="s" />
     </ParameterList>
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,600,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400,-1.0}" />
       <Parameter name="times start period stop units" type="string" value="s" />
       <Parameter name="cycles start period stop" type="Array(int)" value="{0, 1, -1}" />
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0,600,-1.0}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0,86400,-1.0}" />
       <Parameter name="times start period stop units" type="string" value="s" />
       <Parameter name="cycles start period stop" type="Array(int)" value="{0, 1, -1}" />
     </ParameterList>
