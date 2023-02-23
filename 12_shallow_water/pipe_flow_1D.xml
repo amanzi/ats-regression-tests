@@ -11,7 +11,7 @@
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="generate mesh" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{100, 1}" />
+        <Parameter name="number of cells" type="Array(int)" value="{10, 1}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{0.0, 0.0 }" />
         <Parameter name="domain high coordinate" type="Array(double)" value="{2000.0, 50.0}" />
       </ParameterList>
@@ -213,12 +213,12 @@
 
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
-      <!-- <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> -->
-      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> 
+      <!-- <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" /> -->
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
-      <!-- <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> -->
-      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> 
+      <!-- <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" /> -->
     </ParameterList>
   </ParameterList>
   
