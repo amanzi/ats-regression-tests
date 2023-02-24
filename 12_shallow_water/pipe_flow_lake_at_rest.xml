@@ -76,7 +76,7 @@
       </ParameterList>
       
       <Parameter name="temporal discretization order" type="int" value="1"/>
-      <Parameter name="cfl" type="double" value="0.5"/>
+      <Parameter name="cfl" type="double" value="0.8"/>
       <Parameter name="number of reduced cfl cycles" type="int" value="10"/>
       <Parameter name="numerical flux" type="string" value="Rusanov"/>
       
