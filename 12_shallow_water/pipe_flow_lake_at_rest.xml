@@ -165,8 +165,8 @@
             <Parameter name="components" type="Array(string)" value="{cell, node}"/>
             <ParameterList name="function">
               <ParameterList name="function-exprtk">
-                <Parameter name="number of arguments" type="int" value="3"/>
-                <Parameter name="formula" type="string" value="abs(x-50)"/>
+                <Parameter name="number of arguments" type="int" value="2"/>
+                <Parameter name="formula" type="string" value="abs(0.1 * (x-50) )"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
