@@ -67,7 +67,7 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="100.0" />
+    <Parameter name="end time" type="double" value="400.0" />
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="surface flow" type="ParameterList">
@@ -96,7 +96,7 @@
         <Parameter name="limiter" type="string" value="Barth-Jespersen"/>
         <Parameter name="limiter stencil" type="string" value="cell to closest cells"/>
         <Parameter name="limiter location" type="string" value="node"/>
-        <Parameter name="limiter cfl" type="double" value="0.8"/>
+        <Parameter name="limiter cfl" type="double" value="1.0"/>
       </ParameterList>
       
       <Parameter name="temporal discretization order" type="int" value="1"/>
