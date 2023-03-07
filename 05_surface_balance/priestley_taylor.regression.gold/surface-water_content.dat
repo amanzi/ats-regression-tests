@@ -4,7 +4,7 @@
 # -----------------------------------------------------------------------------
 # Observation Name: surface-water_content
 # Region: surface domain
-# Functional: extensive integral
+# Reduction: extensive integral
 # Variable: surface-water_content
 # Number of Vectors: 1
 # =============================================================================

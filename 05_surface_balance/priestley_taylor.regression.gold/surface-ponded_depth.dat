@@ -4,7 +4,7 @@
 # -----------------------------------------------------------------------------
 # Observation Name: ponded_depth
 # Region: surface domain
-# Functional: point
+# Reduction: point
 # Variable: surface-ponded_depth
 # Number of Vectors: 1
 # =============================================================================
