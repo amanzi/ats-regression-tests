@@ -197,15 +197,16 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface-ponded_depth">
+      <ParameterList name="surface-total_depth">
         <ParameterList name="function">
 
           <ParameterList name="left dry">
             <Parameter name="region" type="string" value="Left dry"/>
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function">
-              <ParameterList name="function-constant"> <!-- time component -->
-                <Parameter name="value" type="double" value="0.0"/>
+              <ParameterList name="function-exprtk">
+                <Parameter name="number of arguments" type="int" value="2"/>
+              <Parameter name="formula" type="string" value="abs(0.1 * (x-50) )"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -214,8 +215,9 @@
             <Parameter name="region" type="string" value="Right dry"/>
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function">
-              <ParameterList name="function-constant"> <!-- time component -->
-                <Parameter name="value" type="double" value="0.0"/>
+              <ParameterList name="function-exprtk">
+                <Parameter name="number of arguments" type="int" value="2"/>
+              <Parameter name="formula" type="string" value="abs(0.1 * (x-50) )"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -226,7 +228,7 @@
             <ParameterList name="function">
               <ParameterList name="function-exprtk">
                 <Parameter name="number of arguments" type="int" value="2"/>
-              <Parameter name="formula" type="string" value="3.125 * ( 2 * acos(1.0 - 0.4 * (0.1 * (x-10.0) )) - sin( 2 * acos(1.0 - 0.4 * (0.1 * (x-10.0) )) ) )"/> 
+              <Parameter name="formula" type="string" value="0.1 * (x-10.0) + abs(0.1 * (x-50) )"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -236,8 +238,8 @@
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function">
               <ParameterList name="function-exprtk"> 
-              <Parameter name="number of arguments" type="int" value="2"/> 
-            <Parameter name="formula" type="string" value="3.125 * ( 2 * acos(1.0 - 0.4 * (0.1 * (90.0-x) )) - sin( 2 * acos(1.0 - 0.4 * (0.1 * (90.0-x) )) ) )"/> 
+               <Parameter name="number of arguments" type="int" value="2"/> 
+            <Parameter name="formula" type="string" value="0.1 * (90.0-x) +  abs(0.1 * (x-50) )"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
