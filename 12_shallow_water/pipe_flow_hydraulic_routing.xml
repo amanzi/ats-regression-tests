@@ -11,9 +11,9 @@
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="generate mesh" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{24, 1}" />
+        <Parameter name="number of cells" type="Array(int)" value="{40, 1}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{0.0, 0.0 }" />
-        <Parameter name="domain high coordinate" type="Array(double)" value="{100.0, 10.0}" />
+        <Parameter name="domain high coordinate" type="Array(double)" value="{304.8, 10.0}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -23,31 +23,13 @@
     <ParameterList name="Computational domain">
       <ParameterList name="region: box">
         <Parameter name="low coordinate" type="Array(double)" value="{0.0,0.0}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{100.0,10.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{304.8,10.0}"/>
       </ParameterList>
     </ParameterList>
-    <ParameterList name="Left dry">
-      <ParameterList name="region: box">
-        <Parameter name="low coordinate" type="Array(double)" value="{0.0,0.0}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{10.0,10.0}"/>
-      </ParameterList>
-    </ParameterList>
-    <ParameterList name="Right dry">
-      <ParameterList name="region: box">
-        <Parameter name="low coordinate" type="Array(double)" value="{90.0,0.0}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{100.0,10.0}"/>
-      </ParameterList>
-    </ParameterList>
-    <ParameterList name="Left wet">
-      <ParameterList name="region: box">
-        <Parameter name="low coordinate" type="Array(double)" value="{10.0,0.0}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{50.0,10.0}"/>
-      </ParameterList>
-    </ParameterList>
-    <ParameterList name="Right wet">
-      <ParameterList name="region: box">
-        <Parameter name="low coordinate" type="Array(double)" value="{50.0,0.0}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{90.0,10.0}"/>
+    <ParameterList name="Inlet">
+      <ParameterList name="region: plane">
+        <Parameter name="point" type="Array(double)" value="{0.0,0.0}"/>
+        <Parameter name="normal" type="Array(double)" value="{-1.0,0.0}"/>
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -55,7 +37,7 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="400.0" />
+    <Parameter name="end time" type="double" value="700.0" />
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="surface flow" type="ParameterList">
@@ -78,11 +60,11 @@
 
       <Parameter name="hydrostatic pressure force type" type="int" value="1"/>
 
-      <Parameter name="pipe diameter" type="double" value="5"/>
+      <Parameter name="pipe diameter" type="double" value="0.3048"/>
 
       <Parameter name="celerity" type="double" value="20"/>
 
-      <Parameter name="Manning coefficient" type="double" value="0.015"/>
+      <Parameter name="Manning coefficient" type="double" value="0.0116"/>
 
       <ParameterList name="reconstruction">
         <Parameter name="polynomial order" type="int" value="0"/>
@@ -96,6 +78,21 @@
       <Parameter name="cfl" type="double" value="0.8"/>
       <Parameter name="number of reduced cfl cycles" type="int" value="10"/>
       <Parameter name="numerical flux" type="string" value="Rusanov"/>
+
+      <ParameterList name="boundary conditions">
+        <ParameterList name="discharge">
+          <ParameterList name="BC 0">
+            <Parameter name="regions" type="Array(string)" value="{Inlet}"/>
+            <Parameter name="spatial distribution method" type="string" value="none"/>
+            <ParameterList name="discharge">
+              <ParameterList name="function-exprtk">
+                <Parameter name="number of arguments" type="int" value="2"/>
+                <Parameter name="formula" type="string" value="0.005"/>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
       
     </ParameterList>
     
@@ -140,9 +137,9 @@
             <Parameter name="region" type="string" value="Computational domain"/>
             <Parameter name="components" type="Array(string)" value="{cell, node}"/>
             <ParameterList name="function">
-              <ParameterList name="function-exprtk">
+             <ParameterList name="function-exprtk">
                 <Parameter name="number of arguments" type="int" value="2"/>
-                <Parameter name="formula" type="string" value="abs(0.1 * (x-50) )"/>
+                <Parameter name="formula" type="string" value="-0.001 * x + 0.07"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -150,53 +147,15 @@
       </ParameterList>
 
       <ParameterList name="surface-total_depth">
-      <!--<ParameterList name="surface-ponded_depth">-->
         <ParameterList name="function">
 
-          <ParameterList name="left dry">
-            <Parameter name="region" type="string" value="Left dry"/>
+          <ParameterList name="domain">
+            <Parameter name="region" type="string" value="Computational domain"/>
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function">
               <ParameterList name="function-exprtk">
                 <Parameter name="number of arguments" type="int" value="2"/>
-                <!--<Parameter name="formula" type="string" value="0.0"/>-->
-               <Parameter name="formula" type="string" value="8.0 + 1.0e-12"/>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-
-          <ParameterList name="right dry">
-            <Parameter name="region" type="string" value="Right dry"/>
-            <Parameter name="component" type="string" value="cell"/>
-            <ParameterList name="function">
-              <ParameterList name="function-exprtk">
-                <Parameter name="number of arguments" type="int" value="2"/>
-               <!-- <Parameter name="formula" type="string" value="0.0"/>-->
-               <Parameter name="formula" type="string" value="8.0 + 1.0e-12"/>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-
-          <ParameterList name="left wet">
-            <Parameter name="region" type="string" value="Left wet"/>
-            <Parameter name="component" type="string" value="cell"/>
-            <ParameterList name="function">
-              <ParameterList name="function-exprtk">
-                <Parameter name="number of arguments" type="int" value="2"/>
-                <!--<Parameter name="formula" type="string" value="0.1 * (x-10.0)"/>-->
-               <Parameter name="formula" type="string" value="8.0 + 1.0e-12"/>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-
-          <ParameterList name="right wet">
-            <Parameter name="region" type="string" value="Right wet"/>
-            <Parameter name="component" type="string" value="cell"/>
-            <ParameterList name="function">
-              <ParameterList name="function-exprtk"> 
-               <Parameter name="number of arguments" type="int" value="2"/> 
-              <!--<Parameter name="formula" type="string" value="0.1 * (90.0-x)"/>-->
-              <Parameter name="formula" type="string" value="8.0 + 1.0e-12"/>
+               <Parameter name="formula" type="string" value="0.0768+ 1.0e-12"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -204,7 +163,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface-velocity">
+      <ParameterList name="surface-discharge">
         <ParameterList name="function">
           <ParameterList name="domain">
             <Parameter name="region" type="string" value="Computational domain"/>
@@ -214,12 +173,12 @@
               <Parameter name="function type" type="string" value="composite function"/>
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="0.0"/>
+                  <Parameter name="value" type="double" value="0.005"/>
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
                 <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="0.0"/>
+                  <Parameter name="value" type="double" value="0.005"/>
                 </ParameterList>
               </ParameterList>
             </ParameterList>
