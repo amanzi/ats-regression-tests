@@ -88,7 +88,7 @@
             <ParameterList name="function-tabular">
                <Parameter name="x values" type="Array(double)" value="{0.0, 60.0, 72.0, 132.0}"/>
                <Parameter name="x coordinate" type="string" value="t"/>
-               <Parameter name="y values" type="Array(double)" value="{0.0, 0.0187, 0.0187, 0.005}"/>
+               <Parameter name="y values" type="Array(double)" value="{0.005, 0.0187, 0.0187, 0.005}"/>
                 <Parameter name="forms" type="Array(string)" value="{USER_LIN1, constant, linear}"/>
 
                 <ParameterList name="USER_LIN1">
@@ -186,7 +186,7 @@
               <!-- <ParameterList name="function-tabular">
                <Parameter name="x values" type="Array(double)" value="{0.0, 60.0, 72.0, 132.0}"/>
                <Parameter name="x coordinate" type="string" value="x"/>
-               <Parameter name="y values" type="Array(double)" value="{0.0, 0.0187, 0.0187, 0.005}"/>
+               <Parameter name="y values" type="Array(double)" value="{0.005, 0.0187, 0.0187, 0.005}"/>
                 <Parameter name="forms" type="Array(string)" value="{USER_LIN1, constant, linear}"/>
 
                 <ParameterList name="USER_LIN1">
@@ -208,7 +208,7 @@
                               <!--<ParameterList name="function-tabular">
                <Parameter name="x values" type="Array(double)" value="{0.0, 60.0, 72.0, 132.0}"/>
                <Parameter name="x coordinate" type="string" value="x"/>
-               <Parameter name="y values" type="Array(double)" value="{0.0, 0.0187, 0.0187, 0.005}"/>
+               <Parameter name="y values" type="Array(double)" value="{0.005, 0.0187, 0.0187, 0.005}"/>
                 <Parameter name="forms" type="Array(string)" value="{USER_LIN1, constant, linear}"/>
 
                 <ParameterList name="USER_LIN1">
@@ -230,11 +230,11 @@
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> 
-      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" />
+      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" />
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> 
-      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" /> 
+      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" /> 
     </ParameterList>
   </ParameterList>
   
