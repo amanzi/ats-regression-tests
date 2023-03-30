@@ -141,7 +141,7 @@
             <ParameterList name="function">
              <ParameterList name="function-exprtk">
                 <Parameter name="number of arguments" type="int" value="2"/>
-                <Parameter name="formula" type="string" value="-0.001 * x + 0.07"/>
+                <Parameter name="formula" type="string" value="-0.001 * x + 10.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -157,7 +157,7 @@
             <ParameterList name="function">
               <ParameterList name="function-exprtk">
                 <Parameter name="number of arguments" type="int" value="2"/>
-               <Parameter name="formula" type="string" value="0.0768+ 1.0e-12"/>
+               <Parameter name="formula" type="string" value="0.0768 - 0.001 * x + 10.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -180,7 +180,7 @@
               </ParameterList>
               <ParameterList name="dof 2 function">
                 <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="0.005"/>
+                  <Parameter name="value" type="double" value="0.0"/>
                 </ParameterList>
                 </ParameterList>
             </ParameterList>
@@ -198,7 +198,7 @@
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> 
-      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" /> 
+     <!-- <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" /> -->
     </ParameterList>
   </ParameterList>
   
