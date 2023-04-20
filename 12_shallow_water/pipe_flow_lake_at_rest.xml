@@ -55,10 +55,11 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
+    <Parameter name="end cycle" type="int" value="100" />
     <Parameter name="end time" type="double" value="400.0" />
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="PK tree" type="ParameterList">
-      <ParameterList name="surface flow" type="ParameterList">
+      <ParameterList name="pipe flow" type="ParameterList">
         <Parameter name="PK type" type="string" value="pipe flow" />
       </ParameterList>
     </ParameterList>
@@ -69,16 +70,16 @@
   
   <ParameterList name="PKs" type="ParameterList">
 
-    <ParameterList name="surface flow">
+    <ParameterList name="pipe flow">
       <Parameter name="domain name" type="string" value="surface"/>
 
       <ParameterList name="verbose object">
-        <Parameter name="verbosity level" type="string" value="medium"/>
+        <Parameter name="verbosity level" type="string" value="extreme"/>
       </ParameterList>
 
       <Parameter name="hydrostatic pressure force type" type="int" value="1"/>
 
-      <Parameter name="pipe diameter" type="double" value="5"/>
+      <Parameter name="pipe diameter" type="double" value="1"/>
 
       <Parameter name="celerity" type="double" value="20"/>
 
