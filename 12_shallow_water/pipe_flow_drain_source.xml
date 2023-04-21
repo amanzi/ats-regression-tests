@@ -92,7 +92,7 @@
       <Parameter name="number of reduced cfl cycles" type="int" value="10"/>
       <Parameter name="numerical flux" type="string" value="Rusanov"/>
 
-      <ParameterList name="boundary conditions">
+<!--      <ParameterList name="boundary conditions">
         <ParameterList name="velocity">
           <ParameterList name="BC 0">
             <Parameter name="regions" type="Array(string)" value="{Inlet, Outlet}"/>
@@ -113,7 +113,7 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-      </ParameterList>
+      </ParameterList>-->
 
       <ParameterList name="source terms">
         <ParameterList name="pipe-manhole_locations" type="ParameterList">
