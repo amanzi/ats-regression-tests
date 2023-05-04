@@ -161,7 +161,7 @@
 
       <ParameterList name="surface-pipe_drain" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="pipe drain" />
-        <Parameter name="manhole radius" type="double" value="0.001" />
+        <Parameter name="manhole radius" type="double" value="0.12" />
         <Parameter name="energy losses coeff" type="double" value="10.0" />
       </ParameterList>
 
