@@ -90,11 +90,11 @@
       <Parameter name="numerical flux" type="string" value="Rusanov"/>
 
       <ParameterList name="boundary conditions">
-        <ParameterList name="velocity">
+        <ParameterList name="discharge">
           <ParameterList name="BC 0">
             <Parameter name="regions" type="Array(string)" value="{Inlet, Outlet}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
-            <ParameterList name="velocity">
+            <ParameterList name="discharge">
               <Parameter name="number of dofs" type="int" value="2"/>
               <Parameter name="function type" type="string" value="composite function"/>
               <ParameterList name="dof 1 function">
