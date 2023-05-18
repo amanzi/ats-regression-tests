@@ -58,7 +58,7 @@
         <Parameter name="verbosity level" type="string" value="medium"/>
       </ParameterList>
 
-      <Parameter name="hydrostatic pressure force type" type="int" value="1"/>
+      <Parameter name="use shallow water model" type="int" value="0"/>
 
       <Parameter name="pipe diameter" type="double" value="0.3048"/>
 

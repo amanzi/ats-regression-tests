@@ -72,8 +72,6 @@
         <Parameter name="verbosity level" type="string" value="medium"/>
       </ParameterList>
 
-      <Parameter name="hydrostatic pressure force type" type="int" value="0"/>
-
       <Parameter name="source key" type="string" value="pipe drain"/>
 
       <ParameterList name="reconstruction">
