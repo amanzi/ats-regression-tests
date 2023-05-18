@@ -1,11 +1,11 @@
 <ParameterList name="Main" type="ParameterList">
   <ParameterList name="mesh" type="ParameterList">
-    <ParameterList name="surface" type="ParameterList">
+    <ParameterList name="pipe" type="ParameterList">
       <Parameter name="mesh type" type="string" value="aliased" />
       <ParameterList name="aliased parameters" type="ParameterList">
         <Parameter name="target" type="string" value="domain" />
       </ParameterList>
-      <ParameterList name="surface">
+      <ParameterList name="pipe">
       </ParameterList>
     </ParameterList>
     <ParameterList name="domain" type="ParameterList">
@@ -40,7 +40,7 @@
     <Parameter name="end time" type="double" value="600.0" />
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="PK tree" type="ParameterList">
-      <ParameterList name="surface flow" type="ParameterList">
+      <ParameterList name="pipe flow" type="ParameterList">
         <Parameter name="PK type" type="string" value="pipe flow" />
       </ParameterList>
     </ParameterList>
@@ -51,8 +51,8 @@
   
   <ParameterList name="PKs" type="ParameterList">
 
-    <ParameterList name="surface flow">
-      <Parameter name="domain name" type="string" value="surface"/>
+    <ParameterList name="pipe flow">
+      <Parameter name="domain name" type="string" value="pipe"/>
 
       <ParameterList name="verbose object">
         <Parameter name="verbosity level" type="string" value="medium"/>
@@ -147,7 +147,7 @@
         <Parameter name="value" type="Array(double)" value="{0.0, -9.81}"/>
       </ParameterList>
 
-      <ParameterList name="surface-bathymetry">
+      <ParameterList name="pipe-bathymetry">
         <ParameterList name="function">
           <ParameterList name="domain">
             <Parameter name="region" type="string" value="Computational domain"/>
@@ -162,7 +162,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface-total_depth">
+      <ParameterList name="pipe-total_depth">
         <ParameterList name="function">
 
           <ParameterList name="domain">
@@ -179,7 +179,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface-discharge">
+      <ParameterList name="pipe-discharge">
         <ParameterList name="function">
           <ParameterList name="domain">
             <Parameter name="region" type="string" value="Computational domain"/>
@@ -210,7 +210,7 @@
       <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> 
       <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" />
     </ParameterList>
-    <ParameterList name="surface" type="ParameterList">
+    <ParameterList name="pipe" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> 
      <!-- <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" /> -->
     </ParameterList>
