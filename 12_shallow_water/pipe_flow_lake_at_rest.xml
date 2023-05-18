@@ -1,11 +1,11 @@
 <ParameterList name="Main" type="ParameterList">
   <ParameterList name="mesh" type="ParameterList">
-    <ParameterList name="surface" type="ParameterList">
+    <ParameterList name="pipe" type="ParameterList">
       <Parameter name="mesh type" type="string" value="aliased" />
       <ParameterList name="aliased parameters" type="ParameterList">
         <Parameter name="target" type="string" value="domain" />
       </ParameterList>
-      <ParameterList name="surface">
+      <ParameterList name="pipe">
       </ParameterList>
     </ParameterList>
     <ParameterList name="domain" type="ParameterList">
@@ -70,7 +70,7 @@
   <ParameterList name="PKs" type="ParameterList">
 
     <ParameterList name="pipe flow">
-      <Parameter name="domain name" type="string" value="surface"/>
+      <Parameter name="domain name" type="string" value="pipe"/>
 
       <ParameterList name="verbose object">
         <Parameter name="verbosity level" type="string" value="medium"/>
@@ -134,7 +134,7 @@
         <Parameter name="value" type="Array(double)" value="{0.0, -9.81}"/>
       </ParameterList>
 
-      <ParameterList name="surface-bathymetry">
+      <ParameterList name="pipe-bathymetry">
         <ParameterList name="function">
           <ParameterList name="domain">
             <Parameter name="region" type="string" value="Computational domain"/>
@@ -149,8 +149,8 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface-total_depth">
-      <!--<ParameterList name="surface-ponded_depth">-->
+      <ParameterList name="pipe-total_depth">
+      <!--<ParameterList name="pipe-ponded_depth">-->
         <ParameterList name="function">
 
           <ParameterList name="left dry">
@@ -204,7 +204,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface-velocity">
+      <ParameterList name="pipe-velocity">
         <ParameterList name="function">
           <ParameterList name="domain">
             <Parameter name="region" type="string" value="Computational domain"/>
@@ -235,7 +235,7 @@
       <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> 
       <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" />
     </ParameterList>
-    <ParameterList name="surface" type="ParameterList">
+    <ParameterList name="pipe" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> 
       <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" /> 
     </ParameterList>
