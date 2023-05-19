@@ -11,9 +11,9 @@
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="generate mesh" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{20, 1}" />
+        <Parameter name="number of cells" type="Array(int)" value="{40, 1}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{0.0, 0.0 }" />
-        <Parameter name="domain high coordinate" type="Array(double)" value="{20.0, 1.0}" />
+        <Parameter name="domain high coordinate" type="Array(double)" value="{20.0, 3.0}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -23,7 +23,7 @@
     <ParameterList name="Computational domain">
       <ParameterList name="region: box">
         <Parameter name="low coordinate" type="Array(double)" value="{0.0,0.0}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{20.0,1.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{20.0,3.0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="Inlet">
