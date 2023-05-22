@@ -82,7 +82,7 @@
         <Parameter name="verbosity level" type="string" value="medium"/>
       </ParameterList>
 
-      <Parameter name="source key" type="string" value="pipe drain"/>
+      <Parameter name="source key" type="string" value="surface-pipe_drain"/>
 
       <Parameter name="use shallow water model" type="int" value="0"/>
 
