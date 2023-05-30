@@ -56,9 +56,9 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="200.0" />
+    <Parameter name="end time" type="double" value="10000.0" />
     <Parameter name="end time units" type="string" value="s" />
-    <Parameter name="end cycle" type="int" value="500" />
+    <!--<Parameter name="end cycle" type="int" value="500" />-->
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="coupled model" type="ParameterList">
         <Parameter name="PK type" type="string" value="weak MPC" />
@@ -71,7 +71,7 @@
       </ParameterList>
     </ParameterList>
     <ParameterList name="verbose object">
-      <Parameter name="verbosity level" type="string" value="extreme"/>
+      <Parameter name="verbosity level" type="string" value="medium"/>
     </ParameterList>
   </ParameterList>
   
@@ -91,7 +91,7 @@
       <Parameter name="domain name" type="string" value="surface"/>
 
       <ParameterList name="verbose object">
-        <Parameter name="verbosity level" type="string" value="extreme"/>
+        <Parameter name="verbosity level" type="string" value="medium"/>
       </ParameterList>
 
       <Parameter name="source key" type="string" value="surface-pipe_drain"/>
@@ -105,7 +105,7 @@
       </ParameterList>
       
       <Parameter name="temporal discretization order" type="int" value="1"/>
-      <Parameter name="cfl" type="double" value="0.5"/>
+      <Parameter name="cfl" type="double" value="2.5"/>
       <Parameter name="number of reduced cfl cycles" type="int" value="10"/>
       <Parameter name="numerical flux" type="string" value="Rusanov"/>
 
@@ -170,7 +170,7 @@
       
       <Parameter name="use shallow water model" type="int" value="0"/>
 
-      <Parameter name="pipe diameter" type="double" value="0.075"/>
+      <Parameter name="pipe diameter" type="double" value="1.0"/>
 
       <Parameter name="celerity" type="double" value="20"/>
 
