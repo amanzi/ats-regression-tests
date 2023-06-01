@@ -58,7 +58,7 @@
     <Parameter name="start time units" type="string" value="s" />
     <Parameter name="end time" type="double" value="10000.0" />
     <Parameter name="end time units" type="string" value="s" />
-    <!--<Parameter name="end cycle" type="int" value="500" />-->
+    <Parameter name="end cycle" type="int" value="41" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="coupled model" type="ParameterList">
         <Parameter name="PK type" type="string" value="weak MPC" />
@@ -119,7 +119,7 @@
               <Parameter name="function type" type="string" value="composite function"/>
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="0.1"/>
+                  <Parameter name="value" type="double" value="0.005"/>
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
@@ -130,7 +130,7 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="ponded depth">
+<!--        <ParameterList name="ponded depth">
           <ParameterList name="BC 1">
             <Parameter name="regions" type="Array(string)" value="{Inlet}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
@@ -141,7 +141,7 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-        </ParameterList>
+        </ParameterList>-->
       </ParameterList>
 
       <ParameterList name="source terms">
@@ -314,7 +314,7 @@
             <ParameterList name="function">
               <ParameterList name="function-exprtk">
                 <Parameter name="number of arguments" type="int" value="2"/>
-                <Parameter name="formula" type="string" value="0.0"/>
+                <Parameter name="formula" type="string" value="0.01"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -371,7 +371,7 @@
             <ParameterList name="function">
               <ParameterList name="function-exprtk">
                 <Parameter name="number of arguments" type="int" value="2"/>
-               <Parameter name="formula" type="string" value="0.0"/>
+               <Parameter name="formula" type="string" value="0.001"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -412,12 +412,12 @@
     <!--   <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" /> -->
     <!-- </ParameterList> -->
     <ParameterList name="surface" type="ParameterList">
-      <!-- <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" />  -->
-     <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 50, -1}" />
+     <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" />  
+     <!--<Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 50, -1}" />-->
     </ParameterList>
     <ParameterList name="pipe" type="ParameterList">
-      <!-- <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" />  -->
-     <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 50, -1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" />  
+     <!--<Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 50, -1}" />-->
     </ParameterList>
   </ParameterList>
 
