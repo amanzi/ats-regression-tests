@@ -420,5 +420,41 @@
      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 50, -1}" />
     </ParameterList>
   </ParameterList>
+
+       <ParameterList name="observations" type="ParameterList">
+    <ParameterList name="water balance" type="ParameterList">
+      <Parameter name="observation output filename" type="string" value="coupled_water_balance.csv" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" />
+      <Parameter name="times start period stop units" type="string" value="s" />
+           <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" />
+      <ParameterList name="observed quantities" type="ParameterList">
+        <ParameterList name="swVolume" type="ParameterList">
+          <Parameter name="variable" type="string" value="surface-ponded_depth" />
+          <Parameter name="region" type="string" value="Computational domain" />
+          <Parameter name="functional" type="string" value="integral" />
+          <Parameter name="location name" type="string" value="cell" />
+        </ParameterList>
+        <ParameterList name="pipeVolume" type="ParameterList">
+          <Parameter name="variable" type="string" value="pipe-wetted_area" />
+          <Parameter name="region" type="string" value="Computational domain" />
+          <Parameter name="functional" type="string" value="integral" />
+          <Parameter name="location name" type="string" value="cell" />
+        </ParameterList>
+        <ParameterList name="swSink" type="ParameterList">
+          <Parameter name="variable" type="string" value="surface-pipe_drain" />
+          <Parameter name="region" type="string" value="Manhole" />
+          <Parameter name="functional" type="string" value="point" />
+          <Parameter name="location name" type="string" value="cell" />
+        </ParameterList>
+        <ParameterList name="pipeSink" type="ParameterList">
+          <Parameter name="variable" type="string" value="pipe-source_drain" />
+          <Parameter name="region" type="string" value="Manhole" />
+          <Parameter name="functional" type="string" value="point" />
+          <Parameter name="location name" type="string" value="cell" />
+        </ParameterList>
+      </ParameterList>
+    </ParameterList>
+  </ParameterList>
+
   
 </ParameterList>
