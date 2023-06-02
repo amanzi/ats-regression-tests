@@ -58,9 +58,9 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="12.0" />
+    <Parameter name="end time" type="double" value="100.0" />
     <Parameter name="end time units" type="string" value="s" />
-    <Parameter name="end cycle" type="int" value="4" />
+    <Parameter name="end cycle" type="int" value="4001" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="overland flow" type="ParameterList">
         <Parameter name="PK type" type="string" value="pipe flow" />
@@ -111,7 +111,7 @@
               <Parameter name="function type" type="string" value="composite function"/>
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="0.1"/>
+                  <Parameter name="value" type="double" value="0.01"/>
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
@@ -284,18 +284,18 @@
 
    <ParameterList name="observations" type="ParameterList">
     <ParameterList name="water balance" type="ParameterList">
-      <Parameter name="observation output filename" type="string" value="water_balance.dat" />
+      <Parameter name="observation output filename" type="string" value="pipe_water_balance.csv" />
       <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" />
       <Parameter name="times start period stop units" type="string" value="s" />
            <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" />
       <ParameterList name="observed quantities" type="ParameterList">
-        <ParameterList name="water volume [m^3]" type="ParameterList">
+        <ParameterList name="water volume [m^4]" type="ParameterList">
           <Parameter name="variable" type="string" value="surface-wetted_area" />
           <Parameter name="region" type="string" value="Computational domain" />
           <Parameter name="functional" type="string" value="integral" />
           <Parameter name="location name" type="string" value="cell" />
         </ParameterList>
-        <ParameterList name="manhole sink" type="ParameterList">
+        <ParameterList name="manhole sink [m^3/s]" type="ParameterList">
           <Parameter name="variable" type="string" value="surface-pipe_drain" />
           <Parameter name="region" type="string" value="Manhole" />
           <Parameter name="functional" type="string" value="point" />
