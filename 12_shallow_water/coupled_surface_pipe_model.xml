@@ -21,7 +21,7 @@
       <ParameterList name="generate mesh parameters" type="ParameterList">
         <Parameter name="number of cells" type="Array(int)" value="{50, 1}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{0.0, 0.0 }" />
-        <Parameter name="domain high coordinate" type="Array(double)" value="{2000.0, 50.0}" />
+        <Parameter name="domain high coordinate" type="Array(double)" value="{200.0, 5.0}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -31,7 +31,7 @@
     <ParameterList name="Computational domain">
       <ParameterList name="region: box">
         <Parameter name="low coordinate" type="Array(double)" value="{0.0,0.0}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{2000.0,50.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{200.0,5.0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="Inlet">
@@ -42,13 +42,13 @@
     </ParameterList>
         <ParameterList name="Outlet">
       <ParameterList name="region: plane">
-        <Parameter name="point" type="Array(double)" value="{2000.0,0.0}"/>
+        <Parameter name="point" type="Array(double)" value="{200.0,0.0}"/>
         <Parameter name="normal" type="Array(double)" value="{1.0,0.0}"/>
       </ParameterList>
     </ParameterList>
         <ParameterList name="Manhole">
       <ParameterList name="region: point" type="ParameterList">
-    <Parameter name="coordinate" type="Array(double)" value="{1000, 0.5}"/>
+    <Parameter name="coordinate" type="Array(double)" value="{100, 0.5}"/>
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -56,9 +56,9 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="10000.0" />
+    <Parameter name="end time" type="double" value="1200.0" />
     <Parameter name="end time units" type="string" value="s" />
-    <Parameter name="end cycle" type="int" value="41" />
+    <Parameter name="end cycle" type="int" value="4001" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="coupled model" type="ParameterList">
         <Parameter name="PK type" type="string" value="weak MPC" />
@@ -129,19 +129,25 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-        </ParameterList>
-<!--        <ParameterList name="ponded depth">
           <ParameterList name="BC 1">
-            <Parameter name="regions" type="Array(string)" value="{Inlet}"/>
+            <Parameter name="regions" type="Array(string)" value="{Outlet}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
-            <ParameterList name="ponded depth">
-              <ParameterList name="function-exprtk">
-                <Parameter name="number of arguments" type="int" value="4"/>
-                <Parameter name="formula" type="string" value="0.4"/>
+            <ParameterList name="discharge">
+              <Parameter name="number of dofs" type="int" value="2"/>
+              <Parameter name="function type" type="string" value="composite function"/>
+              <ParameterList name="dof 1 function">
+                <ParameterList name="function-constant">
+                  <Parameter name="value" type="double" value="0.0"/>
+                </ParameterList>
+              </ParameterList>
+              <ParameterList name="dof 2 function">
+                <ParameterList name="function-constant">
+                  <Parameter name="value" type="double" value="0.0"/>
+                </ParameterList>
               </ParameterList>
             </ParameterList>
           </ParameterList>
-        </ParameterList>-->
+      </ParameterList>
       </ParameterList>
 
       <ParameterList name="source terms">
@@ -189,12 +195,12 @@
       <Parameter name="number of reduced cfl cycles" type="int" value="10"/>
       <Parameter name="numerical flux" type="string" value="Rusanov"/>
 
-<!--      <ParameterList name="boundary conditions">
-        <ParameterList name="velocity">
+      <ParameterList name="boundary conditions">
+        <ParameterList name="discharge">
           <ParameterList name="BC 0">
             <Parameter name="regions" type="Array(string)" value="{Inlet, Outlet}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
-            <ParameterList name="velocity">
+            <ParameterList name="discharge">
               <Parameter name="number of dofs" type="int" value="2"/>
               <Parameter name="function type" type="string" value="composite function"/>
               <ParameterList name="dof 1 function">
@@ -210,7 +216,7 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-      </ParameterList>-->
+      </ParameterList>
 
       <ParameterList name="source terms">
         <ParameterList name="pipe-manhole_locations" type="ParameterList">
