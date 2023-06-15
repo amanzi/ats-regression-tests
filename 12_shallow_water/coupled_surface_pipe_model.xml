@@ -447,13 +447,13 @@
           <Parameter name="functional" type="string" value="integral" />
           <Parameter name="location name" type="string" value="cell" />
         </ParameterList>
-        <ParameterList name="swSink" type="ParameterList">
+        <ParameterList name="swDrain" type="ParameterList">
           <Parameter name="variable" type="string" value="surface-pipe_drain" />
           <Parameter name="region" type="string" value="Manhole" />
           <Parameter name="functional" type="string" value="point" />
           <Parameter name="location name" type="string" value="cell" />
         </ParameterList>
-        <ParameterList name="pipeSink" type="ParameterList">
+        <ParameterList name="pipeDrain" type="ParameterList">
           <Parameter name="variable" type="string" value="pipe-source_drain" />
           <Parameter name="region" type="string" value="Manhole" />
           <Parameter name="functional" type="string" value="point" />
