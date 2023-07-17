@@ -142,22 +142,6 @@
         <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="997" />
       </ParameterList>
 
-      <ParameterList name="water retention evaluator" type="ParameterList">
-        <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
-        <Parameter name="use surface rel perm" type="bool" value="true" />
-        <Parameter name="checkpoint" type="bool" value="true" />
-        <ParameterList name="WRM parameters" type="ParameterList">
-          <ParameterList name="computation domain" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00545" />
-            <Parameter name="van Genuchten n [-]" type="double" value=" 2" />
-            <Parameter name="residual saturation [-]" type="double" value="0.1" />
-            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="overland flow" type="ParameterList">
@@ -465,6 +449,27 @@
           <Parameter name="slope regularization epsilon" type="double" value="0.01" />
         </ParameterList>
       </ParameterList>
+      <ParameterList name="canopy-temperature" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="additive evaluator" />
+        <Parameter name="dependencies" type="Array(string)" value="{surface-air_temperature}" />
+        <Parameter name="constant shift" type="double" value="-1.5" />
+      </ParameterList>
+      <ParameterList name="relative_permeability" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="relative permeability, van Genuchten" />
+        <Parameter name="model parameters" type="string" value="WRM parameters" />
+        <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
+        <Parameter name="use surface rel perm" type="bool" value="true" />
+      </ParameterList>
+      <ParameterList name="saturation_liquid" type="ParameterList">
+        <Parameter name="checkpoint" type="bool" value="true" />
+        <Parameter name="model parameters" type="string" value="WRM parameters" />
+        <Parameter name="evaluator type" type="string" value="WRM" />
+      </ParameterList>
+      <ParameterList name="saturation_gas" type="ParameterList">
+        <Parameter name="checkpoint" type="bool" value="true" />
+        <Parameter name="model parameters" type="string" value="WRM parameters" />
+        <Parameter name="evaluator type" type="string" value="WRM" />
+      </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 
@@ -478,7 +483,6 @@
 
       <ParameterList name="land cover types" type="ParameterList">
         <ParameterList name="surface domain" type="ParameterList">
-          <Parameter name="dessicated zone thickness [m]" type="double" value="0.1" />
           <Parameter name="roughness length of bare ground [m]" type="double" value="0.04" />
           <Parameter name="roughness length of snow-covered ground [m]" type="double" value="0.004" />
           <Parameter name="snow transition depth [m]" type="double" value="0.02" />
@@ -496,6 +500,18 @@
         </ParameterList>
       </ParameterList>
 
+    </ParameterList>
+    <ParameterList name="model parameters" type="ParameterList">
+      <ParameterList name="WRM parameters" type="ParameterList">
+        <ParameterList name="computation domain" type="ParameterList">
+          <Parameter name="region" type="string" value="computational domain" />
+          <Parameter name="WRM Type" type="string" value="van Genuchten" />
+          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00545" />
+          <Parameter name="van Genuchten n [-]" type="double" value=" 2" />
+          <Parameter name="residual saturation [-]" type="double" value="0.1" />
+          <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
+        </ParameterList>
+      </ParameterList>
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint">

@@ -362,6 +362,10 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
+      <ParameterList name="relative_permeability" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="relative permeability, van Genuchten" />
+        <Parameter name="model parameters" type="string" value="WRM parameters" />
+      </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 

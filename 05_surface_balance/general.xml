@@ -147,7 +147,6 @@
 
       <ParameterList name="land cover types" type="ParameterList">
         <ParameterList name="surface domain" type="ParameterList">
-          <Parameter name="dessicated zone thickness [m]" type="double" value="0.1" />
           <Parameter name="roughness length of bare ground [m]" type="double" value="0.04" />
           <Parameter name="roughness length of snow-covered ground [m]" type="double" value="0.004" />
           <Parameter name="snow transition depth [m]" type="double" value="0.02" />

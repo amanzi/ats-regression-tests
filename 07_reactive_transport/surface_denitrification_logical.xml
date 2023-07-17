@@ -82,6 +82,7 @@
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="transport index" type="int" value="1" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
+
     </ParameterList>
 
     <ParameterList name="surface transport" type="ParameterList">
@@ -103,7 +104,6 @@
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-
       <ParameterList name="reconstruction" type="ParameterList">
         <Parameter name="polynomial order" type="int" value="0" />
         <Parameter name="limiter" type="string" value="tensorial" />
@@ -147,24 +147,6 @@
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
-        <!--
-        <ParameterList name="geochemical" type="ParameterList">
-          <ParameterList name="west_bc" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{surface west}" />
-            <Parameter name="solutes" type="Array(string)" value="{DOM1,O2(aq),NO3-,HCO3-,H+,N2(aq)}" />
-            <Parameter name="times" type="Array(double)" value="{ 0,1e+20}" />
-            <Parameter name="geochemical conditions" type="Array(string)" value="{upstreambc, upstreambc}" />
-            <Parameter name="time functions" type="Array(string)" value="{constant}" />
-          </ParameterList>
-          <ParameterList name="east_bc" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{surface east}" />
-            <Parameter name="solutes" type="Array(string)" value="{DOM1,O2(aq),NO3-,HCO3-,H+,N2(aq)}" />
-            <Parameter name="times" type="Array(double)" value="{ 0,1e+20}" />
-            <Parameter name="geochemical conditions" type="Array(string)" value="{initial,initial}" />
-            <Parameter name="time functions" type="Array(string)" value="{constant}" />
-          </ParameterList>
-        </ParameterList>
-        -->
       </ParameterList>
 
       <ParameterList name="physical models and assumptions" type="ParameterList">
@@ -195,7 +177,6 @@
       <Parameter name="initial conditions time" type="double" value=" 0" />
       <Parameter name="number of component concentrations" type="int" value="6" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-
       <ParameterList name="initial condition" type="ParameterList">
         <ParameterList name="geochemical conditions" type="ParameterList">
           <ParameterList name="initial" type="ParameterList">
