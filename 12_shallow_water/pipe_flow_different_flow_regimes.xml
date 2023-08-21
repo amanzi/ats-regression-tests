@@ -182,7 +182,7 @@
             <ParameterList name="function">
              <ParameterList name="function-exprtk">
                 <Parameter name="number of arguments" type="int" value="2"/>
-                <Parameter name="formula" type="string" value="-0.0 * x + 0.0"/>
+                <Parameter name="formula" type="string" value="0.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -197,7 +197,7 @@
             <ParameterList name="function">
              <ParameterList name="function-exprtk">
                 <Parameter name="number of arguments" type="int" value="2"/>
-                <Parameter name="formula" type="string" value="-0.0 * x + 0.0"/>
+                <Parameter name="formula" type="string" value="0.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -210,11 +210,11 @@
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
 <!--      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> -->
-      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 10, -1}" />
+      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" />
     </ParameterList>
     <ParameterList name="pipe" type="ParameterList">
 <!--      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> -->
-      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 10, -1}" /> 
+      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" /> 
     </ParameterList>
   </ParameterList>
   
