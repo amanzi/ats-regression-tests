@@ -56,9 +56,9 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="1200.0" />
+    <Parameter name="end time" type="double" value="4000.0" />
     <Parameter name="end time units" type="string" value="s" />
-    <Parameter name="end cycle" type="int" value="4001" />
+    <Parameter name="end cycle" type="int" value="7000" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="coupled model" type="ParameterList">
         <Parameter name="PK type" type="string" value="weak MPC" />
@@ -129,24 +129,6 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-          <ParameterList name="BC 1">
-            <Parameter name="regions" type="Array(string)" value="{Outlet}"/>
-            <Parameter name="spatial distribution method" type="string" value="none"/>
-            <ParameterList name="discharge">
-              <Parameter name="number of dofs" type="int" value="2"/>
-              <Parameter name="function type" type="string" value="composite function"/>
-              <ParameterList name="dof 1 function">
-                <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="0.0"/>
-                </ParameterList>
-              </ParameterList>
-              <ParameterList name="dof 2 function">
-                <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="0.0"/>
-                </ParameterList>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
       </ParameterList>
       </ParameterList>
 
@@ -176,11 +158,11 @@
       
       <Parameter name="use shallow water model" type="int" value="0"/>
 
-      <Parameter name="pipe diameter" type="double" value="1.0"/>
+      <Parameter name="pipe diameter" type="double" value="0.05"/>
 
-      <Parameter name="celerity" type="double" value="20"/>
+      <Parameter name="celerity" type="double" value="2"/>
 
-      <Parameter name="direction key" type="string" value="pipe-direction"/>
+<!--      <Parameter name="direction key" type="string" value="pipe-direction"/>-->
 
       <Parameter name="Manning coefficient" type="double" value="0.009"/>
 
@@ -197,7 +179,7 @@
       <Parameter name="number of reduced cfl cycles" type="int" value="10"/>
       <Parameter name="numerical flux" type="string" value="Rusanov"/>
 
-      <ParameterList name="boundary conditions">
+<!--      <ParameterList name="boundary conditions">
         <ParameterList name="discharge">
           <ParameterList name="BC 0">
             <Parameter name="regions" type="Array(string)" value="{Inlet, Outlet}"/>
@@ -218,7 +200,7 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-      </ParameterList>
+      </ParameterList>-->
 
       <ParameterList name="source terms">
         <ParameterList name="pipe-manhole_locations" type="ParameterList">
@@ -285,7 +267,8 @@
       <ParameterList name="surface-pipe_drain" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="pipe drain" />
         <Parameter name="manhole radius" type="double" value="0.12" />
-        <Parameter name="energy losses coeff" type="double" value="0.1" />
+        <Parameter name="drain length" type="double" value="0.3" />
+        <Parameter name="energy losses coeff" type="double" value="0.05" />
         <Parameter name="pipe domain name" type="string" value="pipe" />
       </ParameterList>
 
@@ -391,7 +374,7 @@
             <ParameterList name="function">
               <ParameterList name="function-exprtk">
                 <Parameter name="number of arguments" type="int" value="2"/>
-               <Parameter name="formula" type="string" value="0.001"/>
+               <Parameter name="formula" type="string" value="0.01"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -432,12 +415,12 @@
     <!--   <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" /> -->
     <!-- </ParameterList> -->
     <ParameterList name="surface" type="ParameterList">
-     <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" />  
-     <!--<Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 50, -1}" />-->
+ <!--    <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" />  -->
+     <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 50, -1}" />
     </ParameterList>
     <ParameterList name="pipe" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" />  
-     <!--<Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 50, -1}" />-->
+<!--      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" />  -->
+      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 50, -1}" />
     </ParameterList>
   </ParameterList>
 
