@@ -25,11 +25,11 @@ coupled_surface_pipe_model:
 This test involves an overland shallow water flow coupled with a pipe flow. The outlet boundary condition for the shallow water
 flow is such that water leaves the domain from the right boundary (with a linear outlet discharge of water) so that water initially
 flows down from the surface to the pipe but at the same time the shallow water depth decreases allowing at some point an overflow 
-from the pipe. In fact, for this to happen, the pipe has to be in pressurized flow mode and the pressure head has to be larger than
-the sum of the drain length plus the shallow water depth, hence it is convenient for it to be relatively small to initiate the overflow. 
-The boundary condition for the pipe is an inlet boundary condition on the discharge that grows linearly. In this way, the pipe flow 
-becomes pressurized and overflow to the surface can occur. This test shows how the exchange of water can go back and forth from the
-surface to the pipe.
+from the pipe. In fact, for an overflow to happen, the pipe has to be in pressurized flow mode, and the pressure head in the pipe 
+has to be larger than the sum of the drain length plus the shallow water depth, hence it is convenient that the shallow water depth 
+be relatively small to initiate the overflow.  The boundary condition for the pipe is an inlet boundary condition on the discharge 
+that grows linearly. In this way, the pipe flow becomes pressurized and overflow to the surface can occur. 
+This test shows how the exchange of water can go back and forth from the surface to the pipe. NOTE: the bathymetry is zero in this test.
 
 
 
