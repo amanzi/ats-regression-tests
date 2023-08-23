@@ -31,5 +31,11 @@ be relatively small to initiate the overflow.  The boundary condition for the pi
 that grows linearly. In this way, the pipe flow becomes pressurized and overflow to the surface can occur. 
 This test shows how the exchange of water can go back and forth from the surface to the pipe. NOTE: the bathymetry is zero in this test.
 
-
+```
+coupled_surface_pipe_model_bathymetry:
+```
+This test is similar to coupled_surface_pipe_model except that there is a non-zero bathymetry for both the pipe and the surface flow.
+Water initially flows down the drain from the surface to the pipe. As the inflow of water from the inlet increases for the pipe, the
+flow is eventually reverted and water starts overflowing from the pipe to the surface. Note that the pipe is half pressurized for the 
+duration of the run. The manhole is located in the pressurized part and therefore overflow can happen. 
 
