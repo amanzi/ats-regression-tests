@@ -137,7 +137,7 @@
               <Parameter name="function type" type="string" value="composite function"/>
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="0.0"/>
+                  <Parameter name="value" type="double" value="0.0001"/>
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
@@ -198,14 +198,32 @@
       <ParameterList name="boundary conditions">
         <ParameterList name="discharge">
           <ParameterList name="BC 0">
-            <Parameter name="regions" type="Array(string)" value="{Inlet, Outlet}"/>
+            <Parameter name="regions" type="Array(string)" value="{Inlet}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
             <ParameterList name="discharge">
               <Parameter name="number of dofs" type="int" value="2"/>
               <Parameter name="function type" type="string" value="composite function"/>
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant">
+                  <Parameter name="value" type="double" value="0.0001"/>
+                </ParameterList>
+              </ParameterList>
+              <ParameterList name="dof 2 function">
+                <ParameterList name="function-constant">
                   <Parameter name="value" type="double" value="0.0"/>
+                </ParameterList>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+           <ParameterList name="BC 1">
+            <Parameter name="regions" type="Array(string)" value="{Outlet}"/>
+            <Parameter name="spatial distribution method" type="string" value="none"/>
+            <ParameterList name="discharge">
+              <Parameter name="number of dofs" type="int" value="2"/>
+              <Parameter name="function type" type="string" value="composite function"/>
+              <ParameterList name="dof 1 function">
+                <ParameterList name="function-constant">
+                  <Parameter name="value" type="double" value="0.00001"/>
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
@@ -389,7 +407,7 @@
             <ParameterList name="function">
               <ParameterList name="function-exprtk">
                 <Parameter name="number of arguments" type="int" value="2"/>
-               <Parameter name="formula" type="string" value="0.001"/>
+               <Parameter name="formula" type="string" value="0.01"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
