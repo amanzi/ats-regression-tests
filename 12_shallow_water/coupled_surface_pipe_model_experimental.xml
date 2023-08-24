@@ -268,7 +268,6 @@
         <Parameter name="evaluator type" type="string" value="pipe drain" />
         <Parameter name="manhole radius" type="double" value="0.12" />
         <Parameter name="drain length" type="double" value="0.478" />
-        <Parameter name="energy losses coeff" type="double" value="0.08" />
         <Parameter name="pipe domain name" type="string" value="pipe" />
       </ParameterList>
 
