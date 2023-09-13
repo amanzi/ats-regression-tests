@@ -10,7 +10,7 @@ size = 50
 n1 = np.zeros((size,1))
 
 for i in range(size):
-    n1[i][0]=2
+    n1[i][0]=1
 
 
 g1.create_dataset('0',data=n1)
