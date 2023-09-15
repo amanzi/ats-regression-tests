@@ -56,9 +56,9 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="5000.0" />
+    <Parameter name="end time" type="double" value="1000.0" />
     <Parameter name="end time units" type="string" value="s" />
-    <Parameter name="end cycle" type="int" value="5000" />
+    <Parameter name="end cycle" type="int" value="50000" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="coupled model" type="ParameterList">
         <Parameter name="PK type" type="string" value="weak MPC" />
@@ -105,7 +105,7 @@
       </ParameterList>
       
       <Parameter name="temporal discretization order" type="int" value="1"/>
-      <Parameter name="cfl" type="double" value="2.5"/>
+      <Parameter name="cfl" type="double" value="0.5"/>
       <Parameter name="number of reduced cfl cycles" type="int" value="10"/>
       <Parameter name="numerical flux" type="string" value="Rusanov"/>
 
@@ -178,7 +178,7 @@
       </ParameterList>
       
       <Parameter name="temporal discretization order" type="int" value="1"/>
-      <Parameter name="cfl" type="double" value="0.5"/>
+      <Parameter name="cfl" type="double" value="0.25"/>
       <Parameter name="number of reduced cfl cycles" type="int" value="10"/>
       <Parameter name="numerical flux" type="string" value="Rusanov"/>
 
@@ -423,12 +423,12 @@
     <!--   <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" /> -->
     <!-- </ParameterList> -->
     <ParameterList name="surface" type="ParameterList">
- <!--    <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" />  -->
-     <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{ 0, 10, -1}" />  
+<!--     <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" />-->
     </ParameterList>
     <ParameterList name="pipe" type="ParameterList">
-<!--      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" />  -->
-      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 10, -1}" /> 
+<!--      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" />-->
     </ParameterList>
   </ParameterList>
 

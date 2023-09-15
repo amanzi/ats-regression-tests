@@ -95,6 +95,7 @@
       </ParameterList>
 
       <Parameter name="source key" type="string" value="surface-pipe_drain"/>
+      <Parameter name="desingularization epsilon" type="double" value="1.e-03"/>
 
       <ParameterList name="reconstruction">
         <Parameter name="polynomial order" type="int" value="0"/>
@@ -105,7 +106,7 @@
       </ParameterList>
       
       <Parameter name="temporal discretization order" type="int" value="1"/>
-      <Parameter name="cfl" type="double" value="1.0"/>
+      <Parameter name="cfl" type="double" value="0.5"/>
       <Parameter name="number of reduced cfl cycles" type="int" value="10"/>
       <Parameter name="numerical flux" type="string" value="Rusanov"/>
 
@@ -119,7 +120,7 @@
                <Parameter name="function type" type="string" value="composite function"/>
                 <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="0.011"/>
+                  <Parameter name="value" type="double" value="0.00275"/>
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
@@ -160,7 +161,7 @@
 
       <Parameter name="pipe diameter" type="double" value="0.075"/>
 
-      <Parameter name="celerity" type="double" value="2"/>
+      <Parameter name="celerity" type="double" value="12"/>
 
 <!--      <Parameter name="direction key" type="string" value="pipe-direction"/>-->
 
@@ -175,7 +176,7 @@
       </ParameterList>
       
       <Parameter name="temporal discretization order" type="int" value="1"/>
-      <Parameter name="cfl" type="double" value="1.0"/>
+      <Parameter name="cfl" type="double" value="0.5"/>
       <Parameter name="number of reduced cfl cycles" type="int" value="10"/>
       <Parameter name="numerical flux" type="string" value="Rusanov"/>
 
@@ -189,7 +190,7 @@
                <Parameter name="function type" type="string" value="composite function"/>
                 <ParameterList name="dof 1 function">
                  <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="0.0"/>
+                  <Parameter name="value" type="double" value="0.0096"/>
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
@@ -300,7 +301,7 @@
             <ParameterList name="function">
               <ParameterList name="function-exprtk">
                 <Parameter name="number of arguments" type="int" value="2"/>
-                 <Parameter name="formula" type="string" value="-0.001 * x + 0.01"/>
+                 <Parameter name="formula" type="string" value="-0.001 * x + 0.4805"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
