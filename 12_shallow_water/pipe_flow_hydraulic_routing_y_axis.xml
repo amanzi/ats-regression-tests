@@ -134,7 +134,7 @@
 
       <ParameterList name="pipe-direction">
         <Parameter name="evaluator type" type="string" value="independent variable from file" />
-        <Parameter name="filename" type="string" value="../data/pipe_direction_y_axis.h5" />
+        <Parameter name="filename" type="string" value="../data/pipe_direction_hydraulic_routing_y_axis.h5" />
         <Parameter name="domain name" type="string" value="domain" />
         <Parameter name="variable name" type="string" value="pipe-direction" />
         <Parameter name="component name" type="string" value="cell" />

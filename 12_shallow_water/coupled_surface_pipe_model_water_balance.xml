@@ -180,6 +180,8 @@
 
       <Parameter name="celerity" type="double" value="20"/>
 
+<!--      <Parameter name="direction key" type="string" value="pipe-direction"/>-->
+
       <Parameter name="Manning coefficient" type="double" value="0.009"/>
 
       <ParameterList name="reconstruction">
@@ -257,7 +259,7 @@
 
       <ParameterList name="pipe-direction">
         <Parameter name="evaluator type" type="string" value="independent variable from file" />
-        <Parameter name="filename" type="string" value="../data/pipe_direction.h5" />
+        <Parameter name="filename" type="string" value="../data/pipe_direction_water_balance.h5" />
         <Parameter name="domain name" type="string" value="domain" />
         <Parameter name="variable name" type="string" value="pipe-direction" />
         <Parameter name="component name" type="string" value="cell" />
