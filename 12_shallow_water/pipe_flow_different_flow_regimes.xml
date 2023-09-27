@@ -66,6 +66,7 @@
       <Parameter name="pipe diameter" type="double" value="0.08"/>
 
       <Parameter name="celerity" type="double" value="2"/>
+      <Parameter name="desingularization epsilon" type="double" value="1.e-03"/>
 
       <ParameterList name="reconstruction">
         <Parameter name="polynomial order" type="int" value="0"/>

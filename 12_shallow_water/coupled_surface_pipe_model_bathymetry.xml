@@ -95,6 +95,7 @@
       </ParameterList>
 
       <Parameter name="source key" type="string" value="surface-pipe_drain"/>
+      <Parameter name="desingularization epsilon" type="double" value="1.e-03"/>
 
       <ParameterList name="reconstruction">
         <Parameter name="polynomial order" type="int" value="0"/>
@@ -165,8 +166,6 @@
 
       <Parameter name="celerity" type="double" value="2"/>
 
-<!--      <Parameter name="direction key" type="string" value="pipe-direction"/>-->
-
       <Parameter name="Manning coefficient" type="double" value="0.009"/>
 
       <ParameterList name="reconstruction">
@@ -227,17 +226,6 @@
 
     <ParameterList name="evaluators">
 
-      <ParameterList name="pipe-direction">
-        <Parameter name="evaluator type" type="string" value="independent variable from file" />
-        <Parameter name="filename" type="string" value="../data/pipe_direction.h5" />
-        <Parameter name="domain name" type="string" value="domain" />
-        <Parameter name="variable name" type="string" value="pipe-direction" />
-        <Parameter name="component name" type="string" value="cell" />
-        <Parameter name="constant in time" type="bool" value="true" />
-        <Parameter name="mesh entity" type="string" value="cell" />
-        <Parameter name="number of dofs" type="int" value="2" />
-      </ParameterList>
-
       <ParameterList name="surface-manhole_locations" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function">
@@ -273,7 +261,7 @@
       <ParameterList name="surface-pipe_drain" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="pipe drain" />
         <Parameter name="manhole radius" type="double" value="0.12" />
-        <Parameter name="drain length" type="double" value="0.5" />
+        <Parameter name="drain length" type="double" value="0.1" />
         <Parameter name="energy losses coeff weir" type="double" value="0.08" />
         <Parameter name="energy losses coeff submerged weir" type="double" value="0.08" />
         <Parameter name="energy losses coeff orifice" type="double" value="0.08" />

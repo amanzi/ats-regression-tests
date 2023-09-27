@@ -165,8 +165,6 @@
 
       <Parameter name="celerity" type="double" value="2"/>
 
-<!--      <Parameter name="direction key" type="string" value="pipe-direction"/>-->
-
       <Parameter name="Manning coefficient" type="double" value="0.009"/>
 
       <ParameterList name="reconstruction">
@@ -226,17 +224,6 @@
   <ParameterList name="state" type="ParameterList">
 
     <ParameterList name="evaluators">
-
-      <ParameterList name="pipe-direction">
-        <Parameter name="evaluator type" type="string" value="independent variable from file" />
-        <Parameter name="filename" type="string" value="../data/pipe_direction.h5" />
-        <Parameter name="domain name" type="string" value="domain" />
-        <Parameter name="variable name" type="string" value="pipe-direction" />
-        <Parameter name="component name" type="string" value="cell" />
-        <Parameter name="constant in time" type="bool" value="true" />
-        <Parameter name="mesh entity" type="string" value="cell" />
-        <Parameter name="number of dofs" type="int" value="2" />
-      </ParameterList>
 
       <ParameterList name="surface-manhole_locations" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
