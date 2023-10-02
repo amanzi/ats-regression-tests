@@ -530,8 +530,8 @@
           <Parameter name="rooting profile alpha [-]" type="double" value=" 7" />
           <Parameter name="rooting profile beta [-]" type="double" value="1.75" />
           <Parameter name="rooting depth max [m]" type="double" value="1.5" />
-          <Parameter name="mafic potential at fully open stomata [Pa]" type="double" value="10000" />
-          <Parameter name="mafic potential at fully closed stomata [Pa]" type="double" value="40000" />
+          <Parameter name="water potential at fully open stomata [Pa]" type="double" value="10000" />
+          <Parameter name="water potential at fully closed stomata [Pa]" type="double" value="40000" />
           <Parameter name="Priestley-Taylor alpha of transpiration [-]" type="double" value="1.26" />
           <Parameter name="leaf on time [doy]" type="double" value="-1" />
           <Parameter name="leaf off time [doy]" type="double" value="-1" />
