@@ -31,13 +31,13 @@
     </ParameterList>
     <ParameterList name="surface west" type="ParameterList">
       <ParameterList name="region: enumerated set" type="ParameterList">
-        <Parameter name="entity" type="string" value="cell" />
+        <Parameter name="entity" type="string" value="face" />
         <Parameter name="entity gids" type="Array(int)" value="{0}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface east" type="ParameterList">
       <ParameterList name="region: enumerated set" type="ParameterList">
-        <Parameter name="entity" type="string" value="cell" />
+        <Parameter name="entity" type="string" value="face" />
         <Parameter name="entity gids" type="Array(int)" value="{99}" />
       </ParameterList>
     </ParameterList>
@@ -159,6 +159,7 @@
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
+        <!--
         <ParameterList name="geochemical" type="ParameterList">
           <ParameterList name="west_bc" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface west}" />
@@ -175,6 +176,7 @@
             <Parameter name="time functions" type="Array(string)" value="{constant}" />
           </ParameterList>
         </ParameterList>
+        -->
       </ParameterList>
 
       <ParameterList name="physical models and assumptions" type="ParameterList">
