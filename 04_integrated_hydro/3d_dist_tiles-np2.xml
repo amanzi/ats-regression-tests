@@ -206,9 +206,6 @@
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
-    <ParameterList name="verbose object" type="ParameterList">
-      <Parameter name="verbosity level" type="string" value="extreme" />
-    </ParameterList>
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="catchments_id">
         <Parameter name="evaluator type" type="string" value="independent variable from file" />
@@ -359,6 +356,9 @@
             <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
           </ParameterList>
         </ParameterList>
+      </ParameterList>
+      <ParameterList name="depth" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="depth" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
