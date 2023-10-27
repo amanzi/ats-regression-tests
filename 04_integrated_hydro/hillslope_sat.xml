@@ -26,6 +26,16 @@
       <ParameterList name="region: all" type="ParameterList">
       </ParameterList>
     </ParameterList>
+    <ParameterList name="computational domain boundary" type="ParameterList">
+      <ParameterList name="region: boundary" type="ParameterList">
+        <Parameter name="entity" type="string" value="FACE" />
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="surface domain boundary" type="ParameterList">
+      <ParameterList name="region: boundary" type="ParameterList">
+        <Parameter name="entity" type="string" value="FACE" />
+      </ParameterList>
+    </ParameterList>
     <ParameterList name="surface outlet" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
         <Parameter name="low coordinate" type="Array(double)" value="{400, 0}" />

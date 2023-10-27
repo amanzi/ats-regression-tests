@@ -111,7 +111,7 @@
           <Parameter name="initial time step [s]" type="double" value="86400" />
         </ParameterList>
         <ParameterList name="timestep controller from file parameters" type="ParameterList">
-          <Parameter name="file name" type="string" value="../data/priestley_taylor_dts.h5" />
+          <Parameter name="file name" type="string" value="../data/priestley_taylor_trf_relperm_dts.h5" />
         </ParameterList>
       </ParameterList>
 
@@ -232,25 +232,18 @@
         <Parameter name="transpiration coefficient" type="double" value="-1" />
       </ParameterList>
       <ParameterList name="transpiration" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="transpiration distribution via rooting depth" />
+        <Parameter name="evaluator type" type="string" value="transpiration distribution via relative permeability" />
+        <Parameter name="water density in plant [kg m^-3]" type="double" value="997" />
         <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
       <ParameterList name="root_fraction" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="root fraction" />
       </ParameterList>
-      <ParameterList name="plant_wilting_factor" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="plant wilting factor" />
-        <ParameterList name="plant_wilting_factor parameters" type="ParameterList">
-          <ParameterList name="surface" type="ParameterList">
-            <Parameter name="region" type="string" value="surface domain" />
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
       <ParameterList name="depth" type="ParameterList">
         <Parameter name="constant in time" type="bool" value="true" />
         <Parameter name="evaluator type" type="string" value="depth" />
       </ParameterList>
-      <ParameterList name="surface-potential_transpiration" type="ParameterList">
+      <ParameterList name="surface-potential_transpiration_mols" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
         <Parameter name="dependencies" type="Array(string)" value="{surface-potential_transpiration_mps,surface-molar_density_liquid}" />
       </ParameterList>
@@ -486,8 +479,8 @@
           <Parameter name="rooting profile alpha [-]" type="double" value=" 7" />
           <Parameter name="rooting profile beta [-]" type="double" value="1.75" />
           <Parameter name="rooting depth max [m]" type="double" value="2.5" />
-          <Parameter name="capillary pressure at fully open stomata [Pa]" type="double" value="66000" />
-          <Parameter name="capillary pressure at fully closed stomata [Pa]" type="double" value="255000" />
+          <Parameter name="capillary pressure at fully open stomata [Pa]" type="double" value="660000" />
+          <Parameter name="capillary pressure at fully closed stomata [Pa]" type="double" value="2550000" />
           <Parameter name="Priestley-Taylor alpha of transpiration [-]" type="double" value="1.26" />
           <Parameter name="leaf on time [doy]" type="double" value="-1" />
           <Parameter name="leaf off time [doy]" type="double" value="-1" />
@@ -497,7 +490,7 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint">
-    <Parameter name="cycles" type="Array(int)" value="{0,33,43,53}" />
+    <Parameter name="cycles" type="Array(int)" value="{0,10,20,30}" />
   </ParameterList>
 
   <ParameterList name="observations" type="ParameterList">

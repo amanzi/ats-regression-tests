@@ -43,8 +43,11 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="30" />
+    <Parameter name="end time" type="double" value="30" /><!-- 90 for debugging -->
     <Parameter name="end time units" type="string" value="d" />
+    <ParameterList name="required times" type="ParameterList">
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
+    </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="surface-subsurface coupler" type="ParameterList">
         <Parameter name="PK type" type="string" value="coupled water" />
@@ -85,10 +88,11 @@
         </ParameterList>
       </ParameterList>
 
+
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="from file" />
+        <Parameter name="timestep controller type" type="string" value="smarter" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
           <Parameter name="nka lag iterations" type="int" value="2" />
           <Parameter name="max backtrack steps" type="int" value="5" />
@@ -96,8 +100,8 @@
           <Parameter name="backtrack factor" type="double" value="0.5" />
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
           <Parameter name="nonlinear tolerance" type="double" value="1e-06" />
-          <Parameter name="diverged tolerance" type="double" value="10000000000" />
-          <Parameter name="limit iterations" type="int" value="100" />
+          <Parameter name="diverged tolerance" type="double" value="1000000" />
+          <Parameter name="limit iterations" type="int" value="21" />
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
           <Parameter name="max iterations" type="int" value="18" />
@@ -109,9 +113,6 @@
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
           <Parameter name="initial time step [s]" type="double" value="86400" />
-        </ParameterList>
-        <ParameterList name="timestep controller from file parameters" type="ParameterList">
-          <Parameter name="file name" type="string" value="../data/priestley_taylor_dts.h5" />
         </ParameterList>
       </ParameterList>
 
@@ -126,6 +127,7 @@
       <Parameter name="clobber surface rel perm" type="bool" value="false" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="debug cells" type="Array(int)" value="{99}" />
+
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="mfd: default" />
       </ParameterList>
@@ -151,7 +153,7 @@
             <Parameter name="region" type="string" value="computational domain" />
             <Parameter name="WRM Type" type="string" value="van Genuchten" />
             <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00545" />
-            <Parameter name="van Genuchten n [-]" type="double" value=" 2" />
+            <Parameter name="van Genuchten n [-]" type="double" value="2" />
             <Parameter name="residual saturation [-]" type="double" value="0.1" />
             <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
           </ParameterList>
@@ -166,7 +168,7 @@
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="water source in meters" type="bool" value="true" />
-      <Parameter name="debug cells" type="Array(int)" value="{0}" />
+
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
@@ -174,6 +176,7 @@
       <ParameterList name="diffusion preconditioner" type="ParameterList">
         <Parameter name="Newton correction" type="string" value="true Jacobian" />
       </ParameterList>
+      <Parameter name="debug cells" type="Array(int)" value="{0}" />
 
       <ParameterList name="boundary conditions">
       </ParameterList>
@@ -205,8 +208,8 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="x values" type="Array(double)" value="{ 0,3888000,3974400}" />
-                <Parameter name="y values" type="Array(double)" value="{ 0,3e-07, 0}" />
+                <Parameter name="x values" type="Array(double)" value="{ 0, 3888000, 3974400}" />
+                <Parameter name="y values" type="Array(double)" value="{ 0, 3e-07, 0}" />
                 <Parameter name="forms" type="Array(string)" value="{constant, constant}" />
               </ParameterList>
             </ParameterList>
@@ -216,12 +219,14 @@
       <ParameterList name="capillary_pressure_gas_liq" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
       </ParameterList>
+
       <ParameterList name="surface-total_transpiration" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="column sum evaluator" />
         <Parameter name="summed key" type="string" value="transpiration" />
         <Parameter name="divide by density" type="bool" value="true" />
         <Parameter name="include volume to surface area factor" type="bool" value="true" />
       </ParameterList>
+
       <ParameterList name="surface-manning_coefficient">
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value="100" />
@@ -231,29 +236,27 @@
         <Parameter name="dependencies" type="Array(string)" value="{transpiration}" />
         <Parameter name="transpiration coefficient" type="double" value="-1" />
       </ParameterList>
+
       <ParameterList name="transpiration" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="transpiration distribution via rooting depth" />
+        <Parameter name="evaluator type" type="string" value="transpiration distribution via relative permeability" />
+        <Parameter name="water density in plant [kg m^-3]" type="double" value="997" />
         <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
+
       <ParameterList name="root_fraction" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="root fraction" />
       </ParameterList>
-      <ParameterList name="plant_wilting_factor" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="plant wilting factor" />
-        <ParameterList name="plant_wilting_factor parameters" type="ParameterList">
-          <ParameterList name="surface" type="ParameterList">
-            <Parameter name="region" type="string" value="surface domain" />
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
+
       <ParameterList name="depth" type="ParameterList">
         <Parameter name="constant in time" type="bool" value="true" />
         <Parameter name="evaluator type" type="string" value="depth" />
       </ParameterList>
-      <ParameterList name="surface-potential_transpiration" type="ParameterList">
+
+      <ParameterList name="surface-potential_transpiration_mols" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
         <Parameter name="dependencies" type="Array(string)" value="{surface-potential_transpiration_mps,surface-molar_density_liquid}" />
       </ParameterList>
+
       <ParameterList name="surface-potential_transpiration_mps" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="potential evapotranspiration, Priestley-Taylor" />
         <Parameter name="evaporation type" type="string" value="transpiration" />
@@ -486,8 +489,8 @@
           <Parameter name="rooting profile alpha [-]" type="double" value=" 7" />
           <Parameter name="rooting profile beta [-]" type="double" value="1.75" />
           <Parameter name="rooting depth max [m]" type="double" value="2.5" />
-          <Parameter name="capillary pressure at fully open stomata [Pa]" type="double" value="66000" />
-          <Parameter name="capillary pressure at fully closed stomata [Pa]" type="double" value="255000" />
+          <Parameter name="capillary pressure at fully open stomata [Pa]" type="double" value="660000" />
+          <Parameter name="capillary pressure at fully closed stomata [Pa]" type="double" value="2550000" />
           <Parameter name="Priestley-Taylor alpha of transpiration [-]" type="double" value="1.26" />
           <Parameter name="leaf on time [doy]" type="double" value="-1" />
           <Parameter name="leaf off time [doy]" type="double" value="-1" />
@@ -496,8 +499,18 @@
 
     </ParameterList>
   </ParameterList>
+
+  <ParameterList name="visualization">
+    <ParameterList name="domain" type="ParameterList">
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
+    </ParameterList>
+    <ParameterList name="surface" type="ParameterList">
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
+    </ParameterList>
+  </ParameterList>
+
   <ParameterList name="checkpoint">
-    <Parameter name="cycles" type="Array(int)" value="{0,33,43,53}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{ 0,864000,-1}" />
   </ParameterList>
 
   <ParameterList name="observations" type="ParameterList">
