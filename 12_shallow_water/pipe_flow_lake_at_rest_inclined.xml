@@ -34,7 +34,7 @@
     <ParameterList name="top" type="ParameterList">
       <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="2" />
-        <Parameter name="file" type="string" value="../data/pipe_network.exo" />
+        <Parameter name="file" type="string" value="../data/pipe_network2.exo" />
         <Parameter name="format" type="string" value="Exodus II" />
         <Parameter name="entity" type="string" value="face" />
       </ParameterList>
@@ -76,7 +76,13 @@
 
       <Parameter name="use shallow water model" type="int" value="0"/>
 
-      <Parameter name="pipe diameter" type="double" value="2"/>
+      <Parameter name="pipe diameter" type="double" value="5"/>
+
+      <Parameter name="celerity" type="double" value="20"/>
+
+      <Parameter name="direction key" type="string" value="pipe-direction"/>
+
+      <Parameter name="Manning coefficient" type="double" value="0.015"/>
 
       <ParameterList name="reconstruction">
         <Parameter name="polynomial order" type="int" value="0"/>
@@ -91,41 +97,6 @@
       <Parameter name="number of reduced cfl cycles" type="int" value="10"/>
       <Parameter name="numerical flux" type="string" value="Rusanov"/>
       
-      <ParameterList name="boundary conditions">
-        <ParameterList name="wetted area">
-          <ParameterList name="BC 0">
-            <Parameter name="regions" type="Array(string)" value="{Left}"/>
-            <Parameter name="spatial distribution method" type="string" value="none"/>
-            <ParameterList name="wetted area">
-              <ParameterList name="function-exprtk">
-                <Parameter name="number of arguments" type="int" value="4"/>
-                <Parameter name="formula" type="string" value="0.6141848493043780"/>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-        <ParameterList name="velocity">
-          <ParameterList name="BC 1">
-            <Parameter name="regions" type="Array(string)" value="{Left}"/>
-            <Parameter name="spatial distribution method" type="string" value="none"/>
-            <ParameterList name="velocity">
-              <Parameter name="number of dofs" type="int" value="2"/>
-              <Parameter name="function type" type="string" value="composite function"/>
-              <ParameterList name="dof 1 function">
-                <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="0.0"/>
-                </ParameterList>
-              </ParameterList>
-              <ParameterList name="dof 2 function">
-                <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="0.0"/>
-                </ParameterList>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-      
     </ParameterList>
     
   </ParameterList>
@@ -133,6 +104,7 @@
   <ParameterList name="state" type="ParameterList">
 
     <ParameterList name="evaluators">
+
       <ParameterList name="porosity">
         <Parameter name="field evaluator type" type="string" value="independent variable"/>
         <ParameterList name="function">
@@ -147,6 +119,18 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
+
+      <ParameterList name="pipe-direction">
+        <Parameter name="evaluator type" type="string" value="independent variable from file" />
+        <Parameter name="filename" type="string" value="../data/pipe_direction_lake_at_rest_inclined.h5" />
+        <Parameter name="domain name" type="string" value="domain" />
+        <Parameter name="variable name" type="string" value="pipe-direction" />
+        <Parameter name="component name" type="string" value="cell" />
+        <Parameter name="constant in time" type="bool" value="true" />
+        <Parameter name="mesh entity" type="string" value="cell" />
+        <Parameter name="number of dofs" type="int" value="2" />
+      </ParameterList>
+
     </ParameterList>
   
 
@@ -170,7 +154,7 @@
             <Parameter name="components" type="Array(string)" value="{cell, node}"/>
             <ParameterList name="function">
               <ParameterList name="function-constant"> <!-- time component -->
-                <Parameter name="value" type="double" value="0.0"/>
+                <Parameter name="value" type="double" value="abs(0.1 * (x-50) )"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -184,16 +168,7 @@
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function">
               <ParameterList name="function-constant"> <!-- time component -->
-                <Parameter name="value" type="double" value="0.0"/>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="left half">
-            <Parameter name="region" type="string" value="Left half"/>
-            <Parameter name="component" type="string" value="cell"/>
-            <ParameterList name="function">
-              <ParameterList name="function-constant"> <!-- time component -->
-                <Parameter name="value" type="double" value="0.5"/>
+                <Parameter name="value" type="double" value="5.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
