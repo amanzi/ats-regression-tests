@@ -31,6 +31,12 @@
       <ParameterList name="region: all" type="ParameterList">
       </ParameterList>
     </ParameterList>
+    
+    <ParameterList name="pipe domain">
+      <ParameterList name="region: all" type="ParameterList">
+      </ParameterList>
+    </ParameterList>
+    
     <ParameterList name="top" type="ParameterList">
       <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="2" />
@@ -38,25 +44,27 @@
         <Parameter name="format" type="string" value="Exodus II" />
         <Parameter name="entity" type="string" value="face" />
       </ParameterList>
-    </ParameterList>  
-    <ParameterList name="Left half">
-      <ParameterList name="region: plane">
-        <Parameter name="point" type="Array(double)" value="{0.0,0.0}"/>
-        <Parameter name="normal" type="Array(double)" value="{1.0,-0.25}"/>
-      </ParameterList>
     </ParameterList>
-    <ParameterList name="Left">
-      <ParameterList name="region: plane">
-        <Parameter name="point" type="Array(double)" value="{0.0,0.0}"/>
-        <Parameter name="normal" type="Array(double)" value="{1.0,-0.25}"/>
-      </ParameterList>
-    </ParameterList>      
+    
+    <!-- <ParameterList name="Left half"> -->
+    <!--   <ParameterList name="region: plane"> -->
+    <!--     <Parameter name="point" type="Array(double)" value="{0.0,0.0}"/> -->
+    <!--     <Parameter name="normal" type="Array(double)" value="{1.0,-0.25}"/> -->
+    <!--   </ParameterList> -->
+    <!-- </ParameterList> -->
+    <!-- <ParameterList name="Left"> -->
+    <!--   <ParameterList name="region: plane"> -->
+    <!--     <Parameter name="point" type="Array(double)" value="{0.0,0.0}"/> -->
+    <!--     <Parameter name="normal" type="Array(double)" value="{1.0,-0.25}"/> -->
+    <!--   </ParameterList> -->
+    <!-- </ParameterList>   -->
+    
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="100.0" />
+    <Parameter name="end time" type="double" value="30.0" />
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="pipe flow" type="ParameterList">
@@ -93,7 +101,7 @@
       </ParameterList>
       
       <Parameter name="temporal discretization order" type="int" value="1"/>
-      <Parameter name="cfl" type="double" value="0.5"/>
+      <Parameter name="cfl" type="double" value="0.85"/>
       <Parameter name="number of reduced cfl cycles" type="int" value="10"/>
       <Parameter name="numerical flux" type="string" value="Rusanov"/>
       
@@ -123,7 +131,7 @@
       <ParameterList name="pipe-direction">
         <Parameter name="evaluator type" type="string" value="independent variable from file" />
         <Parameter name="filename" type="string" value="../data/pipe_direction_lake_at_rest_inclined.h5" />
-        <Parameter name="domain name" type="string" value="domain" />
+        <Parameter name="domain name" type="string" value="pipe" />
         <Parameter name="variable name" type="string" value="pipe-direction" />
         <Parameter name="component name" type="string" value="cell" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -153,8 +161,9 @@
             <Parameter name="region" type="string" value="Computational domain"/>
             <Parameter name="components" type="Array(string)" value="{cell, node}"/>
             <ParameterList name="function">
-              <ParameterList name="function-constant"> <!-- time component -->
-                <Parameter name="value" type="double" value="abs(0.1 * (x-50) )"/>
+              <ParameterList name="function-exprtk">
+                <Parameter name="number of arguments" type="int" value="2"/>
+                <Parameter name="formula" type="string" value="-0.005 * x + 1.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -202,13 +211,13 @@
   </ParameterList>
 
   <ParameterList name="visualization">
-    <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> 
-      <!-- <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" /> -->
-    </ParameterList>
+    <!-- <ParameterList name="domain" type="ParameterList"> -->
+    <!--   <Parameter name="times start period stop" type="Array(double)" value="{ 0, 100, -1}" />  -->
+    <!--   <!-\- <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" /> -\-> -->
+    <!-- </ParameterList> -->
     <ParameterList name="pipe" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> 
-      <!-- <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" /> -->
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 10, -1}" />
+      <Parameter name="visualize on 3D mesh" type="bool" value="false" />
     </ParameterList>
   </ParameterList>
   
