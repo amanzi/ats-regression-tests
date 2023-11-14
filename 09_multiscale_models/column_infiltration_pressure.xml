@@ -210,9 +210,8 @@
       <Parameter name="domain name" type="string" value="surface_column" />
       <Parameter name="star domain name" type="string" value="surface_star" />
       <Parameter name="coupling type" type="string" value="pressure" />
-      <Parameter name="subcycle" type="Array(int)" value="{1,1}" />
+      <Parameter name="subcycle" type="Array(int)" value="{1,0}" />
       <Parameter name="subcycling target time step [s]" type="double" value="86400" />
-
     </ParameterList>
 
     <ParameterList name="column-coupler" type="ParameterList">
@@ -220,7 +219,6 @@
       <Parameter name="PKs order" type="Array(string)" value="{column:*-permafrost}" />
       <Parameter name="subcycle" type="bool" value="true" />
       <Parameter name="subcycling target time step [s]" type="double" value="86400" />
-
     </ParameterList>
 
     <ParameterList name="column:*-permafrost" type="ParameterList">
