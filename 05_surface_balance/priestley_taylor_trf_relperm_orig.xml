@@ -245,6 +245,7 @@
 
       <ParameterList name="root_fraction" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="root fraction" />
+        <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
 
       <ParameterList name="depth" type="ParameterList">
@@ -255,6 +256,7 @@
       <ParameterList name="surface-potential_transpiration_mols" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
         <Parameter name="dependencies" type="Array(string)" value="{surface-potential_transpiration_mps,surface-molar_density_liquid}" />
+        <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
 
       <ParameterList name="surface-potential_transpiration_mps" type="ParameterList">

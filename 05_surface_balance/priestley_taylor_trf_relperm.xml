@@ -231,14 +231,18 @@
         <Parameter name="dependencies" type="Array(string)" value="{transpiration}" />
         <Parameter name="transpiration coefficient" type="double" value="-1" />
       </ParameterList>
+
       <ParameterList name="transpiration" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="transpiration distribution via relative permeability" />
         <Parameter name="water density in plant [kg m^-3]" type="double" value="997" />
         <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
+
       <ParameterList name="root_fraction" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="root fraction" />
+        <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
+
       <ParameterList name="depth" type="ParameterList">
         <Parameter name="constant in time" type="bool" value="true" />
         <Parameter name="evaluator type" type="string" value="depth" />
@@ -246,6 +250,7 @@
       <ParameterList name="surface-potential_transpiration_mols" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
         <Parameter name="dependencies" type="Array(string)" value="{surface-potential_transpiration_mps,surface-molar_density_liquid}" />
+        <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
       <ParameterList name="surface-potential_transpiration_mps" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="potential evapotranspiration, Priestley-Taylor" />
