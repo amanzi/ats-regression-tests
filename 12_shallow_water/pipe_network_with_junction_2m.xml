@@ -22,7 +22,7 @@
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="read mesh file" />
       <ParameterList name="read mesh file parameters" type="ParameterList">
-        <Parameter name="file" type="string" value="../data/pipe_network.exo" />
+        <Parameter name="file" type="string" value="../data/pipe_network_2m.exo" />
         <Parameter name="format" type="string" value="Exodus II" />
         <ParameterList name="unstructured" type="ParameterList">
           <ParameterList name="expert" type="ParameterList">
@@ -43,7 +43,7 @@
     <ParameterList name="top" type="ParameterList">
       <ParameterList name="region: labeled set" type="ParameterList">
         <Parameter name="label" type="string" value="2" />
-        <Parameter name="file" type="string" value="../data/pipe_network.exo" />
+        <Parameter name="file" type="string" value="../data/pipe_network_2m.exo" />
         <Parameter name="format" type="string" value="Exodus II" />
         <Parameter name="entity" type="string" value="face" />
       </ParameterList>
