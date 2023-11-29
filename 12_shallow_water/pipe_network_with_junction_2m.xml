@@ -420,7 +420,7 @@
       <ParameterList name="network-bathymetry">
         <ParameterList name="function">
           <ParameterList name="domain">
-            <Parameter name="region" type="string" value="network"/>
+            <Parameter name="region" type="string" value="computational domain"/>
             <Parameter name="components" type="Array(string)" value="{cell, node}"/>
             <ParameterList name="function">
               <ParameterList name="function-exprtk">
@@ -438,7 +438,7 @@
         <ParameterList name="function">
 
           <ParameterList name="domain">
-            <Parameter name="region" type="string" value="network"/>
+            <Parameter name="region" type="string" value="computational domain"/>
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function">
               <ParameterList name="function-exprtk">
@@ -455,7 +455,7 @@
       <ParameterList name="network-discharge">
         <ParameterList name="function">
           <ParameterList name="domain">
-            <Parameter name="region" type="string" value="network"/>
+            <Parameter name="region" type="string" value="computational domain"/>
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function">
               <Parameter name="number of dofs" type="int" value="2"/>
