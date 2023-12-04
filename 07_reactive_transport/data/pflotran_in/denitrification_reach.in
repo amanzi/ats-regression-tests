@@ -74,22 +74,22 @@ END
 #=========================== transport constraints ============================
 CONSTRAINT initial
   CONCENTRATIONS
-    DOM1                3.5e-4
+    DOM1                3.5e-4  T
     O2(aq)              0.21 G O2(g) 
     H+                  6.0 P
     HCO3-               400e-6 G CO2(g)
-    NO3-                2.0e-4 
+    NO3-                2.0e-4   T
     N2(aq)              0.78 G N2(g)* 
   /
 END 
 
 CONSTRAINT upstreambc 
   CONCENTRATIONS
-    DOM1                3.5e-4
+    DOM1                3.5e-4  T
     O2(aq)              0.21 G O2(g) 
     H+                  6.0 P
     HCO3-               400e-6 G CO2(g)
-    NO3-                2.0e-4 
+    NO3-                2.0e-4   T
     N2(aq)              0.78 G N2(g)* 
   /
 END
