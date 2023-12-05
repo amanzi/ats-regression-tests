@@ -23,7 +23,7 @@ END
 
 CONSTRAINT initial
   CONCENTRATIONS
-    Tracer1 1.0e-20
+    Tracer1 1.0e-20 T
     
 
   /
