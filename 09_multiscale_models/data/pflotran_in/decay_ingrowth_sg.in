@@ -14,79 +14,79 @@ DATABASE ./hanford.dat
 END
 CONSTRAINT upstreambc_3_10
   CONCENTRATIONS
-    Tracer1 0.000992
-    Tracer2 1.0e-20
+    Tracer1 0.000992 T
+    Tracer2 1.0e-20 T
   /
 END
 CONSTRAINT upstreambc_5_6
   CONCENTRATIONS
-    Tracer1 0.001694
-    Tracer2 1.0e-20
+    Tracer1 0.001694 T
+    Tracer2 1.0e-20 T
   /
 END
 CONSTRAINT upstreambc_5_7
   CONCENTRATIONS
-    Tracer1 0.001759
-    Tracer2 1.0e-20
+    Tracer1 0.001759 T
+    Tracer2 1.0e-20 T
   /
 END
 CONSTRAINT upstreambc_8_9
   CONCENTRATIONS
-    Tracer1 0.002399
-    Tracer2 1.0e-20
+    Tracer1 0.002399 T
+    Tracer2 1.0e-20 T
   /
 END
 CONSTRAINT upstreambc_11_12
   CONCENTRATIONS
-    Tracer1 0.001105
-    Tracer2 1.0e-20
+    Tracer1 0.001105 T
+    Tracer2 1.0e-20 T
   /
 END
 CONSTRAINT upstreambc_14_15
   CONCENTRATIONS
-    Tracer1 0.001226
-    Tracer2 1.0e-20
+    Tracer1 0.001226 T
+    Tracer2 1.0e-20 T
   /
 END
 CONSTRAINT upstreambc_16_20
   CONCENTRATIONS
-    Tracer1 0.00083443
-    Tracer2 1.0e-20
+    Tracer1 0.00083443 T
+    Tracer2 1.0e-20 T
   /
 END
 CONSTRAINT upstreambc_17_18
   CONCENTRATIONS
-    Tracer1 0.0029362
-    Tracer2 1.0e-20
+    Tracer1 0.0029362 T
+    Tracer2 1.0e-20 T
   /
 END
 CONSTRAINT upstreambc_17_19
   CONCENTRATIONS
-    Tracer1 0.002197
-    Tracer2 1.0e-20
+    Tracer1 0.002197 T
+    Tracer2 1.0e-20 T
   /
 END
 CONSTRAINT upstreambc_21_22
   CONCENTRATIONS
-    Tracer1 0.0008958
-    Tracer2 1.0e-20
+    Tracer1 0.0008958 T
+    Tracer2 1.0e-20 T
   /
 END
 CONSTRAINT upstreambc_21_23
   CONCENTRATIONS
-    Tracer1 0.001595
-    Tracer2 1.0e-20
+    Tracer1 0.001595 T
+    Tracer2 1.0e-20 T
   /
 END
 CONSTRAINT initial
   CONCENTRATIONS
-    Tracer1 1.0e-20
-    Tracer2 1.0e-20
+    Tracer1 1.0e-20 T
+    Tracer2 1.0e-20 T
   /
 END
 CONSTRAINT upstream
   CONCENTRATIONS
-    Tracer1 1.0
-    Tracer2 1.0e-20
+    Tracer1 1.0 T
+    Tracer2 1.0e-20 T
   /
 END
