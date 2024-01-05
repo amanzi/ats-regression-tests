@@ -336,7 +336,7 @@
       </ParameterList>
 
       <Parameter name="source key" type="string" value="street-rain_source"/>
-      <Parameter name="desingularization epsilon" type="double" value="1.e-03"/>
+      <Parameter name="desingularization epsilon" type="double" value="1.e-01"/>
 
       <ParameterList name="reconstruction">
         <Parameter name="polynomial order" type="int" value="0"/>
@@ -404,7 +404,7 @@
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
                 <Parameter name="x values" type="Array(double)" value="{ 0.0, 600}" />
-                <Parameter name="y values" type="Array(double)" value="{ 8e-3, 8e-3}" />
+                <Parameter name="y values" type="Array(double)" value="{ 1e-5, 1e-5}" />
                 <Parameter name="forms" type="Array(string)" value="{constant}" />
               </ParameterList>
             </ParameterList>
