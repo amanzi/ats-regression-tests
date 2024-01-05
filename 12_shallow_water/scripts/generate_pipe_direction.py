@@ -4,7 +4,7 @@
 import h5py
 import numpy as np
 
-filename = "manhole_cell_map.h5" #maps pipe to pipe domain
+filename = "manhole_cell_map.h5"
 
 hfw= h5py.File(filename,"w")
 
