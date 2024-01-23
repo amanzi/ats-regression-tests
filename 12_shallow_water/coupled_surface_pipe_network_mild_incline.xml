@@ -285,10 +285,29 @@
     </ParameterList>
 
 
+    <ParameterList name="M_7">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{305, 185}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="M_8">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{305, 215}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="M_9">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{355, 405}"/>
+      </ParameterList>
+    </ParameterList>
+
+
     <ParameterList name="Manhole" type="ParameterList">
       <ParameterList name="region: logical" type="ParameterList">
         <Parameter name="operation" type="string" value="union" />
-        <Parameter name="regions" type="Array(string)" value="{M_1}" />
+        <Parameter name="regions" type="Array(string)" value="{M_1, M_2, M_3, M_4, M_5, M_6, M_7, M_8, M_9}" />
       </ParameterList>
     </ParameterList>
 
@@ -405,7 +424,7 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="100" />
+    <Parameter name="end time" type="double" value="300" />
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="coupled model" type="ParameterList">
@@ -511,7 +530,7 @@
           </ParameterList>
           -->
         
-          <!--
+          
           <ParameterList name="BC 1">
             <Parameter name="regions" type="Array(string)" value="{pipe_top}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
@@ -522,7 +541,7 @@
                 <ParameterList name="function-tabular">
                   <Parameter name="x values" type="Array(double)" value="{0.0, 900}"/>
                   <Parameter name="x coordinate" type="string" value="t"/>
-                  <Parameter name="y values" type="Array(double)" value="{-0.2, -0.2}"/>
+                  <Parameter name="y values" type="Array(double)" value="{-1.0, -1.0}"/>
                   <Parameter name="forms" type="Array(string)" value="{ linear}"/>
                 </ParameterList>
               </ParameterList>
@@ -533,7 +552,8 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-          -->
+         
+         
 
         </ParameterList><!-- discharge -->
             
@@ -567,7 +587,7 @@
 
       <Parameter name="use shallow water model" type="int" value="0"/>
 
-      <Parameter name="pipe diameter" type="double" value="2.5"/>
+      <Parameter name="pipe diameter" type="double" value="5.0"/>
 
       <Parameter name="celerity" type="double" value="20"/>
 
@@ -831,43 +851,6 @@
       </ParameterList>
 
 
-
-      <ParameterList name="network-manhole_map" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable" />
-        <ParameterList name="function">
-
-          <ParameterList name="network domain">
-            <Parameter name="region" type="string" value="network" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function">
-              <Parameter name="number of dofs" type="int" value="1" />
-              <Parameter name="function type" type="string" value="composite function" />
-              <ParameterList name="dof 1 function">
-                <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="1" />
-                </ParameterList>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-         
-          <ParameterList name="Manhole">
-            <Parameter name="region" type="string" value="Manhole" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function">
-              <Parameter name="number of dofs" type="int" value="1" />
-              <Parameter name="function type" type="string" value="composite function" />
-              <ParameterList name="dof 1 function">
-                <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="1035" />
-                </ParameterList>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-         
-        </ParameterList>
-      </ParameterList>
-
-
       <ParameterList name="surface-manhole_locations" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function">
@@ -902,42 +885,6 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface-manhole_map" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable" />
-        <ParameterList name="function">
-
-          <ParameterList name="surface domain">
-            <Parameter name="region" type="string" value="surface domain" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function">
-              <Parameter name="number of dofs" type="int" value="1" />
-              <Parameter name="function type" type="string" value="composite function" />
-              <ParameterList name="dof 1 function">
-                <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="1" />
-                </ParameterList>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          
-          <ParameterList name="Manhole">
-            <Parameter name="region" type="string" value="Manhole" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function">
-              <Parameter name="number of dofs" type="int" value="1" />
-              <Parameter name="function type" type="string" value="composite function" />
-              <ParameterList name="dof 1 function">
-                <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="161" />
-                </ParameterList>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-         
-        </ParameterList>
-      </ParameterList>
-
-
 
 
       <!--
@@ -964,7 +911,6 @@
         <Parameter name="energy losses coeff orifice" type="double" value="0.08" /> 
         <Parameter name="pipe domain name" type="string" value="network" /> 
         <Parameter name="sw domain name" type="string" value="surface" /> 
-        <Parameter name="sink-source coefficient" type="double" value="-1.0"/>
       </ParameterList> 
      
       <!--
@@ -993,7 +939,6 @@
         <Parameter name="energy losses coeff orifice" type="double" value="0.08" /> 
         <Parameter name="pipe domain name" type="string" value="network" /> 
         <Parameter name="sw domain name" type="string" value="surface" /> 
-        <Parameter name="sink-source coefficient" type="double" value="1.0"/>
       </ParameterList> 
      
      <!-- 
@@ -1072,7 +1017,7 @@
               <ParameterList name="function-exprtk">
                 <Parameter name="number of arguments" type="int" value="3"/>
                <!-- <Parameter name="formula" type="string" value="0.7 + 0.005*x + 0.002*y"/>-->
-                 <Parameter name="formula" type="string" value="1.0"/>
+                 <Parameter name="formula" type="string" value="0.2"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -1131,7 +1076,7 @@
               <ParameterList name="function-exprtk">
                 <Parameter name="number of arguments" type="int" value="3"/>
                  <!--<Parameter name="formula" type="string" value="0.510 + 0.005*x + 0.002*y"/>-->
-                <Parameter name="formula" type="string" value="1.0"/>
+                <Parameter name="formula" type="string" value="0.2"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
