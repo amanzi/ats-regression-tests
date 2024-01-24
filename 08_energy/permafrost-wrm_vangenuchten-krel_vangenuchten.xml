@@ -768,6 +768,6 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="cycles" type="Array(int)" value="{0,140,205,260,300,340,580}" />
+    <Parameter name="cycles" type="Array(int)" value="{0,140,205,261,301,341,581}" />
   </ParameterList>
 </ParameterList>
