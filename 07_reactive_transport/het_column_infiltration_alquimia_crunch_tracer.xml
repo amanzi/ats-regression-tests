@@ -704,42 +704,13 @@
       </ParameterList>
       <ParameterList name="saturation_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="WRM" />
+        <Parameter name="model parameters" type="string" value="WRM parameters" />
+      </ParameterList>
+      <ParameterList name="relative_permeability" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="relative permeability, van Genuchten" />
+        <Parameter name="model parameters" type="string" value="WRM parameters" />
         <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
         <Parameter name="use surface rel perm" type="bool" value="true" />
-        <ParameterList name="WRM parameters" type="ParameterList">
-          <ParameterList name="soil" type="ParameterList">
-            <Parameter name="region" type="string" value="hydro soil" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.0001213" />
-            <Parameter name="van Genuchten n [-]" type="double" value="1.37" />
-            <Parameter name="residual saturation [-]" type="double" value="0.375" />
-            <Parameter name="smoothing interval width [saturation]" type="double" value=" 0" />
-          </ParameterList>
-          <ParameterList name="weathered shale" type="ParameterList">
-            <Parameter name="region" type="string" value="hydro weathered shale" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.0003772" />
-            <Parameter name="van Genuchten n [-]" type="double" value="1.69" />
-            <Parameter name="residual saturation [-]" type="double" value="0.35" />
-            <Parameter name="smoothing interval width [saturation]" type="double" value=" 0" />
-          </ParameterList>
-          <ParameterList name="fractured shale" type="ParameterList">
-            <Parameter name="region" type="string" value="hydro fractured shale" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="8.56e-05" />
-            <Parameter name="van Genuchten n [-]" type="double" value="1.59" />
-            <Parameter name="residual saturation [-]" type="double" value="0.4" />
-            <Parameter name="smoothing interval width [saturation]" type="double" value=" 0" />
-          </ParameterList>
-          <ParameterList name="bedrock" type="ParameterList">
-            <Parameter name="region" type="string" value="hydro bedrock" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="2.65e-05" />
-            <Parameter name="van Genuchten n [-]" type="double" value="1.52" />
-            <Parameter name="residual saturation [-]" type="double" value="0.1" />
-            <Parameter name="smoothing interval width [saturation]" type="double" value=" 0" />
-          </ParameterList>
-        </ParameterList>
       </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions">
@@ -753,19 +724,44 @@
       </ParameterList>
 
     </ParameterList>
+    <ParameterList name="model parameters" type="ParameterList">
+      <ParameterList name="WRM parameters" type="ParameterList">
+        <ParameterList name="soil" type="ParameterList">
+          <Parameter name="region" type="string" value="hydro soil" />
+          <Parameter name="WRM Type" type="string" value="van Genuchten" />
+          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.0001213" />
+          <Parameter name="van Genuchten n [-]" type="double" value="1.37" />
+          <Parameter name="residual saturation [-]" type="double" value="0.375" />
+          <Parameter name="smoothing interval width [saturation]" type="double" value=" 0" />
+        </ParameterList>
+        <ParameterList name="weathered shale" type="ParameterList">
+          <Parameter name="region" type="string" value="hydro weathered shale" />
+          <Parameter name="WRM Type" type="string" value="van Genuchten" />
+          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.0003772" />
+          <Parameter name="van Genuchten n [-]" type="double" value="1.69" />
+          <Parameter name="residual saturation [-]" type="double" value="0.35" />
+          <Parameter name="smoothing interval width [saturation]" type="double" value=" 0" />
+        </ParameterList>
+        <ParameterList name="fractured shale" type="ParameterList">
+          <Parameter name="region" type="string" value="hydro fractured shale" />
+          <Parameter name="WRM Type" type="string" value="van Genuchten" />
+          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="8.56e-05" />
+          <Parameter name="van Genuchten n [-]" type="double" value="1.59" />
+          <Parameter name="residual saturation [-]" type="double" value="0.4" />
+          <Parameter name="smoothing interval width [saturation]" type="double" value=" 0" />
+        </ParameterList>
+        <ParameterList name="bedrock" type="ParameterList">
+          <Parameter name="region" type="string" value="hydro bedrock" />
+          <Parameter name="WRM Type" type="string" value="van Genuchten" />
+          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="2.65e-05" />
+          <Parameter name="van Genuchten n [-]" type="double" value="1.52" />
+          <Parameter name="residual saturation [-]" type="double" value="0.1" />
+          <Parameter name="smoothing interval width [saturation]" type="double" value=" 0" />
+        </ParameterList>
+      </ParameterList>
+    </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint">
     <Parameter name="cycles" type="Array(int)" value="{0,7,10,13,16,19,22,25,28,31,34}" />
   </ParameterList>
-<!--
-  <ParameterList name="visualization" type="ParameterList">
-    <Parameter name="visualize on 3D mesh" type="bool" value="true" />
-    <ParameterList name="domain" type="ParameterList">
-      <Parameter name="cycles start period stop" type="Array(int)" value="{0,1,200}" />
-    </ParameterList>
-    <ParameterList name="surface" type="ParameterList">
-      <Parameter name="cycles start period stop" type="Array(int)" value="{0,1,200}" />
-    </ParameterList>
-  </ParameterList>
--->
 </ParameterList>
