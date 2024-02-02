@@ -506,7 +506,7 @@
 
         <ParameterList name="discharge">
      
-          <!--
+         <!-- 
           <ParameterList name="BC 0">
             <Parameter name="regions" type="Array(string)" value="{pipe_right}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
@@ -528,7 +528,7 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-          -->
+         -->
         
           
           <ParameterList name="BC 1">
@@ -541,7 +541,7 @@
                 <ParameterList name="function-tabular">
                   <Parameter name="x values" type="Array(double)" value="{0.0, 900}"/>
                   <Parameter name="x coordinate" type="string" value="t"/>
-                  <Parameter name="y values" type="Array(double)" value="{-1.0, -1.0}"/>
+                  <Parameter name="y values" type="Array(double)" value="{-0.1, -0.1}"/>
                   <Parameter name="forms" type="Array(string)" value="{ linear}"/>
                 </ParameterList>
               </ParameterList>
@@ -626,9 +626,10 @@
 
         <ParameterList name="discharge">
           
-          <!--
+         
+          <!-- 
           <ParameterList name="BC 01">
-            <Parameter name="regions" type="Array(string)" value="{pipe_bottom}"/>
+            <Parameter name="regions" type="Array(string)" value="{pipe_top, pipe_right}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
             <ParameterList name="discharge">
               <Parameter name="number of dofs" type="int" value="2"/>
@@ -636,7 +637,7 @@
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-exprtk">
                   <Parameter name="number of arguments" type="int" value="4"/>
-                  <Parameter name="formula" type="string" value="-0.00025 * (500 -x)*(10000 + 0.5*t)/(10000)"/>
+                  <Parameter name="formula" type="string" value="-0.005"/>
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
@@ -646,7 +647,7 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-          -->
+         -->
 
           <!--
           <ParameterList name="BC 02">
@@ -905,7 +906,6 @@
       <ParameterList name="network-source_drain" type="ParameterList"> 
         <Parameter name="evaluator type" type="string" value="pipe drain" /> 
         <Parameter name="manhole radius" type="double" value="0.50" />
-        <Parameter name="drain length" type="double" value="0.1" />
         <Parameter name="energy losses coeff weir" type="double" value="0.08" /> 
         <Parameter name="energy losses coeff submerged weir" type="double" value="0.08" /> 
         <Parameter name="energy losses coeff orifice" type="double" value="0.08" /> 
@@ -933,7 +933,6 @@
       <ParameterList name="surface-source_drain" type="ParameterList"> 
         <Parameter name="evaluator type" type="string" value="pipe drain" /> 
         <Parameter name="manhole radius" type="double" value="0.50" />
-        <Parameter name="drain length" type="double" value="0.1" />
         <Parameter name="energy losses coeff weir" type="double" value="0.08" /> 
         <Parameter name="energy losses coeff submerged weir" type="double" value="0.08" /> 
         <Parameter name="energy losses coeff orifice" type="double" value="0.08" /> 
@@ -997,8 +996,8 @@
             <Parameter name="components" type="Array(string)" value="{cell, node}"/>
             <ParameterList name="function">
               <ParameterList name="function-exprtk">
-                <Parameter name="number of arguments" type="int" value="3"/>
-                <!--<Parameter name="formula" type="string" value="0.5 + 0.005*x + 0.002*y"/>-->
+                <Parameter name="number of arguments" type="int" value="4"/>
+                <!--<Parameter name="formula" type="string" value="0.005*x + 0.002*y"/>-->
                  <Parameter name="formula" type="string" value="0.0"/>
               </ParameterList>
             </ParameterList>
@@ -1016,8 +1015,8 @@
             <ParameterList name="function">
               <ParameterList name="function-exprtk">
                 <Parameter name="number of arguments" type="int" value="3"/>
-               <!-- <Parameter name="formula" type="string" value="0.7 + 0.005*x + 0.002*y"/>-->
-                 <Parameter name="formula" type="string" value="0.2"/>
+                <Parameter name="formula" type="string" value="0.2"/>
+                <!--<Parameter name="formula" type="string" value="0.005*x + 0.002*y + 0.2"/>-->
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -1059,8 +1058,8 @@
             <ParameterList name="function">
               <ParameterList name="function-exprtk">
                 <Parameter name="number of arguments" type="int" value="3"/>
-                <!--<Parameter name="formula" type="string" value="0.5 + 0.005*x + 0.002*y"/>-->
-                <Parameter name="formula" type="string" value="0.0"/> 
+                <!--<Parameter name="formula" type="string" value="0.0002*(500.0-x) + 0.0004*y + 10.0"/>-->
+                <Parameter name="formula" type="string" value="0.5"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -1075,8 +1074,8 @@
             <ParameterList name="function">
               <ParameterList name="function-exprtk">
                 <Parameter name="number of arguments" type="int" value="3"/>
-                 <!--<Parameter name="formula" type="string" value="0.510 + 0.005*x + 0.002*y"/>-->
-                <Parameter name="formula" type="string" value="0.2"/>
+                 <!--<Parameter name="formula" type="string" value="0.2 + 0.0002*(500.0-x) + 0.0004*y + 10.0"/>-->
+                <Parameter name="formula" type="string" value="0.55"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
