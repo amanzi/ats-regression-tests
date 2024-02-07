@@ -4,7 +4,7 @@
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="generate mesh" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{80,40}" />
+        <Parameter name="number of cells" type="Array(int)" value="{40,20}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{ 0, 0}" />
         <Parameter name="domain high coordinate" type="Array(double)" value="{8, 4}" />
       </ParameterList>
@@ -22,9 +22,9 @@
     <ParameterList name="network" type="ParameterList">
       <Parameter name="mesh type" type="string" value="generate mesh" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{80,1}" />
+        <Parameter name="number of cells" type="Array(int)" value="{40,1}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{0, 1.5}" />
-        <Parameter name="domain high coordinate" type="Array(double)" value="{8, 3}" />
+        <Parameter name="domain high coordinate" type="Array(double)" value="{8, 2.5}" />
       </ParameterList>
     </ParameterList>
 
@@ -70,15 +70,15 @@
     <ParameterList name="network" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
         <Parameter name="low coordinate" type="Array(double)"  value="{0, 1.5}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{8, 3}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{8, 2.5}" />
       </ParameterList>
     </ParameterList>
    
 
     <ParameterList name="pipe1" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)"  value="{0, 2}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{8, 3}" />
+        <Parameter name="low coordinate" type="Array(double)"  value="{0, 1.5}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{8, 2.5}" />
       </ParameterList>
     </ParameterList>
 
@@ -98,7 +98,7 @@
 
     <ParameterList name="M_1">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{6, 2}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{5.5, 2}"/>
       </ParameterList>
     </ParameterList>
 
@@ -116,7 +116,7 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="1000" />
+    <Parameter name="end time" type="double" value="100" />
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="coupled model" type="ParameterList">
@@ -807,13 +807,13 @@
 
   <ParameterList name="visualization">
     <ParameterList name="surface" type="ParameterList">
-      <!--<Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" />-->
-      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 10, -1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" />
+      <!--<Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 10, -1}" />-->
       <Parameter name="visualize on 3D mesh" type="bool" value="false" />
     </ParameterList>
     <ParameterList name="network" type="ParameterList">
-     <!--<Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" />-->
-     <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 10, -1}" />
+     <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" />
+     <!--<Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 10, -1}" />-->
      <Parameter name="visualize on 3D mesh" type="bool" value="false" />
     </ParameterList>
   </ParameterList>
