@@ -40,9 +40,9 @@ for key in time_stamps:
     
     for k in range(len(d1)):
         if (d1[k]==0 and d2[k]==0):
-            mass_array[k] = wd[k]*(100.0/25) * 10.0;
+            mass_array[k] = wd[k]*(100.0/50) * 10.0;
         elif (d1[k]==1 and d2[k]==0):
-            mass_array[k] = w[k]*(100.0/25);
+            mass_array[k] = w[k]*(100.0/50);
             
     mass = np.sum(mass_array)
     print('time = ' + key)

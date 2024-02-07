@@ -233,7 +233,9 @@
                 
 
         <ParameterList name="discharge">
-          
+
+  
+          <!--        
           <ParameterList name="BC 01">
             <Parameter name="regions" type="Array(string)" value="{}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
@@ -252,6 +254,7 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
+          -->
 
 <!--          <ParameterList name="BC 02">
             <Parameter name="regions" type="Array(string)" value="{Inlet2}"/>

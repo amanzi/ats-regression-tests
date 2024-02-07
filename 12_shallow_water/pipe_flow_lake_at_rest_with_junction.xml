@@ -11,7 +11,7 @@
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="generate mesh" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{24, 1}" />
+        <Parameter name="number of cells" type="Array(int)" value="{50, 1}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{0.0, 0.0 }" />
         <Parameter name="domain high coordinate" type="Array(double)" value="{100.0, 10.0}" />
       </ParameterList>
@@ -60,14 +60,14 @@
 
     <ParameterList name="Middle wet">
       <ParameterList name="region: box">
-        <Parameter name="low coordinate" type="Array(double)" value="{35.0,0.0}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{40.0,10.0}"/>
+        <Parameter name="low coordinate" type="Array(double)" value="{33.0,0.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{35.0,10.0}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="Junction">
       <ParameterList name="region: point">
-        <Parameter name="coordinate" type="Array(double)" value="{50.5,5.0}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{50.0,5.0}"/>
       </ParameterList>
     </ParameterList>
 
@@ -76,7 +76,7 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="50.0" />
+    <Parameter name="end time" type="double" value="600.0" />
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="pipe flow" type="ParameterList">
@@ -120,6 +120,7 @@
       <Parameter name="number of reduced cfl cycles" type="int" value="10"/>
       <Parameter name="numerical flux" type="string" value="Rusanov"/>
 
+     
       <!--
       <ParameterList name="boundary conditions">
         <ParameterList name="discharge">
@@ -131,7 +132,7 @@
                <Parameter name="function type" type="string" value="composite function"/> 
                <ParameterList name="dof 1 function"> 
                  <ParameterList name="function-tabular"> 
-                   <Parameter name="x values" type="Array(double)" value="{0.0, 300.0}"/> 
+                   <Parameter name="x values" type="Array(double)" value="{0.0, 3000.0}"/> 
                    <Parameter name="x coordinate" type="string" value="t"/> 
                    <Parameter name="y values" type="Array(double)" value="{0.01, 0.01}"/> 
                    <Parameter name="forms" type="Array(string)" value="{linear}"/> 
@@ -171,7 +172,8 @@
         </ParameterList>
       </ParameterList>
 
-      
+     
+      <!-- 
       <ParameterList name="pipe-direction">
         <Parameter name="evaluator type" type="string" value="independent variable from file" />
         <Parameter name="filename" type="string" value="../data/pipe_direction_lake_at_rest_with_junction.h5" />
@@ -182,9 +184,9 @@
         <Parameter name="mesh entity" type="string" value="cell" />
         <Parameter name="number of dofs" type="int" value="2" />
       </ParameterList>
-     
+     -->
 
-      <!--
+      
       <ParameterList name="pipe-direction">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -229,7 +231,7 @@
 
         </ParameterList>
       </ParameterList>
-      -->
+      
 
     </ParameterList>
   
@@ -255,7 +257,7 @@
             <ParameterList name="function">
               <ParameterList name="function-exprtk">
                 <Parameter name="number of arguments" type="int" value="2"/>
-                <Parameter name="formula" type="string" value="0.0"/>
+                <Parameter name="formula" type="string" value="0.05*abs(x - 30) * 1.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -372,11 +374,11 @@
 
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 2e-1, -1}" /> 
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> 
 <!--      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" />-->
     </ParameterList>
     <ParameterList name="pipe" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 2e-1, -1}" /> 
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> 
 <!--      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" />-->
     </ParameterList>
   </ParameterList>
