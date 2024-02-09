@@ -255,16 +255,13 @@
         </ParameterList>
       </ParameterList>
     </ParameterList>
-    <ParameterList name="initial conditions" type="ParameterList">
-
+    <ParameterList name="constants" type="ParameterList">
       <ParameterList name="atmospheric_pressure" type="ParameterList">
         <Parameter name="value" type="double" value="101325" />
       </ParameterList>
-
       <ParameterList name="gravity" type="ParameterList">
         <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.81}" />
       </ParameterList>
-
     </ParameterList>
   </ParameterList>
   <ParameterList name="visualization">

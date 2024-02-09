@@ -77,6 +77,10 @@
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="debug cells" type="Array(int)" value="{0,99}" />
+      <ParameterList name="verbose object" type="ParameterList">
+        <Parameter name="verbosity level" type="string" value="high" />
+      </ParameterList>
+
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka" />
@@ -86,9 +90,15 @@
           <Parameter name="max error growth factor" type="double" value="1000" />
           <Parameter name="modify correction" type="bool" value="true" />
           <Parameter name="monitor" type="string" value="monitor residual" />
-          <Parameter name="nonlinear tolerance" type="double" value="1e-13" />
+          <Parameter name="nonlinear tolerance" type="double" value="1e-12" />
           <Parameter name="diverged tolerance" type="double" value="1000" />
           <Parameter name="limit iterations" type="int" value="51" />
+          <ParameterList name="verbose object" type="ParameterList">
+            <Parameter name="verbosity level" type="string" value="high" />
+          </ParameterList>
+        </ParameterList>
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
         <ParameterList name="ResidualDebugger" type="ParameterList">
           <Parameter name="cycles" type="Array(int)" value="{0}" />
@@ -110,8 +120,8 @@
       </ParameterList>
 
       <ParameterList name="inverse" type="ParameterList">
-        <Parameter name="preconditioning method" type="string" value="boomer amg" />
-        <ParameterList name="boomer amg parameters" type="ParameterList">
+        <Parameter name="preconditioning method" type="string" value="hypre: boomer amg" />
+        <ParameterList name="hypre: boomer amg parameters" type="ParameterList">
           <Parameter name="cycle applications" type="int" value="2" />
           <Parameter name="smoother sweeps" type="int" value="3" />
           <Parameter name="strong threshold" type="double" value="0.5" />
@@ -119,13 +129,22 @@
           <Parameter name="relaxation type" type="int" value="6" />
           <Parameter name="verbosity" type="int" value="0" />
         </ParameterList>
+        <ParameterList name="gmres parameters" type="ParameterList">
+          <Parameter name="preconditioning strategy" type="string" value="left" />
+          <Parameter name="error tolerance" type="double" value="1e-12" />
+          <Parameter name="convergence criteria" type="Array(string)" value="{relative residual,make one iteration}" />
+          <Parameter name="maximum number of iteration" type="int" value="80" />
+          <ParameterList name="verbose object" type="ParameterList">
+            <Parameter name="verbosity level" type="string" value="high" />
+          </ParameterList>
+        </ParameterList>
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="pressure" type="ParameterList">
           <ParameterList name="bottom" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{bottom face}" />
-            <ParameterList name="boundary pressure" type="ParameterList">
+            <ParameterList name="boundary pressure [Pa]" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="140000" />
               </ParameterList>
@@ -163,16 +182,12 @@
         <Parameter name="evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
       </ParameterList>
       <ParameterList name="saturation_liquid" type="ParameterList">
-        <Parameter name="model parameters" type="string" value="WRM parameters" />
-        <Parameter name="evaluator type" type="string" value="water retention model" />
-      </ParameterList>
-      <ParameterList name="saturation_gas" type="ParameterList">
-        <Parameter name="model parameters" type="string" value="WRM parameters" />
-        <Parameter name="evaluator type" type="string" value="water retention model" />
+        <Parameter name="evaluator type" type="string" value="wrm van Genuchten" />
+        <Parameter name="model parameters" type="string" value="WRM" />
       </ParameterList>
       <ParameterList name="relative_permeability" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="relative permeability, water retention model" />
-        <Parameter name="model parameters" type="string" value="WRM parameters" />
+        <Parameter name="evaluator type" type="string" value="relative permeability van Genuchten" />
+        <Parameter name="model parameters" type="string" value="WRM" />
       </ParameterList>
       <ParameterList name="molar_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
@@ -182,7 +197,7 @@
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value="998" />
       </ParameterList>
-      <ParameterList name="viscosity_liquid" type="ParameterList">
+      <ParameterList name="viscosity" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value="0.00089" />
       </ParameterList>
@@ -191,12 +206,13 @@
         <Parameter name="value" type="double" value="0.25" />
       </ParameterList>
       <ParameterList name="permeability" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable tensor" />
+        <Parameter name="tensor rank" type="int" value="1" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain" />
-            <Parameter name="component" type="string" value="cell" />
+            <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="3e-12" />
@@ -205,27 +221,26 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-    </ParameterList>
-    <ParameterList name="initial conditions" type="ParameterList">
-
-      <ParameterList name="atmospheric_pressure" type="ParameterList">
-        <Parameter name="value" type="double" value="101325" />
+      <ParameterList name="relative_hydraulic_conductivity" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="relative hydraulic conductivity" />
       </ParameterList>
-
-      <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
-      </ParameterList>
-
     </ParameterList>
     <ParameterList name="model parameters" type="ParameterList">
-      <ParameterList name="WRM parameters" type="ParameterList">
+      <ParameterList name="WRM" type="ParameterList">
         <ParameterList name="computational domain" type="ParameterList">
           <Parameter name="region" type="string" value="computational domain" />
-          <Parameter name="wrm type" type="string" value="van Genuchten" />
           <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00015" />
           <Parameter name="van Genuchten m [-]" type="double" value="0.8" />
           <Parameter name="residual saturation [-]" type="double" value=" 0" />
         </ParameterList>
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="constants" type="ParameterList">
+      <ParameterList name="atmospheric_pressure" type="ParameterList">
+        <Parameter name="value" type="double" value="101325" />
+      </ParameterList>
+      <ParameterList name="gravity" type="ParameterList">
+        <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
