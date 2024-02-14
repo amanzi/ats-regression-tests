@@ -75,8 +75,7 @@
       <Parameter name="PK type" type="string" value="richards steady state" />
       <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
-<!--      <Parameter name="permeability rescaling" type="double" value="10000000" />-->
-      <Parameter name="permeability rescaling" type="double" value="1" />
+      <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="debug cells" type="Array(int)" value="{0,99}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
@@ -223,7 +222,7 @@
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain" />
-            <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
+            <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="3.0e-12" />
