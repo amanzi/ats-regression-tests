@@ -94,7 +94,7 @@
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="from file" />
+        <Parameter name="timestep controller type" type="string" value="smarter" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
           <Parameter name="nka lag iterations" type="int" value="2" />
           <Parameter name="max backtrack steps" type="int" value="5" />
@@ -102,8 +102,8 @@
           <Parameter name="backtrack factor" type="double" value="0.5" />
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
           <Parameter name="nonlinear tolerance" type="double" value="1e-08" />
-          <Parameter name="diverged tolerance" type="double" value="10000000000" />
-          <Parameter name="limit iterations" type="int" value="100" />
+          <Parameter name="diverged tolerance" type="double" value="100000" />
+          <Parameter name="limit iterations" type="int" value="50" />
           <ParameterList name="verbose object" type="ParameterList">
             <Parameter name="verbosity level" type="string" value="high" />
           </ParameterList>
@@ -120,9 +120,6 @@
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
-        </ParameterList>
-        <ParameterList name="timestep controller from file parameters" type="ParameterList">
-          <Parameter name="file name" type="string" value="../data/richards-seepage_drawdown_diag_tensor_mfd_dts.h5" />
           <Parameter name="initial time step [s]" type="double" value="50" />
         </ParameterList>
       </ParameterList>
@@ -194,28 +191,6 @@
       </ParameterList>
       <ParameterList name="capillary_pressure_gas_liq" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
-        </ParameterList>
-      </ParameterList>
-      <ParameterList name="molar_density_liquid" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="eos" />
-        <Parameter name="EOS basis" type="string" value="both" />
-        <Parameter name="molar density key" type="string" value="molar_density_liquid" />
-        <Parameter name="mass density key" type="string" value="mass_density_liquid" />
-        <ParameterList name="EOS parameters" type="ParameterList">
-          <Parameter name="EOS type" type="string" value="liquid water" />
-        </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
-        </ParameterList>
-      </ParameterList>
-      <ParameterList name="viscosity_liquid" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="viscosity" />
-        <Parameter name="viscosity key" type="string" value="viscosity_liquid" />
-        <ParameterList name="viscosity model parameters" type="ParameterList">
-          <Parameter name="viscosity relation type" type="string" value="liquid water" />
-        </ParameterList>
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
@@ -312,6 +287,18 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
+      <ParameterList name="viscosity_liquid" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="value" type="double" value="0.00089" />
+      </ParameterList>
+      <ParameterList name="molar_density_liquid" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="value" type="double" value="55500" />
+      </ParameterList>
+      <ParameterList name="mass_density_liquid" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="value" type="double" value="1000" />
+      </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 
@@ -337,7 +324,8 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="cycles" type="Array(int)" value="{0,15,20,25,30,35,38,41,44,46,48}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{ 0,0.0025,-1}" />
+    <Parameter name="times start period stop units" type="string" value="noleap" />
   </ParameterList>
 
   <ParameterList name="visualization">
