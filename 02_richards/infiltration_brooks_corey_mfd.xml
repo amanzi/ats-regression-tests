@@ -119,8 +119,8 @@
           <Parameter name="count before increasing increase factor" type="int" value="2" />
         </ParameterList>
         <ParameterList name="timestep controller from file parameters" type="ParameterList">
-          <Parameter name="file name" type="string" value="../data/richards-infiltration_mfd_dts.h5" />
           <Parameter name="initial time step [s]" type="double" value=" 1" />
+          <Parameter name="file name" type="string" value="../data/infiltration_brooks_corey_mfd_dts.h5" />
         </ParameterList>
       </ParameterList>
 
@@ -337,12 +337,6 @@
           <Parameter name="residual saturation [-]" type="double" value=" 0" />
         </ParameterList>
       </ParameterList>
-    </ParameterList>
-  </ParameterList>
-  <ParameterList name="visualization">
-    <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,0.1,-1}" />
-      <Parameter name="times start period stop units" type="string" value="noleap" />
     </ParameterList>
   </ParameterList>
 </ParameterList>

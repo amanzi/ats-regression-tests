@@ -73,8 +73,7 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times start period stop" type="Array(double)" value="{ 0,0.1,-1}" />
-    <Parameter name="times start period stop units" type="string" value="noleap" />
+    <Parameter name="cycles" type="Array(int)" value="{0,63,113,163,213,263,313,363,413,463,513}" />
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
@@ -92,7 +91,7 @@
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="smarter" />
+        <Parameter name="timestep controller type" type="string" value="from file" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
           <Parameter name="nka lag iterations" type="int" value="2" />
           <Parameter name="max backtrack steps" type="int" value="5" />
@@ -100,8 +99,8 @@
           <Parameter name="backtrack factor" type="double" value="0.5" />
           <Parameter name="backtrack tolerance" type="double" value="0.0001" />
           <Parameter name="nonlinear tolerance" type="double" value="1e-08" />
-          <Parameter name="diverged tolerance" type="double" value="100000" />
-          <Parameter name="limit iterations" type="int" value="21" />
+          <Parameter name="diverged tolerance" type="double" value="10000000000" />
+          <Parameter name="limit iterations" type="int" value="100" />
           <ParameterList name="verbose object" type="ParameterList">
             <Parameter name="verbosity level" type="string" value="high" />
           </ParameterList>
@@ -119,6 +118,9 @@
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
           <Parameter name="initial time step [s]" type="double" value=" 1" />
+        </ParameterList>
+        <ParameterList name="timestep controller from file parameters" type="ParameterList">
+          <Parameter name="file name" type="string" value="../data/infiltration_then_seepage_fv_dts.h5" />
         </ParameterList>
       </ParameterList>
 
@@ -341,12 +343,6 @@
           <Parameter name="residual saturation [-]" type="double" value=" 0" />
         </ParameterList>
       </ParameterList>
-    </ParameterList>
-  </ParameterList>
-  <ParameterList name="visualization">
-    <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,0.1,-1}" />
-      <Parameter name="times start period stop units" type="string" value="noleap" />
     </ParameterList>
   </ParameterList>
 </ParameterList>

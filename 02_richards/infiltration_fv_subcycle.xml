@@ -65,10 +65,6 @@
     <Parameter name="start time units" type="string" value="s" />
     <Parameter name="end time" type="double" value="100" />
     <Parameter name="end time units" type="string" value="d" />
-    <ParameterList name="required times" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,10,-1}" />
-      <Parameter name="times start period stop units" type="string" value="d" />
-    </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="subcycler" type="ParameterList">
         <Parameter name="PK type" type="string" value="subcycling MPC" />
@@ -79,7 +75,7 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="cycles start period stop" type="Array(int)" value="{0,1,-1}" />
+    <Parameter name="cycles" type="Array(int)" value="{0,1,2,3,4,5,6,7,8,9,10,11,12}" />
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
@@ -132,8 +128,8 @@
           <Parameter name="count before increasing increase factor" type="int" value="2" />
         </ParameterList>
         <ParameterList name="timestep controller from file parameters" type="ParameterList">
-          <Parameter name="file name" type="string" value="../data/richards-infiltration_fv_dts.h5" />
           <Parameter name="initial time step [s]" type="double" value=" 1" />
+          <Parameter name="file name" type="string" value="../data/infiltration_fv_subcycle_dts.h5" />
         </ParameterList>
       </ParameterList>
 
@@ -347,12 +343,6 @@
           <Parameter name="residual saturation [-]" type="double" value=" 0" />
         </ParameterList>
       </ParameterList>
-    </ParameterList>
-  </ParameterList>
-  <ParameterList name="visualization">
-    <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,0.1,-1}" />
-      <Parameter name="times start period stop units" type="string" value="noleap" />
     </ParameterList>
   </ParameterList>
 </ParameterList>
