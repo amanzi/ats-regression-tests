@@ -1,38 +1,48 @@
 <ParameterList name="Main" type="ParameterList">
   <ParameterList name="mesh" type="ParameterList">
-    <ParameterList name="surface" type="ParameterList">
-      <Parameter name="mesh type" type="string" value="aliased" />
-      <ParameterList name="aliased parameters" type="ParameterList">
-        <Parameter name="target" type="string" value="domain" />
-      </ParameterList>
-      <ParameterList name="surface">
+    <ParameterList name="domain" type="ParameterList">
+      <Parameter name="mesh type" type="string" value="read mesh file" />
+      <ParameterList name="read mesh file parameters" type="ParameterList">
+        <Parameter name="file" type="string" value="../mesh/mesh_slope_fsets.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
       </ParameterList>
     </ParameterList>
-    <ParameterList name="domain" type="ParameterList">
-      <Parameter name="mesh type" type="string" value="generate mesh" />
-      <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{10,1}" />
-        <Parameter name="domain low coordinate" type="Array(double)" value="{ 0, 0}" />
-        <Parameter name="domain high coordinate" type="Array(double)" value="{10, 1}" />
+    <ParameterList name="surface" type="ParameterList">
+      <Parameter name="mesh type" type="string" value="surface" />
+      <ParameterList name="expert" type="ParameterList">
+        <Parameter name="verify mesh" type="bool" value="false" />
+      </ParameterList>
+      <ParameterList name="surface parameters" type="ParameterList">
+        <Parameter name="surface sideset name" type="string" value="surface" />
+      </ParameterList>
+      <ParameterList name="surface">
       </ParameterList>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="regions" type="ParameterList">
+    <ParameterList name="surface" type="ParameterList">
+      <ParameterList name="region: labeled set" type="ParameterList">
+        <Parameter name="label" type="string" value="2" />
+        <Parameter name="file" type="string" value="../mesh/mesh_slope_fsets.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
+        <Parameter name="entity" type="string" value="Face" />
+      </ParameterList>
+    </ParameterList>
     <ParameterList name="all" type="ParameterList">
       <ParameterList name="region: all" type="ParameterList">
       </ParameterList>
     </ParameterList>
-    <ParameterList name="left side" type="ParameterList">
+    <ParameterList name="inlet" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
         <Parameter name="point" type="Array(double)" value="{ 0, 0}" />
         <Parameter name="normal" type="Array(double)" value="{ 1, 0}" />
       </ParameterList>
     </ParameterList>
-    <ParameterList name="right side" type="ParameterList">
+    <ParameterList name="outlet" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{10, 1}" />
-        <Parameter name="normal" type="Array(double)" value="{-1, 0}" />
+        <Parameter name="point" type="Array(double)" value="{0, 5}" />
+        <Parameter name="normal" type="Array(double)" value="{1, 5}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -121,7 +131,7 @@
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="head" type="ParameterList">
           <ParameterList name="outlet" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{right side}" />
+            <Parameter name="regions" type="Array(string)" value="{outlet}" />
             <ParameterList name="boundary head" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value=" 0" />
@@ -148,6 +158,7 @@
         <Parameter name="ponded depth bar" type="bool" value="true" />
         <Parameter name="height key" type="string" value="ponded_depth_bar" />
       </ParameterList>
+
       <ParameterList name="surface-water_source" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
@@ -164,72 +175,12 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
+
       <ParameterList name="surface-manning_coefficient" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable" />
-        <Parameter name="constant in time" type="bool" value="true" />
-        <ParameterList name="function" type="ParameterList">
-          <ParameterList name="domain" type="ParameterList">
-            <Parameter name="region" type="string" value="all" />
-            <Parameter name="components" type="Array(string)" value="{cell}" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.15" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
+        <Parameter name="evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="value" type="double" value="0.15" />
       </ParameterList>
-      <ParameterList name="surface-temperature" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable" />
-        <Parameter name="constant in time" type="bool" value="true" />
-        <ParameterList name="function" type="ParameterList">
-          <ParameterList name="domain" type="ParameterList">
-            <Parameter name="region" type="string" value="all" />
-            <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="274.65" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-      <ParameterList name="surface-elevation" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="standalone elevation" />
-        <ParameterList name="elevation function" type="ParameterList">
-          <ParameterList name="elevation" type="ParameterList">
-            <Parameter name="region" type="string" value="all" />
-            <Parameter name="components" type="Array(string)" value="{cell,face}" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-separable" type="ParameterList">
-                <ParameterList name="function1" type="ParameterList">
-                  <ParameterList name="function-constant" type="ParameterList">
-                    <Parameter name="value" type="double" value=" 1" />
-                  </ParameterList>
-                </ParameterList>
-                <ParameterList name="function2" type="ParameterList">
-                  <ParameterList name="function-linear" type="ParameterList">
-                    <Parameter name="y0" type="double" value=" 0" />
-                    <Parameter name="gradient" type="Array(double)" value="{-0.1, 0}" />
-                    <Parameter name="x0" type="Array(double)" value="{ 1, 0}" />
-                  </ParameterList>
-                </ParameterList>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-        <ParameterList name="slope function" type="ParameterList">
-          <ParameterList name="slope magnitude" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{all}" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.1" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
+
       <ParameterList name="surface-overland_conductivity" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="overland conductivity" />
         <ParameterList name="overland conductivity model" type="ParameterList">
@@ -237,11 +188,7 @@
           <Parameter name="slope regularization epsilon" type="double" value="0.01" />
         </ParameterList>
       </ParameterList>
-      <ParameterList name="canopy-temperature" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="additive evaluator" />
-        <Parameter name="dependencies" type="Array(string)" value="{surface-air_temperature}" />
-        <Parameter name="constant shift" type="double" value="-1.5" />
-      </ParameterList>
+
       <ParameterList name="surface-source_molar_density" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value="55500" />
@@ -281,10 +228,10 @@
   </ParameterList>
 
   <ParameterList name="observations" type="ParameterList">
-    <ParameterList name="right side flux" type="ParameterList">
+    <ParameterList name="outlet flux" type="ParameterList">
       <Parameter name="variable" type="string" value="surface-water_flux" />
       <Parameter name="direction normalized flux" type="bool" value="true" />
-      <Parameter name="region" type="string" value="right side" />
+      <Parameter name="region" type="string" value="outlet" />
       <Parameter name="functional" type="string" value="extensive integral" />
       <Parameter name="delimiter" type="string" value=" " />
       <Parameter name="location name" type="string" value="face" />
