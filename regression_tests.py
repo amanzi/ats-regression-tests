@@ -137,9 +137,6 @@ def main(options):
         else:
             header = header + ' '*(20-len(header))
 
-        if not silent:
-            print(f'{header} | ', end='', file=sys.stdout)
-
         # get the absolute path of the directory
         test_dir = os.path.dirname(config_file)
         # cd into the test directory so that the relative paths in
@@ -156,7 +153,7 @@ def main(options):
         # get the relative file name
         filename = os.path.basename(config_file)
 
-        tm.generate_tests(filename,
+        n_tests = tm.generate_tests(filename,
                           options.suites,
                           options.tests,
                           options.exclude,
@@ -164,6 +161,12 @@ def main(options):
                           options.check_performance,
                           testlog)
 
+        if (len(tm._tests) > 0 or \
+            options.list_available_tests or \
+            options.list_available_suites or \
+            options.list_tests) and not silent:
+            print(f'{header} | ', end='', file=sys.stdout)
+        
         if options.debug:
             print(70 * '-')
             print(tm)
