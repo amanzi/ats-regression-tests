@@ -196,7 +196,7 @@
       </ParameterList>
 
       <ParameterList name="diffusion" type="ParameterList">
-        <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity" />
+        <Parameter name="discretization primary" type="string" value="mfd: default" />
       </ParameterList>
 
       <ParameterList name="diffusion preconditioner" type="ParameterList">
