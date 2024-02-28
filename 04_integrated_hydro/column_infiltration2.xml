@@ -97,10 +97,10 @@
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+          <Parameter name="initial time step [s]" type="double" value="315360" />
         </ParameterList>
         <ParameterList name="timestep controller from file parameters" type="ParameterList">
           <Parameter name="file name" type="string" value="../data/column_infiltration2_dts.h5" />
-          <Parameter name="initial time step [s]" type="double" value="315360" />
         </ParameterList>
       </ParameterList>
 
@@ -127,7 +127,7 @@
       <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
-      <Parameter name="debug cells" type="Array(int)" value="{99}" />
+      <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation" />
       </ParameterList>
@@ -292,6 +292,6 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint">
-    <Parameter name="cycles" type="Array(int)" value="{0,6,12,17,22,27}" />
+    <Parameter name="cycles" type="Array(int)" value="{0,6,11,14,16,18}" />
   </ParameterList>
 </ParameterList>
