@@ -210,6 +210,7 @@
       </ParameterList>
       <ParameterList name="surface-ponded_depth" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="ponded depth" />
+        <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
       <ParameterList name="surface-ponded_depth_bar" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="ponded depth" />
@@ -298,10 +299,12 @@
       <ParameterList name="saturation_liquid" type="ParameterList">
         <Parameter name="model parameters" type="string" value="WRM parameters" />
         <Parameter name="evaluator type" type="string" value="WRM" />
+        <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
       <ParameterList name="saturation_gas" type="ParameterList">
         <Parameter name="model parameters" type="string" value="WRM parameters" />
         <Parameter name="evaluator type" type="string" value="WRM" />
+        <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
