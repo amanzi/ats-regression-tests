@@ -80,7 +80,7 @@
       </ParameterList>
 
       <ParameterList name="inverse" type="ParameterList">
-        <Parameter name="preconditioning method" type="string" value="amesos2: klu" />
+        <Parameter name="direct method" type="string" value="amesos2: klu" />
       </ParameterList>
 
       <ParameterList name="time integrator" type="ParameterList">
@@ -129,12 +129,13 @@
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
-        <ParameterList name="head" type="ParameterList">
+        <!-- NOTE: this is NOT head conditions, it is the absolute z elevation of the water level -->
+        <ParameterList name="water level" type="ParameterList">
           <ParameterList name="outlet" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{outlet}" />
-            <ParameterList name="boundary head" type="ParameterList">
+            <ParameterList name="boundary water level [m]" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 0" />
+                <Parameter name="value" type="double" value=" 4.9" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
