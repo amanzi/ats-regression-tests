@@ -104,25 +104,22 @@
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="source" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="additive evaluator" />
+        <Parameter name="evaluator type" type="string" value="additive" />
         <Parameter name="dependencies" type="Array(string)" value="{u}" />
         <Parameter name="u coefficient" type="double" value="-0.01" />
       </ParameterList>
       <ParameterList name="u_cv" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
+        <Parameter name="evaluator type" type="string" value="multiplicative" />
         <Parameter name="dependencies" type="Array(string)" value="{u, cell_volume}" />
       </ParameterList>
     </ParameterList>
-    <ParameterList name="initial conditions" type="ParameterList">
-
+    <ParameterList name="constants" type="ParameterList">
       <ParameterList name="atmospheric_pressure" type="ParameterList">
         <Parameter name="value" type="double" value="101325" />
       </ParameterList>
-
       <ParameterList name="gravity" type="ParameterList">
         <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
       </ParameterList>
-
     </ParameterList>
     <ParameterList name="verbose object" type="ParameterList">
       <Parameter name="verbosity level" type="string" value="low" />
