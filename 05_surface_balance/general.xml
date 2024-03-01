@@ -126,25 +126,22 @@
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="surface-water_content" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
+        <Parameter name="evaluator type" type="string" value="multiplicative" />
         <Parameter name="dependencies" type="Array(string)" value="{surface-ponded_depth, surface-cell_volume}" />
       </ParameterList>
       <ParameterList name="surface-water_source" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="additive evaluator" />
+        <Parameter name="evaluator type" type="string" value="additive" />
         <Parameter name="dependencies" type="Array(string)" value="{surface-ponded_depth}" />
         <Parameter name="surface-ponded_depth coefficient" type="double" value="-1.1574074074074e-06" />
       </ParameterList>
     </ParameterList>
-    <ParameterList name="initial conditions" type="ParameterList">
-
+    <ParameterList name="constants" type="ParameterList">
       <ParameterList name="atmospheric_pressure" type="ParameterList">
         <Parameter name="value" type="double" value="101325" />
       </ParameterList>
-
       <ParameterList name="gravity" type="ParameterList">
         <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
       </ParameterList>
-
       <ParameterList name="land cover types" type="ParameterList">
         <ParameterList name="surface domain" type="ParameterList">
           <Parameter name="roughness length of bare ground [m]" type="double" value="0.04" />
@@ -153,7 +150,6 @@
           <Parameter name="water transition depth [m]" type="double" value="0.02" />
         </ParameterList>
       </ParameterList>
-
     </ParameterList>
     <ParameterList name="verbose object" type="ParameterList">
       <Parameter name="verbosity level" type="string" value="low" />
