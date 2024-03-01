@@ -65,7 +65,7 @@
       <Parameter name="primary variable key" type="string" value="surface-pressure" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source term" type="bool" value="true" />
-      <Parameter name="debug cells" type="Array(int)" value="{3,4}" />
+      <Parameter name="debug cells" type="Array(int)" value="{0,1,2}" />
       <Parameter name="source term is differentiable" type="bool" value="true" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
@@ -80,7 +80,18 @@
       </ParameterList>
 
       <ParameterList name="inverse" type="ParameterList">
-        <Parameter name="direct method" type="string" value="amesos2: klu" />
+        <Parameter name="preconditioning method" type="string" value="ifpack2: ILUT" />
+        <Parameter name="iterative method" type="string" value="gmres" />
+        <ParameterList name="ifpack2: ILUT parameters" type="ParameterList">
+          <Parameter name="fact: ilut level-of-fill" type="double" value="1.0" />
+          <Parameter name="fact: drop tolerance" type="double" value="0.0" />
+        </ParameterList>
+        <ParameterList name="gmres parameters" type="ParameterList">
+          <Parameter name="preconditioning strategy" type="string" value="left" />
+          <Parameter name="error tolerance" type="double" value="1e-12" />
+          <Parameter name="convergence criteria" type="Array(string)" value="{relative residual,make one iteration}" />
+          <Parameter name="maximum number of iteration" type="int" value="80" />
+        </ParameterList>
       </ParameterList>
 
       <ParameterList name="time integrator" type="ParameterList">
@@ -228,7 +239,6 @@
       <Parameter name="direction normalized flux" type="bool" value="true" />
       <Parameter name="region" type="string" value="outlet" />
       <Parameter name="functional" type="string" value="extensive integral" />
-      <Parameter name="delimiter" type="string" value=" " />
       <Parameter name="location name" type="string" value="face" />
       <Parameter name="write interval" type="int" value="1" />
       <Parameter name="observation output filename" type="string" value="surface_outlet_flux.dat" />

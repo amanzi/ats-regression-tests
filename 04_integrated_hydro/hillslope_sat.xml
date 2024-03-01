@@ -123,7 +123,7 @@
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="max valid change in saturation in a time step [-]" type="double" value="0.1" />
-      <Parameter name="debug cells" type="Array(int)" value="{0}" />
+      <Parameter name="debug cells" type="Array(int)" value="{25}" />
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="mfd: default" />
       </ParameterList>
@@ -156,7 +156,7 @@
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="water source in meters" type="bool" value="true" />
       <Parameter name="source term is differentiable" type="bool" value="true" />
-      <Parameter name="debug cells" type="Array(int)" value="{0}" />
+      <Parameter name="debug cells" type="Array(int)" value="{1}" />
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
@@ -333,4 +333,18 @@
   <ParameterList name="checkpoint">
     <Parameter name="cycles" type="Array(int)" value="{0,9,12,15,18,21,24,27,30,33,36}" />
   </ParameterList>
+
+  <ParameterList name="observations" type="ParameterList">
+    <ParameterList name="outlet flux" type="ParameterList">
+      <Parameter name="variable" type="string" value="surface-water_flux" />
+      <Parameter name="direction normalized flux" type="bool" value="true" />
+      <Parameter name="region" type="string" value="surface outlet" />
+      <Parameter name="functional" type="string" value="extensive integral" />
+      <Parameter name="location name" type="string" value="face" />
+      <Parameter name="write interval" type="int" value="1" />
+      <Parameter name="observation output filename" type="string" value="surface_outlet_flux.dat" />
+      <Parameter name="cycles start period stop" type="Array(int)" value="{ 0,1,-1}" />
+    </ParameterList>
+  </ParameterList>
+
 </ParameterList>
