@@ -266,12 +266,12 @@
         <Parameter name="distributed source key" type="string" value="water_source" />
         <Parameter name="number of ditches" type="int" value="1" />
         <Parameter name="entering pressure [Pa]" type="double" value="99365" />
-        <Parameter name="number of components" type="int" value="1" />
-        <Parameter name="permeability above [m^2]" type="double" value="4.5659835897806e-13" />
-        <Parameter name="permeability below [m^2]" type="double" value="4.5659835897806e-13" />
-        <Parameter name="equivalent distance to impermeable boundary [m]" type="double" value="1.292" />
+   	<Parameter name="number of components" type="int" value="1" />
+	<Parameter name="permeability above [m^2]" type="double" value="4.565983589780581e-13" />
+        <Parameter name="permeability below [m^2]" type="double" value="4.565983589780581e-13" />
+        <Parameter name="equivalent distance to impermeable boundary [m]" type="double" value="1.2920" />
         <Parameter name="drain spacing [m]" type="double" value="15" />
-        <Parameter name="drain layer thickness [m]" type="double" value="0.5" />
+	<Parameter name="drain layer thickness [m]" type="double" value="0.5" />
       </ParameterList>
       <ParameterList name="surface-source_molar_density" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
