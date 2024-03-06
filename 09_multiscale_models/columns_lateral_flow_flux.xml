@@ -816,7 +816,7 @@
         <ParameterList name="WRM parameters" type="ParameterList">
           <ParameterList name="computational domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
+            <Parameter name="wrm type" type="string" value="van Genuchten" />
             <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00033" />
             <Parameter name="van Genuchten m [-]" type="double" value="0.2481" />
             <Parameter name="residual saturation [-]" type="double" value="0.2" />
@@ -824,7 +824,7 @@
           </ParameterList>
         </ParameterList>
         <ParameterList name="permafrost model parameters" type="ParameterList">
-          <Parameter name="permafrost WRM type" type="string" value="fpd permafrost model" />
+          <Parameter name="permafrost wrm type" type="string" value="fpd permafrost model" />
           <Parameter name="minimum dsi_dpressure magnitude" type="double" value="1e-12" />
         </ParameterList>
       </ParameterList>
@@ -887,7 +887,7 @@
         <Parameter name="model parameters" type="string" value="WRM parameters" />
         <Parameter name="evaluator type" type="string" value="permafrost WRM" />
         <ParameterList name="permafrost model parameters" type="ParameterList">
-          <Parameter name="permafrost WRM type" type="string" value="fpd permafrost model" />
+          <Parameter name="permafrost wrm type" type="string" value="fpd permafrost model" />
           <Parameter name="minimum dsi_dpressure magnitude" type="double" value="1e-12" />
         </ParameterList>
       </ParameterList>
@@ -897,7 +897,7 @@
         <Parameter name="model parameters" type="string" value="WRM parameters" />
         <Parameter name="evaluator type" type="string" value="permafrost WRM" />
         <ParameterList name="permafrost model parameters" type="ParameterList">
-          <Parameter name="permafrost WRM type" type="string" value="fpd permafrost model" />
+          <Parameter name="permafrost wrm type" type="string" value="fpd permafrost model" />
           <Parameter name="minimum dsi_dpressure magnitude" type="double" value="1e-12" />
         </ParameterList>
       </ParameterList>
@@ -913,7 +913,7 @@
         <ParameterList name="WRM parameters" type="ParameterList">
           <ParameterList name="computational domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
+            <Parameter name="wrm type" type="string" value="van Genuchten" />
             <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00033" />
             <Parameter name="van Genuchten m [-]" type="double" value="0.2481" />
             <Parameter name="residual saturation [-]" type="double" value="0.2" />
@@ -921,7 +921,7 @@
           </ParameterList>
         </ParameterList>
         <ParameterList name="permafrost model parameters" type="ParameterList">
-          <Parameter name="permafrost WRM type" type="string" value="fpd permafrost model" />
+          <Parameter name="permafrost wrm type" type="string" value="fpd permafrost model" />
           <Parameter name="minimum dsi_dpressure magnitude" type="double" value="1e-12" />
         </ParameterList>
       </ParameterList>
@@ -941,7 +941,7 @@
       <ParameterList name="WRM parameters" type="ParameterList">
         <ParameterList name="upper mineral" type="ParameterList">
           <Parameter name="region" type="string" value="computational domain" />
-          <Parameter name="WRM Type" type="string" value="van Genuchten" />
+          <Parameter name="wrm type" type="string" value="van Genuchten" />
           <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00033" />
           <Parameter name="van Genuchten m [-]" type="double" value="0.2481" />
           <Parameter name="residual saturation [-]" type="double" value="0.2" />

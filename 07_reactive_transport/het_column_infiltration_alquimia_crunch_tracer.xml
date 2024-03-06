@@ -728,7 +728,7 @@
       <ParameterList name="WRM parameters" type="ParameterList">
         <ParameterList name="soil" type="ParameterList">
           <Parameter name="region" type="string" value="hydro soil" />
-          <Parameter name="WRM Type" type="string" value="van Genuchten" />
+          <Parameter name="wrm type" type="string" value="van Genuchten" />
           <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.0001213" />
           <Parameter name="van Genuchten n [-]" type="double" value="1.37" />
           <Parameter name="residual saturation [-]" type="double" value="0.375" />
@@ -736,7 +736,7 @@
         </ParameterList>
         <ParameterList name="weathered shale" type="ParameterList">
           <Parameter name="region" type="string" value="hydro weathered shale" />
-          <Parameter name="WRM Type" type="string" value="van Genuchten" />
+          <Parameter name="wrm type" type="string" value="van Genuchten" />
           <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.0003772" />
           <Parameter name="van Genuchten n [-]" type="double" value="1.69" />
           <Parameter name="residual saturation [-]" type="double" value="0.35" />
@@ -744,7 +744,7 @@
         </ParameterList>
         <ParameterList name="fractured shale" type="ParameterList">
           <Parameter name="region" type="string" value="hydro fractured shale" />
-          <Parameter name="WRM Type" type="string" value="van Genuchten" />
+          <Parameter name="wrm type" type="string" value="van Genuchten" />
           <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="8.56e-05" />
           <Parameter name="van Genuchten n [-]" type="double" value="1.59" />
           <Parameter name="residual saturation [-]" type="double" value="0.4" />
@@ -752,7 +752,7 @@
         </ParameterList>
         <ParameterList name="bedrock" type="ParameterList">
           <Parameter name="region" type="string" value="hydro bedrock" />
-          <Parameter name="WRM Type" type="string" value="van Genuchten" />
+          <Parameter name="wrm type" type="string" value="van Genuchten" />
           <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="2.65e-05" />
           <Parameter name="van Genuchten n [-]" type="double" value="1.52" />
           <Parameter name="residual saturation [-]" type="double" value="0.1" />
