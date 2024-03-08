@@ -71,9 +71,9 @@
         <Parameter name="verbosity level" type="string" value="medium"/>
       </ParameterList>
 
-      <Parameter name="use shallow water model" type="int" value="0"/>
+      <Parameter name="diameter key" type="string" value="pipe-diameter"/>
 
-      <Parameter name="pipe diameter" type="double" value="0.075"/>
+      <Parameter name="direction key" type="string" value="pipe-direction"/>
 
       <Parameter name="celerity" type="double" value="20"/>
 
@@ -131,6 +131,55 @@
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
+
+    <ParameterList name="evaluators">
+
+       <ParameterList name="pipe-direction">
+        <Parameter name="evaluator type" type="string" value="independent variable" />
+        <ParameterList name="function" type="ParameterList">
+
+          <ParameterList name="pipe" type="ParameterList">  <!-- USER DEFINED NAME -->
+            <Parameter name="region" type="string" value="Computational domain" />
+            <Parameter name="component" type="string" value="cell" />
+            <ParameterList name="function">
+              <Parameter name="number of dofs" type="int" value="2"/>
+              <Parameter name="function type" type="string" value="composite function"/>
+              <ParameterList name="dof 1 function">
+                <ParameterList name="function-constant">
+                  <Parameter name="value" type="double" value="1.0"/>
+                </ParameterList>
+              </ParameterList>
+              <ParameterList name="dof 2 function">
+                <ParameterList name="function-constant">
+                  <Parameter name="value" type="double" value="0.0"/>
+                </ParameterList>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+
+         </ParameterList>
+        </ParameterList>
+
+      <ParameterList name="pipe-diameter" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable" />
+        <ParameterList name="function">
+          <ParameterList name="Computational domain">
+           <Parameter name="region" type="string" value="Computational domain" />
+            <Parameter name="component" type="string" value="cell" />
+            <ParameterList name="function">
+              <Parameter name="number of dofs" type="int" value="1" />
+              <Parameter name="function type" type="string" value="composite function" />
+              <ParameterList name="dof 1 function">
+                <ParameterList name="function-constant">
+                  <Parameter name="value" type="double" value="0.075" />
+                </ParameterList>
+              </ParameterList>
+           </ParameterList>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+
+      </ParameterList>
 
     <ParameterList name="initial conditions">
       <ParameterList name="const_fluid_density">

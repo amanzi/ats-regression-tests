@@ -40,12 +40,10 @@ overflow starts happening. Note that the overflow onset depends on the water lev
 Hence, there cannot be a steady overflow from the pipe to the surface.
 
 ```
-coupled_surface_pipe_model_experimental:
+coupled_fernandez_pato_garcia_navarro:
 ```
-This test case aims to reproduce the test case in Section 3.1 of  "Development of a New Simulation Tool Coupling a 2D Finite Volume 
+This test case reproduces the Single Sewer/Surface Flow Exchange test case from  "Development of a New Simulation Tool Coupling a 2D Finite Volume 
 Overland Flow Model and a Drainage Network Model" by Fernandez-Pato and Garcia-Navarro. 
-The overland flow in the test case in such a paper is 2D, whereas currently ours is 1D.
-This test case setup needs to be perfected and is currently a work in progress.
 
 ```
 coupled_surface_pipe_model_water_balance:
@@ -53,8 +51,13 @@ coupled_surface_pipe_model_water_balance:
 This test considers the coupling of a surface flow and a pipe flow. Water is exchanged one-way from the surface flow into the pipe.
 The purpose of this test was to verify that the coupling term between the models was constructed appropriately in order to guarantee
 water conservation. The boundary conditions for this test are prescribed inlet and outlet discharge for both the surface flow and the 
-pipe flow. The output of this test, called coupled_water_balance.csv, should be fed as input to plot_coupled_water_balance.py
-which lies in the water balance repo: https://github.com/gcapodag/amanzi_water_balance.
+pipe flow. The output of this test, called coupled_water_balance.csv, should be fed as input (after proper formatting) to plot_coupled_water_balance.py which lies in the water balance repo: https://github.com/gcapodag/amanzi_water_balance.
+
+```
+coupled_surface_pipe_model_water_balance_junction:
+```
+Similar test to coupled_surface_pipe_model_water_balance, with the difference that now there is a junction in the pipe. Moreover, the
+pipe diameters of the pipes joining in the junction are 1 m (left pipe) and 0.5 m (right pipe). The output of this test, called coupled_water_balance.csv, should be fed as input (after profer formatting) to plot_coupled_water_balance_with_junction.py which lies in the water balance repo: https://github.com/gcapodag/amanzi_water_balance.
 
 ```
 shallow_water_1D:
@@ -109,7 +112,16 @@ model by definition although the shallow water model is a 2D model. Hence this d
 computation of the fluxes in the code.
 
 ```
-shallow_water_inclined_plane:
+coupled_flow_network_mild_incline:
 ```
-A test that was used to help setup coupled_surface_pipe_model_experimental. It consists of only the shallow water part of
-coupled_surface_pipe_model_experimental. No manhole.
+This test couples an overland flow described by the shallow water equations with a pipe network. There are 6 manholes and 16 junctions in the pipe network. A rain source on the surface is also included.
+
+```
+surface_flow_network_mild_incline:
+```
+Test that was used to create coupled_flow_network_mild_incline. It only considers the surface flow and no pipe network flow.
+
+```
+pipe_network_with_junction_1m:
+```
+Pipe network flow with two pipes that join into a junction.

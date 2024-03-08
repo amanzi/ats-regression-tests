@@ -76,13 +76,13 @@
         <Parameter name="verbosity level" type="string" value="medium"/>
       </ParameterList>
 
-      <Parameter name="use shallow water model" type="int" value="0"/>
-
       <Parameter name="pipe diameter" type="double" value="5"/>
 
       <Parameter name="celerity" type="double" value="20"/>
 
       <Parameter name="direction key" type="string" value="pipe-direction"/>
+
+      <Parameter name="diameter key" type="string" value="pipe-diameter"/>
 
       <Parameter name="Manning coefficient" type="double" value="0.015"/>
 
@@ -107,15 +107,19 @@
 
     <ParameterList name="evaluators">
 
-      <ParameterList name="porosity">
-        <Parameter name="field evaluator type" type="string" value="independent variable"/>
+     <ParameterList name="pipe-diameter" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function">
-          <ParameterList name="domain">
-            <Parameter name="region" type="string" value="Computational domain"/>
-            <Parameter name="component" type="string" value="cell"/>
+          <ParameterList name="Computational domain">
+            <Parameter name="region" type="string" value="Computational domain" />
+            <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function">
-              <ParameterList name="function-constant">
-                <Parameter name="value" type="double" value="0.2"/>
+              <Parameter name="number of dofs" type="int" value="1" />
+              <Parameter name="function type" type="string" value="composite function" />
+              <ParameterList name="dof 1 function">
+                <ParameterList name="function-constant">
+                  <Parameter name="value" type="double" value="5" />
+                </ParameterList>
               </ParameterList>
             </ParameterList>
           </ParameterList>
