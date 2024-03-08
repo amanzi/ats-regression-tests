@@ -169,7 +169,7 @@
         </ParameterList>
       </ParameterList>
       <ParameterList name="saturation_liquid" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="permafrost WRM" />
+        <Parameter name="evaluator type" type="string" value="water retention model with ice" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
         <ParameterList name="permafrost model parameters" type="ParameterList">
           <Parameter name="permafrost wrm type" type="string" value="fpd permafrost model" />

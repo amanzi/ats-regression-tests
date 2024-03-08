@@ -1067,7 +1067,7 @@
         <Parameter name="dependency suffixes" type="Array(string)" value="{molar_density_liquid, water_source}" />
       </ParameterList>
       <ParameterList name="column:*-saturation_liquid" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="permafrost WRM" />
+        <Parameter name="evaluator type" type="string" value="water retention model with ice" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
         <ParameterList name="permafrost model parameters" type="ParameterList">
           <Parameter name="permafrost wrm type" type="string" value="fpd permafrost model" />
@@ -1261,7 +1261,7 @@
         <Parameter name="model parameters" type="string" value="WRM parameters" />
       </ParameterList>
       <ParameterList name="column:*-relative_permeability" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="relative permeability, van Genuchten" />
+        <Parameter name="evaluator type" type="string" value="relative permeability, water retention model" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
         <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
         <Parameter name="use surface rel perm" type="bool" value="true" />

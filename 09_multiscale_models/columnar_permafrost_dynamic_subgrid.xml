@@ -1264,7 +1264,7 @@
         <Parameter name="evaluator dependency suffixes" type="Array(string)" value="{molar_density_liquid, mass_source}" />
       </ParameterList>
       <ParameterList name="column:*-saturation_liquid" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="permafrost WRM" />
+        <Parameter name="evaluator type" type="string" value="water retention model with ice" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
         <ParameterList name="WRM parameters" type="ParameterList">
           <ParameterList name="moss" type="ParameterList">
@@ -1543,7 +1543,7 @@
         <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
         <Parameter name="use surface rel perm" type="bool" value="true" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
-        <Parameter name="evaluator type" type="string" value="permafrost WRM" />
+        <Parameter name="evaluator type" type="string" value="water retention model with ice" />
         <ParameterList name="permafrost model parameters" type="ParameterList">
           <Parameter name="permafrost wrm type" type="string" value="fpd permafrost model" />
           <Parameter name="minimum dsi_dpressure magnitude" type="double" value="1e-12" />
@@ -1553,14 +1553,14 @@
         <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
         <Parameter name="use surface rel perm" type="bool" value="true" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
-        <Parameter name="evaluator type" type="string" value="permafrost WRM" />
+        <Parameter name="evaluator type" type="string" value="water retention model with ice" />
         <ParameterList name="permafrost model parameters" type="ParameterList">
           <Parameter name="permafrost wrm type" type="string" value="fpd permafrost model" />
           <Parameter name="minimum dsi_dpressure magnitude" type="double" value="1e-12" />
         </ParameterList>
       </ParameterList>
       <ParameterList name="column:*-relative_permeability" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="relative permeability, van Genuchten" />
+        <Parameter name="evaluator type" type="string" value="relative permeability, water retention model" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
         <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
         <Parameter name="use surface rel perm" type="bool" value="true" />
@@ -1569,7 +1569,7 @@
         <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
         <Parameter name="use surface rel perm" type="bool" value="true" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
-        <Parameter name="evaluator type" type="string" value="permafrost WRM" />
+        <Parameter name="evaluator type" type="string" value="water retention model with ice" />
         <ParameterList name="permafrost model parameters" type="ParameterList">
           <Parameter name="permafrost wrm type" type="string" value="fpd permafrost model" />
           <Parameter name="minimum dsi_dpressure magnitude" type="double" value="1e-12" />
