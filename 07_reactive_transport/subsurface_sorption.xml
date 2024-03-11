@@ -363,7 +363,7 @@
         </ParameterList>
       </ParameterList>
       <ParameterList name="relative_permeability" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="relative permeability, van Genuchten" />
+        <Parameter name="evaluator type" type="string" value="relative permeability, water retention model" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
       </ParameterList>
     </ParameterList>
@@ -395,6 +395,8 @@
         </ParameterList>
       </ParameterList>
 
+    </ParameterList>
+    <ParameterList name="model parameters" type="ParameterList">
     </ParameterList>
   </ParameterList>
 </ParameterList>
