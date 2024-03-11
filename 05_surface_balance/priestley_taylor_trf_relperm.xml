@@ -163,7 +163,7 @@
       </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="initialize surface head from subsurface" type="bool" value="true" />
+        <Parameter name="initialize faces from cells" type="bool" value="true" />
       </ParameterList>
 
     </ParameterList>
@@ -382,6 +382,15 @@
   </ParameterList>
   <ParameterList name="checkpoint">
     <Parameter name="cycles" type="Array(int)" value="{0,10,20,30}" />
+  </ParameterList>
+  <ParameterList name="visualization">
+    <ParameterList name="domain">
+      <Parameter name="cycles start period stop" type="Array(int)" value="{0,1,-1}" />
+    </ParameterList>
+    <ParameterList name="surface">
+      <Parameter name="cycles start period stop" type="Array(int)" value="{0,1,-1}" />
+      <Parameter name="aliased domains" type="Array(string)" value="{canopy, snow}" />
+    </ParameterList>
   </ParameterList>
 
   <ParameterList name="observations" type="ParameterList">
