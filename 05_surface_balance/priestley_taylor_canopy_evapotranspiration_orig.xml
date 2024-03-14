@@ -55,6 +55,10 @@
     <Parameter name="start time units" type="string" value="d" />
     <Parameter name="end time" type="double" value="639" />
     <Parameter name="end time units" type="string" value="d" />
+    <ParameterList name="required times" type="ParameterList">
+      <Parameter name="times start period stop" type="Array(double)" value="{0,1,-1}"/>
+      <Parameter name="times start period stop units" type="string" value="d"/>
+    </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="water_balance" type="ParameterList">
         <Parameter name="PK type" type="string" value="weak MPC" />
@@ -457,12 +461,9 @@
         <Parameter name="transpiration coefficient" type="double" value="-1" />
       </ParameterList>
       <ParameterList name="transpiration" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="transpiration distribution, rooting depth" />
+        <Parameter name="evaluator type" type="string" value="transpiration distribution, relative permeability" />
         <Parameter name="potential transpiration key" type="string" value="canopy-potential_transpiration_mols" />
         <Parameter name="checkpoint" type="bool" value="true" />
-      </ParameterList>
-      <ParameterList name="plant_wilting_factor" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="plant wilting factor" />
       </ParameterList>
       <ParameterList name="root_fraction" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="root fraction" />
@@ -761,8 +762,8 @@
           <Parameter name="rooting depth max [m]" type="double" value="10" />
           <Parameter name="rooting profile alpha [-]" type="double" value=" 6" />
           <Parameter name="rooting profile beta [-]" type="double" value=" 2" />
-          <Parameter name="capillary pressure at fully closed stomata [Pa]" type="double" value="224000" />
-          <Parameter name="capillary pressure at fully open stomata [Pa]" type="double" value="3500" />
+          <Parameter name="capillary pressure at fully closed stomata [Pa]" type="double" value="2240000" />
+          <Parameter name="capillary pressure at fully open stomata [Pa]" type="double" value="350000" />
           <Parameter name="Priestley-Taylor alpha of snow [-]" type="double" value="1.26" />
           <Parameter name="Priestley-Taylor alpha of canopy [-]" type="double" value="1.26" />
           <Parameter name="Priestley-Taylor alpha of transpiration [-]" type="double" value="1.26" />

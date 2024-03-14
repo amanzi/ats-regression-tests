@@ -466,12 +466,9 @@
         <Parameter name="transpiration coefficient" type="double" value="-1" />
       </ParameterList>
       <ParameterList name="transpiration" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="transpiration distribution, rooting depth" />
+        <Parameter name="evaluator type" type="string" value="transpiration distribution, relative permeability" />
         <Parameter name="potential transpiration key" type="string" value="canopy-potential_transpiration_mols" />
         <Parameter name="checkpoint" type="bool" value="true" />
-      </ParameterList>
-      <ParameterList name="plant_wilting_factor" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="plant wilting factor" />
       </ParameterList>
       <ParameterList name="root_fraction" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="root fraction" />
@@ -770,8 +767,8 @@
           <Parameter name="rooting depth max [m]" type="double" value="10" />
           <Parameter name="rooting profile alpha [-]" type="double" value=" 6" />
           <Parameter name="rooting profile beta [-]" type="double" value=" 2" />
-          <Parameter name="capillary pressure at fully closed stomata [Pa]" type="double" value="224000" />
-          <Parameter name="capillary pressure at fully open stomata [Pa]" type="double" value="3500" />
+          <Parameter name="capillary pressure at fully closed stomata [Pa]" type="double" value="2240000" />
+          <Parameter name="capillary pressure at fully open stomata [Pa]" type="double" value="350000" />
           <Parameter name="Priestley-Taylor alpha of snow [-]" type="double" value="1.26" />
           <Parameter name="Priestley-Taylor alpha of canopy [-]" type="double" value="1.26" />
           <Parameter name="Priestley-Taylor alpha of transpiration [-]" type="double" value="1.26" />
@@ -805,6 +802,6 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="cycles" type="Array(int)" value="{0,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43}" />
+    <Parameter name="cycles" type="Array(int)" value="{0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300,310,320,330,340,350,360,365}" />
   </ParameterList>
 </ParameterList>
