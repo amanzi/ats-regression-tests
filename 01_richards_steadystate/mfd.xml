@@ -176,11 +176,11 @@
         <Parameter name="evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
       </ParameterList>
       <ParameterList name="saturation_liquid" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="wrm van Genuchten by material" />
+        <Parameter name="evaluator type" type="string" value="wrm van Genuchten" />
         <Parameter name="model parameters" type="string" value="WRM" />
       </ParameterList>
       <ParameterList name="relative_permeability" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="relative permeability van Genuchten by material" />
+        <Parameter name="evaluator type" type="string" value="relative permeability van Genuchten" />
         <Parameter name="model parameters" type="string" value="WRM" />
       </ParameterList>
       <ParameterList name="molar_density_liquid" type="ParameterList">

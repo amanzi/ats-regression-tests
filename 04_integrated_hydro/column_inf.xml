@@ -334,7 +334,7 @@
         </ParameterList>
       </ParameterList>
       <ParameterList name="porosity" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="compressible porosity linear by material" />
+        <Parameter name="evaluator type" type="string" value="compressible porosity linear" />
         <ParameterList name="model parameters" type="ParameterList">
           <ParameterList name="computational domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain" />
@@ -426,20 +426,20 @@
         <Parameter name="constant shift" type="double" value="-1.5" />
       </ParameterList>
       <ParameterList name="relative_permeability" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="relative permeability van Genuchten by material" />
+        <Parameter name="evaluator type" type="string" value="relative permeability van Genuchten" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
         <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
       </ParameterList>
       <ParameterList name="saturation_liquid" type="ParameterList">
         <Parameter name="model parameters" type="string" value="WRM parameters" />
-        <Parameter name="evaluator type" type="string" value="wrm van Genuchten by material" />
+        <Parameter name="evaluator type" type="string" value="wrm van Genuchten" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
       </ParameterList>
       <ParameterList name="saturation_gas" type="ParameterList">
         <Parameter name="model parameters" type="string" value="WRM parameters" />
-        <Parameter name="evaluator type" type="string" value="wrm van Genuchten by material" />
+        <Parameter name="evaluator type" type="string" value="wrm van Genuchten" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>

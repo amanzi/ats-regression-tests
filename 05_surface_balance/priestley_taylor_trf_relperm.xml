@@ -171,6 +171,9 @@
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
+    <ParameterList name="debug" type="ParameterList">
+      <Parameter name="evaluators" type="Array(string)" value="{root_fraction}" />
+    </ParameterList>
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="richards water content" />
@@ -216,12 +219,14 @@
         <Parameter name="transpiration coefficient" type="double" value="-1" />
       </ParameterList>
       <ParameterList name="transpiration" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="transpiration distribution via relative permeability" />
+        <Parameter name="evaluator type" type="string" value="transpiration distribution, relative permeability" />
         <Parameter name="water density in plant [kg m^-3]" type="double" value="997" />
+        <Parameter name="model parameters" type="string" value="land cover parameters" />
         <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
       <ParameterList name="root_fraction" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="root fraction" />
+        <Parameter name="model parameters" type="string" value="land cover parameters" />
         <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
       <ParameterList name="depth" type="ParameterList">
@@ -240,6 +245,7 @@
         <Parameter name="surface temperature key" type="string" value="surface-temperature" />
         <Parameter name="elevation key" type="string" value="surface-elevation" />
         <Parameter name="net radiation key suffix" type="string" value="shortwave_radiation" />
+        <Parameter name="model parameters" type="string" value="land cover parameters" />
         <Parameter name="units" type="string" value="m s^-1" />
       </ParameterList>
       <ParameterList name="surface-air_temperature" type="ParameterList">
@@ -259,7 +265,7 @@
         <Parameter name="value" type="double" value="0.4" />
       </ParameterList>
       <ParameterList name="porosity" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="compressible porosity linear by material" />
+        <Parameter name="evaluator type" type="string" value="compressible porosity linear" />
         <ParameterList name="model parameters" type="ParameterList">
           <ParameterList name="computational domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain" />
@@ -321,19 +327,19 @@
         <Parameter name="constant shift" type="double" value="-1.5" />
       </ParameterList>
       <ParameterList name="relative_permeability" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="relative permeability van Genuchten by material" />
+        <Parameter name="evaluator type" type="string" value="relative permeability van Genuchten" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
         <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
       </ParameterList>
       <ParameterList name="saturation_liquid" type="ParameterList">
         <Parameter name="checkpoint" type="bool" value="true" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
-        <Parameter name="evaluator type" type="string" value="wrm van Genuchten by material" />
+        <Parameter name="evaluator type" type="string" value="wrm van Genuchten" />
       </ParameterList>
       <ParameterList name="saturation_gas" type="ParameterList">
         <Parameter name="checkpoint" type="bool" value="true" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
-        <Parameter name="evaluator type" type="string" value="wrm van Genuchten by material" />
+        <Parameter name="evaluator type" type="string" value="wrm van Genuchten" />
       </ParameterList>
       <ParameterList name="relative_hydraulic_conductivity" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="relative hydraulic conductivity" />
@@ -348,7 +354,19 @@
       <ParameterList name="gravity" type="ParameterList">
         <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
       </ParameterList>
-      <ParameterList name="land cover types" type="ParameterList">
+    </ParameterList>
+    <ParameterList name="model parameters" type="ParameterList">
+      <ParameterList name="WRM parameters" type="ParameterList">
+        <ParameterList name="computational domain" type="ParameterList">
+          <Parameter name="region" type="string" value="computational domain" />
+          <Parameter name="WRM Type" type="string" value="van Genuchten" />
+          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00545" />
+          <Parameter name="van Genuchten n [-]" type="double" value=" 2" />
+          <Parameter name="residual saturation [-]" type="double" value="0.1" />
+          <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
+        </ParameterList>
+      </ParameterList>
+      <ParameterList name="land cover parameters" type="ParameterList">
         <ParameterList name="surface domain" type="ParameterList">
           <Parameter name="roughness length of bare ground [m]" type="double" value="0.04" />
           <Parameter name="roughness length of snow-covered ground [m]" type="double" value="0.004" />
@@ -364,18 +382,6 @@
           <Parameter name="Priestley-Taylor alpha of transpiration [-]" type="double" value="1.26" />
           <Parameter name="leaf on time [doy]" type="double" value="-1" />
           <Parameter name="leaf off time [doy]" type="double" value="-1" />
-        </ParameterList>
-      </ParameterList>
-    </ParameterList>
-    <ParameterList name="model parameters" type="ParameterList">
-      <ParameterList name="WRM parameters" type="ParameterList">
-        <ParameterList name="computational domain" type="ParameterList">
-          <Parameter name="region" type="string" value="computational domain" />
-          <Parameter name="WRM Type" type="string" value="van Genuchten" />
-          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00545" />
-          <Parameter name="van Genuchten n [-]" type="double" value=" 2" />
-          <Parameter name="residual saturation [-]" type="double" value="0.1" />
-          <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
         </ParameterList>
       </ParameterList>
     </ParameterList>
