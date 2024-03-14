@@ -266,7 +266,12 @@
         <Parameter name="distributed source key" type="string" value="water_source" />
         <Parameter name="number of ditches" type="int" value="1" />
         <Parameter name="entering pressure [Pa]" type="double" value="99365" />
-        <Parameter name="tile permeability [m^2]" type="double" value="1e-07" />
+        <Parameter name="number of components" type="int" value="1" />
+        <Parameter name="permeability above [m^2]" type="double" value="4.5659835897806e-13" />
+        <Parameter name="permeability below [m^2]" type="double" value="4.5659835897806e-13" />
+        <Parameter name="equivalent distance to impermeable boundary [m]" type="double" value="1.292" />
+        <Parameter name="drain spacing [m]" type="double" value="15" />
+        <Parameter name="drain layer thickness [m]" type="double" value="0.5" />
       </ParameterList>
       <ParameterList name="surface-source_molar_density" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
@@ -338,18 +343,13 @@
         </ParameterList>
       </ParameterList>
       <ParameterList name="saturation_liquid" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="WRM" />
+        <Parameter name="evaluator type" type="string" value="water retention model" />
+        <Parameter name="model parameters" type="string" value="WRM parameters" />
+      </ParameterList>
+      <ParameterList name="relative_permeability" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="relative permeability, water retention model" />
+        <Parameter name="model parameters" type="string" value="WRM parameters" />
         <Parameter name="use surface rel perm" type="bool" value="true" />
-        <ParameterList name="WRM parameters" type="ParameterList">
-          <ParameterList name="computation domain" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.000545" />
-            <Parameter name="van Genuchten m [-]" type="double" value="0.19" />
-            <Parameter name="residual saturation [-]" type="double" value="0.1" />
-            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
-          </ParameterList>
-        </ParameterList>
       </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
@@ -362,6 +362,18 @@
         <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
       </ParameterList>
 
+    </ParameterList>
+    <ParameterList name="model parameters" type="ParameterList">
+      <ParameterList name="WRM parameters" type="ParameterList">
+        <ParameterList name="computation domain" type="ParameterList">
+          <Parameter name="region" type="string" value="computational domain" />
+          <Parameter name="wrm type" type="string" value="van Genuchten" />
+          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.000545" />
+          <Parameter name="van Genuchten m [-]" type="double" value="0.19" />
+          <Parameter name="residual saturation [-]" type="double" value="0.1" />
+          <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
+        </ParameterList>
+      </ParameterList>
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint">

@@ -74,11 +74,11 @@ END
 #=========================== FOREST constraints ============================
 CONSTRAINT forest 
   CONCENTRATIONS
-    DOM1                1.0e-4
+    DOM1                1.0e-4 T
     O2(aq)              0.21 G O2(g) 
     H+                  6.0 P
     HCO3-               400e-6 G CO2(g)
-    NO3-                2.0e-6 
+    NO3-                2.0e-6  T
     N2(aq)              0.78 G N2(g)* 
   /
 END
@@ -86,11 +86,11 @@ END
 #=========================== FARM constraints ============================
 CONSTRAINT farm
   CONCENTRATIONS
-    DOM1                1.0e-3
+    DOM1                1.0e-3 T
     O2(aq)              0.21 G O2(g) 
     H+                  6.0 P
     HCO3-               400e-6 G CO2(g)
-    NO3-                2.0e-4 
+    NO3-                2.0e-4  T
     N2(aq)              0.78 G N2(g)* 
   /
 END
@@ -98,11 +98,11 @@ END
 #=========================== initial constraints ============================
 CONSTRAINT initial
   CONCENTRATIONS
-    DOM1                1.0e-4
+    DOM1                1.0e-4 T
     O2(aq)              0.21 G O2(g) 
     H+                  6.0 P
     HCO3-               400e-6 G CO2(g)
-    NO3-                2.0e-6
+    NO3-                2.0e-6 T
     N2(aq)              0.78 G N2(g)* 
   /
 END
