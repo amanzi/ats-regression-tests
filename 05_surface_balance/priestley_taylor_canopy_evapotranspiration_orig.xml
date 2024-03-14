@@ -52,7 +52,7 @@
 
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value="274" />
-    <Parameter name="start time units" type="string" value="s" />
+    <Parameter name="start time units" type="string" value="d" />
     <Parameter name="end time" type="double" value="639" />
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="PK tree" type="ParameterList">
@@ -105,7 +105,7 @@
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="from file" />
+        <Parameter name="timestep controller type" type="string" value="smarter" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
           <Parameter name="nka lag iterations" type="int" value="2" />
           <Parameter name="max backtrack steps" type="int" value="5" />
@@ -126,9 +126,6 @@
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
           <Parameter name="initial time step [s]" type="double" value="86400" />
-        </ParameterList>
-        <ParameterList name="timestep controller from file parameters" type="ParameterList">
-          <Parameter name="file name" type="string" value="../data/priestley_taylor_canopy_evapotranspiration_dts.h5" />
         </ParameterList>
       </ParameterList>
 
@@ -155,7 +152,7 @@
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="from file" />
+        <Parameter name="timestep controller type" type="string" value="smarter" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
           <Parameter name="nka lag iterations" type="int" value="2" />
           <Parameter name="max backtrack steps" type="int" value="5" />
@@ -176,9 +173,6 @@
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
           <Parameter name="initial time step [s]" type="double" value="86400" />
-        </ParameterList>
-        <ParameterList name="timestep controller from file parameters" type="ParameterList">
-          <Parameter name="file name" type="string" value="../data/priestley_taylor_canopy_evapotranspiration_dts.h5" />
         </ParameterList>
       </ParameterList>
 
@@ -213,7 +207,7 @@
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="from file" />
+        <Parameter name="timestep controller type" type="string" value="smarter" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
           <Parameter name="nka lag iterations" type="int" value="2" />
           <Parameter name="max backtrack steps" type="int" value="5" />
@@ -234,9 +228,6 @@
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
           <Parameter name="initial time step [s]" type="double" value="86400" />
-        </ParameterList>
-        <ParameterList name="timestep controller from file parameters" type="ParameterList">
-          <Parameter name="file name" type="string" value="../data/priestley_taylor_canopy_evapotranspiration_dts.h5" />
         </ParameterList>
       </ParameterList>
 
@@ -805,6 +796,7 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="cycles" type="Array(int)" value="{274,284,294,304,314,324,334,344,354,364,374,384,394,404,414,424,434,444,454,464,474,484,494,504,514,524,534,544,554,564,574,584,594,604,614,624,634,639}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{274,10,-1}"/>
+    <Parameter name="times start period stop units" type="string" value="d"/>
   </ParameterList>
 </ParameterList>
