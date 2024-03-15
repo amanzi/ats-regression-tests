@@ -585,9 +585,7 @@
 
       <Parameter name="source key" type="string" value="network-source_drain"/>
 
-      <Parameter name="use shallow water model" type="int" value="0"/>
-
-      <Parameter name="pipe diameter" type="double" value="5.0"/>
+      <Parameter name="diameter key" type="string" value="network-diameter"/>
 
       <Parameter name="celerity" type="double" value="20"/>
 
@@ -752,6 +750,25 @@
   <ParameterList name="state" type="ParameterList">
 
     <ParameterList name="evaluators">
+
+           <ParameterList name="network-diameter" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable" />
+        <ParameterList name="function">
+          <ParameterList name="network">
+            <Parameter name="region" type="string" value="network" />
+            <Parameter name="component" type="string" value="cell" />
+            <ParameterList name="function">
+              <Parameter name="number of dofs" type="int" value="1" />
+              <Parameter name="function type" type="string" value="composite function" />
+              <ParameterList name="dof 1 function">
+                <ParameterList name="function-constant">
+                  <Parameter name="value" type="double" value="5.0" />
+                </ParameterList>
+              </ParameterList>
+           </ParameterList>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
 
           <ParameterList name="network-direction">
         <Parameter name="evaluator type" type="string" value="independent variable" />
@@ -992,7 +1009,7 @@
       <ParameterList name="network-bathymetry">
         <ParameterList name="function">
           <ParameterList name="domain">
-            <Parameter name="region" type="string" value="computational domain"/>
+            <Parameter name="region" type="string" value="network domain"/>
             <Parameter name="components" type="Array(string)" value="{cell, node}"/>
             <ParameterList name="function">
               <ParameterList name="function-exprtk">
