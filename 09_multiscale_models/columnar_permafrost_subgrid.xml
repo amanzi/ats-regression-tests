@@ -1159,10 +1159,10 @@
         <Parameter name="dependency suffixes" type="Array(string)" value="{molar_density_liquid, water_source}" />
       </ParameterList>
       <ParameterList name="column:*-saturation_liquid" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="permafrost WRM" />
+        <Parameter name="evaluator type" type="string" value="water retention model with ice" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
         <ParameterList name="permafrost model parameters" type="ParameterList">
-          <Parameter name="permafrost WRM type" type="string" value="fpd permafrost model" />
+          <Parameter name="permafrost wrm type" type="string" value="fpd permafrost model" />
           <Parameter name="minimum dsi_dpressure magnitude" type="double" value="1e-12" />
         </ParameterList>
       </ParameterList>
@@ -1356,7 +1356,7 @@
         <Parameter name="model parameters" type="string" value="WRM parameters" />
       </ParameterList>
       <ParameterList name="column:*-relative_permeability" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="relative permeability, van Genuchten" />
+        <Parameter name="evaluator type" type="string" value="relative permeability, water retention model" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
         <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
         <Parameter name="use surface rel perm" type="bool" value="true" />
@@ -1388,7 +1388,7 @@
       <ParameterList name="WRM parameters" type="ParameterList">
         <ParameterList name="moss" type="ParameterList">
           <Parameter name="region" type="string" value="computational domain moss" />
-          <Parameter name="WRM Type" type="string" value="van Genuchten" />
+          <Parameter name="wrm type" type="string" value="van Genuchten" />
           <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.0023" />
           <Parameter name="van Genuchten m [-]" type="double" value="0.2754" />
           <Parameter name="residual saturation [-]" type="double" value=" 0" />
@@ -1397,7 +1397,7 @@
         </ParameterList>
         <ParameterList name="peat" type="ParameterList">
           <Parameter name="region" type="string" value="computational domain peat" />
-          <Parameter name="WRM Type" type="string" value="van Genuchten" />
+          <Parameter name="wrm type" type="string" value="van Genuchten" />
           <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00051" />
           <Parameter name="van Genuchten m [-]" type="double" value="0.19" />
           <Parameter name="residual saturation [-]" type="double" value=" 0" />
@@ -1406,7 +1406,7 @@
         </ParameterList>
         <ParameterList name="upper mineral" type="ParameterList">
           <Parameter name="region" type="string" value="computational domain mineral" />
-          <Parameter name="WRM Type" type="string" value="van Genuchten" />
+          <Parameter name="wrm type" type="string" value="van Genuchten" />
           <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00033" />
           <Parameter name="van Genuchten m [-]" type="double" value="0.2481" />
           <Parameter name="residual saturation [-]" type="double" value="0.2" />
