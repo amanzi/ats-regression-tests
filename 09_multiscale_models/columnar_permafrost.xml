@@ -79,18 +79,6 @@
       <ParameterList name="region: all" type="ParameterList">
       </ParameterList>
     </ParameterList>
-    <ParameterList name="computational domain moss" type="ParameterList">
-      <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{-1e-10,-1e-10,4.98}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{10000000000,10000000000, 5}" />
-      </ParameterList>
-    </ParameterList>
-    <ParameterList name="computational domain peat" type="ParameterList">
-      <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{-1e-10,-1e-10,4.9}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{10000000000,10000000000,4.98}" />
-      </ParameterList>
-    </ParameterList>
     <ParameterList name="computational domain ice rich" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
         <Parameter name="low coordinate" type="Array(double)" value="{-1e-10,-1e-10,2.4}" />
@@ -370,24 +358,6 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-          <ParameterList name="moss" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain moss" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.9" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="peat" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain peat" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.87" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
         </ParameterList>
       </ParameterList>
 
@@ -586,24 +556,6 @@
 
       <ParameterList name="thermal conductivity evaluator" type="ParameterList">
         <ParameterList name="thermal conductivity parameters" type="ParameterList">
-          <ParameterList name="computational domain moss" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain moss" />
-            <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
-            <Parameter name="thermal conductivity, saturated (unfrozen) [W m^-1 K^-1]" type="double" value="0.75" />
-            <Parameter name="thermal conductivity, dry [W m^-1 K^-1]" type="double" value="0.1" />
-            <Parameter name="saturated beta frozen [-]" type="double" value="0.45" />
-            <Parameter name="unsaturated alpha frozen [-]" type="double" value=" 1" />
-            <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
-          </ParameterList>
-          <ParameterList name="computational domain peat" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain peat" />
-            <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
-            <Parameter name="thermal conductivity, saturated (unfrozen) [W m^-1 K^-1]" type="double" value="0.75" />
-            <Parameter name="thermal conductivity, dry [W m^-1 K^-1]" type="double" value="0.1" />
-            <Parameter name="saturated beta frozen [-]" type="double" value="0.48" />
-            <Parameter name="unsaturated alpha frozen [-]" type="double" value=" 1" />
-            <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
-          </ParameterList>
           <ParameterList name="computational domain mineral" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain mineral" />
             <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
@@ -938,14 +890,6 @@
       <ParameterList name="column:*-porosity" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="compressible porosity" />
         <ParameterList name="compressible porosity model parameters" type="ParameterList">
-          <ParameterList name="moss" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain moss" />
-            <Parameter name="pore compressibility [Pa^-1]" type="double" value="5e-07" />
-          </ParameterList>
-          <ParameterList name="peat" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain peat" />
-            <Parameter name="pore compressibility [Pa^-1]" type="double" value="1e-07" />
-          </ParameterList>
           <ParameterList name="upper mineral" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain mineral" />
             <Parameter name="pore compressibility [Pa^-1]" type="double" value="1e-08" />
@@ -964,24 +908,6 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-          <ParameterList name="moss" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain moss" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1.75e-11" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="peat" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain peat" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="9.38e-12" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
         </ParameterList>
       </ParameterList>
       <ParameterList name="column:*-density_rock" type="ParameterList">
@@ -993,24 +919,6 @@
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="2170" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="moss" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain moss" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="400" />
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="peat" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain peat" />
-            <Parameter name="component" type="string" value="cell" />
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="700" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -1056,37 +964,10 @@
         <Parameter name="dependency suffixes" type="Array(string)" value="{molar_density_liquid, water_source}" />
       </ParameterList>
       <ParameterList name="column:*-saturation_liquid" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="permafrost WRM" />
-        <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
-        <Parameter name="use surface rel perm" type="bool" value="true" />
-        <ParameterList name="WRM parameters" type="ParameterList">
-          <ParameterList name="moss" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain moss" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.0023" />
-            <Parameter name="van Genuchten m [-]" type="double" value="0.2754" />
-            <Parameter name="residual saturation [-]" type="double" value=" 0" />
-            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
-          </ParameterList>
-          <ParameterList name="peat" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain peat" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00051" />
-            <Parameter name="van Genuchten m [-]" type="double" value="0.19" />
-            <Parameter name="residual saturation [-]" type="double" value=" 0" />
-            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
-          </ParameterList>
-          <ParameterList name="upper mineral" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain mineral" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00033" />
-            <Parameter name="van Genuchten m [-]" type="double" value="0.2481" />
-            <Parameter name="residual saturation [-]" type="double" value="0.2" />
-            <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
-          </ParameterList>
-        </ParameterList>
+        <Parameter name="evaluator type" type="string" value="water retention model with ice" />
+        <Parameter name="model parameters" type="string" value="WRM parameters" />
         <ParameterList name="permafrost model parameters" type="ParameterList">
-          <Parameter name="permafrost WRM type" type="string" value="fpd permafrost model" />
+          <Parameter name="permafrost wrm type" type="string" value="fpd permafrost model" />
           <Parameter name="minimum dsi_dpressure magnitude" type="double" value="1e-12" />
         </ParameterList>
       </ParameterList>
@@ -1267,6 +1148,20 @@
         <Parameter name="evaluator type" type="string" value="additive evaluator" />
         <Parameter name="evaluator dependency" type="Array(string)" value="{surface_star-ponded_depth, surface_star-elevation}" />
       </ParameterList>
+      <ParameterList name="surface-soil_resistance" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="soil resistance, Sakagucki-Zeng" />
+        <Parameter name="model parameters" type="string" value="WRM parameters" />
+      </ParameterList>
+      <ParameterList name="surface_column:*-soil_resistance" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="soil resistance, Sakagucki-Zeng" />
+        <Parameter name="model parameters" type="string" value="WRM parameters" />
+      </ParameterList>
+      <ParameterList name="column:*-relative_permeability" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="relative permeability, water retention model" />
+        <Parameter name="model parameters" type="string" value="WRM parameters" />
+        <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
+        <Parameter name="use surface rel perm" type="bool" value="true" />
+      </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 
@@ -1280,17 +1175,28 @@
 
       <ParameterList name="land cover types" type="ParameterList">
         <ParameterList name="surface domain" type="ParameterList">
-          <Parameter name="dessicated zone thickness [m]" type="double" value="0.1" />
           <Parameter name="roughness length of bare ground [m]" type="double" value="0.04" />
           <Parameter name="roughness length of snow [m]" type="double" value="0.004" />
           <Parameter name="snow transition depth [m]" type="double" value="0.02" />
           <Parameter name="water transition depth [m]" type="double" value="0.02" />
           <Parameter name="albedo of bare ground [-]" type="double" value="0.135" />
           <Parameter name="emissivity of bare ground [-]" type="double" value="0.92" />
-          <Parameter name="Clapp and Hornberger b [-]" type="double" value=" 3" />
         </ParameterList>
       </ParameterList>
 
+    </ParameterList>
+    <ParameterList name="model parameters" type="ParameterList">
+      <ParameterList name="WRM parameters" type="ParameterList">
+        <ParameterList name="upper mineral" type="ParameterList">
+          <Parameter name="region" type="string" value="computational domain mineral" />
+          <Parameter name="wrm type" type="string" value="van Genuchten" />
+          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00033" />
+          <Parameter name="van Genuchten m [-]" type="double" value="0.2481" />
+          <Parameter name="residual saturation [-]" type="double" value="0.2" />
+          <Parameter name="smoothing interval width [saturation]" type="double" value="0.1" />
+          <Parameter name="dessicated zone thickness [m]" type="double" value="0.1" />
+        </ParameterList>
+      </ParameterList>
     </ParameterList>
   </ParameterList>
 </ParameterList>

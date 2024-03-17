@@ -86,6 +86,7 @@
       <Parameter name="PK type" type="string" value="subcycling MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{surface-subsurface flow coupler, surface-subsurface transport coupler}" />
       <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
+
     </ParameterList>
 
     <ParameterList name="surface-subsurface flow coupler">
@@ -137,7 +138,7 @@
           <Parameter name="initial time step [s]" type="double" value="86400" />
         </ParameterList>
       </ParameterList>
-      
+
     </ParameterList>
 
     <ParameterList name="flow">
@@ -146,7 +147,6 @@
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="hydrostatic head [m]" type="double" value="-2" />
         <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000" />
@@ -172,7 +172,6 @@
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="water source in meters" type="bool" value="true" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
@@ -194,6 +193,7 @@
       <Parameter name="PK type" type="string" value="surface subsurface transport" />
       <Parameter name="PKs order" type="Array(string)" value="{subsurface transport, surface transport}" />
       <Parameter name="component names" type="Array(string)" value="{Tc-99}" />
+
     </ParameterList>
 
     <ParameterList name="subsurface transport">
@@ -213,7 +213,6 @@
       <Parameter name="number of aqueous components" type="int" value="1" />
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
-
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="constant" type="double" value=" 0" />
       </ParameterList>
@@ -441,19 +440,14 @@
         </ParameterList>
       </ParameterList>
       <ParameterList name="saturation_liquid" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="WRM" />
+        <Parameter name="evaluator type" type="string" value="water retention model" />
+        <Parameter name="model parameters" type="string" value="WRM parameters" />
+      </ParameterList>
+      <ParameterList name="relative_permeability" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="relative permeability, water retention model" />
+        <Parameter name="model parameters" type="string" value="WRM parameters" />
         <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
         <Parameter name="use surface rel perm" type="bool" value="true" />
-        <ParameterList name="WRM parameters" type="ParameterList">
-          <ParameterList name="rest domain" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00010224" />
-            <Parameter name="van Genuchten n [-]" type="double" value=" 2" />
-            <Parameter name="residual saturation [-]" type="double" value="0.2" />
-            <Parameter name="smoothing interval width [saturation]" type="double" value=" 0" />
-          </ParameterList>
-        </ParameterList>
       </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions">
@@ -467,9 +461,20 @@
       </ParameterList>
 
     </ParameterList>
+    <ParameterList name="model parameters" type="ParameterList">
+      <ParameterList name="WRM parameters" type="ParameterList">
+        <ParameterList name="rest domain" type="ParameterList">
+          <Parameter name="region" type="string" value="computational domain" />
+          <Parameter name="wrm type" type="string" value="van Genuchten" />
+          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00010224" />
+          <Parameter name="van Genuchten n [-]" type="double" value=" 2" />
+          <Parameter name="residual saturation [-]" type="double" value="0.2" />
+          <Parameter name="smoothing interval width [saturation]" type="double" value=" 0" />
+        </ParameterList>
+      </ParameterList>
+    </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint">
     <Parameter name="cycles" type="Array(int)" value="{0,7,10,13,16,19,22,25,28,31,34}" />
   </ParameterList>
 </ParameterList>
-

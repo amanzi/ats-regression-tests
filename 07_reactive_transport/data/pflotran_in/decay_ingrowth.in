@@ -12,13 +12,13 @@ DATABASE hanford.dat
 END
 CONSTRAINT upstreambc
   CONCENTRATIONS
-    Tracer1 1.0
-    Tracer2 1.0e-20
+    Tracer1 1.0      T
+    Tracer2 1.0e-20  T
   /
 END
 CONSTRAINT initial
   CONCENTRATIONS
-    Tracer1 1.0e-20
-    Tracer2 1.0e-20
+    Tracer1 1.0e-20  T
+    Tracer2 1.0e-20  T
   /
 END

@@ -254,7 +254,7 @@
       <Parameter name="PK type" type="string" value="transport ats" />
       <Parameter name="saturation liquid key" type="string" value="saturation_liquid" />
       <Parameter name="previous saturation liquid key" type="string" value="prev_saturation_liquid" />
-      <Parameter name="flux_key" type="string" value="mass_flux" />
+      <Parameter name="flux_key" type="string" value="water_flux" />
       <Parameter name="molar_density_key" type="string" value="molar_density_liquid" />
       <Parameter name="component names" type="Array(string)" value="{tracer}" />
       <Parameter name="number of liquid components" type="int" value="1" />
@@ -336,7 +336,7 @@
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="saturation liquid key" type="string" value="surface-ponded_depth" />
       <Parameter name="previous saturation liquid key" type="string" value="surface-prev_ponded_depth" />
-      <Parameter name="flux_key" type="string" value="surface-mass_flux" />
+      <Parameter name="flux_key" type="string" value="surface-water_flux" />
       <Parameter name="molar_density_key" type="string" value="surface-molar_density_liquid" />
       <Parameter name="porosity key" type="string" value="surface-one" />
       <Parameter name="component names" type="Array(string)" value="{tracer}" />
@@ -593,19 +593,14 @@
         </ParameterList>
       </ParameterList>
       <ParameterList name="saturation_liquid" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="WRM" />
+        <Parameter name="evaluator type" type="string" value="water retention model" />
+        <Parameter name="model parameters" type="string" value="WRM parameters" />
+      </ParameterList>
+      <ParameterList name="relative_permeability" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="relative permeability, water retention model" />
+        <Parameter name="model parameters" type="string" value="WRM parameters" />
         <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
         <Parameter name="use surface rel perm" type="bool" value="true" />
-        <ParameterList name="WRM parameters" type="ParameterList">
-          <ParameterList name="rest domain" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain" />
-            <Parameter name="WRM Type" type="string" value="van Genuchten" />
-            <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00010224" />
-            <Parameter name="van Genuchten n [-]" type="double" value=" 2" />
-            <Parameter name="residual saturation [-]" type="double" value="0.2" />
-            <Parameter name="smoothing interval width [saturation]" type="double" value=" 0" />
-          </ParameterList>
-        </ParameterList>
       </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions">
@@ -618,6 +613,18 @@
         <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.81}" />
       </ParameterList>
 
+    </ParameterList>
+    <ParameterList name="model parameters" type="ParameterList">
+      <ParameterList name="WRM parameters" type="ParameterList">
+        <ParameterList name="rest domain" type="ParameterList">
+          <Parameter name="region" type="string" value="computational domain" />
+          <Parameter name="wrm type" type="string" value="van Genuchten" />
+          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00010224" />
+          <Parameter name="van Genuchten n [-]" type="double" value=" 2" />
+          <Parameter name="residual saturation [-]" type="double" value="0.2" />
+          <Parameter name="smoothing interval width [saturation]" type="double" value=" 0" />
+        </ParameterList>
+      </ParameterList>
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint">

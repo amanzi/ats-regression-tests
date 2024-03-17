@@ -31,13 +31,13 @@
     </ParameterList>
     <ParameterList name="surface west" type="ParameterList">
       <ParameterList name="region: enumerated set" type="ParameterList">
-        <Parameter name="entity" type="string" value="cell" />
+        <Parameter name="entity" type="string" value="face" />
         <Parameter name="entity gids" type="Array(int)" value="{0}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface east" type="ParameterList">
       <ParameterList name="region: enumerated set" type="ParameterList">
-        <Parameter name="entity" type="string" value="cell" />
+        <Parameter name="entity" type="string" value="face" />
         <Parameter name="entity gids" type="Array(int)" value="{99}" />
       </ParameterList>
     </ParameterList>
@@ -61,9 +61,6 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-  <ParameterList name="verbose object" type="ParameterList">
-    <Parameter name="verbosity level" type="string" value="high" />
-  </ParameterList>
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{ 0,0.1,-1}" />
@@ -84,9 +81,7 @@
       <Parameter name="PKs order" type="Array(string)" value="{surface chemistry, surface transport}" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="transport index" type="int" value="1" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="low" />
-      </ParameterList>
+      <Parameter name="debug cells" type="Array(int)" value="{0}" />
 
     </ParameterList>
 
@@ -108,11 +103,7 @@
       <Parameter name="number of aqueous components" type="int" value="6" />
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="medium" />
-        <Parameter name="name" type="string" value="Surface Transport" />
-      </ParameterList>
-
+      <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="reconstruction" type="ParameterList">
         <Parameter name="polynomial order" type="int" value="0" />
         <Parameter name="limiter" type="string" value="tensorial" />
@@ -152,29 +143,10 @@
           <Parameter name="error tolerance" type="double" value="1e-20" />
           <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}" />
           <Parameter name="size of Krylov space" type="int" value="5" />
-          <ParameterList name="verbose object">
-            <Parameter name="verbosity level" type="string" value="low" />
-          </ParameterList>
         </ParameterList>
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
-        <ParameterList name="geochemical" type="ParameterList">
-          <ParameterList name="west_bc" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{surface west}" />
-            <Parameter name="solutes" type="Array(string)" value="{DOM1,O2(aq),NO3-,HCO3-,H+,N2(aq)}" />
-            <Parameter name="times" type="Array(double)" value="{ 0,1e+20}" />
-            <Parameter name="geochemical conditions" type="Array(string)" value="{upstreambc, upstreambc}" />
-            <Parameter name="time functions" type="Array(string)" value="{constant}" />
-          </ParameterList>
-          <ParameterList name="east_bc" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{surface east}" />
-            <Parameter name="solutes" type="Array(string)" value="{DOM1,O2(aq),NO3-,HCO3-,H+,N2(aq)}" />
-            <Parameter name="times" type="Array(double)" value="{ 0,1e+20}" />
-            <Parameter name="geochemical conditions" type="Array(string)" value="{initial,initial}" />
-            <Parameter name="time functions" type="Array(string)" value="{constant}" />
-          </ParameterList>
-        </ParameterList>
       </ParameterList>
 
       <ParameterList name="physical models and assumptions" type="ParameterList">
@@ -205,10 +177,6 @@
       <Parameter name="initial conditions time" type="double" value=" 0" />
       <Parameter name="number of component concentrations" type="int" value="6" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="high" />
-      </ParameterList>
-
       <ParameterList name="initial condition" type="ParameterList">
         <ParameterList name="geochemical conditions" type="ParameterList">
           <ParameterList name="initial" type="ParameterList">
