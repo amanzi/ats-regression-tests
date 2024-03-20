@@ -804,7 +804,60 @@
 
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="evaluators" type="ParameterList">
+
+      <ParameterList name="surface-manhole_locations" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable" />
+        <ParameterList name="function">
+          <ParameterList name="surface domain">
+            <Parameter name="region" type="string" value="surface domain" />
+            <Parameter name="component" type="string" value="cell" />
+            <ParameterList name="function">
+              <Parameter name="number of dofs" type="int" value="1" />
+              <Parameter name="function type" type="string" value="composite function" />
+              <ParameterList name="dof 1 function">
+                <ParameterList name="function-constant">
+                  <Parameter name="value" type="double" value="0" />
+                </ParameterList>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+          
+          <ParameterList name="Manhole">
+            <Parameter name="region" type="string" value="Manhole" />
+            <Parameter name="component" type="string" value="cell" />
+            <ParameterList name="function">
+              <Parameter name="number of dofs" type="int" value="1" />
+              <Parameter name="function type" type="string" value="composite function" />
+              <ParameterList name="dof 1 function">
+                <ParameterList name="function-constant">
+                  <Parameter name="value" type="double" value="1" />
+                </ParameterList>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+         
+        </ParameterList>
+      </ParameterList>
+      
+
       <ParameterList name="surface-water_source" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="additive evaluator" />
+        <Parameter name="dependencies" type="Array(string)" value="{surface-rain_source, surface-source_drain}" />
+      </ParameterList>
+
+      <ParameterList name="surface-source_drain" type="ParameterList"> 
+        <Parameter name="evaluator type" type="string" value="pipe drain" /> 
+        <Parameter name="manhole radius" type="double" value="0.50" />
+        <!-- <Parameter name="drain length" type="double" value="0.1" /> -->
+        <Parameter name="energy losses coeff weir" type="double" value="0.08" /> 
+        <Parameter name="energy losses coeff submerged weir" type="double" value="0.08" /> 
+        <Parameter name="energy losses coeff orifice" type="double" value="0.08" /> 
+        <Parameter name="pipe domain name" type="string" value="network" /> 
+        <Parameter name="sw domain name" type="string" value="surface" />
+        <Parameter name="surface bathymetry key" type="string" value="surface-elevation"/>
+      </ParameterList> 
+      
+      <ParameterList name="surface-rain_source" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
@@ -813,7 +866,7 @@
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
                 <Parameter name="x values" type="Array(double)" value="{ 0,12000}" />
-                <Parameter name="y values" type="Array(double)" value="{ 0 , 0}" />
+                <Parameter name="y values" type="Array(double)" value="{ 1e-5 , 1e-5}" />
                 <Parameter name="forms" type="Array(string)" value="{constant}" />
               </ParameterList>
             </ParameterList>
@@ -1151,7 +1204,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1.5" />
+                <Parameter name="value" type="double" value="0.75" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
