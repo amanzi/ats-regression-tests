@@ -155,6 +155,12 @@
       </ParameterList>
     </ParameterList>
 
+    <ParameterList name="east1" type="ParameterList">
+      <ParameterList name="region: box" type="ParameterList">
+        <Parameter name="low coordinate" type="Array(double)"  value="{500.0, 200.0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{500.0, 300.0}" />
+      </ParameterList>
+    </ParameterList>
 
     <ParameterList name="pipes" type="ParameterList">
       <ParameterList name="region: logical" type="ParameterList">
@@ -284,6 +290,25 @@
       </ParameterList>
     </ParameterList>
 
+    <ParameterList name="M_10">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{455, 205}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="M_11">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{255, 205}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="M_12">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{155, 205}"/>
+      </ParameterList>
+    </ParameterList>    
+
+    
     <ParameterList name="M_2">
       <ParameterList name="region: point" type="ParameterList">
         <Parameter name="coordinate" type="Array(double)" value="{255, 305}"/>
@@ -315,14 +340,67 @@
       </ParameterList>
     </ParameterList>
 
+    <ParameterList name="M_7">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{205, 155}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="M_8">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{105, 155}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="M_9">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{455, 305}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="M_13">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{355, 305}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="M_14">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{155, 305}"/>
+      </ParameterList>
+    </ParameterList>
+    
+    <ParameterList name="M_15">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{405, 155}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="M_16">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{405, 255}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="M_17">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{305, 255}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="M_18">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{105, 255}"/>
+      </ParameterList>
+    </ParameterList>
+
 
     <ParameterList name="Manhole" type="ParameterList">
       <ParameterList name="region: logical" type="ParameterList">
         <Parameter name="operation" type="string" value="union" />
-        <Parameter name="regions" type="Array(string)" value="{M_1, M_2, M_3, M_4, M_5, M_6}" />
+        <Parameter name="regions" type="Array(string)" value="{M_1, M_2, M_3, M_4, M_5, M_6, M_7, M_8, M_9, M_10, M_11, M_12, M_13, M_14, M_15, M_16, M_17, M_18}" />
       </ParameterList>
     </ParameterList>
-
     
     <ParameterList name="J_1">
       <ParameterList name="region: point" type="ParameterList">
@@ -434,8 +512,8 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="4" />
-    <Parameter name="end time units" type="string" value="h" />
+    <Parameter name="end time" type="double" value="200" />
+    <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="PK tree" type="ParameterList">
       <!-- <ParameterList name="overland flow" type="ParameterList"> -->
       <!--   <Parameter name="PK type" type="string" value="overland flow, pressure basis" /> -->
@@ -534,10 +612,10 @@
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="water flux">
           <ParameterList name="BC east">
-            <Parameter name="regions" type="Array(string)" value="{east}"/>
+            <Parameter name="regions" type="Array(string)" value="{east1}"/>
             <ParameterList name="outward water flux">
               <ParameterList name="function-constant">
-                <Parameter name="value" type="double" value="-555.8375"/>
+                <Parameter name="value" type="double" value="-500.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -565,7 +643,7 @@
       <Parameter name="source key" type="string" value="network-source_drain"/>
 
       <Parameter name="use shallow water model" type="int" value="0"/>
-      <Parameter name="pipe diameter" type="double" value="1.5"/>
+      <Parameter name="pipe diameter" type="double" value="0.5"/>
       <Parameter name="celerity" type="double" value="20"/>
       <Parameter name="direction key" type="string" value="network-direction"/>
       <Parameter name="Manning coefficient" type="double" value="0.015"/>
@@ -601,7 +679,7 @@
 
         <ParameterList name="discharge">
           <ParameterList name="BC 01">
-            <Parameter name="regions" type="Array(string)" value="{east}"/>
+            <Parameter name="regions" type="Array(string)" value="{}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
             <ParameterList name="discharge">
               <Parameter name="number of dofs" type="int" value="2"/>
@@ -609,7 +687,7 @@
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-exprtk">
                   <Parameter name="number of arguments" type="int" value="4"/>
-                  <Parameter name="formula" type="string" value="-0.2"/>
+                  <Parameter name="formula" type="string" value="-0.8"/>
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
@@ -667,7 +745,7 @@
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
                 <Parameter name="x values" type="Array(double)" value="{ 0,1800}" />
-                <Parameter name="y values" type="Array(double)" value="{0e-06, 0}" />
+                <Parameter name="y values" type="Array(double)" value="{1e-05, 1e-05}" />
                 <Parameter name="forms" type="Array(string)" value="{constant}" />
               </ParameterList>
             </ParameterList>
@@ -986,7 +1064,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.75" />
+                <Parameter name="value" type="double" value="0.5" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -1077,11 +1155,11 @@
     <!--   <Parameter name="times start period stop" type="Array(double)" value="{ 0,600,-1}" /> -->
     <!-- </ParameterList> -->
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 600,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 5,-1}" />
       <Parameter name="visualize on 3D mesh" type="bool" value="false" />
     </ParameterList>
     <ParameterList name="network" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 600, -1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 5, -1}" />
       <!-- <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" /> -->
       <Parameter name="visualize on 3D mesh" type="bool" value="false" />
     </ParameterList>
@@ -1090,7 +1168,7 @@
   <ParameterList name="observations" type="ParameterList">
     <ParameterList name="water balance" type="ParameterList">
       <Parameter name="observation output filename" type="string" value="coupled_water_balance.csv" />
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 10, -1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 5, -1}" />
       <Parameter name="times start period stop units" type="string" value="s" />
       <!-- <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" /> -->
       <ParameterList name="observed quantities" type="ParameterList">

@@ -65,6 +65,13 @@
       </ParameterList>
     </ParameterList>
 
+    <ParameterList name="surface inlet1" type="ParameterList">
+      <ParameterList name="region: box" type="ParameterList">
+        <Parameter name="low coordinate" type="Array(double)" value="{500, 200}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{500,300}" />
+      </ParameterList>
+    </ParameterList>
+
     <ParameterList name="west" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
         <Parameter name="point" type="Array(double)" value="{ 0, 0}" />
@@ -508,7 +515,7 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="18000" />
+    <Parameter name="end time" type="double" value="200" />
     <Parameter name="end time units" type="string" value="s" />
     <!-- <Parameter name="end cycle" type="int" value="2" /> -->
     <ParameterList name="PK tree" type="ParameterList">
@@ -642,7 +649,8 @@
                 <Parameter name="x0" type="Array(double)" value="{ 0, 0, 0,-1}" />
                 <Parameter name="y0" type="double" value="101325" />
                 <!-- <Parameter name="gradient" type="Array(double)" value="{ 0,-4.888615025, 0,-9777.23005}" /> -->
-                <Parameter name="gradient" type="Array(double)" value="{ 0, 0., 0,-9777.23005}" />                
+                <!--<Parameter name="gradient" type="Array(double)" value="{ 0, 0., 0,-9777.23005}" />-->
+                <Parameter name="gradient" type="Array(double)" value="{ 0, 0., 0, 0.}"/>                
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -689,10 +697,10 @@
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="water flux">
           <ParameterList name="inlet">
-            <Parameter name="regions" type="Array(string)" value="{surface inlet}"/>
+            <Parameter name="regions" type="Array(string)" value="{surface inlet1}"/>
             <ParameterList name="outward water flux">
               <ParameterList name="function-constant">
-                <Parameter name="value" type="double" value="-555.8375"/>
+                <Parameter name="value" type="double" value="-500.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -730,7 +738,7 @@
       <Parameter name="source key" type="string" value="network-source_drain"/>
 
       <Parameter name="use shallow water model" type="int" value="0"/>
-      <Parameter name="pipe diameter" type="double" value="1.0"/>
+      <Parameter name="pipe diameter" type="double" value="0.5"/>
       <Parameter name="celerity" type="double" value="20"/>
       <Parameter name="direction key" type="string" value="network-direction"/>
       <Parameter name="Manning coefficient" type="double" value="0.015"/>
@@ -766,7 +774,7 @@
 
         <ParameterList name="discharge">
           <ParameterList name="BC 01">
-            <Parameter name="regions" type="Array(string)" value="{east}"/>
+            <Parameter name="regions" type="Array(string)" value="{}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
             <ParameterList name="discharge">
               <Parameter name="number of dofs" type="int" value="2"/>
@@ -1204,7 +1212,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.75" />
+                <Parameter name="value" type="double" value="0.5" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -1290,14 +1298,14 @@
 
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,300,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,5,-1}" />
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 300,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 5,-1}" />
       <Parameter name="visualize on 3D mesh" type="bool" value="false" />
     </ParameterList>
     <ParameterList name="network" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 300, -1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 5, -1}" />
       <!-- <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" /> -->
       <!-- <Parameter name="visualize on 3D mesh" type="bool" value="false" /> -->
     </ParameterList>
