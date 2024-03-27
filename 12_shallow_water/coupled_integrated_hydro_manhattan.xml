@@ -67,8 +67,8 @@
 
     <ParameterList name="surface inlet1" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{500, 200}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{500,300}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{500, 100}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{500,400}" />
       </ParameterList>
     </ParameterList>
 
@@ -515,7 +515,7 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="200" />
+    <Parameter name="end time" type="double" value="7200" />
     <Parameter name="end time units" type="string" value="s" />
     <!-- <Parameter name="end cycle" type="int" value="2" /> -->
     <ParameterList name="PK tree" type="ParameterList">
@@ -697,7 +697,7 @@
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="water flux">
           <ParameterList name="inlet">
-            <Parameter name="regions" type="Array(string)" value="{surface inlet1}"/>
+            <Parameter name="regions" type="Array(string)" value="{surface inlet}"/>
             <ParameterList name="outward water flux">
               <ParameterList name="function-constant">
                 <Parameter name="value" type="double" value="-500.0"/>
@@ -774,7 +774,7 @@
 
         <ParameterList name="discharge">
           <ParameterList name="BC 01">
-            <Parameter name="regions" type="Array(string)" value="{}"/>
+            <Parameter name="regions" type="Array(string)" value="{east}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
             <ParameterList name="discharge">
               <Parameter name="number of dofs" type="int" value="2"/>
