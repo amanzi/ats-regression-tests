@@ -290,7 +290,7 @@
 
     <ParameterList name="M_1">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{355, 205}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{455, 105}"/>
       </ParameterList>
     </ParameterList>
 
@@ -515,7 +515,7 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="7200" />
+    <Parameter name="end time" type="double" value="3600" />
     <Parameter name="end time units" type="string" value="s" />
     <!-- <Parameter name="end cycle" type="int" value="2" /> -->
     <ParameterList name="PK tree" type="ParameterList">
@@ -649,8 +649,8 @@
                 <Parameter name="x0" type="Array(double)" value="{ 0, 0, 0,-1}" />
                 <Parameter name="y0" type="double" value="101325" />
                 <!-- <Parameter name="gradient" type="Array(double)" value="{ 0,-4.888615025, 0,-9777.23005}" /> -->
-                <!--<Parameter name="gradient" type="Array(double)" value="{ 0, 0., 0,-9777.23005}" />-->
-                <Parameter name="gradient" type="Array(double)" value="{ 0, 0., 0, 0.}"/>                
+                <Parameter name="gradient" type="Array(double)" value="{ 0, 0., 0,-9777.23005}" />
+		<!--<Parameter name="gradient" type="Array(double)" value="{ 0, 0., 0, 0.}"/>-->                
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -782,7 +782,7 @@
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-exprtk">
                   <Parameter name="number of arguments" type="int" value="4"/>
-                  <Parameter name="formula" type="string" value="-0.8"/>
+                  <Parameter name="formula" type="string" value="-2.0"/>
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
@@ -1298,14 +1298,14 @@
 
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,5,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,100,-1}" />
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 5,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 100,-1}" />
       <Parameter name="visualize on 3D mesh" type="bool" value="false" />
     </ParameterList>
     <ParameterList name="network" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 5, -1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 100, -1}" />
       <!-- <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" /> -->
       <!-- <Parameter name="visualize on 3D mesh" type="bool" value="false" /> -->
     </ParameterList>
