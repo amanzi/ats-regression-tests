@@ -14,7 +14,7 @@
       </ParameterList>
     </ParameterList>
 
-    <ParameterList name="network" type="ParameterList">
+    <ParameterList name="network" type="ParameterList"><!-- -->
       <Parameter name="mesh type" type="string" value="surface" />
       <ParameterList name="surface parameters" type="ParameterList">
         <Parameter name="surface sideset name" type="string" value="network" />
