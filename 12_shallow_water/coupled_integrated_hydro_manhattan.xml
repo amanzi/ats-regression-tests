@@ -843,7 +843,7 @@
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-exprtk">
                   <Parameter name="number of arguments" type="int" value="4"/>
-                  <Parameter name="formula" type="string" value="-0.8"/>
+                  <Parameter name="formula" type="string" value="-0.5"/>
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
@@ -935,7 +935,7 @@
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
                 <Parameter name="x values" type="Array(double)" value="{ 0,7200}" />
-                <Parameter name="y values" type="Array(double)" value="{ 1e-5 , 1e-5}" />
+                <Parameter name="y values" type="Array(double)" value="{ 5e-7 , 5e-7}" />
                 <Parameter name="forms" type="Array(string)" value="{constant}" />
               </ParameterList>
             </ParameterList>
