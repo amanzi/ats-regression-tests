@@ -406,10 +406,19 @@
       </ParameterList>
     </ParameterList>
 
+    <!--
     <ParameterList name="Manhole" type="ParameterList">
       <ParameterList name="region: logical" type="ParameterList">
         <Parameter name="operation" type="string" value="union" />
         <Parameter name="regions" type="Array(string)" value="{M_1, M_2, M_3, M_4, M_5, M_6, M_7, M_8, M_9, M_10, M_11, M_12, M_13, M_14, M_15, M_16, M_17, M_18, M_19, M_20}" />
+      </ParameterList>
+    </ParameterList>
+    -->
+
+    <ParameterList name="Manhole" type="ParameterList">
+      <ParameterList name="region: logical" type="ParameterList">
+        <Parameter name="operation" type="string" value="union" />
+        <Parameter name="regions" type="Array(string)" value="{ M_2, M_3, M_6, M_7, M_10, M_11, M_14, M_15, M_18, M_19}" />
       </ParameterList>
     </ParameterList>
 
@@ -523,7 +532,7 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="3600" />
+    <Parameter name="end time" type="double" value="1800" />
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="PK tree" type="ParameterList">
       <!-- <ParameterList name="overland flow" type="ParameterList"> -->
@@ -655,7 +664,7 @@
 
       <Parameter name="use shallow water model" type="int" value="0"/>
       <Parameter name="pipe diameter" type="double" value="0.5"/>
-      <Parameter name="celerity" type="double" value="50"/>
+      <Parameter name="celerity" type="double" value="20"/>
       <Parameter name="direction key" type="string" value="network-direction"/>
       <Parameter name="Manning coefficient" type="double" value="0.015"/>
 
@@ -1184,11 +1193,11 @@
     <!--   <Parameter name="times start period stop" type="Array(double)" value="{ 0,600,-1}" /> -->
     <!-- </ParameterList> -->
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 10,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 50,-1}" />
       <Parameter name="visualize on 3D mesh" type="bool" value="false" />
     </ParameterList>
     <ParameterList name="network" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 10, -1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 50, -1}" />
       <!-- <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" /> -->
       <Parameter name="visualize on 3D mesh" type="bool" value="false" />
     </ParameterList>
@@ -1197,7 +1206,7 @@
   <ParameterList name="observations" type="ParameterList">
     <ParameterList name="water balance" type="ParameterList">
       <Parameter name="observation output filename" type="string" value="coupled_water_balance.csv" />
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 10, -1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 50, -1}" />
       <Parameter name="times start period stop units" type="string" value="s" />
       <!-- <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" /> -->
       <ParameterList name="observed quantities" type="ParameterList">
