@@ -1,7 +1,2 @@
-ATS Version     1.0.0_3e51c652
-GIT branch      dsv/sediment
-GIT global hash 3e51c652
-
-Amanzi Version  1.1-dev_3b99596f4
-GIT branch      master
-GIT global hash 3b99596f4
+ATS: b'ats-1.5-dev-52-ga18aa1bd'
+Amanzi: b'amanzi-1.4-dev-969-ge4902d829'
