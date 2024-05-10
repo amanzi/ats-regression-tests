@@ -406,7 +406,8 @@
       </ParameterList>
     </ParameterList>
 
-    <!--
+   
+    <!-- 
     <ParameterList name="Manhole" type="ParameterList">
       <ParameterList name="region: logical" type="ParameterList">
         <Parameter name="operation" type="string" value="union" />
@@ -415,12 +416,23 @@
     </ParameterList>
     -->
 
+
+    <ParameterList name="Manhole" type="ParameterList">
+      <ParameterList name="region: logical" type="ParameterList">
+        <Parameter name="operation" type="string" value="union" />
+        <Parameter name="regions" type="Array(string)" value="{}"/>
+      </ParameterList>
+    </ParameterList>
+    
+
+    <!--
     <ParameterList name="Manhole" type="ParameterList">
       <ParameterList name="region: logical" type="ParameterList">
         <Parameter name="operation" type="string" value="union" />
         <Parameter name="regions" type="Array(string)" value="{ M_2, M_3, M_6, M_7, M_10, M_11, M_14, M_15, M_18, M_19}" />
       </ParameterList>
     </ParameterList>
+    -->
 
     <ParameterList name="J_1">
       <ParameterList name="region: point" type="ParameterList">
@@ -532,7 +544,7 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="1800" />
+    <Parameter name="end time" type="double" value="7200.0" />
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="PK tree" type="ParameterList">
       <!-- <ParameterList name="overland flow" type="ParameterList"> -->
@@ -635,7 +647,7 @@
             <Parameter name="regions" type="Array(string)" value="{east}"/>
             <ParameterList name="outward water flux">
               <ParameterList name="function-constant">
-                <Parameter name="value" type="double" value="-500.0"/>
+                <Parameter name="value" type="double" value="-5000.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -699,7 +711,7 @@
 
         <ParameterList name="discharge">
           <ParameterList name="BC 01">
-            <Parameter name="regions" type="Array(string)" value="{east}"/>
+            <Parameter name="regions" type="Array(string)" value="{}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
             <ParameterList name="discharge">
               <Parameter name="number of dofs" type="int" value="2"/>
@@ -765,7 +777,7 @@
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
                 <Parameter name="x values" type="Array(double)" value="{ 0,7200}" />
-                <Parameter name="y values" type="Array(double)" value="{5e-07, 5e-07}" />
+                <Parameter name="y values" type="Array(double)" value="{1e-6, 1e-6}" />
                 <Parameter name="forms" type="Array(string)" value="{constant}" />
               </ParameterList>
             </ParameterList>
@@ -863,6 +875,61 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
+
+
+      <!--
+      <ParameterList name="surface-slope_magnitude" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable" />
+        <Parameter name="constant in time" type="bool" value="true" />
+        <ParameterList name="function" type="ParameterList">
+          <ParameterList name="domain" type="ParameterList">
+            <Parameter name="region" type="string" value="all" />
+            <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
+            <ParameterList name="function" type="ParameterList">
+              <ParameterList name="function-constant" type="ParameterList">
+                <Parameter name="value" type="double" value="0.0" />
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+      -->
+
+      
+      <ParameterList name="surface-elevation" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="standalone elevation" />
+
+        <ParameterList name="elevation function" type="ParameterList">
+          <ParameterList name="elevation" type="ParameterList">
+            <Parameter name="region" type="string" value="all" />
+            <Parameter name="components" type="Array(string)" value="{cell}" />
+            <ParameterList name="function" type="ParameterList">
+              <ParameterList name="function-constant" type="ParameterList">
+                <Parameter name="value" type="double" value="0.0" />
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
+
+        <ParameterList name="slope function" type="ParameterList">
+          <ParameterList name="slope magnitude" type="ParameterList">
+            <Parameter name="region" type="string" value="all" />
+            <Parameter name="components" type="Array(string)" value="{cell}" />
+            <ParameterList name="function" type="ParameterList">
+              <ParameterList name="function-constant" type="ParameterList">
+                <Parameter name="value" type="double" value="0.0" />
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
+
+      </ParameterList>
+
+
+
+      
+
+
       <!-- <ParameterList name="surface-elevation" type="ParameterList"> -->
       <!--   <Parameter name="evaluator type" type="string" value="standalone elevation" /> -->
       <!--   <ParameterList name="elevation function" type="ParameterList"> -->
@@ -919,6 +986,8 @@
       <!--   </ParameterList> -->
       <!-- </ParameterList> -->
 
+
+      <!--
       <ParameterList name="surface-elevation" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="meshed elevation" />
         <Parameter name="dynamic mesh" type="bool" value="false" />
@@ -926,6 +995,9 @@
           <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
+      -->
+      
+     
 
       
       <ParameterList name="surface-overland_conductivity" type="ParameterList">
@@ -1102,7 +1174,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.5" />
+                <Parameter name="value" type="double" value="5.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
