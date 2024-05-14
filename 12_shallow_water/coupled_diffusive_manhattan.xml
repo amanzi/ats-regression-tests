@@ -406,8 +406,16 @@
       </ParameterList>
     </ParameterList>
 
+  
+    <ParameterList name="Manholes_all" type="ParameterList">
+      <ParameterList name="region: logical" type="ParameterList">
+        <Parameter name="operation" type="string" value="union" />
+        <Parameter name="regions" type="Array(string)" value="{M_1, M_2, M_3, M_4, M_5, M_6, M_7, M_8, M_9, M_10, M_11, M_12, M_13, M_14, M_15, M_16, M_17, M_18, M_19, M_20}" />
+      </ParameterList>
+    </ParameterList>
+
    
-    <!-- 
+    <!--    
     <ParameterList name="Manhole" type="ParameterList">
       <ParameterList name="region: logical" type="ParameterList">
         <Parameter name="operation" type="string" value="union" />
@@ -415,14 +423,17 @@
       </ParameterList>
     </ParameterList>
     -->
+   
 
-
+   
     <ParameterList name="Manhole" type="ParameterList">
       <ParameterList name="region: logical" type="ParameterList">
         <Parameter name="operation" type="string" value="union" />
         <Parameter name="regions" type="Array(string)" value="{}"/>
       </ParameterList>
     </ParameterList>
+   
+    
     
 
     <!--
@@ -544,7 +555,7 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="7200.0" />
+    <Parameter name="end time" type="double" value="3600.0" />
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="PK tree" type="ParameterList">
       <!-- <ParameterList name="overland flow" type="ParameterList"> -->
@@ -632,9 +643,10 @@
             <Parameter name="region" type="string" value="all" />
             <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
             <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-constant" type="ParameterList">
+              <ParameterList name="function-exprtk" type="ParameterList">
+                <Parameter name="number of arguments" type="int" value="4"/>
                 <!-- <Parameter name="value" type="double" value="101815.3325" /> -->
-                <Parameter name="value" type="double" value="101325.0" />
+                <Parameter name="formula" type="string" value="101325.0 + 9.8e3*0.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -777,7 +789,7 @@
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
                 <Parameter name="x values" type="Array(double)" value="{ 0,7200}" />
-                <Parameter name="y values" type="Array(double)" value="{1e-6, 1e-6}" />
+                <Parameter name="y values" type="Array(double)" value="{0.0, 0.0}" />
                 <Parameter name="forms" type="Array(string)" value="{constant}" />
               </ParameterList>
             </ParameterList>
@@ -905,7 +917,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.0" />
+                <Parameter name="value" type="double" value="1.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
