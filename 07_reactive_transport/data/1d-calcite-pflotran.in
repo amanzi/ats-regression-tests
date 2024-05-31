@@ -1,0 +1,91 @@
+#=========================== chemistry ========================================
+CHEMISTRY
+PRIMARY_SPECIES
+  H+
+  HCO3
+  Ca++
+  Tracer
+/
+SECONDARY_SPECIES
+  OH-
+  CO3--
+  CO2(aq)
+  CaOH+
+  CaHCO3+
+  CaCO3(aq)
+/
+MINERALS
+  Calcite
+/
+MINERAL_KINETICS
+    Calcite
+      PREFACTOR
+        RATE_CONSTANT -0.05
+	PREFACTOR_SPECIES H+
+	/
+      /
+      PREFACTOR
+        RATE_CONSTANT -3.30
+        PREFACTOR_SPECIES CO2(aq)
+	/
+      /
+      PREFACTOR
+        RATE_CONSTANT -6.19
+      /      
+    /
+#  Calcite
+#    RATE_CONSTANT 1.0d-12
+#  /
+/
+
+PASSIVE_GAS_SPECIES
+  CO2(g)
+/
+
+DATABASE ./calcite.dat
+LOG_FORMULATION
+ACTIVITY_COEFFICIENTS TIMESTEP
+OUTPUT
+  All
+  TOTAL
+  FREE_ION
+/
+MAX_RESIDUAL_TOLERANCE 1.d-12
+END
+
+#=========================== constraints ======================================
+CONSTRAINT INITIAL
+  CONCENTRATIONS
+    H+     1.d-8      Z
+    HCO3   1.d-3      M  Calcite
+    Ca++   1.d-3      T
+    Tracer 1.d-10     T
+  /
+  MINERALS
+    Calcite 1.d-2 1.0d0
+  /
+END
+
+CONSTRAINT SURFINI
+  CONCENTRATIONS
+    H+     1.d-8      Z
+    HCO3   1.d-3      M  Calcite
+    Ca++   1.d-3      T
+    Tracer 1.d-10     T
+  /
+  MINERALS
+    Calcite 0.d+0 0.0d0
+  /
+END
+
+CONSTRAINT RAIN
+  CONCENTRATIONS
+    H+     1.d-8      Z
+    HCO3   3.15E-4    G CO2(g)
+    Ca++   1.d-10     T
+    Tracer 1.d-3      T
+  /
+  MINERALS
+    Calcite 0.d+0 0.0d0
+  /
+END
