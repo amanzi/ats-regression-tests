@@ -563,12 +563,13 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="1800" />
+    <Parameter name="end time" type="double" value="3600" />
     <Parameter name="end time units" type="string" value="s" />
     <!-- <Parameter name="end cycle" type="int" value="2" /> -->
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="coupled model" type="ParameterList">
-        <Parameter name="PK type" type="string" value="weak MPC" />
+        <!--<Parameter name="PK type" type="string" value="weak MPC"/>-->
+        <Parameter name="PK type" type="string" value="subcycling MPC" />
         <ParameterList name="integrated hydro" type="ParameterList">
           <Parameter name="PK type" type="string" value="coupled water" />
           <ParameterList name="subsurface flow" type="ParameterList">
@@ -586,6 +587,7 @@
   </ParameterList>
   <ParameterList name="PKs" type="ParameterList">
 
+    <!-- 
     <ParameterList name="coupled model" type="ParameterList">
       <Parameter name="PK type" type="string" value="weak MPC" />
       <Parameter name="PK name" type="string" value="coupled model" />
@@ -594,6 +596,20 @@
         <Parameter name="verbosity level" type="string" value="extreme"/>
       </ParameterList>
     </ParameterList>
+    -->
+    
+    
+    <ParameterList name="coupled model" type="ParameterList">
+      <Parameter name="PK type" type="string" value="subcycling MPC" />
+      <Parameter name="PK name" type="string" value="coupled model" />
+      <Parameter name="PKs order" type="Array(string)" value="{integrated hydro, pipe flow}" />
+      <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
+      <ParameterList name="verbose object">
+        <Parameter name="verbosity level" type="string" value="extreme"/>
+      </ParameterList>
+    </ParameterList>   
+   
+
     
     <ParameterList name="integrated hydro" type="ParameterList">
       <Parameter name="PK type" type="string" value="coupled water" />
@@ -711,7 +727,7 @@
                 <Parameter name="y0" type="double" value="101325" />
                 <!-- <Parameter name="gradient" type="Array(double)" value="{ 0,-4.888615025, 0,-9777.23005}" /> -->
                 <Parameter name="gradient" type="Array(double)" value="{ 0, 0., 0,-9777.23005}" />
-		<!--<Parameter name="gradient" type="Array(double)" value="{ 0, 0., 0, 0.}"/>-->                
+		            <!--<Parameter name="gradient" type="Array(double)" value="{ 0, 0., 0, 0.}"/>-->
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -843,7 +859,7 @@
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-exprtk">
                   <Parameter name="number of arguments" type="int" value="4"/>
-                  <Parameter name="formula" type="string" value="-0.5"/>
+                  <Parameter name="formula" type="string" value="-0.01"/>
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
@@ -1273,7 +1289,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0.5" />
+                <Parameter name="value" type="double" value="1.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
