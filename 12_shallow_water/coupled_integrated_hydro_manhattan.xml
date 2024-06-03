@@ -32,7 +32,7 @@
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="generate mesh" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{50,50,10}" />
+        <Parameter name="number of cells" type="Array(int)" value="{50,50,5}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{ 0.0, 0.0, 0.0}" />
         <Parameter name="domain high coordinate" type="Array(double)" value="{500.0, 500.0, 5.0}" />
       </ParameterList>
@@ -1372,7 +1372,7 @@
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-exprtk" type="ParameterList">
                 <Parameter name="number of arguments" type="int" value="4"/>
-                <Parameter name="formula" type="string" value="4.0" />
+                <Parameter name="formula" type="string" value="5.0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
