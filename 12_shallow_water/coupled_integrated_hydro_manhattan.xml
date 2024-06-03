@@ -32,7 +32,7 @@
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="generate mesh" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{50,50,5}" />
+        <Parameter name="number of cells" type="Array(int)" value="{100,100,5}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{ 0.0, 0.0, 0.0}" />
         <Parameter name="domain high coordinate" type="Array(double)" value="{500.0, 500.0, 5.0}" />
       </ParameterList>
@@ -626,7 +626,7 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="3600" />
+    <Parameter name="end time" type="double" value="14400" />
     <Parameter name="end time units" type="string" value="s" />
     <!-- <Parameter name="end cycle" type="int" value="2" /> -->
     <ParameterList name="PK tree" type="ParameterList">
@@ -1476,14 +1476,14 @@
 
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,50,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,100,-1}" />
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,50,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,100,-1}" />
       <Parameter name="visualize on 3D mesh" type="bool" value="true" />
     </ParameterList>
     <ParameterList name="network" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,50,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,100,-1}" />
       <!-- <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" /> -->
       <!-- <Parameter name="visualize on 3D mesh" type="bool" value="false" /> -->
     </ParameterList>
