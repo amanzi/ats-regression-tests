@@ -183,76 +183,91 @@
 
     <ParameterList name="pipe1" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)"  value="{0.0, 255, -500.0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{500, 256, 500.0}" />
+        <Parameter name="low coordinate" type="Array(double)"  value="{0.0, 55, -500.0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{500, 56, 500.0}" />
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="pipe2" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)"  value="{200, 0, -500.0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{210, 500, 500.0}" />
+        <Parameter name="low coordinate" type="Array(double)"  value="{55, 0, -500.0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{56, 510, 500.0}" />
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="pipe3" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)"  value="{0.0, 300, -500.0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{500, 310, 500.0}" />
+        <Parameter name="low coordinate" type="Array(double)"  value="{0.0, 155, -500.0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{500, 156, 500.0}" />
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="pipe4" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)"  value="{300, 0, -500.0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{310, 500, 500.0}" />
+        <Parameter name="low coordinate" type="Array(double)"  value="{155, 0, -500.0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{156, 510, 500.0}" />
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="pipe5" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)"  value="{0.0, 100, -500.0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{500, 110, 500.0}" />
+        <Parameter name="low coordinate" type="Array(double)"  value="{0.0, 255, -500.0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{500, 256, 500.0}" />
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="pipe6" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)"  value="{100, 0, -500.0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{110, 500, 500.0}" />
+        <Parameter name="low coordinate" type="Array(double)"  value="{255, 0, -500.0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{256, 510, 500.0}" />
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="pipe7" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)"  value="{0.0, 400, -500.0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{500, 410, 500.0}" />
+        <Parameter name="low coordinate" type="Array(double)"  value="{0.0, 355, -500.0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{500, 356, 500.0}" />
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="pipe8" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)"  value="{400, 0, -500.0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{410, 500, 100.0}" />
+        <Parameter name="low coordinate" type="Array(double)"  value="{355, 0, -500.0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{356, 510, 100.0}" />
       </ParameterList>
     </ParameterList>
 
-    <!--
+    <ParameterList name="pipe9" type="ParameterList">
+      <ParameterList name="region: box" type="ParameterList">
+        <Parameter name="low coordinate" type="Array(double)"  value="{0.0, 455, -500.0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{500, 456, 500.0}" />
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="pipe10" type="ParameterList">
+      <ParameterList name="region: box" type="ParameterList">
+        <Parameter name="low coordinate" type="Array(double)"  value="{455, 0, -500.0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{456, 510, 100.0}" />
+      </ParameterList>
+    </ParameterList>
+
+    
     <ParameterList name="pipes" type="ParameterList">
       <ParameterList name="region: logical" type="ParameterList">
         <Parameter name="operation" type="string" value="union" />
-        <Parameter name="regions" type="Array(string)" value="{pipe1, pipe2, pipe3, pipe4, pipe5, pipe6, pipe7, pipe8}" />
+        <Parameter name="regions" type="Array(string)" value="{pipe1, pipe2, pipe3, pipe4, pipe5, pipe6, pipe7, pipe8, pipe9, pipe10}" />
       </ParameterList>
     </ParameterList>
-    -->
-   
     
+   
+    <!--
     <ParameterList name="pipes" type="ParameterList">
       <ParameterList name="region: logical" type="ParameterList">
         <Parameter name="operation" type="string" value="union" />
         <Parameter name="regions" type="Array(string)" value="{pipe1}" />
       </ParameterList>
     </ParameterList>
+    -->
    
     
     <ParameterList name="network" type="ParameterList">
@@ -383,123 +398,123 @@
 
     <ParameterList name="M_1">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{455, 105}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{455.5, 105.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_2">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{455, 205}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{455.5, 205.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_3">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{455, 305}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{455.5, 305.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_4">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{455, 405}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{455.5, 405.5}"/>
       </ParameterList>
     </ParameterList>    
 
     
     <ParameterList name="M_5">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{355, 105}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{355.5, 105.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_6">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{355, 205}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{355.5, 205.5}"/>
       </ParameterList>
     </ParameterList>
 
 
     <ParameterList name="M_7">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{355, 305}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{355.5, 305.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_8">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{355, 405}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{355.5, 405.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_9">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{255, 105}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{255.5, 105.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_10">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{255, 205}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{255.5, 205.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_11">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{255, 305}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{255.5, 305.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_12">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{255, 405}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{255.5, 405.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_13">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{155, 105}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{155.5, 105.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_14">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{155, 205}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{155.5, 205.5}"/>
       </ParameterList>
     </ParameterList>
     
     <ParameterList name="M_15">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{155, 305}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{155.5, 305.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_16">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{155, 405}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{155.5, 405.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_17">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{55, 105}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{55.5, 105.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_18">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{55, 205}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{55.5, 205.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_19">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{55, 305}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{55.5, 305.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_20">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{55, 405}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{55.5, 405.5}"/>
       </ParameterList>
     </ParameterList>
 
@@ -534,104 +549,159 @@
     
     <ParameterList name="J_1">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{105, 105}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{55.5, 55.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="J_2">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{105, 205}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{55.5, 155.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="J_3">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{105, 305}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{55.5, 255.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="J_4">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{105, 405}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{55.5, 355.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="J_5">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{205, 105}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{55.5, 455.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="J_6">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{205, 205}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{155.5, 55.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="J_7">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{205, 305}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{155.5, 155.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="J_8">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{205, 405}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{155.5, 255.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="J_9">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{305, 105}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{155.5, 355.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="J_10">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{305, 205}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{155.5, 455.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="J_11">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{305, 305}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{255.5, 55.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="J_12">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{305, 405}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{255.5, 155.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="J_13">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{405, 105}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{255.5, 255.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="J_14">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{405, 205}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{255.5, 355.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="J_15">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{405, 305}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{255.5, 455.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="J_16">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{405, 405}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{355.5, 55.5}"/>
       </ParameterList>
     </ParameterList>
+
+    <ParameterList name="J_17">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{355.5, 155.5}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="J_18">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{355.5, 255.5}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="J_19">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{355.5, 355.5}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="J_20">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{355.5, 455.5}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="J_21">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{455.5, 55.5}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="J_22">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{455.5, 155.5}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="J_23">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{455.5, 255.5}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="J_24">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{455.5, 355.5}"/>
+      </ParameterList>
+    </ParameterList>
+
+    <ParameterList name="J_25">
+      <ParameterList name="region: point" type="ParameterList">
+        <Parameter name="coordinate" type="Array(double)" value="{455.5, 455.5}"/>
+      </ParameterList>
+    </ParameterList>
+
 
     <ParameterList name="Junction" type="ParameterList">
       <ParameterList name="region: logical" type="ParameterList">
         <Parameter name="operation" type="string" value="union" />
-        <Parameter name="regions" type="Array(string)" value="{J_1,J_2,J_3,J_4,J_5,J_6,J_7,J_8,J_9,J_10,J_11,J_12,J_13,J_14,J_15,J_16}" />
+        <Parameter name="regions" type="Array(string)" value="{J_1,J_2,J_3,J_4,J_5,J_6,J_7,J_8,J_9,J_10,J_11,J_12,J_13,J_14,J_15,J_16,J_17,J_18,J_19,J_20,J_21,J_22,J_23,J_24,J_25}" />
       </ParameterList>
     </ParameterList>
     
@@ -1256,7 +1326,7 @@
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="pipe1" type="ParameterList">  <!-- USER DEFINED NAME -->
-            <Parameter name="regions" type="Array(string)" value="{pipe1, pipe3, pipe5, pipe7}" />
+            <Parameter name="regions" type="Array(string)" value="{pipe1, pipe3, pipe5, pipe7, pipe9}" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function">
               <Parameter name="number of dofs" type="int" value="2"/>
@@ -1275,7 +1345,7 @@
           </ParameterList>
 
           <ParameterList name="pipe2" type="ParameterList">  <!-- USER DEFINED NAME -->
-            <Parameter name="regions" type="Array(string)" value="{pipe2, pipe4, pipe6, pipe8}" />
+            <Parameter name="regions" type="Array(string)" value="{pipe2, pipe4, pipe6, pipe8, pipe10}" />
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function">
               <Parameter name="number of dofs" type="int" value="2"/>
