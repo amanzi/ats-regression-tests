@@ -42,7 +42,7 @@ def commandline_options():
                         help='perform a dry run, setup the test commands but '
                         'don\'t run them')
 
-    parser.add_argument('-e', '--executable', nargs=1, default=None,
+    parser.add_argument('-e', '--executable', default=None,
                         help='path to executable to use for testing')
 
     parser.add_argument('--list-available-suites', default=False, action='store_true',
@@ -57,17 +57,24 @@ def commandline_options():
                         help='print the list of selected tests from the config '
                         'file and exit')
 
-    parser.add_argument('-m', '--mpiexec', nargs=1, default=None,
+    parser.add_argument('-m', '--mpiexec', default=None,
                         help="path to the executable for mpiexec (mpirun, etc)"
                         "on the current machine.")
 
-    parser.add_argument('-n', '--new-tests',
-                        action="store_true", default=False,
+    parser.add_argument('--mpiexec-global-args', default=None,
+                        help="arguments that must be provided to mpiexec executable")
+
+    parser.add_argument('--mpiexec-numprocs-flag', default='-n',
+                        help="mpiexec flag to set number of MPI ranks")
+
+    parser.add_argument('--always-mpiexec', default=False, action='store_true',
+                        help="use mpiexec to launch all tests")
+
+    parser.add_argument('-n', '--new-tests', default=False, action="store_true",
                         help="Indicate that there are new tests being run. "
                         "Skips the output check and creates a new gold file.")
 
-    parser.add_argument('--save-dt-history',
-                        action="store_true", default=False,
+    parser.add_argument('--save-dt-history', default=False, action="store_true",
                         help="When used with --new-tests, does an additional run "
                         "to get the timestep history for more accurate comparison. ")
     
