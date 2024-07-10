@@ -56,8 +56,8 @@
     <Parameter name="end time" type="double" value="639" />
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="required times" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0,1,-1}"/>
-      <Parameter name="times start period stop units" type="string" value="d"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1,-1}" />
+      <Parameter name="times start period stop units" type="string" value="d" />
     </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="water_balance" type="ParameterList">
@@ -797,7 +797,7 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times start period stop" type="Array(double)" value="{274,10,-1}"/>
-    <Parameter name="times start period stop units" type="string" value="d"/>
+    <Parameter name="times start period stop" type="Array(double)" value="{274,10,-1}" />
+    <Parameter name="times start period stop units" type="string" value="d" />
   </ParameterList>
 </ParameterList>

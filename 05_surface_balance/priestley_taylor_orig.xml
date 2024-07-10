@@ -216,7 +216,7 @@
         <Parameter name="transpiration coefficient" type="double" value="-1" />
       </ParameterList>
       <ParameterList name="transpiration" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="transpiration distribution via rooting depth" />
+        <Parameter name="evaluator type" type="string" value="transpiration distribution, rooting depth" />
         <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
       <ParameterList name="root_fraction" type="ParameterList">
@@ -455,7 +455,7 @@
         <Parameter name="constant shift" type="double" value="-1.5" />
       </ParameterList>
       <ParameterList name="relative_permeability" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="relative permeability, van Genuchten" />
+        <Parameter name="evaluator type" type="string" value="relative permeability, water retention model" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
         <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
         <Parameter name="use surface rel perm" type="bool" value="true" />
@@ -463,12 +463,12 @@
       <ParameterList name="saturation_liquid" type="ParameterList">
         <Parameter name="checkpoint" type="bool" value="true" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
-        <Parameter name="evaluator type" type="string" value="WRM" />
+        <Parameter name="evaluator type" type="string" value="water retention model" />
       </ParameterList>
       <ParameterList name="saturation_gas" type="ParameterList">
         <Parameter name="checkpoint" type="bool" value="true" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
-        <Parameter name="evaluator type" type="string" value="WRM" />
+        <Parameter name="evaluator type" type="string" value="water retention model" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
@@ -505,7 +505,7 @@
       <ParameterList name="WRM parameters" type="ParameterList">
         <ParameterList name="computation domain" type="ParameterList">
           <Parameter name="region" type="string" value="computational domain" />
-          <Parameter name="WRM Type" type="string" value="van Genuchten" />
+          <Parameter name="wrm type" type="string" value="van Genuchten" />
           <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00545" />
           <Parameter name="van Genuchten n [-]" type="double" value=" 2" />
           <Parameter name="residual saturation [-]" type="double" value="0.1" />
