@@ -165,10 +165,10 @@
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
-        <ParameterList name="seepage face head">
+        <ParameterList name="ponded depth">
           <ParameterList name="surface">
             <Parameter name="regions" type="Array(string)" value="{surface outlet}" />
-            <ParameterList name="boundary head">
+            <ParameterList name="boundary ponded depth [m]">
               <ParameterList name="function-constant">
                 <Parameter name="value" type="double" value=" 0" />
               </ParameterList>
