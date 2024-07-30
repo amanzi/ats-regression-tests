@@ -398,123 +398,123 @@
 
     <ParameterList name="M_1">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{455.5, 105.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{475.5, 155.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_2">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{455.5, 205.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{475.5, 255.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_3">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{455.5, 305.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{475.5, 355.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_4">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{455.5, 405.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{475.5, 455.5}"/>
       </ParameterList>
     </ParameterList>    
 
     
     <ParameterList name="M_5">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{355.5, 105.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{375.5, 155.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_6">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{355.5, 205.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{375.5, 255.5}"/>
       </ParameterList>
     </ParameterList>
 
 
     <ParameterList name="M_7">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{355.5, 305.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{375.5, 355.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_8">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{355.5, 405.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{375.5, 455.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_9">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{255.5, 105.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{275.5, 155.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_10">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{255.5, 205.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{275.5, 255.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_11">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{255.5, 305.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{275.5, 355.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_12">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{255.5, 405.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{275.5, 455.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_13">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{155.5, 105.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{175.5, 155.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_14">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{155.5, 205.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{175.5, 255.5}"/>
       </ParameterList>
     </ParameterList>
     
     <ParameterList name="M_15">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{155.5, 305.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{175.5, 355.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_16">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{155.5, 405.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{175.5, 455.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_17">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{55.5, 105.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{57.5, 155.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_18">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{55.5, 205.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{57.5, 255.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_19">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{55.5, 305.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{57.5, 355.5}"/>
       </ParameterList>
     </ParameterList>
 
     <ParameterList name="M_20">
       <ParameterList name="region: point" type="ParameterList">
-        <Parameter name="coordinate" type="Array(double)" value="{55.5, 405.5}"/>
+        <Parameter name="coordinate" type="Array(double)" value="{57.5, 455.5}"/>
       </ParameterList>
     </ParameterList>
 
@@ -710,13 +710,13 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="3600" />
+    <Parameter name="end time" type="double" value="1800" />
     <Parameter name="end time units" type="string" value="s" />
     <!-- <Parameter name="end cycle" type="int" value="2" /> -->
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="coupled model" type="ParameterList">
-        <!--<Parameter name="PK type" type="string" value="weak MPC"/>-->
-        <Parameter name="PK type" type="string" value="subcycling MPC" />
+        <Parameter name="PK type" type="string" value="weak MPC"/>
+        <!--<Parameter name="PK type" type="string" value="subcycling MPC" />-->
         <ParameterList name="integrated hydro" type="ParameterList">
           <Parameter name="PK type" type="string" value="coupled water" />
           <ParameterList name="subsurface flow" type="ParameterList">
@@ -734,7 +734,7 @@
   </ParameterList>
   <ParameterList name="PKs" type="ParameterList">
 
-    <!-- 
+    
     <ParameterList name="coupled model" type="ParameterList">
       <Parameter name="PK type" type="string" value="weak MPC" />
       <Parameter name="PK name" type="string" value="coupled model" />
@@ -743,9 +743,9 @@
         <Parameter name="verbosity level" type="string" value="extreme"/>
       </ParameterList>
     </ParameterList>
-    -->
     
     
+    <!--
     <ParameterList name="coupled model" type="ParameterList">
       <Parameter name="PK type" type="string" value="subcycling MPC" />
       <Parameter name="PK name" type="string" value="coupled model" />
@@ -755,6 +755,7 @@
         <Parameter name="verbosity level" type="string" value="extreme"/>
       </ParameterList>
     </ParameterList>   
+    -->
    
 
     
@@ -1006,7 +1007,7 @@
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-exprtk">
                   <Parameter name="number of arguments" type="int" value="4"/>
-                  <Parameter name="formula" type="string" value="-0.01"/>
+                  <Parameter name="formula" type="string" value="-1.0"/>
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
@@ -1098,7 +1099,7 @@
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
                 <Parameter name="x values" type="Array(double)" value="{ 0,7200}" />
-                <Parameter name="y values" type="Array(double)" value="{ 5e-7 , 5e-7}" />
+                <Parameter name="y values" type="Array(double)" value="{ 1e-7 , 1e-7}" />
                 <Parameter name="forms" type="Array(string)" value="{constant}" />
               </ParameterList>
             </ParameterList>
@@ -1560,14 +1561,14 @@
 
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,100,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,1,-1}" />
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,100,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,1,-1}" />
       <Parameter name="visualize on 3D mesh" type="bool" value="true" />
     </ParameterList>
     <ParameterList name="network" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,100,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0,1,-1}" />
       <!-- <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 1, -1}" /> -->
       <!-- <Parameter name="visualize on 3D mesh" type="bool" value="false" /> -->
     </ParameterList>
