@@ -171,7 +171,7 @@
       <Parameter name="number of liquid components" type="int" value="1" />
       <Parameter name="component molar masses" type="Array(double)" value="{ 1}" />
       <Parameter name="spatial discretization order" type="int" value="2" />
-      <Parameter name="temporal discretization order" type="int" value="4" />
+      <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value=" 1" />
       <Parameter name="solver" type="string" value="PCG with Hypre AMG" />
       <Parameter name="transport subcycling" type="bool" value="true" />
@@ -277,7 +277,7 @@
       <Parameter name="number of liquid components" type="int" value="1" />
       <Parameter name="component molar masses" type="Array(double)" value="{ 1}" />
       <Parameter name="spatial discretization order" type="int" value="1" />
-      <Parameter name="temporal discretization order" type="int" value="4" />
+      <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value=" 1" />
       <Parameter name="solver" type="string" value="PCG with Hypre AMG" />
       <Parameter name="transport subcycling" type="bool" value="true" />
