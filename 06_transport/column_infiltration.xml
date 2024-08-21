@@ -86,7 +86,6 @@
       <Parameter name="PK type" type="string" value="subcycling MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{surface-subsurface flow coupler, surface-subsurface transport coupler}" />
       <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
-
     </ParameterList>
 
     <ParameterList name="surface-subsurface flow coupler">
@@ -199,7 +198,6 @@
     <ParameterList name="subsurface transport">
       <Parameter name="PK type" type="string" value="transport ats" />
       <Parameter name="saturation liquid key" type="string" value="saturation_liquid" />
-      <Parameter name="previous saturation liquid key" type="string" value="prev_saturation_liquid" />
       <Parameter name="flux_key" type="string" value="water_flux" />
       <Parameter name="molar_density_key" type="string" value="molar_density_liquid" />
       <Parameter name="component names" type="Array(string)" value="{Tc-99}" />
@@ -272,7 +270,6 @@
       <Parameter name="PK type" type="string" value="transport ats" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="saturation liquid key" type="string" value="surface-ponded_depth" />
-      <Parameter name="previous saturation liquid key" type="string" value="surface-prev_ponded_depth" />
       <Parameter name="flux_key" type="string" value="surface-water_flux" />
       <Parameter name="molar_density_key" type="string" value="surface-molar_density_liquid" />
       <Parameter name="porosity key" type="string" value="surface-one" />

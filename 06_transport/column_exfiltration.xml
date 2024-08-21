@@ -210,7 +210,6 @@
     <ParameterList name="subsurface transport">
       <Parameter name="PK type" type="string" value="transport ats" />
       <Parameter name="saturation liquid key" type="string" value="saturation_liquid" />
-      <Parameter name="previous saturation liquid key" type="string" value="prev_saturation_liquid" />
       <Parameter name="flux_key" type="string" value="water_flux" />
       <Parameter name="molar_density_key" type="string" value="molar_density_liquid" />
       <Parameter name="component names" type="Array(string)" value="{Tc-99}" />

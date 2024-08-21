@@ -92,7 +92,6 @@
       <Parameter name="PK type" type="string" value="transport ATS" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="saturation liquid key suffix" type="string" value="ponded_depth" />
-      <Parameter name="previous saturation liquid key suffix" type="string" value="prev_ponded_depth" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
       <Parameter name="number of liquid components" type="int" value="2" />
       <Parameter name="component molar masses" type="Array(double)" value="{ 1, 1}" />

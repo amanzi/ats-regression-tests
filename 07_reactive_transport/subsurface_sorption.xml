@@ -105,7 +105,6 @@
     <ParameterList name="subsurface transport" type="ParameterList">
       <Parameter name="PK type" type="string" value="transport ats" />
       <Parameter name="saturation liquid key" type="string" value="saturation_liquid" />
-      <Parameter name="previous saturation liquid key" type="string" value="prev_saturation_liquid" />
       <Parameter name="PK origin" type="string" value="Amanzi" />
       <Parameter name="domain name" type="string" value="domain" />
       <Parameter name="water flux key suffix" type="string" value="water_flux" />

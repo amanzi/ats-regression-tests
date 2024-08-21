@@ -90,7 +90,6 @@
       <Parameter name="PK origin" type="string" value="Amanzi" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="saturation liquid key suffix" type="string" value="ponded_depth" />
-      <Parameter name="previous saturation liquid key suffix" type="string" value="prev_ponded_depth" />
       <Parameter name="water flux key suffix" type="string" value="water_flux" />
       <Parameter name="component names" type="Array(string)" value="{DOM1,O2(aq),NO3-,HCO3-,H+,N2(aq)}" />
       <Parameter name="number of liquid components" type="int" value="6" />
