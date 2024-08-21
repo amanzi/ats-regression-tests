@@ -171,7 +171,7 @@
       <Parameter name="number of liquid components" type="int" value="1" />
       <Parameter name="component molar masses" type="Array(double)" value="{ 1}" />
       <Parameter name="spatial discretization order" type="int" value="2" />
-      <Parameter name="temporal discretization order" type="int" value="4" />
+      <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value=" 1" />
       <Parameter name="solver" type="string" value="PCG with Hypre AMG" />
       <Parameter name="transport subcycling" type="bool" value="true" />
@@ -272,12 +272,11 @@
       <Parameter name="PK origin" type="string" value="Amanzi" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="saturation liquid key suffix" type="string" value="ponded_depth" />
-      <Parameter name="previous saturation liquid key suffix" type="string" value="prev_ponded_depth" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
       <Parameter name="number of liquid components" type="int" value="1" />
       <Parameter name="component molar masses" type="Array(double)" value="{ 1}" />
       <Parameter name="spatial discretization order" type="int" value="1" />
-      <Parameter name="temporal discretization order" type="int" value="4" />
+      <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value=" 1" />
       <Parameter name="solver" type="string" value="PCG with Hypre AMG" />
       <Parameter name="transport subcycling" type="bool" value="true" />

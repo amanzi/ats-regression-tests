@@ -1,2 +1,2 @@
-ATS: unknown
-Amanzi: unknown
+ATS: b'ats-1.5-dev-102-ga4eb85d0'
+Amanzi: b'amanzi-1.4-dev-1118-g99ff323ea'
