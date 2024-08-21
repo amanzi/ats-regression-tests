@@ -512,7 +512,8 @@
 
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="debug" type="ParameterList">
-      <Parameter name="data" type="Array(string)" value="{surface_star-alt_avg_temp}" />
+      <Parameter name="data" type="Array(string)" value="{}" />
+      <Parameter name="evaluators" type="Array(string)" value="{column:0-mass_density_liquid}" />
     </ParameterList>
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="surface_column:*-water_source_sink" type="ParameterList">

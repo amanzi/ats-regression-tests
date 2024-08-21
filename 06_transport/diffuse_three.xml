@@ -80,7 +80,7 @@
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="PK tree">
       <ParameterList name="flow and transport">
-        <Parameter name="PK type" type="string" value="subcycling MPC" />
+        <Parameter name="PK type" type="string" value="coupled flow and transport" />
         <ParameterList name="flow">
           <Parameter name="PK type" type="string" value="richards flow" />
         </ParameterList>
@@ -93,7 +93,7 @@
   <ParameterList name="PKs">
 
     <ParameterList name="flow and transport">
-      <Parameter name="PK type" type="string" value="subcycling MPC" />
+      <Parameter name="PK type" type="string" value="coupled flow and transport" />
       <Parameter name="PKs order" type="Array(string)" value="{flow, subsurface transport}" />
       <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
 
@@ -265,6 +265,10 @@
   </ParameterList>
 
   <ParameterList name="state">
+    <ParameterList name="debug" type="ParameterList">
+      <Parameter name="evaluators" type="Array(string)" value="{porosity}" />
+      <Parameter name="data" type="Array(string)" value="{porosity}" />
+    </ParameterList>
     <ParameterList name="evaluators">
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="richards water content" />
@@ -334,6 +338,9 @@
       <ParameterList name="porosity">
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value="0.25" />
+        <ParameterList name="verbose object">
+          <Parameter name="verbosity level" type="string" value="extreme" />
+        </ParameterList>
       </ParameterList>
       <ParameterList name="permeability">
         <Parameter name="evaluator type" type="string" value="independent variable tensor" />
@@ -367,6 +374,7 @@
         <Parameter name="checkpoint" type="bool" value="true" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
       </ParameterList>
+
       <ParameterList name="surface-overland_conductivity">
         <Parameter name="evaluator type" type="string" value="overland conductivity" />
         <ParameterList name="overland conductivity model">

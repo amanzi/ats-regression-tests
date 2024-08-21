@@ -82,7 +82,7 @@
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="Flow and Transport">
-        <Parameter name="PK type" type="string" value="subcycling MPC" />
+        <Parameter name="PK type" type="string" value="coupled flow and transport" />
         <ParameterList name="flow richards" type="ParameterList">
           <Parameter name="PK type" type="string" value="richards flow" />
         </ParameterList>
@@ -99,10 +99,9 @@
   <ParameterList name="PKs" type="ParameterList">
 
     <ParameterList name="Flow and Transport">
-      <Parameter name="PK type" type="string" value="subcycling MPC" />
+      <Parameter name="PK type" type="string" value="coupled flow and transport" />
       <Parameter name="PKs order" type="Array(string)" value="{flow richards, subsurface transport}" />
-      <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
-
+      <Parameter name="subcycle" type="Array(int)" value="{0,0}" />
     </ParameterList>
 
     <ParameterList name="flow richards" type="ParameterList">
@@ -207,7 +206,6 @@
       <Parameter name="cfl" type="double" value=" 1" />
       <Parameter name="flow mode" type="string" value="transient" />
       <Parameter name="solver" type="string" value="PCG with Hypre AMG" />
-      <Parameter name="transport subcycling" type="bool" value="false" />
       <Parameter name="number of aqueous components" type="int" value="1" />
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />

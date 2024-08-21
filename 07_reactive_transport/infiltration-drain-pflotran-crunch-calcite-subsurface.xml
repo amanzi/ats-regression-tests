@@ -58,8 +58,8 @@
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="PK tree">
       <ParameterList name="flow and transport">
-        <Parameter name="PK type" type="string" value="subcycling MPC" />
-        <ParameterList name="surface-subsurface flow coupler">
+        <Parameter name="PK type" type="string" value="coupled flow and transport" />
+        <ParameterList name="flow coupler">
           <Parameter name="PK type" type="string" value="coupled water" />
           <ParameterList name="flow">
             <Parameter name="PK type" type="string" value="richards flow" />
@@ -79,7 +79,7 @@
               <Parameter name="PK type" type="string" value="chemistry alquimia" />
             </ParameterList>
           </ParameterList>
-          <ParameterList name="surface-subsurface transport coupler">
+          <ParameterList name="transport coupler">
             <Parameter name="PK type" type="string" value="surface subsurface transport" />
             <ParameterList name="subsurface transport">
               <Parameter name="PK type" type="string" value="transport ATS" />
@@ -98,13 +98,13 @@
   <ParameterList name="PKs">
 
     <ParameterList name="flow and transport">
-      <Parameter name="PK type" type="string" value="subcycling MPC" />
-      <Parameter name="PKs order" type="Array(string)" value="{surface-subsurface flow coupler, reactive transport}" />
+      <Parameter name="PK type" type="string" value="coupled flow and transport" />
+      <Parameter name="PKs order" type="Array(string)" value="{flow coupler, reactive transport}" />
       <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
 
     </ParameterList>
 
-    <ParameterList name="surface-subsurface flow coupler">
+    <ParameterList name="flow coupler">
       <Parameter name="PK type" type="string" value="coupled water" />
       <Parameter name="PKs order" type="Array(string)" value="{flow, overland flow}" />
       <ParameterList name="water delegate" type="ParameterList">
@@ -220,7 +220,7 @@
 
     </ParameterList>
 
-    <ParameterList name="surface-subsurface transport coupler">
+    <ParameterList name="transport coupler">
       <Parameter name="PK type" type="string" value="surface subsurface transport" />
       <Parameter name="PKs order" type="Array(string)" value="{subsurface transport, surface transport}" />
       <Parameter name="component names" type="Array(string)" value="{H+,HCO3-,Ca++,Tracer}" />
@@ -239,7 +239,6 @@
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value=" 1" />
       <Parameter name="flow mode" type="string" value="transient" />
-      <Parameter name="transport subcycling" type="bool" value="false" />
       <Parameter name="number of aqueous components" type="int" value="4" />
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
@@ -311,7 +310,6 @@
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value=" 1" />
       <Parameter name="water tolerance" type="double" value="0.001" />
-      <Parameter name="transport subcycling" type="bool" value="false" />
       <Parameter name="number of aqueous components" type="int" value="4" />
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
@@ -372,7 +370,7 @@
     <ParameterList name="reactive transport" type="ParameterList">
       <Parameter name="PK type" type="string" value="coupled reactive transport" />
       <Parameter name="PK name" type="string" value="reactive transport" />
-      <Parameter name="PKs order" type="Array(string)" value="{chemistry coupler, surface-subsurface transport coupler}" />
+      <Parameter name="PKs order" type="Array(string)" value="{chemistry coupler, transport coupler}" />
       <Parameter name="transport index" type="int" value="1" />
 
     </ParameterList>
@@ -563,6 +561,7 @@
         <Parameter name="evaluator type" type="string" value="water retention model" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
       </ParameterList>
+
       <ParameterList name="relative_permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="relative permeability, water retention model" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />

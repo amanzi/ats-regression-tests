@@ -944,6 +944,7 @@
           <Parameter name="slope regularization epsilon" type="double" value="0.01" />
         </ParameterList>
       </ParameterList>
+
       <ParameterList name="column:*-porosity" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="compressible porosity" />
         <ParameterList name="compressible porosity model parameters" type="ParameterList">
@@ -961,6 +962,7 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
+
       <ParameterList name="column:*-permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable tensor" />
         <Parameter name="tensor type" type="string" value="scalar" />

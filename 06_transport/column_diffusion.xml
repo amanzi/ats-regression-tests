@@ -58,7 +58,7 @@
     <Parameter name="end time units" type="string" value="noleap" />
     <ParameterList name="PK tree">
       <ParameterList name="flow and transport">
-        <Parameter name="PK type" type="string" value="subcycling MPC" />
+        <Parameter name="PK type" type="string" value="coupled flow and transport" />
         <ParameterList name="surface-subsurface flow coupler">
           <Parameter name="PK type" type="string" value="coupled water" />
           <ParameterList name="flow">
@@ -83,7 +83,7 @@
   <ParameterList name="PKs">
 
     <ParameterList name="flow and transport">
-      <Parameter name="PK type" type="string" value="subcycling MPC" />
+      <Parameter name="PK type" type="string" value="coupled flow and transport" />
       <Parameter name="PKs order" type="Array(string)" value="{surface-subsurface flow coupler, surface-subsurface transport coupler}" />
       <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
       <ParameterList name="verbose object">

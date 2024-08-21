@@ -55,7 +55,7 @@
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="PK tree">
       <ParameterList name="flow and transport">
-        <Parameter name="PK type" type="string" value="subcycling MPC" />
+        <Parameter name="PK type" type="string" value="coupled flow and transport" />
         <ParameterList name="surface-subsurface flow coupler">
           <Parameter name="PK type" type="string" value="coupled water" />
           <ParameterList name="flow">
@@ -80,7 +80,7 @@
   <ParameterList name="PKs">
 
     <ParameterList name="flow and transport">
-      <Parameter name="PK type" type="string" value="subcycling MPC" />
+      <Parameter name="PK type" type="string" value="coupled flow and transport" />
       <Parameter name="PKs order" type="Array(string)" value="{surface-subsurface flow coupler, surface-subsurface transport coupler}" />
       <Parameter name="master PK index" type="int" value="0" />
       <ParameterList name="verbose object">
@@ -248,7 +248,6 @@
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value=" 1" />
       <Parameter name="flow mode" type="string" value="transient" />
-      <Parameter name="transport subcycling" type="bool" value="false" />
       <Parameter name="number of aqueous components" type="int" value="1" />
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
@@ -333,7 +332,6 @@
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value=" 1" />
       <Parameter name="water tolerance" type="double" value="0.001" />
-      <Parameter name="transport subcycling" type="bool" value="false" />
       <Parameter name="number of aqueous components" type="int" value="1" />
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />

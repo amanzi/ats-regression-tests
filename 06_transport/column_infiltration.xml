@@ -58,8 +58,8 @@
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="PK tree">
       <ParameterList name="flow and transport">
-        <Parameter name="PK type" type="string" value="subcycling MPC" />
-        <ParameterList name="surface-subsurface flow coupler">
+        <Parameter name="PK type" type="string" value="coupled flow and transport" />
+        <ParameterList name="flow_coupler">
           <Parameter name="PK type" type="string" value="coupled water" />
           <ParameterList name="flow">
             <Parameter name="PK type" type="string" value="richards flow" />
@@ -68,7 +68,7 @@
             <Parameter name="PK type" type="string" value="overland flow, pressure basis" />
           </ParameterList>
         </ParameterList>
-        <ParameterList name="surface-subsurface transport coupler">
+        <ParameterList name="transport_coupler">
           <Parameter name="PK type" type="string" value="surface subsurface transport" />
           <ParameterList name="subsurface transport">
             <Parameter name="PK type" type="string" value="transport ATS" />
@@ -86,13 +86,13 @@
   <ParameterList name="PKs">
 
     <ParameterList name="flow and transport">
-      <Parameter name="PK type" type="string" value="subcycling MPC" />
-      <Parameter name="PKs order" type="Array(string)" value="{surface-subsurface flow coupler, surface-subsurface transport coupler}" />
+      <Parameter name="PK type" type="string" value="coupled flow and transport" />
+      <Parameter name="PKs order" type="Array(string)" value="{flow_coupler, transport_coupler}" />
       <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
 
     </ParameterList>
 
-    <ParameterList name="surface-subsurface flow coupler">
+    <ParameterList name="flow_coupler">
       <Parameter name="PK type" type="string" value="coupled water" />
       <Parameter name="PKs order" type="Array(string)" value="{flow, overland flow}" />
       <ParameterList name="water delegate" type="ParameterList">
@@ -189,7 +189,7 @@
 
     </ParameterList>
 
-    <ParameterList name="surface-subsurface transport coupler">
+    <ParameterList name="transport_coupler">
       <Parameter name="PK type" type="string" value="surface subsurface transport" />
       <Parameter name="PKs order" type="Array(string)" value="{subsurface transport, surface transport}" />
       <Parameter name="component names" type="Array(string)" value="{Tc-99}" />
@@ -341,8 +341,7 @@
 
   <ParameterList name="state">
     <ParameterList name="debug" type="ParameterList">
-      <Parameter name="data" type="Array(string)" value="{surface-ponded_depth}" />
-      <Parameter name="evaluators" type="Array(string)" value="{surface-ponded_depth}" />
+      <Parameter name="evaluators" type="Array(string)" value="{saturation_liquid}" />
     </ParameterList>
     <ParameterList name="evaluators">
       <ParameterList name="water_content" type="ParameterList">
@@ -453,6 +452,7 @@
         <Parameter name="evaluator type" type="string" value="water retention model" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
       </ParameterList>
+
       <ParameterList name="relative_permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="relative permeability, water retention model" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />

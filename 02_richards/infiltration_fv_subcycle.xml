@@ -88,7 +88,6 @@
       <Parameter name="PK type" type="string" value="subcycling MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{Richards}" />
       <Parameter name="subcycle" type="Array(int)" value="{1}" />
-
     </ParameterList>
 
     <ParameterList name="Richards" type="ParameterList">
