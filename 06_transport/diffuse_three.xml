@@ -265,6 +265,10 @@
   </ParameterList>
 
   <ParameterList name="state">
+    <ParameterList name="debug" type="ParameterList">
+      <Parameter name="evaluators" type="Array(string)" value="{porosity}" />
+      <Parameter name="data" type="Array(string)" value="{porosity}" />
+    </ParameterList>
     <ParameterList name="evaluators">
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="richards water content" />
@@ -334,6 +338,9 @@
       <ParameterList name="porosity">
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value="0.25" />
+        <ParameterList name="verbose object">
+          <Parameter name="verbosity level" type="string" value="extreme" />
+        </ParameterList>
       </ParameterList>
       <ParameterList name="permeability">
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
@@ -355,6 +362,33 @@
         <Parameter name="checkpoint" type="bool" value="true" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
       </ParameterList>
+
+      <ParameterList name="saturation_liquid@subsurface_transport_next" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="temporal interpolation" />
+        <Parameter name="current tag" type="string" value="current" />
+        <Parameter name="next tag" type="string" value="" />
+      </ParameterList>
+      <ParameterList name="saturation_liquid@subsurface_transport_current" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="temporal interpolation" />
+        <Parameter name="current tag" type="string" value="current" />
+        <Parameter name="next tag" type="string" value="" />
+      </ParameterList>
+      <ParameterList name="surface-ponded_depth@subsurface_transport_next" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="temporal interpolation" />
+        <Parameter name="current tag" type="string" value="current" />
+        <Parameter name="next tag" type="string" value="" />
+      </ParameterList>
+      <ParameterList name="surface-ponded_depth@subsurface_transport_current" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="temporal interpolation" />
+        <Parameter name="current tag" type="string" value="current" />
+        <Parameter name="next tag" type="string" value="" />
+      </ParameterList>
+
+      <!-- <ParameterList name="porosity@subsurface_transport_next" type="ParameterList"> -->
+      <!--   <Parameter name="evaluator type" type="string" value="alias" /> -->
+      <!--   <Parameter name="target" type="string" value="porosity@" /> -->
+      <!-- </ParameterList> -->
+
       <ParameterList name="surface-overland_conductivity">
         <Parameter name="evaluator type" type="string" value="overland conductivity" />
         <ParameterList name="overland conductivity model">

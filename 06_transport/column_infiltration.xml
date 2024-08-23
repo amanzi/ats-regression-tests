@@ -461,6 +461,10 @@
         <Parameter name="current tag" type="string" value="current" />
         <Parameter name="next tag" type="string" value="" />
       </ParameterList>
+      <ParameterList name="porosity@transport_coupler_next" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="alias" />
+        <Parameter name="target" type="string" value="porosity@" />
+      </ParameterList>
       
       <ParameterList name="relative_permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="relative permeability, water retention model" />
