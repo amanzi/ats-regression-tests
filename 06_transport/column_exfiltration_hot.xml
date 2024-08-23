@@ -59,7 +59,7 @@
     <ParameterList name="PK tree">
       <ParameterList name="flow and transport">
         <Parameter name="PK type" type="string" value="subcycling MPC" />
-        <ParameterList name="surface-subsurface flow coupler">
+        <ParameterList name="flow coupler">
           <Parameter name="PK type" type="string" value="coupled water" />
           <ParameterList name="flow">
             <Parameter name="PK type" type="string" value="richards flow" />
@@ -68,7 +68,7 @@
             <Parameter name="PK type" type="string" value="overland flow, pressure basis" />
           </ParameterList>
         </ParameterList>
-        <ParameterList name="surface-subsurface transport coupler">
+        <ParameterList name="transport coupler">
           <Parameter name="PK type" type="string" value="surface subsurface transport" />
           <ParameterList name="subsurface transport">
             <Parameter name="PK type" type="string" value="transport ATS" />
@@ -84,7 +84,7 @@
 
     <ParameterList name="flow and transport">
       <Parameter name="PK type" type="string" value="subcycling MPC" />
-      <Parameter name="PKs order" type="Array(string)" value="{surface-subsurface flow coupler, surface-subsurface transport coupler}" />
+      <Parameter name="PKs order" type="Array(string)" value="{flow coupler, transport coupler}" />
       <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
       <ParameterList name="verbose object">
         <Parameter name="verbosity level" type="string" value="high" />
@@ -92,7 +92,7 @@
 
     </ParameterList>
 
-    <ParameterList name="surface-subsurface flow coupler">
+    <ParameterList name="flow coupler">
       <Parameter name="PK type" type="string" value="coupled water" />
       <Parameter name="PKs order" type="Array(string)" value="{flow, overland flow}" />
       <ParameterList name="water delegate" type="ParameterList">
@@ -226,7 +226,7 @@
 
     </ParameterList>
 
-    <ParameterList name="surface-subsurface transport coupler">
+    <ParameterList name="transport coupler">
       <Parameter name="PK type" type="string" value="surface subsurface transport" />
       <Parameter name="PK name" type="string" value="surface subsurface transport" />
       <Parameter name="PKs order" type="Array(string)" value="{subsurface transport, surface transport}" />
@@ -469,6 +469,33 @@
         <Parameter name="evaluator type" type="string" value="water retention model" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
       </ParameterList>
+
+      <ParameterList name="saturation_liquid@transport_coupler_next" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="temporal interpolation" />
+        <Parameter name="current tag" type="string" value="current" />
+        <Parameter name="next tag" type="string" value="" />
+      </ParameterList>
+      <ParameterList name="saturation_liquid@transport_coupler_current" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="temporal interpolation" />
+        <Parameter name="current tag" type="string" value="current" />
+        <Parameter name="next tag" type="string" value="" />
+      </ParameterList>
+      <ParameterList name="surface-ponded_depth@transport_coupler_next" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="temporal interpolation" />
+        <Parameter name="current tag" type="string" value="current" />
+        <Parameter name="next tag" type="string" value="" />
+      </ParameterList>
+      <ParameterList name="surface-ponded_depth@transport_coupler_current" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="temporal interpolation" />
+        <Parameter name="current tag" type="string" value="current" />
+        <Parameter name="next tag" type="string" value="" />
+      </ParameterList>
+
+      <ParameterList name="porosity@transport_coupler_next" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="alias" />
+        <Parameter name="target" type="string" value="porosity@" />
+      </ParameterList>
+
       <ParameterList name="relative_permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="relative permeability, water retention model" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
