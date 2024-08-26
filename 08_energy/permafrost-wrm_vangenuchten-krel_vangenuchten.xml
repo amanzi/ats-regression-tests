@@ -227,6 +227,7 @@
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="restart file" type="string" value="../data/energy_freezeup_checkpoint_final.h5" />
       </ParameterList>
+      <Parameter name="debug cells" type="Array(int)" value="{99}" />
 
     </ParameterList>
 
@@ -249,6 +250,7 @@
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="initialize surface head from subsurface" type="bool" value="true" />
       </ParameterList>
+      <Parameter name="debug cells" type="Array(int)" value="{0}" />
 
     </ParameterList>
 
@@ -266,6 +268,7 @@
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation" />
       </ParameterList>
+      <Parameter name="debug cells" type="Array(int)" value="{99}" />
 
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="temperature" type="ParameterList">
@@ -320,6 +323,7 @@
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
+      <Parameter name="debug cells" type="Array(int)" value="{0}" />
 
       <ParameterList name="boundary conditions" type="ParameterList">
       </ParameterList>
@@ -351,6 +355,7 @@
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="constant" type="double" value="0.35" />
       </ParameterList>
+      <Parameter name="debug cells" type="Array(int)" value="{0}" />
 
       <ParameterList name="inverse" type="ParameterList">
         <Parameter name="preconditioning method" type="string" value="identity" />
@@ -372,7 +377,7 @@
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="liquid+ice water content" />
       </ParameterList>
-      <ParameterList name="molar_density_liquid" type="ParameterList">
+      <ParameterList name="mass_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
         <ParameterList name="EOS parameters" type="ParameterList">

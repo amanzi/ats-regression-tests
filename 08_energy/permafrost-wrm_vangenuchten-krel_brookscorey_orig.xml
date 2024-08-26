@@ -373,7 +373,7 @@
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="liquid+ice water content" />
       </ParameterList>
-      <ParameterList name="molar_density_liquid" type="ParameterList">
+      <ParameterList name="mass_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
         <ParameterList name="EOS parameters" type="ParameterList">

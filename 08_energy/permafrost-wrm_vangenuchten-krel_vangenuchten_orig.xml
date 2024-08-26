@@ -373,7 +373,7 @@
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="liquid+ice water content" />
       </ParameterList>
-      <ParameterList name="molar_density_liquid" type="ParameterList">
+      <ParameterList name="mass_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
         <ParameterList name="EOS parameters" type="ParameterList">
@@ -547,7 +547,7 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-      <ParameterList name="snow-source_sink" type="ParameterList">
+      <ParameterList name="snow-density" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="surface energy balance, three components" />
         <Parameter name="save diagnostic data" type="bool" value="true" />
         <Parameter name="wind speed reference height [m]" type="double" value=" 3" />
