@@ -748,6 +748,9 @@
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
+    <ParameterList name="debug" type="ParameterList">
+      <Parameter name="evaluators" type="Array(string)" value="{column:0-base_porosity}" />
+    </ParameterList>
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="column:*-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="liquid+ice water content" />
