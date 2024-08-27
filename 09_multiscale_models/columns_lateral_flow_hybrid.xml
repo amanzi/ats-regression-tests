@@ -297,7 +297,6 @@
       <Parameter name="conserved quantity key suffix" type="string" value="water_content" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key suffix" type="string" value="water_source_sink" />
-      <Parameter name="source term is differentiable" type="bool" value="false" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="initial condition" type="ParameterList">
       </ParameterList>
@@ -311,7 +310,6 @@
       <Parameter name="conserved quantity key suffix" type="string" value="energy" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key suffix" type="string" value="energy_source_sink" />
-      <Parameter name="source term is differentiable" type="bool" value="false" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="initial condition" type="ParameterList">
       </ParameterList>

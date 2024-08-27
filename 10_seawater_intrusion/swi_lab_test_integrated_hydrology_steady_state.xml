@@ -252,7 +252,6 @@
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <Parameter name="mass source in meters" type="bool" value="true" />
       <Parameter name="initial time step" type="double" value=" 1" />
-      <Parameter name="source term is differentiable" type="bool" value="true" />
       <Parameter name="min ponded depth for tidal bc" type="double" value="-2" />
       <ParameterList name="verbose object">
         <Parameter name="verbosity level" type="string" value="low" />
