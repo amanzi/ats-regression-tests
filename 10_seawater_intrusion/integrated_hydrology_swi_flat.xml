@@ -276,7 +276,6 @@
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="initial time step" type="double" value="10" />
-      <Parameter name="source term is differentiable" type="bool" value="true" />
       <Parameter name="min ponded depth for tidal bc" type="double" value="-2" />
       <Parameter name="debug cells" type="Array(int)" value="{299}" />
       <ParameterList name="verbose object" type="ParameterList">

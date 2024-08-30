@@ -196,7 +196,6 @@
       <Parameter name="domain name" type="string" value="domain" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key" type="string" value="water_source" />
-      <Parameter name="source term is differentiable" type="bool" value="false" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="surface rel perm strategy" type="string" value="unsaturated" />
@@ -227,6 +226,7 @@
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="restart file" type="string" value="../data/energy_freezeup_checkpoint_final.h5" />
       </ParameterList>
+      <Parameter name="debug cells" type="Array(int)" value="{99}" />
 
     </ParameterList>
 
@@ -236,7 +236,6 @@
       <Parameter name="primary variable key" type="string" value="surface-pressure" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key" type="string" value="surface-water_source" />
-      <Parameter name="source term is differentiable" type="bool" value="false" />
       <Parameter name="water source in meters" type="bool" value="true" />
       <Parameter name="initial time step" type="double" value="86400" />
       <ParameterList name="diffusion" type="ParameterList">
@@ -249,6 +248,7 @@
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="initialize surface head from subsurface" type="bool" value="true" />
       </ParameterList>
+      <Parameter name="debug cells" type="Array(int)" value="{0}" />
 
     </ParameterList>
 
@@ -258,7 +258,6 @@
       <Parameter name="primary variable key" type="string" value="temperature" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key" type="string" value="total_energy_source" />
-      <Parameter name="source term is differentiable" type="bool" value="false" />
       <Parameter name="initial time step" type="double" value="86400" />
       <Parameter name="include thermal advection" type="bool" value="false" />
       <Parameter name="explicit advection" type="bool" value="false" />
@@ -266,6 +265,7 @@
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation" />
       </ParameterList>
+      <Parameter name="debug cells" type="Array(int)" value="{99}" />
 
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="temperature" type="ParameterList">
@@ -309,7 +309,6 @@
       <Parameter name="primary variable key" type="string" value="surface-temperature" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key" type="string" value="surface-total_energy_source" />
-      <Parameter name="source term is differentiable" type="bool" value="true" />
       <Parameter name="source term finite difference" type="bool" value="true" />
       <Parameter name="flux key" type="string" value="surface-water_flux" />
       <Parameter name="include thermal advection" type="bool" value="false" />
@@ -320,6 +319,7 @@
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
+      <Parameter name="debug cells" type="Array(int)" value="{0}" />
 
       <ParameterList name="boundary conditions" type="ParameterList">
       </ParameterList>
@@ -347,10 +347,10 @@
       <Parameter name="conserved quantity key" type="string" value="snow-water_volume" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key" type="string" value="snow-source_sink" />
-      <Parameter name="source term is differentiable" type="bool" value="false" />
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="constant" type="double" value="0.35" />
       </ParameterList>
+      <Parameter name="debug cells" type="Array(int)" value="{0}" />
 
       <ParameterList name="inverse" type="ParameterList">
         <Parameter name="preconditioning method" type="string" value="identity" />
@@ -372,7 +372,7 @@
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="liquid+ice water content" />
       </ParameterList>
-      <ParameterList name="molar_density_liquid" type="ParameterList">
+      <ParameterList name="mass_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
         <ParameterList name="EOS parameters" type="ParameterList">
