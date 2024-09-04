@@ -13,7 +13,7 @@
       <ParameterList name="generate mesh parameters" type="ParameterList">
         <Parameter name="number of cells" type="Array(int)" value="{100, 1}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{0.0, 0.0 }" />
-        <Parameter name="domain high coordinate" type="Array(double)" value="{2000.0, 50.0}" />
+        <Parameter name="domain high coordinate" type="Array(double)" value="{10.0, 2.0}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -23,7 +23,7 @@
     <ParameterList name="Computational domain">
       <ParameterList name="region: box">
         <Parameter name="low coordinate" type="Array(double)" value="{0.0,0.0}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{2000.0,50.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{10.0,2.0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="Left half">
@@ -43,7 +43,7 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value=" 0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="100.0" />
+    <Parameter name="end time" type="double" value="10.0" />
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="pipe flow" type="ParameterList">
@@ -79,28 +79,17 @@
       <Parameter name="numerical flux" type="string" value="Rusanov"/>
       
       <ParameterList name="boundary conditions">
-        <ParameterList name="wetted area">
-          <ParameterList name="BC 0">
-            <Parameter name="regions" type="Array(string)" value="{Left}"/>
-            <Parameter name="spatial distribution method" type="string" value="none"/>
-            <ParameterList name="wetted area">
-              <ParameterList name="function-exprtk">
-                <Parameter name="number of arguments" type="int" value="4"/>
-                <Parameter name="formula" type="string" value="0.6141848493043780"/>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-        <ParameterList name="velocity">
+
+        <ParameterList name="discharge">
           <ParameterList name="BC 1">
             <Parameter name="regions" type="Array(string)" value="{Left}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
-            <ParameterList name="velocity">
+            <ParameterList name="discharge">
               <Parameter name="number of dofs" type="int" value="2"/>
               <Parameter name="function type" type="string" value="composite function"/>
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="0.0"/>
+                  <Parameter name="value" type="double" value="10.0"/>
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
@@ -132,7 +121,7 @@
               <Parameter name="function type" type="string" value="composite function" />
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="2" />
+                  <Parameter name="value" type="double" value="1" />
                 </ParameterList>
               </ParameterList>
            </ParameterList>
@@ -217,23 +206,15 @@
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function">
               <ParameterList name="function-constant"> <!-- time component -->
-                <Parameter name="value" type="double" value="0.0"/>
+                <Parameter name="value" type="double" value="1.2"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
-          <ParameterList name="left half">
-            <Parameter name="region" type="string" value="Left half"/>
-            <Parameter name="component" type="string" value="cell"/>
-            <ParameterList name="function">
-              <ParameterList name="function-constant"> <!-- time component -->
-                <Parameter name="value" type="double" value="0.5"/>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
+
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="pipe-velocity">
+      <ParameterList name="pipe-discharge">
         <ParameterList name="function">
           <ParameterList name="domain">
             <Parameter name="region" type="string" value="Computational domain"/>
@@ -243,7 +224,7 @@
               <Parameter name="function type" type="string" value="composite function"/>
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="0.0"/>
+                  <Parameter name="value" type="double" value="10.0"/>
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
@@ -261,11 +242,11 @@
 
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> 
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 0.1, -1}" /> 
       <!-- <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" /> -->
     </ParameterList>
     <ParameterList name="pipe" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1, -1}" /> 
+      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 0.1, -1}" /> 
       <!-- <Parameter name="cycles start period stop" type="Array(int)" value="{ 0, 20, -1}" /> -->
     </ParameterList>
   </ParameterList>
