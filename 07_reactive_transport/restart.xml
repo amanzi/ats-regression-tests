@@ -89,7 +89,7 @@
     <ParameterList name="Flow and Reactive Transport" type="ParameterList">
       <Parameter name="PK type" type="string" value="subcycling MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{flow, reactive transport}" />
-      <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
+      <Parameter name="subcycle" type="Array(int)" value="{0,0}" />
 
     </ParameterList>
 

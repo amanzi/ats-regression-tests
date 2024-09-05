@@ -97,8 +97,7 @@
     <ParameterList name="flow and transport">
       <Parameter name="PK type" type="string" value="subcycling MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{flow coupler, reactive transport}" />
-      <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
-
+      <Parameter name="subcycle" type="Array(int)" value="{0,0}" />
     </ParameterList>
 
     <ParameterList name="flow coupler">
