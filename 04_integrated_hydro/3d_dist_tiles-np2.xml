@@ -84,6 +84,9 @@
         </ParameterList>
       </ParameterList>
     </ParameterList>
+    <ParameterList name="timestep manager" type="ParameterList">
+      <Parameter name="prescribed timesteps file name" type="string" value="../data/3d_dist_tiles-np2_dts.h5" />
+    </ParameterList>
   </ParameterList>
   <ParameterList name="PKs" type="ParameterList">
 
@@ -93,7 +96,7 @@
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="from file" />
+        <Parameter name="timestep controller type" type="string" value="smarter" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
           <Parameter name="nka lag iterations" type="int" value="2" />
           <Parameter name="max backtrack steps" type="int" value="5" />
@@ -114,9 +117,6 @@
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
           <Parameter name="initial time step [s]" type="double" value=" 1" />
-        </ParameterList>
-        <ParameterList name="timestep controller from file parameters" type="ParameterList">
-          <Parameter name="file name" type="string" value="../data/3d_dist_tiles-np2_dts.h5" />
         </ParameterList>
       </ParameterList>
 
@@ -279,12 +279,12 @@
         <Parameter name="distributed source key" type="string" value="water_source" />
         <Parameter name="number of ditches" type="int" value="3" />
         <Parameter name="entering pressure [Pa]" type="double" value="99365" />
-         <Parameter name="permeability above [m^2]" type="double" value="4.565983589780581e-13" />
-        <Parameter name="permeability below [m^2]" type="double" value="4.565983589780581e-13" />
-        <Parameter name="equivalent distance to impermeable boundary [m]" type="double" value="1.2920" />
+        <Parameter name="permeability above [m^2]" type="double" value="4.5659835897806e-13" />
+        <Parameter name="permeability below [m^2]" type="double" value="4.5659835897806e-13" />
+        <Parameter name="equivalent distance to impermeable boundary [m]" type="double" value="1.292" />
         <Parameter name="drain spacing [m]" type="double" value="15" />
-	<Parameter name="drain layer thickness [m]" type="double" value="0.5" />
-	<Parameter name="number of components" type="int" value="1" />
+        <Parameter name="drain layer thickness [m]" type="double" value="0.5" />
+        <Parameter name="number of components" type="int" value="1" />
       </ParameterList>
       <ParameterList name="surface-source_molar_density" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable constant" />

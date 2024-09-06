@@ -68,6 +68,9 @@
         </ParameterList>
       </ParameterList>
     </ParameterList>
+    <ParameterList name="timestep manager" type="ParameterList">
+      <Parameter name="prescribed timesteps file name" type="string" value="../data/integrated_hydro-column_drainage_dts.h5" />
+    </ParameterList>
   </ParameterList>
   <ParameterList name="PKs" type="ParameterList">
 
@@ -77,7 +80,7 @@
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="from file" />
+        <Parameter name="timestep controller type" type="string" value="smarter" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
           <Parameter name="nka lag iterations" type="int" value="2" />
           <Parameter name="max backtrack steps" type="int" value="5" />
@@ -103,10 +106,6 @@
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
-        </ParameterList>
-        <ParameterList name="timestep controller from file parameters" type="ParameterList">
-          <Parameter name="file name" type="string" value="../data/integrated_hydro-column_drainage_dts.h5" />
-          <Parameter name="initial time step [s]" type="double" value="315360" />
         </ParameterList>
       </ParameterList>
 
