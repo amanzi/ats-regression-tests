@@ -91,6 +91,9 @@
         </ParameterList>
       </ParameterList>
     </ParameterList>
+    <ParameterList name="timestep manager" type="ParameterList">
+      <Parameter name="prescribed timesteps file name" type="string" value="../data/transport-column_infiltration_dts.h5" />
+    </ParameterList>
   </ParameterList>
   <ParameterList name="PKs">
 
@@ -130,7 +133,7 @@
       <ParameterList name="time integrator">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="from file" />
+        <Parameter name="timestep controller type" type="string" value="smarter" />
         <ParameterList name="nka_bt_ats parameters">
           <Parameter name="nka lag iterations" type="int" value="2" />
           <Parameter name="max backtrack steps" type="int" value="5" />
@@ -144,18 +147,14 @@
         <ParameterList name="timestep controller smarter parameters">
           <Parameter name="max iterations" type="int" value="15" />
           <Parameter name="min iterations" type="int" value="10" />
-          <Parameter name="time step reduction factor" type="double" value="0.5" />
-          <Parameter name="time step increase factor" type="double" value=" 2" />
-          <Parameter name="max time step" type="double" value="3000000" />
-          <Parameter name="min time step" type="double" value="1e-10" />
+          <Parameter name="timestep reduction factor" type="double" value="0.5" />
+          <Parameter name="timestep increase factor" type="double" value=" 2" />
+          <Parameter name="max timestep" type="double" value="3000000" />
+          <Parameter name="min timestep" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+          <Parameter name="initial timestep [s]" type="double" value=" 1" />
         </ParameterList>
-        <ParameterList name="timestep controller from file parameters" type="ParameterList">
-          <Parameter name="file name" type="string" value="../data/transport-column_infiltration_dts.h5" />
-          <Parameter name="initial time step [s]" type="double" value="86400" />
-        </ParameterList>
-
       </ParameterList>
 
     </ParameterList>
@@ -179,18 +178,15 @@
       <ParameterList name="diffusion preconditioner">
         <Parameter name="include Newton correction" type="bool" value="true" />
       </ParameterList>
-<!--
-      <ParameterList name="boundary conditions">
-      </ParameterList>
--->
+
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="water flux" type="ParameterList">
           <ParameterList name="bottom" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{bottom face}" />
             <ParameterList name="outward water flux" type="ParameterList">
               <ParameterList name="function-tabular">
-                <Parameter name="x values" type="Array(double)" value="{0, 9.072e+6, 1.296e+7}" /> 
-                <Parameter name="y values" type="Array(double)" value="{0.00013875, 0.00065, 0}" />
+                <Parameter name="x values" type="Array(double)" value="{ 0,9072000,12960000}" />
+                <Parameter name="y values" type="Array(double)" value="{0.00013875,0.00065, 0}" />
                 <Parameter name="forms" type="Array(string)" value="{constant,constant}" />
               </ParameterList>
             </ParameterList>
@@ -361,8 +357,7 @@
           <ParameterList name="Tracer injection" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface domain}" />
             <Parameter name="solutes" type="Array(string)" value="{H+,HCO3-,Ca++,Tracer}" />
-	    <!--            <Parameter name="times" type="Array(double)" value="{ 0,8640000}" /> -->
-            <Parameter name="times" type="Array(double)" value="{ 0,1.296e+7}" />
+            <Parameter name="times" type="Array(double)" value="{ 0,12960000}" />
             <Parameter name="geochemical conditions" type="Array(string)" value="{rain, rain}" />
             <Parameter name="time functions" type="Array(string)" value="{constant}" />
             <Parameter name="ats units [moles/m^3]" type="bool" value="true" />
@@ -405,12 +400,11 @@
       <Parameter name="time step cut threshold" type="int" value="5" />
       <Parameter name="time step cut factor" type="double" value=" 2" />
       <Parameter name="time step increase threshold" type="int" value="4" />
-      <Parameter name="time step increase factor" type="double" value="1.2" />
+      <Parameter name="timestep increase factor" type="double" value="1.2" />
       <Parameter name="time step control method" type="string" value="fixed" />
       <Parameter name="auxiliary data" type="Array(string)" value="{pH}" />
       <Parameter name="initial conditions time" type="double" value=" 0" />
       <Parameter name="number of component concentrations" type="int" value="4" />
-      <!-- initial -->
       <ParameterList name="initial condition" type="ParameterList">
         <ParameterList name="geochemical conditions" type="ParameterList">
           <ParameterList name="initial" type="ParameterList">
@@ -438,12 +432,11 @@
       <Parameter name="time step cut threshold" type="int" value="5" />
       <Parameter name="time step cut factor" type="double" value=" 2" />
       <Parameter name="time step increase threshold" type="int" value="4" />
-      <Parameter name="time step increase factor" type="double" value="1.2" />
+      <Parameter name="timestep increase factor" type="double" value="1.2" />
       <Parameter name="time step control method" type="string" value="fixed" />
       <Parameter name="auxiliary data" type="Array(string)" value="{pH}" />
       <Parameter name="initial conditions time" type="double" value=" 0" />
       <Parameter name="number of component concentrations" type="int" value="4" />
-      <!-- surfini --> 
       <ParameterList name="initial condition" type="ParameterList">
         <ParameterList name="geochemical conditions" type="ParameterList">
           <ParameterList name="initial" type="ParameterList">
@@ -484,8 +477,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function">
               <ParameterList name="function-tabular">
-		<!--                <Parameter name="x values" type="Array(double)" value="{ 0,8640000}" />  -->
-                <Parameter name="x values" type="Array(double)" value="{ 0,9.072e+6}" /> 
+                <Parameter name="x values" type="Array(double)" value="{ 0,9072000}" />
                 <Parameter name="y values" type="Array(double)" value="{2e-08, 0}" />
                 <Parameter name="forms" type="Array(string)" value="{constant}" />
               </ParameterList>
@@ -685,7 +677,6 @@
       </ParameterList>
 
     </ParameterList>
-
     <ParameterList name="model parameters" type="ParameterList">
       <ParameterList name="WRM parameters" type="ParameterList">
         <ParameterList name="rest domain" type="ParameterList">
@@ -698,20 +689,8 @@
         </ParameterList>
       </ParameterList>
     </ParameterList>
-    
   </ParameterList>
-  
   <ParameterList name="checkpoint">
     <Parameter name="cycles" type="Array(int)" value="{0,7,10,13,16,19,22,25,28,31,34}" />
   </ParameterList>
-<!--
-  <ParameterList name="visualization">
-    <ParameterList name="surface">
-      <Parameter name="cycles" type="Array(int)" value="{0,7,10,13,16,19,22,25,28,31,34}" />
-    </ParameterList>
-    <ParameterList name="domain">
-      <Parameter name="cycles" type="Array(int)" value="{0,7,10,13,16,19,22,25,28,31,34}" />
-    </ParameterList>
-  </ParameterList>
--->
 </ParameterList>

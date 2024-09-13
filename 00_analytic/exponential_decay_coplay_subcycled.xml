@@ -73,7 +73,7 @@
           <Parameter name="limit iterations" type="int" value="21" />
         </ParameterList>
         <ParameterList name="timestep controller fixed parameters">
-          <Parameter name="initial time step [s]" type="double" value=" 1" />
+          <Parameter name="timestep [s]" type="double" value=" 1" />
         </ParameterList>
       </ParameterList>
 
@@ -121,7 +121,7 @@
           <Parameter name="limit iterations" type="int" value="21" />
         </ParameterList>
         <ParameterList name="timestep controller fixed parameters">
-          <Parameter name="initial time step [s]" type="double" value="10" />
+          <Parameter name="timestep [s]" type="double" value="10" />
         </ParameterList>
       </ParameterList>
 

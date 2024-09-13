@@ -70,6 +70,9 @@
         <Parameter name="PK type" type="string" value="richards flow" />
       </ParameterList>
     </ParameterList>
+    <ParameterList name="timestep manager" type="ParameterList">
+      <Parameter name="prescribed timesteps file name" type="string" value="../data/infiltration_brooks_corey_mfd_dts.h5" />
+    </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="cycles" type="Array(int)" value="{0,112,115,117,118,119,120,121,122,123,124}" />
@@ -91,7 +94,7 @@
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="from file" />
+        <Parameter name="timestep controller type" type="string" value="smarter" />
         <ParameterList name="nka_bt_ats parameters" type="ParameterList">
           <Parameter name="nka lag iterations" type="int" value="2" />
           <Parameter name="max backtrack steps" type="int" value="5" />
@@ -111,16 +114,13 @@
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
           <Parameter name="max iterations" type="int" value="18" />
           <Parameter name="min iterations" type="int" value="10" />
-          <Parameter name="time step reduction factor" type="double" value="0.5" />
-          <Parameter name="time step increase factor" type="double" value="1.25" />
-          <Parameter name="max time step" type="double" value="10000000000" />
-          <Parameter name="min time step" type="double" value="1e-10" />
+          <Parameter name="timestep reduction factor" type="double" value="0.5" />
+          <Parameter name="timestep increase factor" type="double" value="1.25" />
+          <Parameter name="max timestep" type="double" value="10000000000" />
+          <Parameter name="min timestep" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
-        </ParameterList>
-        <ParameterList name="timestep controller from file parameters" type="ParameterList">
-          <Parameter name="initial time step [s]" type="double" value=" 1" />
-          <Parameter name="file name" type="string" value="../data/infiltration_brooks_corey_mfd_dts.h5" />
+          <Parameter name="initial timestep [s]" type="double" value=" 1" />
         </ParameterList>
       </ParameterList>
 

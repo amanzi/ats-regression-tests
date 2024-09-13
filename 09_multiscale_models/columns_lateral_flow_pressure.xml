@@ -255,7 +255,7 @@
         </ParameterList>
         <ParameterList name="timestep controller fixed parameters" type="ParameterList">
           <Parameter name="time step" type="double" value="86400" />
-          <Parameter name="initial time step [s]" type="double" value="86400" />
+          <Parameter name="timestep [s]" type="double" value="86400" />
         </ParameterList>
       </ParameterList>
 
@@ -411,7 +411,7 @@
         </ParameterList>
         <ParameterList name="timestep controller fixed parameters" type="ParameterList">
           <Parameter name="time step" type="double" value="86400" />
-          <Parameter name="initial time step [s]" type="double" value="86400" />
+          <Parameter name="timestep [s]" type="double" value="86400" />
         </ParameterList>
       </ParameterList>
 
