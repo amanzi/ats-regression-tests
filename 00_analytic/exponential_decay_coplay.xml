@@ -76,7 +76,7 @@
           </ParameterList>
         </ParameterList>
         <ParameterList name="timestep controller fixed parameters">
-          <Parameter name="initial time step [s]" type="double" value=" 1" />
+          <Parameter name="timestep [s]" type="double" value=" 1" />
         </ParameterList>
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="high" />
@@ -134,7 +134,7 @@
           </ParameterList>
         </ParameterList>
         <ParameterList name="timestep controller fixed parameters">
-          <Parameter name="initial time step [s]" type="double" value=" 1" />
+          <Parameter name="timestep [s]" type="double" value=" 1" />
         </ParameterList>
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="high" />

@@ -160,12 +160,13 @@
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
           <Parameter name="max iterations" type="int" value="20" />
           <Parameter name="min iterations" type="int" value="3" />
-          <Parameter name="time step reduction factor" type="double" value="0.5" />
-          <Parameter name="time step increase factor" type="double" value="1.25" />
-          <Parameter name="max time step" type="double" value="10" />
-          <Parameter name="min time step" type="double" value="0.001" />
+          <Parameter name="timestep reduction factor" type="double" value="0.5" />
+          <Parameter name="timestep increase factor" type="double" value="1.25" />
+          <Parameter name="max timestep" type="double" value="10" />
+          <Parameter name="min timestep" type="double" value="0.001" />
           <Parameter name="growth wait after fail" type="int" value="3" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+          <Parameter name="initial timestep [s]" type="double" value=" 1" />
         </ParameterList>
       </ParameterList>
 
@@ -175,7 +176,7 @@
       <Parameter name="PK type" type="string" value="richards flow" />
       <Parameter name="darcy flux key" type="string" value="water_flux" />
       <Parameter name="primary variable key" type="string" value="pressure" />
-      <Parameter name="initial time step" type="double" value=" 1" />
+      <Parameter name="initial timestep" type="double" value=" 1" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="surface rel perm strategy" type="string" value="clobber" />
@@ -251,7 +252,7 @@
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <Parameter name="mass source in meters" type="bool" value="true" />
-      <Parameter name="initial time step" type="double" value=" 1" />
+      <Parameter name="initial timestep" type="double" value=" 1" />
       <Parameter name="min ponded depth for tidal bc" type="double" value="-2" />
       <ParameterList name="verbose object">
         <Parameter name="verbosity level" type="string" value="low" />
@@ -444,7 +445,6 @@
       <ParameterList name="capillary_pressure_gas_liq" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
       </ParameterList>
-
       <ParameterList name="surface-mass_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
         <Parameter name="EOS basis" type="string" value="both" />
@@ -475,7 +475,6 @@
           <Parameter name="verbosity level" type="string" value="extreme" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-source_molar_density">
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value="55500" />

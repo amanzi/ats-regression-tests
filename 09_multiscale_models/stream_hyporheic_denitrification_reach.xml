@@ -328,7 +328,7 @@
       <Parameter name="time step cut threshold" type="int" value="8" />
       <Parameter name="time step cut factor" type="double" value=" 2" />
       <Parameter name="time step increase threshold" type="int" value="4" />
-      <Parameter name="time step increase factor" type="double" value="1.2" />
+      <Parameter name="timestep increase factor" type="double" value="1.2" />
       <Parameter name="time step control method" type="string" value="fixed" />
       <Parameter name="initial conditions time" type="double" value=" 0" />
       <Parameter name="number of component concentrations" type="int" value="6" />
@@ -426,7 +426,7 @@
       <Parameter name="time step cut threshold" type="int" value="8" />
       <Parameter name="time step cut factor" type="double" value=" 2" />
       <Parameter name="time step increase threshold" type="int" value="4" />
-      <Parameter name="time step increase factor" type="double" value="1.2" />
+      <Parameter name="timestep increase factor" type="double" value="1.2" />
       <Parameter name="time step control method" type="string" value="fixed" />
       <Parameter name="initial conditions time" type="double" value=" 0" />
       <Parameter name="number of component concentrations" type="int" value="6" />
