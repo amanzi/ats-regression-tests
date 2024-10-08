@@ -350,9 +350,11 @@
         <ParameterList name="unfrozen fraction model" type="ParameterList">
           <Parameter name="transition width [K]" type="double" value="0.2" />
         </ParameterList>
+        <Parameter name="debug cells" type="Array(int)" value="{0}" />
       </ParameterList>
       <ParameterList name="surface-unfrozen_effective_depth" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="unfrozen effective depth" />
+        <Parameter name="debug cells" type="Array(int)" value="{0}" />
       </ParameterList>
       <ParameterList name="mass_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
@@ -516,6 +518,7 @@
           <Parameter name="Manning exponent" type="double" value="0.66666667" />
           <Parameter name="slope regularization epsilon" type="double" value="0.01" />
         </ParameterList>
+        <Parameter name="debug cells" type="Array(int)" value="{0}" />
       </ParameterList>
       <ParameterList name="relative_permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="relative permeability, water retention model" />

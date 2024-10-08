@@ -67,7 +67,7 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="cycles" type="Array(int)" value="{0,1,2,3,4,5}" />
+    <Parameter name="cycles" type="Array(int)" value="{0,6,16,31,36,49}" />
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
@@ -79,7 +79,6 @@
       <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="false" />
       <ParameterList name="surface ewc delegate" type="ParameterList">
         <Parameter name="predictor type" type="string" value="smart ewc" />
-        <Parameter name="molar density ice key" type="string" value="surface-molar_density_ice" />
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
@@ -114,10 +113,10 @@
           <Parameter name="min time step" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
+          <Parameter name="initial time step [s]" type="double" value="8640" />
         </ParameterList>
         <ParameterList name="timestep controller from file parameters" type="ParameterList">
-          <Parameter name="file name" type="string" value="../data/energy-surface_water_dts.h5" />
-          <Parameter name="initial time step [s]" type="double" value="8640" />
+          <Parameter name="file name" type="string" value="../data/surface_water_dts.h5" />
         </ParameterList>
       </ParameterList>
 
@@ -189,7 +188,6 @@
       <Parameter name="upwind conductivity method" type="string" value="arithmetic mean" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source term key" type="string" value="surface-total_energy_source" />
-      <Parameter name="source term finite difference" type="bool" value="false" />
       <Parameter name="debug cells" type="Array(int)" value="{0,9}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
