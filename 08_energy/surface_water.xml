@@ -65,9 +65,6 @@
         </ParameterList>
       </ParameterList>
     </ParameterList>
-    <ParameterList name="timestep manager" type="ParameterList">
-      <Parameter name="prescribed timesteps file name" type="string" value="../data/energy-surface_water_dts.h5" />
-    </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="times start period stop" type="Array(double)" value="{ 0,8640,-1}" />
@@ -122,10 +119,7 @@
           <Parameter name="min timestep" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
-        </ParameterList>
-        <ParameterList name="timestep controller from file parameters" type="ParameterList">
-          <Parameter name="file name" type="string" value="../data/energy-surface_water_dts.h5" />
-          <Parameter name="initial timestep [s]" type="double" value=" 1" />
+          <Parameter name="initial timestep [s]" type="double" value="8640" />
         </ParameterList>
       </ParameterList>
 

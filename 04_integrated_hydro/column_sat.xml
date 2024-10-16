@@ -105,9 +105,7 @@
       </ParameterList>
     </ParameterList>
     <ParameterList name="timestep manager" type="ParameterList">
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="extreme" />
-      </ParameterList>
+      <Parameter name="prescribed timesteps file name" type="string" value="../data/integrated_hydro-column_sat_dts.h5" />
     </ParameterList>
   </ParameterList>
 
