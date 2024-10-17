@@ -211,7 +211,7 @@
       <Parameter name="star domain name" type="string" value="surface_star" />
       <Parameter name="coupling type" type="string" value="hybrid" />
       <Parameter name="subcycle" type="Array(int)" value="{1,0}" />
-      <Parameter name="subcycling target time step [s]" type="double" value="86400" />
+      <Parameter name="subcycling target timestep [s]" type="double" value="86400" />
 
     </ParameterList>
 
@@ -219,7 +219,7 @@
       <Parameter name="PK type" type="string" value="domain set weak MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{column:*-permafrost}" />
       <Parameter name="subcycle" type="bool" value="true" />
-      <Parameter name="subcycling target time step [s]" type="double" value="86400" />
+      <Parameter name="subcycling target timestep [s]" type="double" value="86400" />
 
     </ParameterList>
 
