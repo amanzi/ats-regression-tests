@@ -91,6 +91,9 @@
         </ParameterList>
       </ParameterList>
     </ParameterList>
+    <ParameterList name="timestep manager" type="ParameterList">
+      <Parameter name="prescribed timesteps file name" type="string" value="../data/transport-column_infiltration_dts.h5" />
+    </ParameterList>
   </ParameterList>
   <ParameterList name="PKs">
 
@@ -146,7 +149,7 @@
       <ParameterList name="time integrator">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
-        <Parameter name="timestep controller type" type="string" value="from file" />
+        <Parameter name="timestep controller type" type="string" value="smarter" />
         <ParameterList name="nka_bt_ats parameters">
           <Parameter name="nka lag iterations" type="int" value="2" />
           <Parameter name="max backtrack steps" type="int" value="5" />
@@ -166,16 +169,13 @@
         <ParameterList name="timestep controller smarter parameters">
           <Parameter name="max iterations" type="int" value="15" />
           <Parameter name="min iterations" type="int" value="10" />
-          <Parameter name="time step reduction factor" type="double" value="0.5" />
-          <Parameter name="time step increase factor" type="double" value=" 2" />
-          <Parameter name="max time step" type="double" value="3000000" />
-          <Parameter name="min time step" type="double" value="1e-10" />
+          <Parameter name="timestep reduction factor" type="double" value="0.5" />
+          <Parameter name="timestep increase factor" type="double" value=" 2" />
+          <Parameter name="max timestep" type="double" value="3000000" />
+          <Parameter name="min timestep" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
-        </ParameterList>
-        <ParameterList name="timestep controller from file parameters" type="ParameterList">
-          <Parameter name="file name" type="string" value="../data/transport-column_infiltration_dts.h5" />
-          <Parameter name="initial time step [s]" type="double" value="86400" />
+          <Parameter name="initial timestep [s]" type="double" value=" 1" />
         </ParameterList>
       </ParameterList>
 
@@ -430,14 +430,14 @@
       <Parameter name="activity model" type="string" value="unit" />
       <Parameter name="maximum Newton iterations" type="int" value="100" />
       <Parameter name="tolerance" type="double" value="1e-15" />
-      <Parameter name="max time step (s)" type="double" value="2200000" />
-      <Parameter name="min time step (s)" type="double" value="10000000000" />
-      <Parameter name="initial time step (s)" type="double" value="2200000" />
-      <Parameter name="time step cut threshold" type="int" value="5" />
-      <Parameter name="time step cut factor" type="double" value=" 2" />
-      <Parameter name="time step increase threshold" type="int" value="4" />
-      <Parameter name="time step increase factor" type="double" value="1.2" />
-      <Parameter name="time step control method" type="string" value="fixed" />
+      <Parameter name="max timestep (s)" type="double" value="2200000" />
+      <Parameter name="min timestep (s)" type="double" value="10000000000" />
+      <Parameter name="initial timestep (s)" type="double" value="2200000" />
+      <Parameter name="timestep cut threshold" type="int" value="5" />
+      <Parameter name="timestep cut factor" type="double" value=" 2" />
+      <Parameter name="timestep increase threshold" type="int" value="4" />
+      <Parameter name="timestep increase factor" type="double" value="1.2" />
+      <Parameter name="timestep control method" type="string" value="fixed" />
       <Parameter name="auxiliary data" type="Array(string)" value="{pH}" />
       <Parameter name="initial conditions time" type="double" value=" 0" />
       <Parameter name="number of component concentrations" type="int" value="10" />
@@ -466,14 +466,14 @@
       <Parameter name="activity model" type="string" value="unit" />
       <Parameter name="maximum Newton iterations" type="int" value="100" />
       <Parameter name="tolerance" type="double" value="1e-15" />
-      <Parameter name="max time step (s)" type="double" value="22000000" />
-      <Parameter name="min time step (s)" type="double" value="10000000000" />
-      <Parameter name="initial time step (s)" type="double" value="22000000" />
-      <Parameter name="time step cut threshold" type="int" value="5" />
-      <Parameter name="time step cut factor" type="double" value=" 2" />
-      <Parameter name="time step increase threshold" type="int" value="4" />
-      <Parameter name="time step increase factor" type="double" value="1.2" />
-      <Parameter name="time step control method" type="string" value="fixed" />
+      <Parameter name="max timestep (s)" type="double" value="22000000" />
+      <Parameter name="min timestep (s)" type="double" value="10000000000" />
+      <Parameter name="initial timestep (s)" type="double" value="22000000" />
+      <Parameter name="timestep cut threshold" type="int" value="5" />
+      <Parameter name="timestep cut factor" type="double" value=" 2" />
+      <Parameter name="timestep increase threshold" type="int" value="4" />
+      <Parameter name="timestep increase factor" type="double" value="1.2" />
+      <Parameter name="timestep control method" type="string" value="fixed" />
       <Parameter name="auxiliary data" type="Array(string)" value="{pH}" />
       <Parameter name="initial conditions time" type="double" value=" 0" />
       <Parameter name="number of component concentrations" type="int" value="12" />
@@ -628,14 +628,4 @@
   <ParameterList name="checkpoint">
     <Parameter name="cycles" type="Array(int)" value="{0,7,10,13,16,19,22,25,28,31,34}" />
   </ParameterList>
-<!--
-  <ParameterList name="visualization">
-    <ParameterList name="surface">
-      <Parameter name="cycles" type="Array(int)" value="{0,7,10,13,16,19,22,25,28,31,34}" />
-    </ParameterList>
-    <ParameterList name="domain">
-      <Parameter name="cycles" type="Array(int)" value="{0,7,10,13,16,19,22,25,28,31,34}" />
-    </ParameterList>
-  </ParameterList>
--->
 </ParameterList>

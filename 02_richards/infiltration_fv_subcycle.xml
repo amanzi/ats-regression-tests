@@ -97,9 +97,6 @@
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="debug cells" type="Array(int)" value="{0,99}" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="high" />
-      </ParameterList>
 
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
@@ -114,26 +111,20 @@
           <Parameter name="nonlinear tolerance" type="double" value="1e-08" />
           <Parameter name="diverged tolerance" type="double" value="10000000000" />
           <Parameter name="limit iterations" type="int" value="100" />
-          <ParameterList name="verbose object" type="ParameterList">
-            <Parameter name="verbosity level" type="string" value="high" />
-          </ParameterList>
-        </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
           <Parameter name="max iterations" type="int" value="18" />
           <Parameter name="min iterations" type="int" value="10" />
-          <Parameter name="time step reduction factor" type="double" value="0.5" />
-          <Parameter name="time step increase factor" type="double" value="1.25" />
-          <Parameter name="max time step" type="double" value="10000000000" />
-          <Parameter name="min time step" type="double" value="1e-10" />
+          <Parameter name="timestep reduction factor" type="double" value="0.5" />
+          <Parameter name="timestep increase factor" type="double" value="1.25" />
+          <Parameter name="max timestep" type="double" value="10000000000" />
+          <Parameter name="min timestep" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
         </ParameterList>
         <ParameterList name="timestep controller from file parameters" type="ParameterList">
           <Parameter name="file name" type="string" value="../data/richards-infiltration_fv_dts.h5" />
-          <Parameter name="initial time step [s]" type="double" value=" 1" />
+          <Parameter name="initial timestep [s]" type="double" value=" 1" />
         </ParameterList>
       </ParameterList>
 
@@ -154,9 +145,6 @@
           <Parameter name="strong threshold" type="double" value="0.65" />
           <Parameter name="tolerance" type="double" value=" 0" />
           <Parameter name="verbosity" type="int" value="0" />
-        </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="high" />
         </ParameterList>
         <ParameterList name="gmres parameters" type="ParameterList">
           <Parameter name="preconditioning strategy" type="string" value="left" />
@@ -207,9 +195,6 @@
       </ParameterList>
       <ParameterList name="capillary_pressure_gas_liq" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid" />
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
       <ParameterList name="molar_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="eos" />
@@ -219,18 +204,12 @@
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="liquid water" />
         </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
       <ParameterList name="viscosity_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="viscosity" />
         <Parameter name="viscosity key" type="string" value="viscosity_liquid" />
         <ParameterList name="viscosity model parameters" type="ParameterList">
           <Parameter name="viscosity relation type" type="string" value="liquid water" />
-        </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
       <ParameterList name="molar_density_gas" type="ParameterList">
@@ -243,18 +222,12 @@
             <Parameter name="EOS type" type="string" value="ideal gas" />
           </ParameterList>
         </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
       <ParameterList name="mol_frac_gas" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="molar fraction gas" />
         <Parameter name="molar fraction key" type="string" value="mol_frac_gas" />
         <ParameterList name="vapor pressure model parameters" type="ParameterList">
           <Parameter name="vapor pressure model type" type="string" value="water vapor over water/ice" />
-        </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
       <ParameterList name="porosity" type="ParameterList">
@@ -271,9 +244,6 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
       <ParameterList name="permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
@@ -288,9 +258,6 @@
               </ParameterList>
             </ParameterList>
           </ParameterList>
-        </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
         </ParameterList>
       </ParameterList>
       <ParameterList name="temperature" type="ParameterList">
@@ -307,15 +274,9 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
       <ParameterList name="effective_pressure" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="effective_pressure" />
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
       <ParameterList name="relative_permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="relative permeability, water retention model" />
@@ -324,16 +285,10 @@
       <ParameterList name="saturation_liquid" type="ParameterList">
         <Parameter name="model parameters" type="string" value="WRM parameters" />
         <Parameter name="evaluator type" type="string" value="water retention model" />
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
       <ParameterList name="saturation_gas" type="ParameterList">
         <Parameter name="model parameters" type="string" value="WRM parameters" />
         <Parameter name="evaluator type" type="string" value="water retention model" />
-        <ParameterList name="verbose object" type="ParameterList">
-          <Parameter name="verbosity level" type="string" value="low" />
-        </ParameterList>
       </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">

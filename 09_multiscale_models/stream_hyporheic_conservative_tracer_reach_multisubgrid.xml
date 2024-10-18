@@ -365,14 +365,14 @@
       <Parameter name="activity model" type="string" value="unit" />
       <Parameter name="maximum Newton iterations" type="int" value="100" />
       <Parameter name="tolerance" type="double" value="1e-12" />
-      <Parameter name="max time step (s)" type="double" value="15778463" />
-      <Parameter name="min time step (s)" type="double" value="10000000000" />
-      <Parameter name="initial time step (s)" type="double" value="15778463" />
-      <Parameter name="time step cut threshold" type="int" value="8" />
-      <Parameter name="time step cut factor" type="double" value=" 2" />
-      <Parameter name="time step increase threshold" type="int" value="4" />
-      <Parameter name="time step increase factor" type="double" value="1.2" />
-      <Parameter name="time step control method" type="string" value="fixed" />
+      <Parameter name="max timestep (s)" type="double" value="15778463" />
+      <Parameter name="min timestep (s)" type="double" value="10000000000" />
+      <Parameter name="initial timestep (s)" type="double" value="15778463" />
+      <Parameter name="timestep cut threshold" type="int" value="8" />
+      <Parameter name="timestep cut factor" type="double" value=" 2" />
+      <Parameter name="timestep increase threshold" type="int" value="4" />
+      <Parameter name="timestep increase factor" type="double" value="1.2" />
+      <Parameter name="timestep control method" type="string" value="fixed" />
       <Parameter name="initial conditions time" type="double" value=" 0" />
       <Parameter name="number of component concentrations" type="int" value="6" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
@@ -486,14 +486,14 @@
       <Parameter name="activity model" type="string" value="unit" />
       <Parameter name="maximum Newton iterations" type="int" value="100" />
       <Parameter name="tolerance" type="double" value="1e-12" />
-      <Parameter name="max time step (s)" type="double" value="15778463" />
-      <Parameter name="min time step (s)" type="double" value="10000000000" />
-      <Parameter name="initial time step (s)" type="double" value="15778463" />
-      <Parameter name="time step cut threshold" type="int" value="8" />
-      <Parameter name="time step cut factor" type="double" value=" 2" />
-      <Parameter name="time step increase threshold" type="int" value="4" />
-      <Parameter name="time step increase factor" type="double" value="1.2" />
-      <Parameter name="time step control method" type="string" value="fixed" />
+      <Parameter name="max timestep (s)" type="double" value="15778463" />
+      <Parameter name="min timestep (s)" type="double" value="10000000000" />
+      <Parameter name="initial timestep (s)" type="double" value="15778463" />
+      <Parameter name="timestep cut threshold" type="int" value="8" />
+      <Parameter name="timestep cut factor" type="double" value=" 2" />
+      <Parameter name="timestep increase threshold" type="int" value="4" />
+      <Parameter name="timestep increase factor" type="double" value="1.2" />
+      <Parameter name="timestep control method" type="string" value="fixed" />
       <Parameter name="initial conditions time" type="double" value=" 0" />
       <Parameter name="number of component concentrations" type="int" value="6" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
@@ -562,14 +562,14 @@
       <Parameter name="activity model" type="string" value="unit" />
       <Parameter name="maximum Newton iterations" type="int" value="100" />
       <Parameter name="tolerance" type="double" value="1e-12" />
-      <Parameter name="max time step (s)" type="double" value="15778463" />
-      <Parameter name="min time step (s)" type="double" value="10000000000" />
-      <Parameter name="initial time step (s)" type="double" value="15778463" />
-      <Parameter name="time step cut threshold" type="int" value="8" />
-      <Parameter name="time step cut factor" type="double" value=" 2" />
-      <Parameter name="time step increase threshold" type="int" value="4" />
-      <Parameter name="time step increase factor" type="double" value="1.2" />
-      <Parameter name="time step control method" type="string" value="fixed" />
+      <Parameter name="max timestep (s)" type="double" value="15778463" />
+      <Parameter name="min timestep (s)" type="double" value="10000000000" />
+      <Parameter name="initial timestep (s)" type="double" value="15778463" />
+      <Parameter name="timestep cut threshold" type="int" value="8" />
+      <Parameter name="timestep cut factor" type="double" value=" 2" />
+      <Parameter name="timestep increase threshold" type="int" value="4" />
+      <Parameter name="timestep increase factor" type="double" value="1.2" />
+      <Parameter name="timestep control method" type="string" value="fixed" />
       <Parameter name="initial conditions time" type="double" value=" 0" />
       <Parameter name="number of component concentrations" type="int" value="6" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />

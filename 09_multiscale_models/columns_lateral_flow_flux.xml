@@ -218,7 +218,7 @@
       <Parameter name="star domain name" type="string" value="surface_star" />
       <Parameter name="coupling type" type="string" value="flux" />
       <Parameter name="subcycle" type="Array(int)" value="{1,0}" />
-      <Parameter name="subcycling target time step [s]" type="double" value="86400" />
+      <Parameter name="subcycling target timestep [s]" type="double" value="86400" />
 
     </ParameterList>
 
@@ -226,7 +226,7 @@
       <Parameter name="PK type" type="string" value="domain set weak MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{column:*-permafrost}" />
       <Parameter name="subcycle" type="bool" value="true" />
-      <Parameter name="subcycling target time step [s]" type="double" value="86400" />
+      <Parameter name="subcycling target timestep [s]" type="double" value="86400" />
 
     </ParameterList>
 
@@ -257,8 +257,8 @@
           <Parameter name="limit iterations" type="int" value="100" />
         </ParameterList>
         <ParameterList name="timestep controller fixed parameters" type="ParameterList">
-          <Parameter name="time step" type="double" value="86400" />
-          <Parameter name="initial time step [s]" type="double" value="86400" />
+          <Parameter name="timestep" type="double" value="86400" />
+          <Parameter name="timestep [s]" type="double" value="86400" />
         </ParameterList>
       </ParameterList>
 
@@ -413,8 +413,8 @@
           <Parameter name="limit iterations" type="int" value="100" />
         </ParameterList>
         <ParameterList name="timestep controller fixed parameters" type="ParameterList">
-          <Parameter name="time step" type="double" value="86400" />
-          <Parameter name="initial time step [s]" type="double" value="86400" />
+          <Parameter name="timestep" type="double" value="86400" />
+          <Parameter name="timestep [s]" type="double" value="86400" />
         </ParameterList>
       </ParameterList>
 
