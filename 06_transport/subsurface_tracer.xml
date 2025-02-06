@@ -72,19 +72,14 @@
 
     <ParameterList name="transport" type="ParameterList">
       <Parameter name="PK type" type="string" value="transport ATS" />
+      <Parameter name="primary variable key" type="string" value="total_component_concentration" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
       <Parameter name="number of liquid components" type="int" value="2" />
-      <Parameter name="component molar masses" type="Array(double)" value="{ 1, 1}" />
-      <Parameter name="spatial discretization order" type="int" value="1" />
+      <Parameter name="advective spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value=" 1" />
-      <Parameter name="number of aqueous components" type="int" value="2" />
-      <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
       <Parameter name="debug cells" type="Array(int)" value="{9999}" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="high" />
-      </ParameterList>
 
       <ParameterList name="reconstruction" type="ParameterList">
         <Parameter name="polynomial order" type="int" value="0" />
@@ -92,22 +87,11 @@
         <Parameter name="limiter extension for transport" type="bool" value="true" />
       </ParameterList>
 
-      <ParameterList name="molecular diffusion" type="ParameterList">
-        <Parameter name="aqueous names" type="Array(string)" value="{Tracer1,Tracer2}" />
-        <Parameter name="aqueous values" type="Array(double)" value="{1e-10, 1}" />
-      </ParameterList>
-
-      <ParameterList name="material properties">
-        <ParameterList name="domain">
-          <Parameter name="regions" type="Array(string)" value="{computational domain}" />
-          <Parameter name="model" type="string" value="scalar" />
-          <Parameter name="aqueous tortuosity" type="double" value=" 1" />
-          <Parameter name="gaseous tortuosity" type="double" value=" 1" />
-          <ParameterList name="parameters for scalar">
-            <Parameter name="alpha" type="double" value=" 0" />
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
+      <Parameter name="has dispersion" type="bool" value="false" />
+      <!-- <ParameterList name="molecular diffusivity [??]" type="ParameterList"> -->
+      <!--   <Parameter name="Tracer1" type="double" value="1e-10" /> -->
+      <!--   <Parameter name="Tracer2" type="double" value="1" /> -->
+      <!-- </ParameterList> -->
 
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="mfd: default" />
@@ -204,6 +188,10 @@
       <ParameterList name="molar_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value="55000" />
+      </ParameterList>
+      <ParameterList name="liquid_water_content" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
+        <Parameter name="dependencies" type="Array(string)" value="{porosity, molar_density_liquid, saturation_liquid, cell_volume}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">

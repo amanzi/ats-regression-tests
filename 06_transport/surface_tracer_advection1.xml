@@ -99,7 +99,7 @@
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
 
-      <Parameter name="advection spatial discretization order" type="int" value="2" />
+      <Parameter name="advection spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value=" 1" />
 
