@@ -133,7 +133,7 @@
       <ParameterList name="boundary conditions" type="ParameterList">
       </ParameterList>
       
-      <ParameterList name="molecular diffusivity [??]" type="ParameterList">
+      <ParameterList name="molecular diffusivity [m^2 s^-1]" type="ParameterList">
         <Parameter name="Tracer1" type="double" value="1.e-2" />
         <Parameter name="Tracer2" type="double" value="10." />
       </ParameterList>

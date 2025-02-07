@@ -88,7 +88,7 @@
       </ParameterList>
 
       <Parameter name="has dispersion" type="bool" value="false" />
-      <!-- <ParameterList name="molecular diffusivity [??]" type="ParameterList"> -->
+      <!-- <ParameterList name="molecular diffusivity [m^2 s^-1]" type="ParameterList"> -->
       <!--   <Parameter name="Tracer1" type="double" value="1e-10" /> -->
       <!--   <Parameter name="Tracer2" type="double" value="1" /> -->
       <!-- </ParameterList> -->
