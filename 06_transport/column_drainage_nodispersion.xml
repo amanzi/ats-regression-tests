@@ -144,7 +144,7 @@
       <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
-      <Parameter name="debug cells" type="Array(int)" value="{0}" />
+      <Parameter name="debug cells" type="Array(int)" value="{99}" />
 
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="hydrostatic head [m]" type="double" value="0.1" />
@@ -219,7 +219,8 @@
       <Parameter name="number of aqueous components" type="int" value="1" />
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-     <Parameter name="has dispersion" type="bool" value="true" />
+      <Parameter name="has dispersion" type="bool" value="false" />
+      <Parameter name="debug cells" type="Array(int)" value="{99}" />
 
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="constant" type="double" value=" 0" />
@@ -231,34 +232,7 @@
         <Parameter name="limiter extension for transport" type="bool" value="true" />
       </ParameterList>
 
-      <ParameterList name="diffusion">
-        <Parameter name="discretization primary" type="string" value="mfd: optimized for monotonicity" />
-        <Parameter name="discretization secondary" type="string" value="mfd: two-point flux approximation" />
-        <Parameter name="schema" type="Array(string)" value="{face, cell}" />
-        <Parameter name="preconditioner schema" type="Array(string)" value="{face}" />
-        <ParameterList name="inverse">
-          <Parameter name="iterative method" type="string" value="pcg" />
-          <Parameter name="preconditioning method" type="string" value="boomer amg" />
-          <ParameterList name="pcg parameters">
-            <Parameter name="maximum number of iterations" type="int" value="400" />
-            <Parameter name="error tolerance" type="double" value="1e-10" />
-            <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}" />
-          </ParameterList>
-          <ParameterList name="boomer amg parameters">
-            <Parameter name="tolerance" type="double" value=" 0" />
-            <Parameter name="smoother sweeps" type="int" value="1" />
-            <Parameter name="cycle applications" type="int" value="1" />
-            <Parameter name="strong threshold" type="double" value="0.65" />
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-
       <ParameterList name="boundary conditions">
-      </ParameterList>
-
-      <ParameterList name="tortuosity [-]" type="ParameterList">
-        <Parameter name="aqueous" type="double" value=" 1" />
-        <Parameter name="gaseous" type="double" value=" 1" />
       </ParameterList>
 
     </ParameterList>
@@ -404,21 +378,6 @@
         <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
         <Parameter name="use surface rel perm" type="bool" value="true" />
       </ParameterList>
-
-
-      <ParameterList name="dispersion_coefficient" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="dispersion tensor" />
-        <ParameterList name="mechanical dispersion parameters" type="ParameterList">
-          <ParameterList name="domain" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain" />
-            <Parameter name="mechanical dispersion type" type="string" value="isotropic" />
-            <ParameterList name="isotropic parameters">
-              <Parameter name="dispersivity [m]" type="double" value="0.1" />
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-
 
       <ParameterList name="liquid_water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
