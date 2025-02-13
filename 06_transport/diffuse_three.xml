@@ -173,13 +173,13 @@
       <Parameter name="flux_key" type="string" value="mass_flux" />
       <Parameter name="component names" type="Array(string)" value="{O2, Ar, N2O}" />
       <Parameter name="number of liquid components" type="int" value="3" />
-      <Parameter name="component molar masses" type="Array(double)" value="{ 1, 1, 1}" />
-      <Parameter name="spatial discretization order" type="int" value="1" />
+      <Parameter name="advection spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value=" 1" />
-      <Parameter name="transport subcycling" type="bool" value="false" />
       <Parameter name="number of aqueous components" type="int" value="3" />
       <Parameter name="number of gaseous components" type="int" value="0" />
+      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
+      <Parameter name="has dispersion" type="bool" value="true" />
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="constant" type="double" value=" 0" />
       </ParameterList>
@@ -190,41 +190,23 @@
         <Parameter name="limiter extension for transport" type="bool" value="true" />
       </ParameterList>
 
-      <ParameterList name="molecular diffusion">
-        <Parameter name="aqueous values" type="Array(double)" value="{1e-08,1e-06,1e-07}" />
-        <Parameter name="aqueous names" type="Array(string)" value="{N2O, Ar, O2}" />
-      </ParameterList>
-
-      <ParameterList name="material properties">
-        <ParameterList name="domain">
-          <Parameter name="regions" type="Array(string)" value="{computational domain}" />
-          <Parameter name="model" type="string" value="scalar" />
-          <Parameter name="aqueous tortuosity" type="double" value=" 1" />
-          <Parameter name="gaseous tortuosity" type="double" value=" 1" />
-          <ParameterList name="parameters for scalar">
-            <Parameter name="alpha" type="double" value="0.0001" />
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="mfd: optimized for monotonicity" />
         <Parameter name="discretization secondary" type="string" value="mfd: two-point flux approximation" />
-      </ParameterList>
-
-      <ParameterList name="inverse">
-        <Parameter name="iterative method" type="string" value="pcg" />
-        <Parameter name="preconditioning method" type="string" value="boomer amg" />
-        <ParameterList name="pcg parameters">
-          <Parameter name="maximum number of iterations" type="int" value="400" />
-          <Parameter name="error tolerance" type="double" value="1e-10" />
-          <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}" />
-        </ParameterList>
-        <ParameterList name="boomer amg parameters">
-          <Parameter name="tolerance" type="double" value=" 0" />
-          <Parameter name="smoother sweeps" type="int" value="1" />
-          <Parameter name="cycle applications" type="int" value="1" />
-          <Parameter name="strong threshold" type="double" value="0.65" />
+        <ParameterList name="inverse">
+          <Parameter name="iterative method" type="string" value="pcg" />
+          <Parameter name="preconditioning method" type="string" value="boomer amg" />
+          <ParameterList name="pcg parameters">
+            <Parameter name="maximum number of iterations" type="int" value="400" />
+            <Parameter name="error tolerance" type="double" value="1e-10" />
+            <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}" />
+          </ParameterList>
+          <ParameterList name="boomer amg parameters">
+            <Parameter name="tolerance" type="double" value=" 0" />
+            <Parameter name="smoother sweeps" type="int" value="1" />
+            <Parameter name="cycle applications" type="int" value="1" />
+            <Parameter name="strong threshold" type="double" value="0.65" />
+          </ParameterList>
         </ParameterList>
       </ParameterList>
 
@@ -258,6 +240,17 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
+      </ParameterList>
+
+      <ParameterList name="molecular diffusivity [m^2 s^-1]" type="ParameterList">
+        <Parameter name="N2O" type="double" value="1e-08" />
+        <Parameter name="Ar" type="double" value="1e-06" />
+        <Parameter name="O2" type="double" value="1e-07" />
+      </ParameterList>
+
+      <ParameterList name="tortuosity [-]" type="ParameterList">
+        <Parameter name="aqueous" type="double" value=" 1" />
+        <Parameter name="gaseous" type="double" value=" 1" />
       </ParameterList>
 
     </ParameterList>
@@ -374,7 +367,6 @@
         <Parameter name="checkpoint" type="bool" value="true" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
       </ParameterList>
-
       <ParameterList name="surface-overland_conductivity">
         <Parameter name="evaluator type" type="string" value="overland conductivity" />
         <ParameterList name="overland conductivity model">
@@ -386,6 +378,22 @@
       <ParameterList name="relative_permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="relative permeability, water retention model" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
+      </ParameterList>
+      <ParameterList name="dispersion_coefficient" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="dispersion tensor" />
+        <ParameterList name="mechanical dispersion parameters" type="ParameterList">
+          <ParameterList name="domain" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain" />
+            <Parameter name="mechanical dispersion type" type="string" value="isotropic" />
+            <ParameterList name="isotropic parameters">
+              <Parameter name="alpha" type="double" value="0.0001" />
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+      <ParameterList name="liquid_water_content" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
+        <Parameter name="dependencies" type="Array(string)" value="{saturation_liquid,molar_density_liquid,porosity,cell_volume}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions">

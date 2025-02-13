@@ -413,7 +413,7 @@
             <Parameter name="region" type="string" value="computational domain" />
             <Parameter name="mechanical dispersion type" type="string" value="isotropic" />
             <ParameterList name="isotropic parameters">
-              <Parameter name="dispersivity [m]" type="double" value="0.1" />
+              <Parameter name="dispersivity [m]" type="double" value="1" />
             </ParameterList>
           </ParameterList>
         </ParameterList>
