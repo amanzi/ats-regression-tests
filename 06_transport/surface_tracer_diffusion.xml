@@ -104,7 +104,6 @@
       <Parameter name="cfl" type="double" value=" 1" />
 
       <Parameter name="debug cells" type="Array(int)" value="{0,1}" />
-      <Parameter name="has dispersion" type="bool" value="false" />
 
       <ParameterList name="initial condition" type="ParameterList">
         <ParameterList name="function" type="ParameterList">

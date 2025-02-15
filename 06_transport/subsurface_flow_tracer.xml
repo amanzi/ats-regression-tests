@@ -172,7 +172,6 @@
       <Parameter name="debug cells" type="Array(int)" value="{9999}" />
       <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
 
-      <Parameter name="has dispersion" type="bool" value="false" />
 
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="mfd: default" />

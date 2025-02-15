@@ -1,3 +1,16 @@
+<!--
+
+Transport only problem with fixed flow field.
+    
+Starts with 0 C everywhere, advects left-to-right, applies a source of
+Tracer1 and Tracer 2 (rather than a BC for other problems of this
+type).
+
+Diffusion is component-based:
+- little diffusion for Tracer 1
+- lots of diffusion for Tracer 2
+
+-->
 <ParameterList name="Main" type="ParameterList">
   <ParameterList name="mesh" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
@@ -104,7 +117,6 @@
       <Parameter name="cfl" type="double" value=" 1" />
 
       <Parameter name="debug cells" type="Array(int)" value="{0,1}" />
-      <Parameter name="has dispersion" type="bool" value="false" />
 
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="value" type="double" value="0"/>

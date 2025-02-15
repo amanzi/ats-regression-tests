@@ -220,7 +220,6 @@
       <Parameter name="runtime diagnostics: solute names" type="Array(string)" value="{all}" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-      <Parameter name="has dispersion" type="bool" value="true" />
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="constant" type="double" value=" 1" />
       </ParameterList>

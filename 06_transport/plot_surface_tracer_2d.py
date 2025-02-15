@@ -65,6 +65,6 @@ if __name__ == '__main__':
     if len(sys.argv) >= 3:
         i = sys.argv[-2]
     else:
-        i = 0
+        i = -1
 
     plot(dname, 2, int(i))

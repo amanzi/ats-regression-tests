@@ -219,7 +219,6 @@
       <Parameter name="number of aqueous components" type="int" value="1" />
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-     <Parameter name="has dispersion" type="bool" value="true" />
 
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="constant" type="double" value=" 0" />

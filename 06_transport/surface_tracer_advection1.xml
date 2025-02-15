@@ -1,3 +1,15 @@
+<!--
+
+Transport only problem with fixed flow field.
+    
+Starts with 0 C everywhere, advects in from BC with C = 1 for Tracer1,
+C = 2 for Tracer 2.  Watch the advected front move across at 1m/s.
+
+Only numerical dispersion.  1st order donor upwind is exact in this
+case because of aligned velocity and timesteps.
+
+-->
+    
 <ParameterList name="Main" type="ParameterList">
   <ParameterList name="mesh" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
@@ -104,7 +116,6 @@
       <Parameter name="cfl" type="double" value=" 1" />
 
       <Parameter name="debug cells" type="Array(int)" value="{0,99}" />
-      <Parameter name="has dispersion" type="bool" value="false" />
 
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="value" type="double" value="0" />

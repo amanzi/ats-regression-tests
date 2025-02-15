@@ -1,3 +1,11 @@
+<!--
+
+This problem starts with a water table 2m below the surface and 0
+Tracer.  It "rains" water and tracer at 1 mol C / mol H2O, until the
+column is saturated and there is ponded water.
+
+It uses the 2nd order advection discretization scheme.
+-->
 <ParameterList name="Main">
   <ParameterList name="mesh">
     <ParameterList name="surface">
@@ -207,7 +215,6 @@
       <Parameter name="number of aqueous components" type="int" value="1" />
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-      <Parameter name="has dispersivity" type="bool" value="true" />
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="constant" type="double" value=" 0" />
       </ParameterList>
@@ -281,6 +288,8 @@
 
       <ParameterList name="source terms">
         <ParameterList name="component mass source">
+          <!-- injecting at a fixed mol C / s -->
+          <!-- equivalent to injecting surface-water_source at 1 mol C / mol H2O -->
           <ParameterList name="Tracer1 injection">
             <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
             <Parameter name="regions" type="Array(string)" value="{surface domain}" />

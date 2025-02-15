@@ -85,7 +85,6 @@
       <Parameter name="PK type" type="string" value="transport ATS" />
       <Parameter name="primary variable key" type="string" value="surface-total_component_concentration" />
       <Parameter name="domain name" type="string" value="surface" />
-      <Parameter name="has dispersion" type="bool" value="true" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
 
       <Parameter name="advection spatial discretization order" type="int" value="1" />

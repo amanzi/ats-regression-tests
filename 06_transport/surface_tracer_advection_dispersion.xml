@@ -97,7 +97,6 @@
       <Parameter name="PK type" type="string" value="transport ATS" />
       <Parameter name="primary variable key" type="string" value="surface-total_component_concentration" />
       <Parameter name="domain name" type="string" value="surface" />
-      <Parameter name="has dispersion" type="bool" value="true" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
 
       <Parameter name="advection spatial discretization order" type="int" value="1" />
@@ -240,10 +239,10 @@
 
       <ParameterList name="surface-dispersion_coefficient" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="dispersion tensor" />
-        <ParameterList name="MDM parameters" type="ParameterList">
+        <ParameterList name="mechanical dispersion parameters" type="ParameterList">
           <ParameterList name="surface domain" type="ParameterList">
             <Parameter name="region" type="string" value="surface domain" />
-            <Parameter name="mdm type" type="string" value="isotropic" />
+            <Parameter name="mechanical dispersion type" type="string" value="isotropic" />
             <ParameterList name="isotropic parameters" type="ParameterList">
               <Parameter name="dispersivity [m]" type="double" value="2" />
             </ParameterList>
