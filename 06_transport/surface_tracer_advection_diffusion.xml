@@ -113,7 +113,7 @@ Diffusion is component-based:
 
       <Parameter name="advection spatial discretization order" type="int" value="2" />
       <Parameter name="temporal discretization order" type="int" value="1" />
-      <Parameter name="cfl" type="double" value=" 1" />
+      <Parameter name="cfl" type="double" value="1" />
 
       <Parameter name="debug cells" type="Array(int)" value="{0,1}" />
 

@@ -74,7 +74,7 @@
       <Parameter name="primary variable key" type="string" value="total_component_concentration" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1,Tracer2}" />
       <Parameter name="number of liquid components" type="int" value="2" />
-      <Parameter name="advection spatial discretization order" type="int" value="1" />
+      <Parameter name="advection spatial discretization order" type="int" value="2" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value=" 1" />
       <Parameter name="debug cells" type="Array(int)" value="{9900}" />
@@ -83,7 +83,7 @@
         <Parameter name="Tracer1" type="double" value="1.e-10" />
         <Parameter name="Tracer2" type="double" value="1.e-3" />
       </ParameterList>
-      
+
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="mfd: default" />
         <Parameter name="schema" type="Array(string)" value="{face,cell}" />

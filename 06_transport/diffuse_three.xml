@@ -183,12 +183,6 @@
         <Parameter name="constant" type="double" value=" 0" />
       </ParameterList>
 
-      <ParameterList name="reconstruction">
-        <Parameter name="polynomial order" type="int" value="0" />
-        <Parameter name="limiter" type="string" value="tensorial" />
-        <Parameter name="limiter extension for transport" type="bool" value="true" />
-      </ParameterList>
-
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="mfd: optimized for monotonicity" />
         <Parameter name="discretization secondary" type="string" value="mfd: two-point flux approximation" />
