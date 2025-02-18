@@ -37,8 +37,8 @@
     </ParameterList>
     <ParameterList name="well" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{990, -10, 98}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{1000, 10, 100}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{990,-10,98}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{1000,10,100}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -73,17 +73,15 @@
       <Parameter name="PK type" type="string" value="transport ATS" />
       <Parameter name="primary variable key" type="string" value="total_component_concentration" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1,Tracer2}" />
-      <Parameter name="number of liquid components" type="int" value="2" />
       <Parameter name="advection spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value=" 1" />
       <Parameter name="debug cells" type="Array(int)" value="{9900}" />
-
       <ParameterList name="molecular diffusivity [m^2 s^-1]" type="ParameterList">
-        <Parameter name="Tracer1" type="double" value="1.e-10" />
-        <Parameter name="Tracer2" type="double" value="1.e-3" />
+        <Parameter name="Tracer1" type="double" value="1e-10" />
+        <Parameter name="Tracer2" type="double" value="0.001" />
       </ParameterList>
-      
+
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="mfd: default" />
         <Parameter name="schema" type="Array(string)" value="{face,cell}" />
@@ -138,7 +136,7 @@
               <Parameter name="number of dofs" type="int" value="1" />
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value=" 1000" />
+                  <Parameter name="value" type="double" value="1000" />
                 </ParameterList>
               </ParameterList>
             </ParameterList>
@@ -178,7 +176,7 @@
       </ParameterList>
       <ParameterList name="liquid_water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="dependencies" type="Array(string)" value="{porosity, molar_density_liquid, saturation_liquid, cell_volume}" />
+        <Parameter name="dependencies" type="Array(string)" value="{porosity,molar_density_liquid,saturation_liquid,cell_volume}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">

@@ -79,6 +79,7 @@
       <Parameter name="PK type" type="string" value="coupled flow and transport" />
       <Parameter name="PKs order" type="Array(string)" value="{flow,transport}" />
       <Parameter name="subcycle" type="Array(int)" value="{0,0}" />
+
     </ParameterList>
 
     <ParameterList name="flow" type="ParameterList">
@@ -163,16 +164,11 @@
     <ParameterList name="transport" type="ParameterList">
       <Parameter name="PK type" type="string" value="transport ATS" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1,Tracer2}" />
-      <Parameter name="number of liquid components" type="int" value="2" />
       <Parameter name="advection spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value=" 1" />
-      <Parameter name="number of aqueous components" type="int" value="2" />
-      <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="debug cells" type="Array(int)" value="{9999}" />
       <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-
-
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="mfd: default" />
         <Parameter name="schema" type="Array(string)" value="{face,cell}" />
@@ -238,7 +234,7 @@
 
       <ParameterList name="molecular diffusivity [m^2 s^-1]" type="ParameterList">
         <Parameter name="Tracer1" type="double" value="1e-10" />
-        <Parameter name="Tracer2" type="double" value="1.e-3" />
+        <Parameter name="Tracer2" type="double" value="0.001" />
       </ParameterList>
 
       <ParameterList name="tortuosity [-]" type="ParameterList">

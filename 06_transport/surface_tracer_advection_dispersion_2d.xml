@@ -11,7 +11,7 @@
       <ParameterList name="generate mesh parameters" type="ParameterList">
         <Parameter name="number of cells" type="Array(int)" value="{100,100}" />
         <Parameter name="domain low coordinate" type="Array(double)" value="{ 0, 0}" />
-        <Parameter name="domain high coordinate" type="Array(double)" value="{1000, 1000}" />
+        <Parameter name="domain high coordinate" type="Array(double)" value="{1000,1000}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -20,19 +20,19 @@
     <ParameterList name="surface domain" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
         <Parameter name="low coordinate" type="Array(double)" value="{ 0, 0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{1000, 1000}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{1000,1000}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="tracer source surface" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{ 0, 450}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{100, 550}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{ 0,450}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{100,550}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="observation point" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{990, 990}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{1000, 1000}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{990,990}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{1000,1000}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -82,17 +82,15 @@
   <ParameterList name="PKs" type="ParameterList">
 
     <ParameterList name="surface transport" type="ParameterList">
+      <!-- NOTE: diffusion does not work off of a boundary condition. BCs are advection only. -->
       <Parameter name="PK type" type="string" value="transport ATS" />
       <Parameter name="primary variable key" type="string" value="surface-total_component_concentration" />
       <Parameter name="domain name" type="string" value="surface" />
-      <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
-
+      <Parameter name="component names" type="Array(string)" value="{Tracer1,Tracer2}" />
       <Parameter name="advection spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value=" 1" />
-
       <Parameter name="debug cells" type="Array(int)" value="{0,1}" />
-
       <ParameterList name="initial condition" type="ParameterList">
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="ic" type="ParameterList">
@@ -103,40 +101,38 @@
               <Parameter name="number of dofs" type="int" value="2" />
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="1" />
+                  <Parameter name="value" type="double" value=" 1" />
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="2" />
+                  <Parameter name="value" type="double" value=" 2" />
                 </ParameterList>
               </ParameterList>
             </ParameterList>
           </ParameterList>
         </ParameterList>
       </ParameterList>
-      
-      <!-- NOTE: diffusion does not work off of a boundary condition. BCs are advection only. -->
+
       <ParameterList name="boundary conditions" type="ParameterList">
       </ParameterList>
-      
+
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="fv: default" />
-
         <ParameterList name="inverse">
           <Parameter name="preconditioning method" type="string" value="boomer amg" />
           <Parameter name="iterative method" type="string" value="pcg" />
           <ParameterList name="boomer amg parameters">
+            <!-- <Parameter name="verbosity" type="int" value="0" /> -->
             <Parameter name="tolerance" type="double" value=" 0" />
             <Parameter name="smoother sweeps" type="int" value="3" />
             <Parameter name="cycle applications" type="int" value="5" />
             <Parameter name="strong threshold" type="double" value="0.5" />
-            <!-- <Parameter name="verbosity" type="int" value="0" /> -->
           </ParameterList>
           <ParameterList name="pcg parameters">
             <Parameter name="maximum number of iterations" type="int" value="400" />
             <Parameter name="error tolerance" type="double" value="1e-20" />
-            <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}" />
+            <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs,make one iteration}" />
             <Parameter name="size of Krylov space" type="int" value="5" />
           </ParameterList>
         </ParameterList>
@@ -152,8 +148,12 @@
       <Parameter name="evaluators" type="Array(string)" value="{surface-total_component_concentration}" />
     </ParameterList>
     <ParameterList name="evaluators" type="ParameterList">
-
       <!-- liquid water content of 100 = dx (10) * dy (10) * pd = 1 -->
+      <!-- water moving in the +x direction, note dot-with-normal includes a factor of area -->
+      <!-- velocity of 1 m/s with pd = 1 m and dy = 10 m implies flux of 10 m^3 / s = 10 mol / s -->
+      <!-- however, dot with normal on water_flux_directions already brings in the face area factor,
+           so we set this coefficient to 1 to get a 10 m/s flux -->
+      <!-- velocity is 1 m/s in the +x direction -->
       <ParameterList name="surface-liquid_water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -169,8 +169,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
-      <!-- water moving in the +x direction, note dot-with-normal includes a factor of area -->
       <ParameterList name="surface-water_flux_directions" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -183,29 +181,23 @@
               <Parameter name="number of dofs" type="int" value="2" />
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="1" />
+                  <Parameter name="value" type="double" value=" 1" />
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="0" />
+                  <Parameter name="value" type="double" value=" 0" />
                 </ParameterList>
               </ParameterList>
             </ParameterList>
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
-      <!-- velocity of 1 m/s with pd = 1 m and dy = 10 m implies flux of 10 m^3 / s = 10 mol / s -->
-      <!-- however, dot with normal on water_flux_directions already brings in the face area factor,
-           so we set this coefficient to 1 to get a 10 m/s flux -->
       <ParameterList name="surface-water_flux" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="additive evaluator" />
         <Parameter name="dependencies" type="Array(string)" value="{surface-water_flux_directions}" />
-        <Parameter name="surface-water_flux_directions coefficient" type="double" value="1" />
+        <Parameter name="surface-water_flux_directions coefficient" type="double" value=" 1" />
       </ParameterList>
-
-      <!-- velocity is 1 m/s in the +x direction -->
       <ParameterList name="surface-darcy_velocity">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -217,19 +209,18 @@
               <Parameter name="number of dofs" type="int" value="2" />
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="1" />
+                  <Parameter name="value" type="double" value=" 1" />
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="0" />
+                  <Parameter name="value" type="double" value=" 0" />
                 </ParameterList>
               </ParameterList>
             </ParameterList>
           </ParameterList>
         </ParameterList>
       </ParameterList>
-      
       <ParameterList name="surface-molar_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -245,7 +236,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-dispersion_coefficient" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="dispersion tensor" />
         <ParameterList name="mechanical dispersion parameters" type="ParameterList">
@@ -253,14 +243,12 @@
             <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="mechanical dispersion type" type="string" value="Bear" />
             <ParameterList name="Bear parameters" type="ParameterList">
-              <Parameter name="longitudinal dispersivity [m]" type="double" value="4" />
-              <Parameter name="transverse dispersivity [m]" type="double" value="0" />
+              <Parameter name="longitudinal dispersivity [m]" type="double" value=" 4" />
+              <Parameter name="transverse dispersivity [m]" type="double" value=" 0" />
             </ParameterList>
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
-      
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 

@@ -94,7 +94,7 @@
 
     <ParameterList name="flow and transport">
       <Parameter name="PK type" type="string" value="coupled flow and transport" />
-      <Parameter name="PKs order" type="Array(string)" value="{flow, subsurface transport}" />
+      <Parameter name="PKs order" type="Array(string)" value="{flow,subsurface transport}" />
       <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
 
     </ParameterList>
@@ -169,15 +169,10 @@
 
     <ParameterList name="subsurface transport">
       <Parameter name="PK type" type="string" value="transport ATS" />
-      <Parameter name="saturation liquid key" type="string" value="saturation_liquid" />
-      <Parameter name="flux_key" type="string" value="mass_flux" />
-      <Parameter name="component names" type="Array(string)" value="{O2, Ar, N2O}" />
-      <Parameter name="number of liquid components" type="int" value="3" />
+      <Parameter name="component names" type="Array(string)" value="{O2,Ar,N2O}" />
       <Parameter name="advection spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value=" 1" />
-      <Parameter name="number of aqueous components" type="int" value="3" />
-      <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="constant" type="double" value=" 0" />
@@ -192,7 +187,7 @@
           <ParameterList name="pcg parameters">
             <Parameter name="maximum number of iterations" type="int" value="400" />
             <Parameter name="error tolerance" type="double" value="1e-10" />
-            <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}" />
+            <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs,make one iteration}" />
           </ParameterList>
           <ParameterList name="boomer amg parameters">
             <Parameter name="tolerance" type="double" value=" 0" />
@@ -209,7 +204,7 @@
       <ParameterList name="source terms">
         <ParameterList name="component mass source">
           <ParameterList name="all injection">
-            <Parameter name="component names" type="Array(string)" value="{O2, Ar, N2O}" />
+            <Parameter name="component names" type="Array(string)" value="{O2,Ar,N2O}" />
             <Parameter name="component mass source" type="Array(string)" value="{1.0,1.0,1.0}" />
             <Parameter name="regions" type="Array(string)" value="{top layer}" />
             <Parameter name="spatial distribution method" type="string" value="none" />

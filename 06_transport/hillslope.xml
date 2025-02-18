@@ -83,6 +83,7 @@
       <Parameter name="PK type" type="string" value="coupled flow and transport" />
       <Parameter name="PKs order" type="Array(string)" value="{surface-subsurface flow coupler,surface-subsurface transport coupler}" />
       <Parameter name="subcycle" type="Array(int)" value="{0,1}" />
+
     </ParameterList>
 
     <ParameterList name="surface-subsurface flow coupler">
@@ -109,7 +110,6 @@
           <Parameter name="convergence criteria" type="Array(string)" value="{relative residual,make one iteration}" />
         </ParameterList>
       </ParameterList>
-
 
       <ParameterList name="time integrator">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
@@ -147,7 +147,6 @@
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="hydrostatic head [m]" type="double" value=" 0" />
         <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000" />
@@ -173,7 +172,6 @@
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="water source in meters" type="bool" value="true" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
@@ -201,23 +199,17 @@
       <Parameter name="PK name" type="string" value="surface subsurface transport" />
       <Parameter name="PKs order" type="Array(string)" value="{subsurface transport,surface transport}" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
+
     </ParameterList>
 
     <ParameterList name="subsurface transport">
       <Parameter name="PK type" type="string" value="transport ATS" />
-      <Parameter name="saturation liquid key" type="string" value="saturation_liquid" />
-      <Parameter name="flux_key" type="string" value="water_flux" />
-      <Parameter name="molar_density_key" type="string" value="molar_density_liquid" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
-      <Parameter name="number of liquid components" type="int" value="1" />
       <Parameter name="advection spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value=" 1" />
       <Parameter name="flow mode" type="string" value="transient" />
-      <Parameter name="number of aqueous components" type="int" value="1" />
-      <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="constant" type="double" value=" 0" />
       </ParameterList>
@@ -254,6 +246,7 @@
       <ParameterList name="tortuosity [-]" type="ParameterList">
         <Parameter name="aqueous" type="double" value=" 1" />
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="surface transport">
@@ -380,17 +373,14 @@
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value=" 1" />
       </ParameterList>
-
       <ParameterList name="overland_source_from_subsurface">
         <Parameter name="evaluator type" type="string" value="overland source from subsurface via flux" />
       </ParameterList>
-
       <ParameterList name="saturation_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="water retention model" />
         <Parameter name="checkpoint" type="bool" value="true" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
       </ParameterList>
-
       <ParameterList name="surface-overland_conductivity">
         <Parameter name="evaluator type" type="string" value="overland conductivity" />
         <ParameterList name="overland conductivity model">
@@ -399,12 +389,10 @@
           <Parameter name="slope regularization epsilon" type="double" value="0.01" />
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="relative_permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="relative permeability, water retention model" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
       </ParameterList>
-
       <ParameterList name="dispersion_coefficient" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="dispersion tensor" />
         <ParameterList name="mechanical dispersion parameters" type="ParameterList">

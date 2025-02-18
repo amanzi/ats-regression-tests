@@ -1,4 +1,5 @@
-<!--
+<ParameterList name="Main" type="ParameterList">
+  <!--
 
 Transport only problem with fixed flow field.
     
@@ -8,7 +9,6 @@ C = 2 for Tracer 2.  Watch the advected front move across at 1m/s.
 2nd order spatial discretization for advection.
 
 -->
-<ParameterList name="Main" type="ParameterList">
   <ParameterList name="mesh" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="mesh type" type="string" value="aliased" />
@@ -107,25 +107,21 @@ C = 2 for Tracer 2.  Watch the advected front move across at 1m/s.
       <Parameter name="PK type" type="string" value="transport ATS" />
       <Parameter name="primary variable key" type="string" value="surface-total_component_concentration" />
       <Parameter name="domain name" type="string" value="surface" />
-      <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
-
+      <Parameter name="component names" type="Array(string)" value="{Tracer1,Tracer2}" />
       <Parameter name="advection spatial discretization order" type="int" value="2" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value=" 1" />
-
       <Parameter name="debug cells" type="Array(int)" value="{0,99}" />
-
       <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="value" type="double" value="0" />
+        <Parameter name="value" type="double" value=" 0" />
       </ParameterList>
-      
 
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="concentration" type="ParameterList">
           <ParameterList name="tracer1" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface west}" />
             <Parameter name="spatial distribution method" type="string" value="none" />
-            <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
+            <Parameter name="component names" type="Array(string)" value="{Tracer1,Tracer2}" />
             <ParameterList name="boundary concentration function" type="ParameterList">
               <Parameter name="number of dofs" type="int" value="2" />
               <ParameterList name="dof 1 function">
@@ -153,7 +149,6 @@ C = 2 for Tracer 2.  Watch the advected front move across at 1m/s.
       <Parameter name="evaluators" type="Array(string)" value="{surface-total_component_concentration}" />
     </ParameterList>
     <ParameterList name="evaluators" type="ParameterList">
-
       <ParameterList name="surface-liquid_water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -169,7 +164,6 @@ C = 2 for Tracer 2.  Watch the advected front move across at 1m/s.
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-water_flux_directions" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable from file" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -179,13 +173,11 @@ C = 2 for Tracer 2.  Watch the advected front move across at 1m/s.
         <Parameter name="component name" type="string" value="face" />
         <Parameter name="mesh entity" type="string" value="face" />
       </ParameterList>
-
       <ParameterList name="surface-water_flux" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="additive evaluator" />
         <Parameter name="dependencies" type="Array(string)" value="{surface-water_flux_directions}" />
-        <Parameter name="surface-water_flux_directions coefficient" type="double" value="1" />
+        <Parameter name="surface-water_flux_directions coefficient" type="double" value=" 1" />
       </ParameterList>
-      
       <ParameterList name="surface-molar_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -201,7 +193,6 @@ C = 2 for Tracer 2.  Watch the advected front move across at 1m/s.
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 
