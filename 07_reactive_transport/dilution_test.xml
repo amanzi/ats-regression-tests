@@ -35,7 +35,7 @@
     <Parameter name="end cycle" type="int" value="-1" />
     <Parameter name="start time" type="double" value="0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="36000" />
+    <Parameter name="end time" type="double" value="10000" />
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="Reactive Transport" type="ParameterList">
@@ -50,27 +50,12 @@
     </ParameterList>
   </ParameterList>
 
-  <ParameterList name="observations">
-    <ParameterList name="concentration">
-      <Parameter name="variable" type="string" value="total_component_concentration" />
-      <Parameter name="functional" type="string" value="point" />
-      <Parameter name="region" type="string" value="outlet" />
-      <Parameter name="delimiter" type="string" value="" />
-      <Parameter name="location name" type="string" value="cell" />
-      <Parameter name="number of vectors" type="int" value="1" />
-      <Parameter name="write interval" type="int" value="1" />
-      <Parameter name="observation output filename" type="string" value="outlet.dat" />
-      <Parameter name="times start period stop" type="Array(double)" value="{0, 0.1, -1}" />
-      <Parameter name="times start period stop units" type="string" value="h" />
-    </ParameterList>
-  </ParameterList>
-
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times start period stop" type="Array(double)" value="{0, 3600, -1}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0, 1000, -1}" />
   </ParameterList>
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0, 3600, -1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0, 1000, -1}" />
     </ParameterList>
   </ParameterList>
 
@@ -79,7 +64,6 @@
     <ParameterList name="Reactive Transport" type="ParameterList">
       <Parameter name="PK type" type="string" value="reactive transport" />
       <Parameter name="PKs order" type="Array(string)" value="{chemistry, transport}" />
-      <Parameter name="transport index" type="int" value="1" />
     </ParameterList>
 
     <ParameterList name="transport" type="ParameterList">
@@ -110,9 +94,6 @@
             <Parameter name="error tolerance" type="double" value="1e-20" />
             <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}" />
             <Parameter name="size of Krylov space" type="int" value="5" />
-            <ParameterList name="verbose object">
-              <Parameter name="verbosity level" type="string" value="low" />
-            </ParameterList>
           </ParameterList>
         </ParameterList>
       </ParameterList>
@@ -158,9 +139,6 @@
       <Parameter name="initial conditions time" type="double" value="0" />
       <Parameter name="number of component concentrations" type="int" value="1" />
       <Parameter name="debug cells" type="Array(int)" value="{99}" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="high" />
-      </ParameterList>
 
       <ParameterList name="initial condition" type="ParameterList">
         <ParameterList name="geochemical conditions" type="ParameterList">
@@ -204,6 +182,7 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
+
       <ParameterList name="water_source" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
@@ -219,6 +198,7 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
+
       <ParameterList name="porosity" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function" type="ParameterList">

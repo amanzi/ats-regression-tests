@@ -5,7 +5,7 @@ import colors
 
 import sys,os
 
-def plot(dname, domain):
+def plot(dname, domain, interval=10):
     f = ats_xdmf.VisFile(dname, domain)
     f.loadMesh(columnar=True)
 
@@ -22,8 +22,9 @@ def plot(dname, domain):
         print(comp)
         tcc = f.getArray(comp)
         cm = colors.cm_mapper(0, tcc.shape[0]-1, cmaps[i])
-    
-        for i in range(0, tcc.shape[0]+1, 10):
+
+        print(f'plotting {tcc.shape[0]} solutions')
+        for i in range(0, tcc.shape[0], interval):
             ax.plot(x, tcc[i,:,0], color=cm(i))
 
     plt.show()
@@ -31,7 +32,11 @@ def plot(dname, domain):
 
 if __name__ == '__main__':
     if sys.argv[-2] == "-s":
+        # this is also useful for dilution_test, which is 1D
+        # subsurface in x
         domain = None
+        interval = 1
     else:
         domain = 'surface'
-    plot(sys.argv[-1], domain)
+        interval = 10
+    plot(sys.argv[-1], domain, interval)
