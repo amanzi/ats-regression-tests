@@ -1,0 +1,9 @@
+units     mol/kg                                                                                                                    
+temperature      25.0                                                                                                               
+pH               charge                                                                                                             
+HCO3-            CO2(g)   3.15E-4                                                                                                   
+Ca++             1.e-10                                                                                                             
+Tracer           1.e-3                                                                                                              
+Calcite          0.0                bulk_surface_area  0.0                                                                          
+
+

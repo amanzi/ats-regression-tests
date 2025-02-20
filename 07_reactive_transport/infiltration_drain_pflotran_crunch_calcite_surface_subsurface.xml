@@ -92,13 +92,13 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
+
   <ParameterList name="PKs">
 
     <ParameterList name="flow and transport">
       <Parameter name="PK type" type="string" value="coupled flow and transport" />
       <Parameter name="PKs order" type="Array(string)" value="{flow coupler, reactive transport}" />
       <Parameter name="subcycle" type="Array(int)" value="{0, 1}" />
-
     </ParameterList>
 
     <ParameterList name="flow coupler">
@@ -150,7 +150,7 @@
           <Parameter name="min timestep" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
-          <Parameter name="initial timestep [s]" type="double" value="1" />
+          <Parameter name="initial timestep [s]" type="double" value="86400" />
         </ParameterList>
       </ParameterList>
 
@@ -162,7 +162,7 @@
       <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
-      <Parameter name="debug cells" type="Array(int)" value="{98, 99}" />
+      <Parameter name="debug cells" type="Array(int)" value="{0, 99}" />
       <ParameterList name="initial condition" type="ParameterList">
         <Parameter name="hydrostatic head [m]" type="double" value="-2" />
         <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="997.075" />
@@ -220,19 +220,18 @@
     <ParameterList name="transport coupler">
       <Parameter name="PK type" type="string" value="surface subsurface transport" />
       <Parameter name="PKs order" type="Array(string)" value="{subsurface transport, surface transport}" />
-      <Parameter name="component names" type="Array(string)" value="{H+, HCO3-, Ca++, Tracer}" />
-
     </ParameterList>
 
     <ParameterList name="subsurface transport">
       <Parameter name="PK type" type="string" value="transport ATS" />
-      <Parameter name="component names" type="Array(string)" value="{H+, HCO3-, Ca++, Tracer}" />
       <Parameter name="advection spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value="1" />
-      <Parameter name="debug cells" type="Array(int)" value="{98, 99}" />
+      <Parameter name="debug cells" type="Array(int)" value="{0, 99}" />
       <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
+
       <ParameterList name="initial condition" type="ParameterList">
+        <Parameter name="constant" type="double" value="0" />
       </ParameterList>
 
       <ParameterList name="diffusion">
@@ -269,7 +268,6 @@
     <ParameterList name="surface transport">
       <Parameter name="PK type" type="string" value="transport ATS" />
       <Parameter name="domain name" type="string" value="surface" />
-      <Parameter name="component names" type="Array(string)" value="{H+, HCO3-, Ca++, Tracer}" />
       <Parameter name="advection spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value="1" />
@@ -399,9 +397,11 @@
         <Parameter name="ponded depth bar" type="bool" value="true" />
         <Parameter name="height key" type="string" value="ponded_depth_bar" />
       </ParameterList>
+
       <ParameterList name="surface-water_content">
         <Parameter name="evaluator type" type="string" value="overland pressure water content" />
       </ParameterList>
+
       <ParameterList name="surface-water_source">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function">
@@ -469,6 +469,7 @@
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value="1" />
       </ParameterList>
+
       <ParameterList name="permeability">
         <Parameter name="evaluator type" type="string" value="independent variable tensor" />
         <Parameter name="value" type="double" value="1.15e-11" />
@@ -510,6 +511,7 @@
         <Parameter name="minimum rel perm cutoff" type="double" value="0" />
         <Parameter name="use surface rel perm" type="bool" value="true" />
       </ParameterList>
+
       <ParameterList name="dispersion_coefficient" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="dispersion tensor" />
         <ParameterList name="mechanical dispersion parameters" type="ParameterList">
@@ -655,7 +657,6 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
 
   <ParameterList name="checkpoint">
     <Parameter name="times start period stop" type="Array(double)" value="{0, 10, -1}" />

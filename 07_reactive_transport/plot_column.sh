@@ -1,0 +1,1 @@
+python $ATS_SRC_DIR/tools/utils/plot_column_data.py --figsize 20 14 --color-mode=time --layout="[[surface-pressure,surface-ponded_depth,surface-total_component_concentration.tracer],[pressure,saturation_liquid,total_component_concentration.tracer]]" .
