@@ -177,7 +177,7 @@ Diffusion is component-based:
       <Parameter name="evaluators" type="Array(string)" value="{surface-total_component_concentration}" />
     </ParameterList>
     <ParameterList name="evaluators" type="ParameterList">
-      <ParameterList name="surface-liquid_water_content" type="ParameterList">
+      <ParameterList name="surface-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">

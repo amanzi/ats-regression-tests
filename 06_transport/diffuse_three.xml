@@ -379,10 +379,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-      <ParameterList name="liquid_water_content" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="dependencies" type="Array(string)" value="{saturation_liquid,molar_density_liquid,porosity,cell_volume}" />
-      </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions">
 

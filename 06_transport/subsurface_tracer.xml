@@ -174,7 +174,7 @@
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
         <Parameter name="value" type="double" value="55000" />
       </ParameterList>
-      <ParameterList name="liquid_water_content" type="ParameterList">
+      <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
         <Parameter name="dependencies" type="Array(string)" value="{porosity,molar_density_liquid,saturation_liquid,cell_volume}" />
       </ParameterList>

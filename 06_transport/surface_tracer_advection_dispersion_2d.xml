@@ -154,7 +154,7 @@
       <!-- however, dot with normal on water_flux_directions already brings in the face area factor,
            so we set this coefficient to 1 to get a 10 m/s flux -->
       <!-- velocity is 1 m/s in the +x direction -->
-      <ParameterList name="surface-liquid_water_content" type="ParameterList">
+      <ParameterList name="surface-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">

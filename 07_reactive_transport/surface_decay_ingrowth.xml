@@ -263,7 +263,7 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="surface-liquid_water_content" type="ParameterList">
+      <ParameterList name="surface-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
         <Parameter name="dependencies" type="Array(string)" value="{surface-ponded_depth, surface-molar_density_liquid, surface-cell_volume}" />
       </ParameterList>
