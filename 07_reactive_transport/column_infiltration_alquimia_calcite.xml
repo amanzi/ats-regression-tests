@@ -98,6 +98,7 @@
       <Parameter name="PK type" type="string" value="coupled flow and transport" />
       <Parameter name="PKs order" type="Array(string)" value="{flow coupler, reactive transport}" />
       <Parameter name="subcycle" type="Array(int)" value="{0, 0}" />
+
     </ParameterList>
 
     <ParameterList name="flow coupler">
@@ -162,9 +163,11 @@
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
       <Parameter name="debug cells" type="Array(int)" value="{98, 99}" />
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="hydrostatic head [m]" type="double" value="-2" />
         <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="997.075" />
+
       </ParameterList>
 
       <ParameterList name="diffusion">
@@ -198,8 +201,10 @@
       <ParameterList name="boundary conditions">
       </ParameterList>
 
-      <ParameterList name="initial condition">
+      <ParameterList name="initial conditions">
+
         <Parameter name="initialize surface head from subsurface" type="bool" value="true" />
+
       </ParameterList>
 
     </ParameterList>
@@ -209,12 +214,14 @@
       <Parameter name="PK name" type="string" value="reactive transport" />
       <Parameter name="PKs order" type="Array(string)" value="{chemistry coupler, transport coupler}" />
       <Parameter name="transport index" type="int" value="1" />
+
     </ParameterList>
-    
+
     <ParameterList name="transport coupler">
       <Parameter name="PK type" type="string" value="surface subsurface transport" />
       <Parameter name="PKs order" type="Array(string)" value="{subsurface transport, surface transport}" />
       <Parameter name="component names" type="Array(string)" value="{H+, HCO3-, Ca++, Tracer}" />
+
     </ParameterList>
 
     <ParameterList name="subsurface transport">
@@ -225,7 +232,8 @@
       <Parameter name="cfl" type="double" value="1" />
       <Parameter name="debug cells" type="Array(int)" value="{98, 99}" />
       <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
       </ParameterList>
 
       <ParameterList name="diffusion">
@@ -256,6 +264,7 @@
         <Parameter name="aqueous" type="double" value="1" />
         <Parameter name="gaseous" type="double" value="1" />
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="surface transport">
@@ -269,8 +278,10 @@
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <Parameter name="water source in meters" type="bool" value="true" />
       <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="constant" type="double" value="0" />
+
       </ParameterList>
 
       <ParameterList name="verbose object">
@@ -291,12 +302,14 @@
         <ParameterList name="component mass source">
         </ParameterList>
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="chemistry coupler" type="ParameterList">
       <Parameter name="PK type" type="string" value="weak MPC" />
       <Parameter name="PK name" type="string" value="coupled chemistry" />
       <Parameter name="PKs order" type="Array(string)" value="{chemistry subsurface, chemistry surface}" />
+
     </ParameterList>
 
     <ParameterList name="chemistry subsurface" type="ParameterList">
@@ -309,24 +322,27 @@
       <Parameter name="activity model" type="string" value="unit" />
       <Parameter name="maximum Newton iterations" type="int" value="100" />
       <Parameter name="tolerance" type="double" value="1e-15" />
-      <Parameter name="max timestep (s)" type="double" value="2200000" />
-      <Parameter name="min timestep (s)" type="double" value="10000000000" />
-      <Parameter name="initial timestep (s)" type="double" value="2200000" />
-      <Parameter name="timestep cut threshold" type="int" value="5" />
-      <Parameter name="timestep cut factor" type="double" value="2" />
-      <Parameter name="timestep increase threshold" type="int" value="4" />
-      <Parameter name="timestep increase factor" type="double" value="1.2" />
-      <Parameter name="timestep control method" type="string" value="fixed" />
       <Parameter name="auxiliary data" type="Array(string)" value="{pH}" />
       <Parameter name="initial conditions time" type="double" value="0" />
       <Parameter name="number of component concentrations" type="int" value="4" />
-      <ParameterList name="initial condition" type="ParameterList">
+      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <ParameterList name="geochemical conditions" type="ParameterList">
           <ParameterList name="initial" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{computational domain}" />
           </ParameterList>
         </ParameterList>
+
       </ParameterList>
+
+      <ParameterList name="timestep controller" type="ParameterList">
+        <Parameter name="timestep controller type" type="string" value="fixed" />
+        <ParameterList name="timestep controller fixed parameters" type="ParameterList">
+          <Parameter name="timestep [s]" type="double" value="2200000" />
+        </ParameterList>
+      </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="chemistry surface" type="ParameterList">
@@ -340,24 +356,27 @@
       <Parameter name="activity model" type="string" value="unit" />
       <Parameter name="maximum Newton iterations" type="int" value="100" />
       <Parameter name="tolerance" type="double" value="1e-15" />
-      <Parameter name="max timestep (s)" type="double" value="22000000" />
-      <Parameter name="min timestep (s)" type="double" value="10000000000" />
-      <Parameter name="initial timestep (s)" type="double" value="22000000" />
-      <Parameter name="timestep cut threshold" type="int" value="5" />
-      <Parameter name="timestep cut factor" type="double" value="2" />
-      <Parameter name="timestep increase threshold" type="int" value="4" />
-      <Parameter name="timestep increase factor" type="double" value="1.2" />
-      <Parameter name="timestep control method" type="string" value="fixed" />
       <Parameter name="auxiliary data" type="Array(string)" value="{pH}" />
       <Parameter name="initial conditions time" type="double" value="0" />
       <Parameter name="number of component concentrations" type="int" value="4" />
-      <ParameterList name="initial condition" type="ParameterList">
+      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <ParameterList name="geochemical conditions" type="ParameterList">
           <ParameterList name="surfini" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface domain}" />
           </ParameterList>
         </ParameterList>
+
       </ParameterList>
+
+      <ParameterList name="timestep controller" type="ParameterList">
+        <Parameter name="timestep controller type" type="string" value="fixed" />
+        <ParameterList name="timestep controller fixed parameters" type="ParameterList">
+          <Parameter name="timestep [s]" type="double" value="22000000" />
+        </ParameterList>
+      </ParameterList>
+
     </ParameterList>
 
   </ParameterList>
@@ -382,7 +401,6 @@
       <ParameterList name="surface-water_content">
         <Parameter name="evaluator type" type="string" value="overland pressure water content" />
       </ParameterList>
-
       <ParameterList name="surface-water_source">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <ParameterList name="function">
@@ -479,7 +497,6 @@
         <Parameter name="minimum rel perm cutoff" type="double" value="0" />
         <Parameter name="use surface rel perm" type="bool" value="true" />
       </ParameterList>
-
       <ParameterList name="dispersion_coefficient" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="dispersion tensor" />
         <ParameterList name="mechanical dispersion parameters" type="ParameterList">
@@ -625,7 +642,6 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="checkpoint">
     <Parameter name="times start period stop" type="Array(double)" value="{0, 10, -1}" />
     <Parameter name="times start period stop units" type="string" value="d" />

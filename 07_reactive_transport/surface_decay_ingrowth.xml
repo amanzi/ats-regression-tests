@@ -97,7 +97,6 @@
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value="1" />
       <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="fv: default" />
         <Parameter name="discretization secondary" type="string" value="fv: default" />
@@ -165,26 +164,28 @@
       <Parameter name="activity model" type="string" value="unit" />
       <Parameter name="maximum Newton iterations" type="int" value="100" />
       <Parameter name="tolerance" type="double" value="1e-12" />
-      <Parameter name="max timestep (s)" type="double" value="15778463" />
-      <Parameter name="min timestep (s)" type="double" value="10000000000" />
-      <Parameter name="initial timestep (s)" type="double" value="15778463" />
-      <Parameter name="timestep cut threshold" type="int" value="8" />
-      <Parameter name="timestep cut factor" type="double" value="2" />
-      <Parameter name="timestep increase threshold" type="int" value="4" />
-      <Parameter name="timestep increase factor" type="double" value="1.2" />
-      <Parameter name="timestep control method" type="string" value="fixed" />
       <Parameter name="initial conditions time" type="double" value="0" />
       <Parameter name="number of component concentrations" type="int" value="2" />
       <Parameter name="debug cells" type="Array(int)" value="{99}" />
+      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <ParameterList name="geochemical conditions" type="ParameterList">
           <ParameterList name="initial" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface domain}" />
           </ParameterList>
+        </ParameterList>
+
+      </ParameterList>
+
+      <ParameterList name="timestep controller" type="ParameterList">
+        <Parameter name="timestep controller type" type="string" value="fixed" />
+        <ParameterList name="timestep controller fixed parameters" type="ParameterList">
+          <Parameter name="timestep [s]" type="double" value="15778463" />
         </ParameterList>
       </ParameterList>
 
@@ -262,7 +263,6 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
-
       <ParameterList name="surface-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
         <Parameter name="dependencies" type="Array(string)" value="{surface-ponded_depth, surface-molar_density_liquid, surface-cell_volume}" />

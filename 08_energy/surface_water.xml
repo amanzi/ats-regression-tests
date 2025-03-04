@@ -3,8 +3,8 @@
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="generate mesh" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{10,1}" />
-        <Parameter name="domain low coordinate" type="Array(double)" value="{ 0, 0}" />
+        <Parameter name="number of cells" type="Array(int)" value="{10, 1}" />
+        <Parameter name="domain low coordinate" type="Array(double)" value="{0, 0}" />
         <Parameter name="domain high coordinate" type="Array(double)" value="{10, 1}" />
       </ParameterList>
     </ParameterList>
@@ -19,38 +19,38 @@
   <ParameterList name="regions" type="ParameterList">
     <ParameterList name="computational domain" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{ 0, 0}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{0, 0}" />
         <Parameter name="high coordinate" type="Array(double)" value="{10, 1}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="Left side" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{ 0, 0}" />
+        <Parameter name="point" type="Array(double)" value="{0, 0}" />
         <Parameter name="normal" type="Array(double)" value="{-1, 0}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="Bottom side" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{ 0, 0}" />
-        <Parameter name="normal" type="Array(double)" value="{ 0, 1}" />
+        <Parameter name="point" type="Array(double)" value="{0, 0}" />
+        <Parameter name="normal" type="Array(double)" value="{0, 1}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="Right side" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
         <Parameter name="point" type="Array(double)" value="{10, 0}" />
-        <Parameter name="normal" type="Array(double)" value="{ 1, 0}" />
+        <Parameter name="normal" type="Array(double)" value="{1, 0}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="Top side" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
         <Parameter name="point" type="Array(double)" value="{10, 1}" />
-        <Parameter name="normal" type="Array(double)" value="{ 0,-1}" />
+        <Parameter name="normal" type="Array(double)" value="{0, -1}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
-    <Parameter name="start time" type="double" value=" 0" />
+    <Parameter name="start time" type="double" value="0" />
     <Parameter name="start time units" type="string" value="s" />
     <Parameter name="end time" type="double" value="0.5" />
     <Parameter name="end time units" type="string" value="d" />
@@ -67,12 +67,12 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times start period stop" type="Array(double)" value="{ 0,8640,-1}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0, 8640, -1}" />
   </ParameterList>
 
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,8640,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0, 8640, -1}" />
     </ParameterList>
   </ParameterList>
 
@@ -81,7 +81,7 @@
     <ParameterList name="surface thermal coupler" type="ParameterList">
       <Parameter name="PK type" type="string" value="icy surface" />
       <Parameter name="domain name" type="string" value="surface" />
-      <Parameter name="PKs order" type="Array(string)" value="{overland flow,surface energy}" />
+      <Parameter name="PKs order" type="Array(string)" value="{overland flow, surface energy}" />
       <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="false" />
       <ParameterList name="surface ewc delegate" type="ParameterList">
         <Parameter name="predictor type" type="string" value="smart ewc" />
@@ -151,7 +151,7 @@
       <Parameter name="primary variable key" type="string" value="surface-pressure" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source term" type="bool" value="false" />
-      <Parameter name="debug cells" type="Array(int)" value="{0,9}" />
+      <Parameter name="debug cells" type="Array(int)" value="{0, 9}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
@@ -164,14 +164,16 @@
         <Parameter name="include Newton correction" type="bool" value="true" />
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="constant" type="double" value="103325" />
+
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="pressure" type="ParameterList">
           <ParameterList name="left side" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{Left side,Right side}" />
+            <Parameter name="regions" type="Array(string)" value="{Left side, Right side}" />
             <ParameterList name="boundary pressure" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="103325" />
@@ -191,7 +193,7 @@
       <Parameter name="upwind conductivity method" type="string" value="arithmetic mean" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source term key" type="string" value="surface-total_energy_source" />
-      <Parameter name="debug cells" type="Array(int)" value="{0,9}" />
+      <Parameter name="debug cells" type="Array(int)" value="{0, 9}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
@@ -200,8 +202,10 @@
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="constant" type="double" value="270.15" />
+
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
@@ -316,19 +320,19 @@
         <ParameterList name="elevation function" type="ParameterList">
           <ParameterList name="Elevation" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain" />
-            <Parameter name="components" type="Array(string)" value="{cell,face}" />
+            <Parameter name="components" type="Array(string)" value="{cell, face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-separable" type="ParameterList">
                 <ParameterList name="function1" type="ParameterList">
                   <ParameterList name="function-constant" type="ParameterList">
-                    <Parameter name="value" type="double" value=" 1" />
+                    <Parameter name="value" type="double" value="1" />
                   </ParameterList>
                 </ParameterList>
                 <ParameterList name="function2" type="ParameterList">
                   <ParameterList name="function-linear" type="ParameterList">
-                    <Parameter name="y0" type="double" value=" 1" />
+                    <Parameter name="y0" type="double" value="1" />
                     <Parameter name="gradient" type="Array(double)" value="{-0.1, 0}" />
-                    <Parameter name="x0" type="Array(double)" value="{ 0, 0}" />
+                    <Parameter name="x0" type="Array(double)" value="{0, 0}" />
                   </ParameterList>
                 </ParameterList>
               </ParameterList>
@@ -363,7 +367,7 @@
       </ParameterList>
 
       <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
+        <Parameter name="value" type="Array(double)" value="{0, 0, -9.80665}" />
       </ParameterList>
 
       <ParameterList name="air_temperature" type="ParameterList">

@@ -9,9 +9,9 @@
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="generate mesh" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{100,100}" />
-        <Parameter name="domain low coordinate" type="Array(double)" value="{ 0, 0}" />
-        <Parameter name="domain high coordinate" type="Array(double)" value="{1000,1000}" />
+        <Parameter name="number of cells" type="Array(int)" value="{100, 100}" />
+        <Parameter name="domain low coordinate" type="Array(double)" value="{0, 0}" />
+        <Parameter name="domain high coordinate" type="Array(double)" value="{1000, 1000}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -19,27 +19,27 @@
   <ParameterList name="regions" type="ParameterList">
     <ParameterList name="surface domain" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{ 0, 0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{1000,1000}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{0, 0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{1000, 1000}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="tracer source surface" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{ 0,450}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{100,550}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{0, 450}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{100, 550}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="observation point" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{990,990}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{1000,1000}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{990, 990}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{1000, 1000}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="end cycle" type="int" value="20000" />
-    <Parameter name="start time" type="double" value=" 0" />
+    <Parameter name="start time" type="double" value="0" />
     <Parameter name="start time units" type="string" value="s" />
     <Parameter name="end time" type="double" value="1000" />
     <Parameter name="end time units" type="string" value="s" />
@@ -56,7 +56,7 @@
   </ParameterList>
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,10,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0, 10, -1}" />
     </ParameterList>
   </ParameterList>
 
@@ -65,18 +65,18 @@
       <Parameter name="variable" type="string" value="surface-total_component_concentration" />
       <Parameter name="functional" type="string" value="point" />
       <Parameter name="region" type="string" value="observation point" />
-      <Parameter name="delimiter" type="string" value=" " />
+      <Parameter name="delimiter" type="string" value="" />
       <Parameter name="location name" type="string" value="cell" />
       <Parameter name="number of vectors" type="int" value="2" />
       <Parameter name="write interval" type="int" value="1" />
       <Parameter name="observation output filename" type="string" value="breakthrough_curve.dat" />
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,120,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0, 120, -1}" />
       <Parameter name="times start period stop units" type="string" value="s" />
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="file name base" type="string" value="checkpoint" />
-    <Parameter name="times start period stop" type="Array(double)" value="{ 0,3600,-1}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0, 3600, -1}" />
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
@@ -86,12 +86,13 @@
       <Parameter name="PK type" type="string" value="transport ATS" />
       <Parameter name="primary variable key" type="string" value="surface-total_component_concentration" />
       <Parameter name="domain name" type="string" value="surface" />
-      <Parameter name="component names" type="Array(string)" value="{Tracer1,Tracer2}" />
+      <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
       <Parameter name="advection spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
-      <Parameter name="cfl" type="double" value=" 1" />
-      <Parameter name="debug cells" type="Array(int)" value="{0,1}" />
-      <ParameterList name="initial condition" type="ParameterList">
+      <Parameter name="cfl" type="double" value="1" />
+      <Parameter name="debug cells" type="Array(int)" value="{0, 1}" />
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="ic" type="ParameterList">
             <!-- IC is nonzero in a patch on the left hand boundary -->
@@ -101,17 +102,18 @@
               <Parameter name="number of dofs" type="int" value="2" />
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value=" 1" />
+                  <Parameter name="value" type="double" value="1" />
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value=" 2" />
+                  <Parameter name="value" type="double" value="2" />
                 </ParameterList>
               </ParameterList>
             </ParameterList>
           </ParameterList>
         </ParameterList>
+
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
@@ -124,7 +126,7 @@
           <Parameter name="iterative method" type="string" value="pcg" />
           <ParameterList name="boomer amg parameters">
             <!-- <Parameter name="verbosity" type="int" value="0" /> -->
-            <Parameter name="tolerance" type="double" value=" 0" />
+            <Parameter name="tolerance" type="double" value="0" />
             <Parameter name="smoother sweeps" type="int" value="3" />
             <Parameter name="cycle applications" type="int" value="5" />
             <Parameter name="strong threshold" type="double" value="0.5" />
@@ -132,7 +134,7 @@
           <ParameterList name="pcg parameters">
             <Parameter name="maximum number of iterations" type="int" value="400" />
             <Parameter name="error tolerance" type="double" value="1e-20" />
-            <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs,make one iteration}" />
+            <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}" />
             <Parameter name="size of Krylov space" type="int" value="5" />
           </ParameterList>
         </ParameterList>
@@ -181,12 +183,12 @@
               <Parameter name="number of dofs" type="int" value="2" />
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value=" 1" />
+                  <Parameter name="value" type="double" value="1" />
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value=" 0" />
+                  <Parameter name="value" type="double" value="0" />
                 </ParameterList>
               </ParameterList>
             </ParameterList>
@@ -196,7 +198,7 @@
       <ParameterList name="surface-water_flux" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="additive evaluator" />
         <Parameter name="dependencies" type="Array(string)" value="{surface-water_flux_directions}" />
-        <Parameter name="surface-water_flux_directions coefficient" type="double" value=" 1" />
+        <Parameter name="surface-water_flux_directions coefficient" type="double" value="1" />
       </ParameterList>
       <ParameterList name="surface-darcy_velocity">
         <Parameter name="evaluator type" type="string" value="independent variable" />
@@ -209,12 +211,12 @@
               <Parameter name="number of dofs" type="int" value="2" />
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value=" 1" />
+                  <Parameter name="value" type="double" value="1" />
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 2 function">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value=" 0" />
+                  <Parameter name="value" type="double" value="0" />
                 </ParameterList>
               </ParameterList>
             </ParameterList>
@@ -230,7 +232,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 1" />
+                <Parameter name="value" type="double" value="1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -243,8 +245,8 @@
             <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="mechanical dispersion type" type="string" value="Bear" />
             <ParameterList name="Bear parameters" type="ParameterList">
-              <Parameter name="longitudinal dispersivity [m]" type="double" value=" 4" />
-              <Parameter name="transverse dispersivity [m]" type="double" value=" 0" />
+              <Parameter name="longitudinal dispersivity [m]" type="double" value="4" />
+              <Parameter name="transverse dispersivity [m]" type="double" value="0" />
             </ParameterList>
           </ParameterList>
         </ParameterList>
@@ -257,7 +259,7 @@
       </ParameterList>
 
       <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
+        <Parameter name="value" type="Array(double)" value="{0, 0, -9.80665}" />
       </ParameterList>
 
     </ParameterList>

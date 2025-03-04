@@ -17,14 +17,14 @@
     </ParameterList>
     <ParameterList name="west face" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{ 0, 0, 0}" />
+        <Parameter name="point" type="Array(double)" value="{0, 0, 0}" />
         <Parameter name="normal" type="Array(double)" value="{-1, 0, 0}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="east face" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
         <Parameter name="point" type="Array(double)" value="{1000, 0, 0}" />
-        <Parameter name="normal" type="Array(double)" value="{ 1, 0, 0}" />
+        <Parameter name="normal" type="Array(double)" value="{1, 0, 0}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
@@ -37,14 +37,14 @@
     </ParameterList>
     <ParameterList name="well" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{990,-10,98}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{1000,10,100}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{990, -10, 98}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{1000, 10, 100}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
-    <Parameter name="start time" type="double" value=" 0" />
+    <Parameter name="start time" type="double" value="0" />
     <Parameter name="start time units" type="string" value="s" />
     <Parameter name="end time" type="double" value="20" />
     <Parameter name="end time units" type="string" value="d" />
@@ -56,14 +56,14 @@
   </ParameterList>
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,10,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0, 10, -1}" />
       <Parameter name="times start period stop units" type="string" value="d" />
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="file name base" type="string" value="checkpoint" />
-    <Parameter name="times start period stop" type="Array(double)" value="{ 0,10,-1}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0, 10, -1}" />
     <Parameter name="times start period stop units" type="string" value="d" />
   </ParameterList>
 
@@ -72,10 +72,10 @@
     <ParameterList name="transport" type="ParameterList">
       <Parameter name="PK type" type="string" value="transport ATS" />
       <Parameter name="primary variable key" type="string" value="total_component_concentration" />
-      <Parameter name="component names" type="Array(string)" value="{Tracer1,Tracer2}" />
+      <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
       <Parameter name="advection spatial discretization order" type="int" value="2" />
       <Parameter name="temporal discretization order" type="int" value="1" />
-      <Parameter name="cfl" type="double" value=" 1" />
+      <Parameter name="cfl" type="double" value="1" />
       <Parameter name="debug cells" type="Array(int)" value="{9900}" />
       <ParameterList name="molecular diffusivity [m^2 s^-1]" type="ParameterList">
         <Parameter name="Tracer1" type="double" value="1e-10" />
@@ -84,13 +84,13 @@
 
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="mfd: default" />
-        <Parameter name="schema" type="Array(string)" value="{face,cell}" />
+        <Parameter name="schema" type="Array(string)" value="{face, cell}" />
         <Parameter name="preconditioner schema" type="Array(string)" value="{face}" />
         <ParameterList name="inverse">
           <Parameter name="preconditioning method" type="string" value="boomer amg" />
           <Parameter name="iterative method" type="string" value="gmres" />
           <ParameterList name="boomer amg parameters">
-            <Parameter name="tolerance" type="double" value=" 0" />
+            <Parameter name="tolerance" type="double" value="0" />
             <Parameter name="smoother sweeps" type="int" value="3" />
             <Parameter name="cycle applications" type="int" value="5" />
             <Parameter name="strong threshold" type="double" value="0.5" />
@@ -98,14 +98,16 @@
           <ParameterList name="gmres parameters">
             <Parameter name="maximum number of iterations" type="int" value="400" />
             <Parameter name="error tolerance" type="double" value="1e-10" />
-            <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs,make one iteration}" />
+            <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}" />
             <Parameter name="size of Krylov space" type="int" value="5" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
-        <Parameter name="constant" type="double" value=" 0" />
+      <ParameterList name="initial conditions" type="ParameterList">
+
+        <Parameter name="constant" type="double" value="0" />
+
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
@@ -118,7 +120,7 @@
               <Parameter name="number of dofs" type="int" value="1" />
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value=" 1" />
+                  <Parameter name="value" type="double" value="1" />
                 </ParameterList>
               </ParameterList>
             </ParameterList>
@@ -176,7 +178,7 @@
       </ParameterList>
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="dependencies" type="Array(string)" value="{porosity,molar_density_liquid,saturation_liquid,cell_volume}" />
+        <Parameter name="dependencies" type="Array(string)" value="{porosity, molar_density_liquid, saturation_liquid, cell_volume}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
@@ -186,7 +188,7 @@
       </ParameterList>
 
       <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
+        <Parameter name="value" type="Array(double)" value="{0, 0, -9.80665}" />
       </ParameterList>
 
     </ParameterList>
