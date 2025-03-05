@@ -93,7 +93,7 @@ equilibrate constraint : initial
         iterations:     9
     ionic strength:   0.0000E+00 [mol/L]
     charge balance:   0.0000E+00
-          pressure:   0.0000E+00 [Pa]
+          pressure:   5.5335-322 [Pa]
        temperature:    25.00 [C]
        density H2O:   997.16 [kg/m^3]
  ln / activity H2O:   0.0000E+00  1.0000E+00    [---]
@@ -110,3 +110,30 @@ equilibrate constraint : initial
                              [mol/L]               1+Kd
   ----------------------------------------------------------------------------
   Tracer1                   1.4007E-20          1.4007E+00
+processing : upstreambc
+Looking for pflotran constraint : upstreambc
+initializing constraint : upstreambc
+equilibrate constraint : upstreambc
+
+  Constraint: upstreambc
+  ----------------------------------------------------------------------------
+        iterations:     9
+    ionic strength:   0.0000E+00 [mol/L]
+    charge balance:   0.0000E+00
+          pressure:   4.6814-310 [Pa]
+       temperature:    25.00 [C]
+       density H2O:   997.16 [kg/m^3]
+ ln / activity H2O:   0.0000E+00  1.0000E+00    [---]
+ mole fraction H2O:   9.8227E-01    [---]
+ mass fraction H2O:   1.0000E+00    [---]
+  ----------------------------------------------------------------------------
+
+  primary                   free        total
+  species                   molal       molal       act coef     constraint
+  ----------------------------------------------------------------------------
+  Tracer1                   1.0018E+00  1.0028E+00  1.0000E+00    total aq
+
+  primary species         total(aq+sorbed)    total retardation
+                             [mol/L]               1+Kd
+  ----------------------------------------------------------------------------
+  Tracer1                   1.4007E+00          1.4007E+00
