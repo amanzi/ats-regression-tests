@@ -11,8 +11,8 @@
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="generate mesh" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{10,1}" />
-        <Parameter name="domain low coordinate" type="Array(double)" value="{ 0, 0}" />
+        <Parameter name="number of cells" type="Array(int)" value="{10, 1}" />
+        <Parameter name="domain low coordinate" type="Array(double)" value="{0, 0}" />
         <Parameter name="domain high coordinate" type="Array(double)" value="{10, 1}" />
       </ParameterList>
     </ParameterList>
@@ -25,8 +25,8 @@
     </ParameterList>
     <ParameterList name="left side" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{ 0, 0}" />
-        <Parameter name="normal" type="Array(double)" value="{ 1, 0}" />
+        <Parameter name="point" type="Array(double)" value="{0, 0}" />
+        <Parameter name="normal" type="Array(double)" value="{1, 0}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="right side" type="ParameterList">
@@ -38,7 +38,7 @@
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
-    <Parameter name="start time" type="double" value=" 0" />
+    <Parameter name="start time" type="double" value="0" />
     <Parameter name="start time units" type="string" value="s" />
     <Parameter name="end time" type="double" value="10800" />
     <Parameter name="end time units" type="string" value="s" />
@@ -55,7 +55,7 @@
       <Parameter name="primary variable key" type="string" value="surface-pressure" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="source term" type="bool" value="true" />
-      <Parameter name="debug cells" type="Array(int)" value="{0,9}" />
+      <Parameter name="debug cells" type="Array(int)" value="{0, 9}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
@@ -107,7 +107,7 @@
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="initial head" type="ParameterList">
             <Parameter name="region" type="string" value="all" />
-            <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
+            <Parameter name="components" type="Array(string)" value="{cell, boundary_face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="101325" />
@@ -155,7 +155,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="x values" type="Array(double)" value="{ 0,3600}" />
+                <Parameter name="x values" type="Array(double)" value="{0, 3600}" />
                 <Parameter name="y values" type="Array(double)" value="{3e-06, 0}" />
                 <Parameter name="forms" type="Array(string)" value="{constant}" />
               </ParameterList>
@@ -212,7 +212,7 @@
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
             <Parameter name="region" type="string" value="all" />
-            <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
+            <Parameter name="components" type="Array(string)" value="{cell, boundary_face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="274.65" />
@@ -226,19 +226,19 @@
         <ParameterList name="elevation function" type="ParameterList">
           <ParameterList name="elevation" type="ParameterList">
             <Parameter name="region" type="string" value="all" />
-            <Parameter name="components" type="Array(string)" value="{cell,face}" />
+            <Parameter name="components" type="Array(string)" value="{cell, face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-separable" type="ParameterList">
                 <ParameterList name="function1" type="ParameterList">
                   <ParameterList name="function-constant" type="ParameterList">
-                    <Parameter name="value" type="double" value=" 1" />
+                    <Parameter name="value" type="double" value="1" />
                   </ParameterList>
                 </ParameterList>
                 <ParameterList name="function2" type="ParameterList">
                   <ParameterList name="function-linear" type="ParameterList">
-                    <Parameter name="y0" type="double" value=" 0" />
+                    <Parameter name="y0" type="double" value="0" />
                     <Parameter name="gradient" type="Array(double)" value="{-0.1, 0}" />
-                    <Parameter name="x0" type="Array(double)" value="{ 1, 0}" />
+                    <Parameter name="x0" type="Array(double)" value="{1, 0}" />
                   </ParameterList>
                 </ParameterList>
               </ParameterList>
@@ -277,21 +277,21 @@
       </ParameterList>
 
       <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
+        <Parameter name="value" type="Array(double)" value="{0, 0, -9.80665}" />
       </ParameterList>
 
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint">
-    <Parameter name="times" type="Array(double)" value="{ 0,1200,3600,4200,10800}" />
+    <Parameter name="times" type="Array(double)" value="{0, 1200, 3600, 4200, 10800}" />
   </ParameterList>
 
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,600,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0, 600, -1}" />
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,600,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0, 600, -1}" />
     </ParameterList>
   </ParameterList>
 
@@ -301,11 +301,11 @@
       <Parameter name="direction normalized flux" type="bool" value="true" />
       <Parameter name="region" type="string" value="right side" />
       <Parameter name="functional" type="string" value="extensive integral" />
-      <Parameter name="delimiter" type="string" value=" " />
+      <Parameter name="delimiter" type="string" value="" />
       <Parameter name="location name" type="string" value="face" />
       <Parameter name="write interval" type="int" value="1" />
       <Parameter name="observation output filename" type="string" value="surface_outlet_flux.dat" />
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,600,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0, 600, -1}" />
     </ParameterList>
   </ParameterList>
 </ParameterList>

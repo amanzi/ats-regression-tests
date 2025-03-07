@@ -3,9 +3,9 @@
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="generate mesh" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{1,1,1}" />
-        <Parameter name="domain low coordinate" type="Array(double)" value="{ 0, 0, 0}" />
-        <Parameter name="domain high coordinate" type="Array(double)" value="{ 1, 1, 1}" />
+        <Parameter name="number of cells" type="Array(int)" value="{1, 1, 1}" />
+        <Parameter name="domain low coordinate" type="Array(double)" value="{0, 0, 0}" />
+        <Parameter name="domain high coordinate" type="Array(double)" value="{1, 1, 1}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -13,16 +13,16 @@
   <ParameterList name="regions" type="ParameterList">
     <ParameterList name="subsurface domain" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{ 0, 0, 0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{ 1, 1, 1}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{0, 0, 0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{1, 1, 1}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
-    <Parameter name="start time" type="double" value=" 0" />
+    <Parameter name="start time" type="double" value="0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value=" 2" />
+    <Parameter name="end time" type="double" value="2" />
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="coupler" type="ParameterList">
@@ -37,12 +37,12 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times start period stop" type="Array(double)" value="{ 0,8640,-1}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0, 8640, -1}" />
   </ParameterList>
 
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,8640,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0, 8640, -1}" />
     </ParameterList>
   </ParameterList>
 
@@ -51,7 +51,7 @@
     <ParameterList name="coupler" type="ParameterList">
       <Parameter name="PK type" type="string" value="subsurface permafrost" />
       <Parameter name="domain name" type="string" value="domain" />
-      <Parameter name="PKs order" type="Array(string)" value="{flow,energy}" />
+      <Parameter name="PKs order" type="Array(string)" value="{flow, energy}" />
       <Parameter name="supress Jacobian terms: d div q / dT" type="bool" value="true" />
       <Parameter name="supress Jacobian terms: d div K grad T / dp" type="bool" value="true" />
       <Parameter name="supress Jacobian terms: d div hq / dp,T" type="bool" value="true" />
@@ -293,8 +293,8 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="x values" type="Array(double)" value="{ 0,86400}" />
-                <Parameter name="y values" type="Array(double)" value="{0.002,-0.002}" />
+                <Parameter name="x values" type="Array(double)" value="{0, 86400}" />
+                <Parameter name="y values" type="Array(double)" value="{0.002, -0.002}" />
                 <Parameter name="forms" type="Array(string)" value="{constant}" />
               </ParameterList>
             </ParameterList>
@@ -309,7 +309,7 @@
       </ParameterList>
 
       <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
+        <Parameter name="value" type="Array(double)" value="{0, 0, -9.80665}" />
       </ParameterList>
 
     </ParameterList>

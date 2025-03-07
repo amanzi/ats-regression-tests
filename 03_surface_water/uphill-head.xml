@@ -23,14 +23,14 @@
   <ParameterList name="regions" type="ParameterList">
     <ParameterList name="computational domain" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{-1e+20,-1e+20,-1e+20}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{1e+20,1e+20,1e+20}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{-1e+20, -1e+20, -1e+20}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{1e+20, 1e+20, 1e+20}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface domain" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{-1e+20,-1e+20}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{1e+20,1e+20}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{-1e+20, -1e+20}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{1e+20, 1e+20}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="bottom face" type="ParameterList">
@@ -51,20 +51,20 @@
     </ParameterList>
     <ParameterList name="surface inlet" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{ 0, 0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{ 1, 0}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{0, 0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{1, 0}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface outlet" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{ 0, 5}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{ 1, 5}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{0, 5}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{1, 5}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="cycle driver">
-    <Parameter name="start time" type="double" value=" 0" />
+    <Parameter name="start time" type="double" value="0" />
     <Parameter name="start time units" type="string" value="s" />
     <Parameter name="end time" type="double" value="0.25" />
     <Parameter name="end time units" type="string" value="d" />
@@ -76,12 +76,12 @@
   </ParameterList>
   <ParameterList name="visualization">
     <ParameterList name="surface">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,3600,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0, 3600, -1}" />
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0, 86400, -1}" />
   </ParameterList>
 
   <ParameterList name="PKs">
@@ -132,7 +132,7 @@
           <Parameter name="min timestep" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
-          <Parameter name="initial timestep [s]" type="double" value=" 1" />
+          <Parameter name="initial timestep [s]" type="double" value="1" />
         </ParameterList>
       </ParameterList>
 
@@ -160,8 +160,8 @@
             <Parameter name="regions" type="Array(string)" value="{surface inlet}" />
             <ParameterList name="boundary head" type="ParameterList">
               <ParameterList name="function-tabular">
-                <Parameter name="x values" type="Array(double)" value="{ 0,864000}" />
-                <Parameter name="y values" type="Array(double)" value="{0.05,0.05}" />
+                <Parameter name="x values" type="Array(double)" value="{0, 864000}" />
+                <Parameter name="y values" type="Array(double)" value="{0.05, 0.05}" />
                 <Parameter name="forms" type="Array(string)" value="{constant}" />
               </ParameterList>
             </ParameterList>
@@ -256,7 +256,7 @@
       </ParameterList>
 
       <ParameterList name="gravity">
-        <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
+        <Parameter name="value" type="Array(double)" value="{0, 0, -9.80665}" />
       </ParameterList>
 
     </ParameterList>

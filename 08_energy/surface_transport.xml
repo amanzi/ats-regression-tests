@@ -3,8 +3,8 @@
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="generate mesh" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{100,1}" />
-        <Parameter name="domain low coordinate" type="Array(double)" value="{ 0, 0}" />
+        <Parameter name="number of cells" type="Array(int)" value="{100, 1}" />
+        <Parameter name="domain low coordinate" type="Array(double)" value="{0, 0}" />
         <Parameter name="domain high coordinate" type="Array(double)" value="{1000, 1}" />
       </ParameterList>
     </ParameterList>
@@ -19,14 +19,14 @@
   <ParameterList name="regions" type="ParameterList">
     <ParameterList name="surface domain" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{ 0, 0}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{0, 0}" />
         <Parameter name="high coordinate" type="Array(double)" value="{1000, 1}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface west" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{ 0, 0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{ 0, 1}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{0, 0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{0, 1}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface east" type="ParameterList">
@@ -37,7 +37,7 @@
     </ParameterList>
     <ParameterList name="tracer source surface" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{ 0, 0}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{0, 0}" />
         <Parameter name="high coordinate" type="Array(double)" value="{10, 1}" />
       </ParameterList>
     </ParameterList>
@@ -50,9 +50,9 @@
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
-    <Parameter name="start time" type="double" value=" 0" />
+    <Parameter name="start time" type="double" value="0" />
     <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value=" 5" />
+    <Parameter name="end time" type="double" value="5" />
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="surface energy" type="ParameterList">
@@ -61,12 +61,12 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0, 86400, -1}" />
   </ParameterList>
 
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,86400,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0, 86400, -1}" />
     </ParameterList>
   </ParameterList>
 
@@ -79,7 +79,7 @@
       <Parameter name="supress advective terms in preconditioner" type="bool" value="false" />
       <Parameter name="upwind conductivity method" type="string" value="arithmetic mean" />
       <Parameter name="source term" type="bool" value="false" />
-      <Parameter name="debug cells" type="Array(int)" value="{0,9}" />
+      <Parameter name="debug cells" type="Array(int)" value="{0, 9}" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
@@ -177,11 +177,11 @@
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="surface-ponded_depth" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value=" 1" />
+        <Parameter name="value" type="double" value="1" />
       </ParameterList>
       <ParameterList name="surface-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="dependencies" type="Array(string)" value="{surface-molar_density_liquid,surface-ponded_depth,surface-cell_volume}" />
+        <Parameter name="dependencies" type="Array(string)" value="{surface-molar_density_liquid, surface-ponded_depth, surface-cell_volume}" />
       </ParameterList>
       <ParameterList name="surface-pressure" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable constant" />
@@ -255,7 +255,7 @@
       </ParameterList>
 
       <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
+        <Parameter name="value" type="Array(double)" value="{0, 0, -9.80665}" />
       </ParameterList>
 
     </ParameterList>

@@ -44,7 +44,7 @@
     <ParameterList name="east" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
         <Parameter name="point" type="Array(double)" value="{50, 0}" />
-        <Parameter name="normal" type="Array(double)" value="{ 1, 0}" />
+        <Parameter name="normal" type="Array(double)" value="{1, 0}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
@@ -58,12 +58,12 @@
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
-    <Parameter name="start time" type="double" value=" 0" />
+    <Parameter name="start time" type="double" value="0" />
     <Parameter name="start time units" type="string" value="s" />
     <Parameter name="end time" type="double" value="3600" />
     <Parameter name="end time units" type="string" value="s" />
     <ParameterList name="required times" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,3600,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0, 3600, -1}" />
       <Parameter name="times start period stop units" type="string" value="s" />
     </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
@@ -80,7 +80,7 @@
       <Parameter name="conserved quantity key" type="string" value="snow-precipitation" />
       <Parameter name="domain name" type="string" value="snow" />
       <Parameter name="upwind conductivity method" type="string" value="upwind by potential difference" />
-      <Parameter name="debug cells" type="Array(int)" value="{0,20}" />
+      <Parameter name="debug cells" type="Array(int)" value="{0, 20}" />
       <Parameter name="distribution time" type="double" value="86400" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high" />
@@ -90,8 +90,8 @@
         <ParameterList name="function-tabular" type="ParameterList">
           <Parameter name="x header" type="string" value="time [s]" />
           <Parameter name="y header" type="string" value="precipitation snow [m SWE s^-1]" />
-          <Parameter name="x values" type="Array(double)" value="{ 0,3600}" />
-          <Parameter name="y values" type="Array(double)" value="{1e-05,1e-05}" />
+          <Parameter name="x values" type="Array(double)" value="{0, 3600}" />
+          <Parameter name="y values" type="Array(double)" value="{1e-05, 1e-05}" />
           <Parameter name="forms" type="Array(string)" value="{constant}" />
         </ParameterList>
       </ParameterList>
@@ -107,7 +107,7 @@
           <Parameter name="backtrack lag" type="int" value="0" />
           <Parameter name="last backtrack iteration" type="int" value="10" />
           <Parameter name="backtrack factor" type="double" value="0.25" />
-          <Parameter name="backtrack tolerance" type="double" value=" 0" />
+          <Parameter name="backtrack tolerance" type="double" value="0" />
           <Parameter name="nonlinear tolerance" type="double" value="0.02" />
           <Parameter name="diverged tolerance" type="double" value="1000000" />
           <Parameter name="limit iterations" type="int" value="21" />
@@ -139,7 +139,7 @@
         <ParameterList name="gmres parameters" type="ParameterList">
           <Parameter name="preconditioning strategy" type="string" value="left" />
           <Parameter name="error tolerance" type="double" value="1e-06" />
-          <Parameter name="convergence criteria" type="Array(string)" value="{relative residual,make one iteration}" />
+          <Parameter name="convergence criteria" type="Array(string)" value="{relative residual, make one iteration}" />
           <Parameter name="maximum number of iteration" type="int" value="80" />
         </ParameterList>
       </ParameterList>
@@ -151,7 +151,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 0" />
+                <Parameter name="value" type="double" value="0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -170,10 +170,10 @@
           <ParameterList name="domain" type="ParameterList">
             <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="component" type="string" value="cell" />
-            <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
+            <Parameter name="components" type="Array(string)" value="{cell, boundary_face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 0" />
+                <Parameter name="value" type="double" value="0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -185,10 +185,10 @@
           <ParameterList name="domain" type="ParameterList">
             <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="component" type="string" value="cell" />
-            <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
+            <Parameter name="components" type="Array(string)" value="{cell, boundary_face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 0" />
+                <Parameter name="value" type="double" value="0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -200,10 +200,10 @@
           <ParameterList name="domain" type="ParameterList">
             <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="component" type="string" value="cell" />
-            <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
+            <Parameter name="components" type="Array(string)" value="{cell, boundary_face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 0" />
+                <Parameter name="value" type="double" value="0" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -251,7 +251,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 1" />
+                <Parameter name="value" type="double" value="1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -263,7 +263,7 @@
           <ParameterList name="domain" type="ParameterList">
             <Parameter name="region" type="string" value="surface domain" />
             <Parameter name="component" type="string" value="cell" />
-            <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
+            <Parameter name="components" type="Array(string)" value="{cell, boundary_face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="100" />
@@ -303,7 +303,7 @@
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
             <Parameter name="region" type="string" value="surface domain" />
-            <Parameter name="components" type="Array(string)" value="{cell,boundary_face}" />
+            <Parameter name="components" type="Array(string)" value="{cell, boundary_face}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="244.65" />
@@ -325,21 +325,21 @@
       </ParameterList>
 
       <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
+        <Parameter name="value" type="Array(double)" value="{0, 0, -9.80665}" />
       </ParameterList>
 
     </ParameterList>
   </ParameterList>
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop 0" type="Array(double)" value="{ 0,3600,-1}" />
+      <Parameter name="times start period stop 0" type="Array(double)" value="{0, 3600, -1}" />
       <Parameter name="times start period stop 0 units" type="string" value="s" />
       <Parameter name="aliased domains" type="Array(string)" value="{snow}" />
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times start period stop 0" type="Array(double)" value="{ 0,3600,-1}" />
+    <Parameter name="times start period stop 0" type="Array(double)" value="{0, 3600, -1}" />
     <Parameter name="times start period stop 0 units" type="string" value="s" />
   </ParameterList>
 

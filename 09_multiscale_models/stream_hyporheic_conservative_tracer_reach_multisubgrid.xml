@@ -13,8 +13,8 @@
           <ParameterList name="Stream" type="ParameterList">
             <Parameter name="number of cells" type="int" value="100" />
             <Parameter name="total length" type="double" value="1000" />
-            <Parameter name="cross sectional area [m^2]" type="double" value=" 1" />
-            <Parameter name="first tip" type="Array(double)" value="{ 0, 0, 0}" />
+            <Parameter name="cross sectional area [m^2]" type="double" value="1" />
+            <Parameter name="first tip" type="Array(double)" value="{0, 0, 0}" />
             <Parameter name="first tip type" type="string" value="boundary" />
             <Parameter name="last tip" type="Array(double)" value="{1000, 0, 0}" />
             <Parameter name="last tip type" type="string" value="boundary" />
@@ -35,12 +35,12 @@
             <ParameterList name="segments">
               <ParameterList name="tau_space1">
                 <Parameter name="number of cells" type="int" value="20" />
-                <Parameter name="cross sectional area [m^2]" type="double" value=" 1" />
-                <Parameter name="first tip" type="Array(double)" value="{ 0, 0, 0}" />
-                <Parameter name="orientation" type="Array(double)" value="{ 0, 0, 1}" />
+                <Parameter name="cross sectional area [m^2]" type="double" value="1" />
+                <Parameter name="first tip" type="Array(double)" value="{0, 0, 0}" />
+                <Parameter name="orientation" type="Array(double)" value="{0, 0, 1}" />
                 <Parameter name="first tip type" type="string" value="boundary" />
                 <Parameter name="last tip type" type="string" value="boundary" />
-                <Parameter name="cell lengths [m]" type="Array(double)" value="{1537.88,1049.99,867.8,832.14,841.39,875.87,930.08,1003.36,1097.76,1217.63,1370.1,1566.33,1824,2172.24,2661.9,3389.38,4559.96,6693.86,11566.29,31446.39}" />
+                <Parameter name="cell lengths [m]" type="Array(double)" value="{1537.88, 1049.99, 867.8, 832.14, 841.39, 875.87, 930.08, 1003.36, 1097.76, 1217.63, 1370.1, 1566.33, 1824, 2172.24, 2661.9, 3389.38, 4559.96, 6693.86, 11566.29, 31446.39}" />
               </ParameterList>
             </ParameterList>
             <ParameterList name="sets" type="ParameterList">
@@ -62,12 +62,12 @@
             <ParameterList name="segments">
               <ParameterList name="tau_space2">
                 <Parameter name="number of cells" type="int" value="20" />
-                <Parameter name="cross sectional area [m^2]" type="double" value=" 1" />
-                <Parameter name="first tip" type="Array(double)" value="{ 0, 0, 0}" />
-                <Parameter name="orientation" type="Array(double)" value="{ 0, 0, 1}" />
+                <Parameter name="cross sectional area [m^2]" type="double" value="1" />
+                <Parameter name="first tip" type="Array(double)" value="{0, 0, 0}" />
+                <Parameter name="orientation" type="Array(double)" value="{0, 0, 1}" />
                 <Parameter name="first tip type" type="string" value="boundary" />
                 <Parameter name="last tip type" type="string" value="boundary" />
-                <Parameter name="cell lengths [m]" type="Array(double)" value="{1537.88,1049.99,867.8,832.14,841.39,875.87,930.08,1003.36,1097.76,1217.63,1370.1,1566.33,1824,2172.24,2661.9,3389.38,4559.96,6693.86,11566.29,31446.39}" />
+                <Parameter name="cell lengths [m]" type="Array(double)" value="{1537.88, 1049.99, 867.8, 832.14, 841.39, 875.87, 930.08, 1003.36, 1097.76, 1217.63, 1370.1, 1566.33, 1824, 2172.24, 2661.9, 3389.38, 4559.96, 6693.86, 11566.29, 31446.39}" />
               </ParameterList>
             </ParameterList>
             <ParameterList name="sets" type="ParameterList">
@@ -109,7 +109,7 @@
 
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="end cycle" type="int" value="-1" />
-    <Parameter name="start time" type="double" value=" 0" />
+    <Parameter name="start time" type="double" value="0" />
     <Parameter name="start time units" type="string" value="s" />
     <Parameter name="end time" type="double" value="10" />
     <Parameter name="end time units" type="string" value="h" />
@@ -154,7 +154,7 @@
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="file name base" type="string" value="checkpoint" />
-    <Parameter name="times start period stop" type="Array(double)" value="{ 0,7200,-1}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0, 7200, -1}" />
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
@@ -185,10 +185,10 @@
       <Parameter name="water source" type="string" value="water_source" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
       <Parameter name="number of liquid components" type="int" value="2" />
-      <Parameter name="component molar masses" type="Array(double)" value="{ 1, 1}" />
+      <Parameter name="component molar masses" type="Array(double)" value="{1, 1}" />
       <Parameter name="spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
-      <Parameter name="cfl" type="double" value=" 1" />
+      <Parameter name="cfl" type="double" value="1" />
       <Parameter name="solver" type="string" value="PCG with Hypre AMG" />
       <Parameter name="transport subcycling" type="bool" value="true" />
       <Parameter name="number of aqueous components" type="int" value="2" />
@@ -213,8 +213,8 @@
         <ParameterList name="domain">
           <Parameter name="regions" type="Array(string)" value="{surface domain}" />
           <Parameter name="model" type="string" value="scalar" />
-          <Parameter name="aqueous tortuosity" type="double" value=" 1" />
-          <Parameter name="gaseous tortuosity" type="double" value=" 1" />
+          <Parameter name="aqueous tortuosity" type="double" value="1" />
+          <Parameter name="gaseous tortuosity" type="double" value="1" />
           <ParameterList name="parameters for scalar">
             <Parameter name="alpha" type="double" value="0.1" />
           </ParameterList>
@@ -232,7 +232,7 @@
         <Parameter name="preconditioning method" type="string" value="boomer amg" />
         <Parameter name="iterative method" type="string" value="pcg" />
         <ParameterList name="boomer amg parameters">
-          <Parameter name="tolerance" type="double" value=" 0" />
+          <Parameter name="tolerance" type="double" value="0" />
           <Parameter name="smoother sweeps" type="int" value="3" />
           <Parameter name="cycle applications" type="int" value="5" />
           <Parameter name="strong threshold" type="double" value="0.5" />
@@ -253,7 +253,7 @@
           <ParameterList name="west_bc" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface west}" />
             <Parameter name="solutes" type="Array(string)" value="{Tracer1, Tracer2}" />
-            <Parameter name="times" type="Array(double)" value="{ 0,1e+20}" />
+            <Parameter name="times" type="Array(double)" value="{0, 1e+20}" />
             <Parameter name="geochemical conditions" type="Array(string)" value="{upstream, upstream}" />
             <Parameter name="time functions" type="Array(string)" value="{constant}" />
           </ParameterList>
@@ -369,11 +369,11 @@
       <Parameter name="min timestep (s)" type="double" value="10000000000" />
       <Parameter name="initial timestep (s)" type="double" value="15778463" />
       <Parameter name="timestep cut threshold" type="int" value="8" />
-      <Parameter name="timestep cut factor" type="double" value=" 2" />
+      <Parameter name="timestep cut factor" type="double" value="2" />
       <Parameter name="timestep increase threshold" type="int" value="4" />
       <Parameter name="timestep increase factor" type="double" value="1.2" />
       <Parameter name="timestep control method" type="string" value="fixed" />
-      <Parameter name="initial conditions time" type="double" value=" 0" />
+      <Parameter name="initial conditions time" type="double" value="0" />
       <Parameter name="number of component concentrations" type="int" value="6" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
@@ -442,10 +442,10 @@
       <Parameter name="domain name" type="string" value="subgrid_1:*" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
       <Parameter name="number of liquid components" type="int" value="2" />
-      <Parameter name="component molar masses" type="Array(double)" value="{ 1, 1}" />
+      <Parameter name="component molar masses" type="Array(double)" value="{1, 1}" />
       <Parameter name="spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
-      <Parameter name="cfl" type="double" value=" 1" />
+      <Parameter name="cfl" type="double" value="1" />
       <Parameter name="solver" type="string" value="PCG with Hypre AMG" />
       <Parameter name="transport subcycling" type="bool" value="false" />
       <Parameter name="number of aqueous components" type="int" value="2" />
@@ -490,11 +490,11 @@
       <Parameter name="min timestep (s)" type="double" value="10000000000" />
       <Parameter name="initial timestep (s)" type="double" value="15778463" />
       <Parameter name="timestep cut threshold" type="int" value="8" />
-      <Parameter name="timestep cut factor" type="double" value=" 2" />
+      <Parameter name="timestep cut factor" type="double" value="2" />
       <Parameter name="timestep increase threshold" type="int" value="4" />
       <Parameter name="timestep increase factor" type="double" value="1.2" />
       <Parameter name="timestep control method" type="string" value="fixed" />
-      <Parameter name="initial conditions time" type="double" value=" 0" />
+      <Parameter name="initial conditions time" type="double" value="0" />
       <Parameter name="number of component concentrations" type="int" value="6" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
@@ -518,10 +518,10 @@
       <Parameter name="domain name" type="string" value="subgrid_2:*" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
       <Parameter name="number of liquid components" type="int" value="2" />
-      <Parameter name="component molar masses" type="Array(double)" value="{ 1, 1}" />
+      <Parameter name="component molar masses" type="Array(double)" value="{1, 1}" />
       <Parameter name="spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
-      <Parameter name="cfl" type="double" value=" 1" />
+      <Parameter name="cfl" type="double" value="1" />
       <Parameter name="solver" type="string" value="PCG with Hypre AMG" />
       <Parameter name="transport subcycling" type="bool" value="false" />
       <Parameter name="number of aqueous components" type="int" value="2" />
@@ -566,11 +566,11 @@
       <Parameter name="min timestep (s)" type="double" value="10000000000" />
       <Parameter name="initial timestep (s)" type="double" value="15778463" />
       <Parameter name="timestep cut threshold" type="int" value="8" />
-      <Parameter name="timestep cut factor" type="double" value=" 2" />
+      <Parameter name="timestep cut factor" type="double" value="2" />
       <Parameter name="timestep increase threshold" type="int" value="4" />
       <Parameter name="timestep increase factor" type="double" value="1.2" />
       <Parameter name="timestep control method" type="string" value="fixed" />
-      <Parameter name="initial conditions time" type="double" value=" 0" />
+      <Parameter name="initial conditions time" type="double" value="0" />
       <Parameter name="number of component concentrations" type="int" value="6" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="verbose object" type="ParameterList">
@@ -602,7 +602,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 1" />
+                <Parameter name="value" type="double" value="1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -617,7 +617,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 1" />
+                <Parameter name="value" type="double" value="1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -662,7 +662,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 1" />
+                <Parameter name="value" type="double" value="1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -677,7 +677,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 1" />
+                <Parameter name="value" type="double" value="1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -707,7 +707,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 1" />
+                <Parameter name="value" type="double" value="1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -747,7 +747,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 1" />
+                <Parameter name="value" type="double" value="1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -765,7 +765,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 1" />
+                <Parameter name="value" type="double" value="1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -795,7 +795,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 1" />
+                <Parameter name="value" type="double" value="1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -810,7 +810,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 1" />
+                <Parameter name="value" type="double" value="1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -850,7 +850,7 @@
             <Parameter name="component" type="string" value="cell" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 1" />
+                <Parameter name="value" type="double" value="1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -868,7 +868,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 1" />
+                <Parameter name="value" type="double" value="1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -898,7 +898,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 1" />
+                <Parameter name="value" type="double" value="1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -912,7 +912,7 @@
       </ParameterList>
 
       <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
+        <Parameter name="value" type="Array(double)" value="{0, 0, -9.80665}" />
       </ParameterList>
 
     </ParameterList>

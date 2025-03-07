@@ -3,9 +3,9 @@
     <ParameterList name="domain" type="ParameterList">
       <Parameter name="mesh type" type="string" value="generate mesh" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{200,1,1}" />
-        <Parameter name="domain low coordinate" type="Array(double)" value="{ 0, 0, 0}" />
-        <Parameter name="domain high coordinate" type="Array(double)" value="{100, 2,1.5}" />
+        <Parameter name="number of cells" type="Array(int)" value="{200, 1, 1}" />
+        <Parameter name="domain low coordinate" type="Array(double)" value="{0, 0, 0}" />
+        <Parameter name="domain high coordinate" type="Array(double)" value="{100, 2, 1.5}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -13,27 +13,27 @@
   <ParameterList name="regions" type="ParameterList">
     <ParameterList name="computational domain" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{ 0, 0, 0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{100, 2,1.5}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{0, 0, 0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{100, 2, 1.5}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="solute injection" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{ 0, 0, 0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{0.5, 2,1.5}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{0, 0, 0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{0.5, 2, 1.5}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="outlet" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
         <Parameter name="low coordinate" type="Array(double)" value="{99.5, 0, 0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{100, 2,1.5}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{100, 2, 1.5}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="end cycle" type="int" value="-1" />
-    <Parameter name="start time" type="double" value=" 0" />
+    <Parameter name="start time" type="double" value="0" />
     <Parameter name="start time units" type="string" value="s" />
     <Parameter name="end time" type="double" value="36000" />
     <Parameter name="end time units" type="string" value="s" />
@@ -57,18 +57,18 @@
       <Parameter name="variable" type="string" value="total_component_concentration" />
       <Parameter name="functional" type="string" value="point" />
       <Parameter name="region" type="string" value="outlet" />
-      <Parameter name="delimiter" type="string" value=" " />
+      <Parameter name="delimiter" type="string" value="" />
       <Parameter name="location name" type="string" value="cell" />
       <Parameter name="number of vectors" type="int" value="1" />
       <Parameter name="write interval" type="int" value="1" />
       <Parameter name="observation output filename" type="string" value="outlet.dat" />
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0,0.1,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0, 0.1, -1}" />
       <Parameter name="times start period stop units" type="string" value="h" />
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="file name base" type="string" value="checkpoint" />
-    <Parameter name="times start period stop" type="Array(double)" value="{ 0,1000,12000}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0, 1000, 12000}" />
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
@@ -90,10 +90,10 @@
       <Parameter name="water flux key suffix" type="string" value="water_flux" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
       <Parameter name="number of liquid components" type="int" value="1" />
-      <Parameter name="component molar masses" type="Array(double)" value="{ 1}" />
+      <Parameter name="component molar masses" type="Array(double)" value="{1}" />
       <Parameter name="spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
-      <Parameter name="cfl" type="double" value=" 1" />
+      <Parameter name="cfl" type="double" value="1" />
       <Parameter name="solver" type="string" value="PCG with Hypre AMG" />
       <Parameter name="transport subcycling" type="bool" value="true" />
       <Parameter name="number of aqueous components" type="int" value="1" />
@@ -118,10 +118,10 @@
         <ParameterList name="domain">
           <Parameter name="regions" type="Array(string)" value="{computational domain}" />
           <Parameter name="model" type="string" value="scalar" />
-          <Parameter name="aqueous tortuosity" type="double" value=" 1" />
-          <Parameter name="gaseous tortuosity" type="double" value=" 1" />
+          <Parameter name="aqueous tortuosity" type="double" value="1" />
+          <Parameter name="gaseous tortuosity" type="double" value="1" />
           <ParameterList name="parameters for scalar">
-            <Parameter name="alpha" type="double" value=" 0" />
+            <Parameter name="alpha" type="double" value="0" />
           </ParameterList>
         </ParameterList>
       </ParameterList>
@@ -137,7 +137,7 @@
         <Parameter name="preconditioning method" type="string" value="boomer amg" />
         <Parameter name="iterative method" type="string" value="pcg" />
         <ParameterList name="boomer amg parameters">
-          <Parameter name="tolerance" type="double" value=" 0" />
+          <Parameter name="tolerance" type="double" value="0" />
           <Parameter name="smoother sweeps" type="int" value="3" />
           <Parameter name="cycle applications" type="int" value="5" />
           <Parameter name="strong threshold" type="double" value="0.5" />
@@ -158,7 +158,7 @@
           <ParameterList name="west_bc" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{solute injection}" />
             <Parameter name="solutes" type="Array(string)" value="{Tracer1}" />
-            <Parameter name="times" type="Array(double)" value="{ 0,1e+20}" />
+            <Parameter name="times" type="Array(double)" value="{0, 1e+20}" />
             <Parameter name="geochemical conditions" type="Array(string)" value="{upstreambc, upstreambc}" />
             <Parameter name="time functions" type="Array(string)" value="{constant}" />
           </ParameterList>
@@ -184,11 +184,11 @@
       <Parameter name="min timestep (s)" type="double" value="10000000000" />
       <Parameter name="initial timestep (s)" type="double" value="15778463" />
       <Parameter name="timestep cut threshold" type="int" value="8" />
-      <Parameter name="timestep cut factor" type="double" value=" 2" />
+      <Parameter name="timestep cut factor" type="double" value="2" />
       <Parameter name="timestep increase threshold" type="int" value="4" />
       <Parameter name="timestep increase factor" type="double" value="1.2" />
       <Parameter name="timestep control method" type="string" value="fixed" />
-      <Parameter name="initial conditions time" type="double" value=" 0" />
+      <Parameter name="initial conditions time" type="double" value="0" />
       <Parameter name="number of component concentrations" type="int" value="1" />
       <Parameter name="debug cells" type="Array(int)" value="{99}" />
       <ParameterList name="verbose object" type="ParameterList">
@@ -225,12 +225,12 @@
               </ParameterList>
               <ParameterList name="dof 2 function" type="ParameterList">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value=" 0" />
+                  <Parameter name="value" type="double" value="0" />
                 </ParameterList>
               </ParameterList>
               <ParameterList name="dof 3 function" type="ParameterList">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value=" 0" />
+                  <Parameter name="value" type="double" value="0" />
                 </ParameterList>
               </ParameterList>
             </ParameterList>
@@ -260,7 +260,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 1" />
+                <Parameter name="value" type="double" value="1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -274,7 +274,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 1" />
+                <Parameter name="value" type="double" value="1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -318,7 +318,7 @@
       </ParameterList>
 
       <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
+        <Parameter name="value" type="Array(double)" value="{0, 0, -9.80665}" />
       </ParameterList>
 
       <ParameterList name="land cover types" type="ParameterList">
