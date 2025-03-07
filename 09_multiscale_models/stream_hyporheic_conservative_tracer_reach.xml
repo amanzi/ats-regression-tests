@@ -180,7 +180,8 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="All" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{hyporheic domain}" />
@@ -196,6 +197,7 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
+
       </ParameterList>
 
     </ParameterList>

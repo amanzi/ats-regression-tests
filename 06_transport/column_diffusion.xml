@@ -168,9 +168,11 @@
         <Parameter name="verbosity level" type="string" value="high" />
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="hydrostatic head [m]" type="double" value="1" />
         <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000" />
+
       </ParameterList>
 
       <ParameterList name="diffusion">
@@ -207,8 +209,10 @@
       <ParameterList name="boundary conditions">
       </ParameterList>
 
-      <ParameterList name="initial condition">
+      <ParameterList name="initial conditions">
+
         <Parameter name="initialize surface head from subsurface" type="bool" value="true" />
+
       </ParameterList>
 
     </ParameterList>
@@ -246,8 +250,10 @@
         <Parameter name="name" type="string" value="Subsurface Transport" />
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="constant" type="double" value="0" />
+
       </ParameterList>
 
       <ParameterList name="reconstruction">
@@ -325,8 +331,10 @@
       <Parameter name="number of aqueous components" type="int" value="1" />
       <Parameter name="number of gaseous components" type="int" value="0" />
       <Parameter name="runtime diagnostics: regions" type="Array(string)" value="{}" />
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="constant" type="double" value="1" />
+
       </ParameterList>
 
       <ParameterList name="verbose object">
@@ -453,8 +461,20 @@
         </ParameterList>
       </ParameterList>
       <ParameterList name="permeability">
-        <Parameter name="evaluator type" type="string" value="independent variable constant" />
+        <Parameter name="evaluator type" type="string" value="independent variable tensor" />
         <Parameter name="value" type="double" value="1.15e-11" />
+        <Parameter name="tensor type" type="string" value="scalar" />
+        <ParameterList name="function" type="ParameterList">
+          <ParameterList name="domain" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain" />
+            <Parameter name="component" type="string" value="cell" />
+            <ParameterList name="function" type="ParameterList">
+              <ParameterList name="function-constant" type="ParameterList">
+                <Parameter name="value" type="double" value="1.15e-11" />
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
       </ParameterList>
       <ParameterList name="surface-relative_permeability">
         <Parameter name="evaluator type" type="string" value="independent variable constant" />

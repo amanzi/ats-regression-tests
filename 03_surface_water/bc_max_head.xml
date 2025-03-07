@@ -103,7 +103,8 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="initial head" type="ParameterList">
             <Parameter name="region" type="string" value="all" />
@@ -115,6 +116,7 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
+
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">

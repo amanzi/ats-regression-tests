@@ -70,7 +70,6 @@
         <Parameter name="verbosity level" type="string" value="extreme" />
       </ParameterList>
     </ParameterList>
-
     <ParameterList name="required times" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{0, 10, -1}" />
       <Parameter name="times start period stop units" type="string" value="d" />
@@ -84,7 +83,6 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="cycles start period stop" type="Array(int)" value="{0, 1, -1}" />
   </ParameterList>
@@ -95,6 +93,7 @@
       <Parameter name="PK type" type="string" value="subcycling MPC" />
       <Parameter name="PKs order" type="Array(string)" value="{Richards}" />
       <Parameter name="subcycle" type="Array(int)" value="{1}" />
+
     </ParameterList>
 
     <ParameterList name="Richards" type="ParameterList">

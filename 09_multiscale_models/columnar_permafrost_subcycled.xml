@@ -352,7 +352,8 @@
         <Parameter name="verbosity level" type="string" value="low" />
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain mineral" />
@@ -391,6 +392,7 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
+
       </ParameterList>
 
     </ParameterList>
@@ -435,8 +437,10 @@
       <Parameter name="modify predictor positivity preserving" type="bool" value="true" />
       <Parameter name="absolute error tolerance" type="double" value="0.01" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="constant" type="double" value="0" />
+
       </ParameterList>
 
       <ParameterList name="accumulation preconditioner" type="ParameterList">
@@ -499,7 +503,8 @@
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key suffix" type="string" value="water_source_sink" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
       </ParameterList>
 
     </ParameterList>
@@ -513,7 +518,8 @@
       <Parameter name="source key suffix" type="string" value="energy_source_sink" />
       <Parameter name="source term finite difference" type="bool" value="true" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
       </ParameterList>
 
     </ParameterList>
@@ -540,7 +546,8 @@
       <ParameterList name="boundary conditions" type="ParameterList">
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="initialize faces from cells" type="bool" value="true" />
         <ParameterList name="initialize from 1D column" type="ParameterList">
           <Parameter name="file" type="string" value="../data/restart/column_data.h5" />
@@ -549,6 +556,7 @@
           <Parameter name="coordinate orientation" type="string" value="depth" />
           <Parameter name="surface sideset" type="string" value="surface" />
         </ParameterList>
+
       </ParameterList>
 
     </ParameterList>
@@ -579,7 +587,8 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="initialize faces from cells" type="bool" value="true" />
         <ParameterList name="initialize from 1D column" type="ParameterList">
           <Parameter name="file" type="string" value="../data/restart/column_data.h5" />
@@ -588,6 +597,7 @@
           <Parameter name="coordinate orientation" type="string" value="depth" />
           <Parameter name="surface sideset" type="string" value="surface" />
         </ParameterList>
+
       </ParameterList>
 
       <ParameterList name="thermal conductivity evaluator" type="ParameterList">
@@ -701,8 +711,10 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="initialize faces from cells" type="bool" value="true" />
+
       </ParameterList>
 
     </ParameterList>
@@ -720,8 +732,10 @@
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="initialize faces from cells" type="bool" value="true" />
+
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
@@ -962,7 +976,8 @@
         </ParameterList>
       </ParameterList>
       <ParameterList name="column:*-permeability" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable tensor" />
+        <Parameter name="tensor type" type="string" value="scalar" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain" />

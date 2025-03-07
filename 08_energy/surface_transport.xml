@@ -138,8 +138,10 @@
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="constant" type="double" value="275.15" />
+
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">

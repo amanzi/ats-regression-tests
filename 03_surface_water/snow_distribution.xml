@@ -144,7 +144,8 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="initial snow distribution" type="ParameterList">
             <Parameter name="region" type="string" value="surface domain" />
@@ -156,6 +157,7 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
+
       </ParameterList>
 
     </ParameterList>

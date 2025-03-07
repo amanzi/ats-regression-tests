@@ -105,7 +105,8 @@
         <Parameter name="preconditioning method" type="string" value="diagonal" />
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="initial pressure cells" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain" />
@@ -117,6 +118,7 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
+
       </ParameterList>
 
     </ParameterList>

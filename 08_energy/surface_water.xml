@@ -164,8 +164,10 @@
         <Parameter name="include Newton correction" type="bool" value="true" />
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="constant" type="double" value="103325" />
+
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
@@ -200,8 +202,10 @@
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="constant" type="double" value="270.15" />
+
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">

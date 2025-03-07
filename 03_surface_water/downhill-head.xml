@@ -140,7 +140,8 @@
         <Parameter name="domain name" type="string" value="surface" />
       </ParameterList>
 
-      <ParameterList name="initial condition">
+      <ParameterList name="initial conditions">
+
         <ParameterList name="function">
           <ParameterList name="initial head">
             <Parameter name="region" type="string" value="surface domain" />
@@ -152,6 +153,7 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
+
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">

@@ -189,9 +189,11 @@
       <ParameterList name="boundary conditions" type="ParameterList">
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="hydrostatic head [m]" type="double" value="-2" />
         <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000" />
+
       </ParameterList>
 
     </ParameterList>
@@ -211,8 +213,10 @@
       <ParameterList name="boundary conditions" type="ParameterList">
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="initialize surface head from subsurface" type="bool" value="true" />
+
       </ParameterList>
 
     </ParameterList>
@@ -240,8 +244,10 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="value" type="double" value="280" />
+
       </ParameterList>
 
       <ParameterList name="thermal conductivity evaluator" type="ParameterList">
@@ -278,8 +284,10 @@
         <Parameter name="discretization primary" type="string" value="fv: default" />
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="initialize surface temperature from subsurface" type="bool" value="true" />
+
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
@@ -460,8 +468,9 @@
         </ParameterList>
       </ParameterList>
       <ParameterList name="permeability" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable tensor" />
         <Parameter name="constant in time" type="bool" value="true" />
+        <Parameter name="tensor type" type="string" value="scalar" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="mineral" type="ParameterList">
             <Parameter name="region" type="string" value="subsurface domain" />

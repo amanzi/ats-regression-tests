@@ -224,8 +224,10 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="restart file" type="string" value="../data/energy_freezeup_checkpoint_final.h5" />
+
       </ParameterList>
 
     </ParameterList>
@@ -246,8 +248,10 @@
       <ParameterList name="boundary conditions" type="ParameterList">
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="initialize surface head from subsurface" type="bool" value="true" />
+
       </ParameterList>
 
     </ParameterList>
@@ -280,8 +284,10 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="restart file" type="string" value="../data/energy_freezeup_checkpoint_final.h5" />
+
       </ParameterList>
 
       <ParameterList name="thermal conductivity evaluator" type="ParameterList">
@@ -324,8 +330,10 @@
       <ParameterList name="boundary conditions" type="ParameterList">
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="initialize surface temperature from subsurface" type="bool" value="true" />
+
       </ParameterList>
 
       <ParameterList name="thermal conductivity evaluator" type="ParameterList">
@@ -348,8 +356,10 @@
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key" type="string" value="snow-source_sink" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="constant" type="double" value="0.35" />
+
       </ParameterList>
 
       <ParameterList name="inverse" type="ParameterList">
@@ -410,7 +420,8 @@
         </ParameterList>
       </ParameterList>
       <ParameterList name="permeability" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable tensor" />
+        <Parameter name="tensor type" type="string" value="scalar" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="mineral" type="ParameterList">
             <Parameter name="region" type="string" value="domain" />
