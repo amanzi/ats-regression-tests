@@ -175,11 +175,8 @@
       <Parameter name="advection spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value="1" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
       <ParameterList name="initial conditions" type="ParameterList">
-
         <Parameter name="constant" type="double" value="0" />
-
       </ParameterList>
 
       <ParameterList name="diffusion">

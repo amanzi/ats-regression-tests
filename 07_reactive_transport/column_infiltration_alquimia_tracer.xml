@@ -215,7 +215,6 @@
 
     <ParameterList name="transport coupler">
       <Parameter name="PK type" type="string" value="surface subsurface transport" />
-      <Parameter name="PK name" type="string" value="surface subsurface transport" />
       <Parameter name="PKs order" type="Array(string)" value="{subsurface transport, surface transport}" />
       <Parameter name="component names" type="Array(string)" value="{tracer}" />
     </ParameterList>
@@ -300,16 +299,9 @@
     <ParameterList name="chemistry subsurface" type="ParameterList">
       <Parameter name="PK type" type="string" value="chemistry alquimia" />
       <Parameter name="engine" type="string" value="PFloTran" />
-      <Parameter name="chemistry model" type="string" value="Alquimia" />
-      <Parameter name="domain name" type="string" value="domain" />
       <Parameter name="engine input file" type="string" value="../data/1d-tracer.in" />
-      <Parameter name="minerals" type="Array(string)" value="{}" />
-      <Parameter name="activity model" type="string" value="unit" />
-      <Parameter name="maximum Newton iterations" type="int" value="100" />
-      <Parameter name="tolerance" type="double" value="1e-15" />
+      <Parameter name="domain name" type="string" value="domain" />
       <Parameter name="auxiliary data" type="Array(string)" value="{pH}" />
-      <Parameter name="initial conditions time" type="double" value="0" />
-      <Parameter name="number of component concentrations" type="int" value="10" />
 
       <Parameter name="debug cells" type="Array(int)" value="{99}" />
 
@@ -333,17 +325,10 @@
     <ParameterList name="chemistry surface" type="ParameterList">
       <Parameter name="PK type" type="string" value="chemistry alquimia" />
       <Parameter name="engine" type="string" value="PFloTran" />
-      <Parameter name="chemistry model" type="string" value="Alquimia" />
+      <Parameter name="engine input file" type="string" value="../data/1d-tracer.in" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="saturation liquid key" type="string" value="surface-ponded_depth" />
-      <Parameter name="engine input file" type="string" value="../data/1d-tracer.in" />
-      <Parameter name="minerals" type="Array(string)" value="{}" />
-      <Parameter name="activity model" type="string" value="unit" />
-      <Parameter name="maximum Newton iterations" type="int" value="100" />
-      <Parameter name="tolerance" type="double" value="1e-15" />
       <Parameter name="auxiliary data" type="Array(string)" value="{pH}" />
-      <Parameter name="initial conditions time" type="double" value="0" />
-      <Parameter name="number of component concentrations" type="int" value="12" />
 
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
 

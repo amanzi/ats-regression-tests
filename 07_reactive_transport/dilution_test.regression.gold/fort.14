@@ -116,7 +116,7 @@ equilibrate constraint : upstreambc
         iterations:     9
     ionic strength:   0.0000E+00 [mol/L]
     charge balance:   0.0000E+00
-          pressure:   0.0000E+00 [Pa]
+          pressure:   5.3343-310 [Pa]
        temperature:    25.00 [C]
        density H2O:   997.16 [kg/m^3]
  ln / activity H2O:   0.0000E+00  1.0000E+00    [---]

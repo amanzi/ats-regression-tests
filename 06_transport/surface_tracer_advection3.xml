@@ -84,8 +84,8 @@ predictor-corrector scheme in time.
   </ParameterList>
 
   <ParameterList name="observations">
-    <ParameterList name="surface-component_concentration">
-      <Parameter name="variable" type="string" value="surface-total_component_concentration" />
+    <ParameterList name="surface-molar_mixing_ratio">
+      <Parameter name="variable" type="string" value="surface-molar_mixing_ratio" />
       <Parameter name="functional" type="string" value="point" />
       <Parameter name="region" type="string" value="observation point" />
       <Parameter name="delimiter" type="string" value="" />
@@ -106,7 +106,6 @@ predictor-corrector scheme in time.
 
     <ParameterList name="surface transport" type="ParameterList">
       <Parameter name="PK type" type="string" value="transport ATS" />
-      <Parameter name="primary variable key" type="string" value="surface-total_component_concentration" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
       <Parameter name="advection spatial discretization order" type="int" value="2" />
@@ -147,10 +146,6 @@ predictor-corrector scheme in time.
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
-    <ParameterList name="debug" type="ParameterList">
-      <Parameter name="fields" type="Array(string)" value="{surface-total_component_concentration}" />
-      <Parameter name="evaluators" type="Array(string)" value="{surface-total_component_concentration}" />
-    </ParameterList>
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="surface-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />

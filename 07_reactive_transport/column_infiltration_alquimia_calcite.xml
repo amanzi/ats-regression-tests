@@ -149,7 +149,7 @@
           <Parameter name="min timestep" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
-          <Parameter name="initial timestep [s]" type="double" value="1" />
+          <Parameter name="initial timestep [s]" type="double" value="86400" />
         </ParameterList>
       </ParameterList>
     </ParameterList>
@@ -160,7 +160,7 @@
       <Parameter name="primary variable key" type="string" value="pressure" />
       <Parameter name="permeability rescaling" type="double" value="10000000" />
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux" />
-      <Parameter name="debug cells" type="Array(int)" value="{98, 99}" />
+      <Parameter name="debug cells" type="Array(int)" value="{99}" />
       <ParameterList name="initial conditions" type="ParameterList">
         <Parameter name="hydrostatic head [m]" type="double" value="-2" />
         <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="997.075" />
@@ -219,12 +219,9 @@
       <Parameter name="advection spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value="1" />
-      <Parameter name="debug cells" type="Array(int)" value="{98, 99}" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-
+      <Parameter name="debug cells" type="Array(int)" value="{99}" />
       <ParameterList name="boundary conditions">
       </ParameterList>
-
     </ParameterList>
 
     <ParameterList name="surface transport">
@@ -237,7 +234,6 @@
       <Parameter name="water tolerance" type="double" value="0.001" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <Parameter name="water source in meters" type="bool" value="true" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
 
       <ParameterList name="source terms">
         <ParameterList name="geochemical" type="ParameterList">
@@ -264,19 +260,13 @@
     <ParameterList name="chemistry subsurface" type="ParameterList">
       <Parameter name="PK type" type="string" value="chemistry alquimia" />
       <Parameter name="engine" type="string" value="CrunchFlow" />
-      <Parameter name="chemistry model" type="string" value="Alquimia" />
-      <Parameter name="domain name" type="string" value="domain" />
       <Parameter name="engine input file" type="string" value="../data/1d-calcite-crunch.in" />
+      <Parameter name="domain name" type="string" value="domain" />
       <Parameter name="minerals" type="Array(string)" value="{Calcite}" />
-      <Parameter name="activity model" type="string" value="unit" />
-      <Parameter name="maximum Newton iterations" type="int" value="100" />
-      <Parameter name="tolerance" type="double" value="1e-15" />
-      <Parameter name="auxiliary data" type="Array(string)" value="{pH}" />
-      <Parameter name="initial conditions time" type="double" value="0" />
-      <Parameter name="number of component concentrations" type="int" value="4" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-      <ParameterList name="initial conditions" type="ParameterList">
+      <Parameter name="auxiliary data" type="Array(string)" value="{pH, primary_free_ion_concentration}" />
+      <Parameter name="debug cells" type="Array(int)" value="{99}" />
 
+      <ParameterList name="initial conditions" type="ParameterList">
         <ParameterList name="geochemical conditions" type="ParameterList">
           <ParameterList name="initial" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{computational domain}" />
@@ -298,8 +288,8 @@
       <Parameter name="saturation liquid key" type="string" value="surface-ponded_depth" />
       <Parameter name="engine" type="string" value="CrunchFlow" />
       <Parameter name="engine input file" type="string" value="../data/1d-calcite-crunch.in" />
-
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
+      <Parameter name="auxiliary data" type="Array(string)" value="{pH, primary_free_ion_concentration}" />
+      <Parameter name="debug cells" type="Array(int)" value="{0}" />
 
       <ParameterList name="initial conditions" type="ParameterList">
         <ParameterList name="geochemical conditions" type="ParameterList">
@@ -321,11 +311,6 @@
   </ParameterList>
 
   <ParameterList name="state">
-    <ParameterList name="debug">
-      <Parameter name="evaluators" type="Array(string)" value="{total_component_concentration}" />
-      <Parameter name="data" type="Array(string)" value="{total_component_concentration}" />
-    </ParameterList>
-
     <ParameterList name="evaluators">
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="richards water content" />

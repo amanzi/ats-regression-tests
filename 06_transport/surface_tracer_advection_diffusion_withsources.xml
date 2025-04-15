@@ -86,8 +86,8 @@ Diffusion is component-based:
   </ParameterList>
 
   <ParameterList name="observations">
-    <ParameterList name="surface-component_concentration">
-      <Parameter name="variable" type="string" value="surface-total_component_concentration" />
+    <ParameterList name="surface-molar_mixing_ratio">
+      <Parameter name="variable" type="string" value="surface-molar_mixing_ratio" />
       <Parameter name="functional" type="string" value="point" />
       <Parameter name="region" type="string" value="observation point" />
       <Parameter name="delimiter" type="string" value="" />
@@ -108,7 +108,6 @@ Diffusion is component-based:
 
     <ParameterList name="surface transport" type="ParameterList">
       <Parameter name="PK type" type="string" value="transport ATS" />
-      <Parameter name="primary variable key" type="string" value="surface-total_component_concentration" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
       <Parameter name="advection spatial discretization order" type="int" value="1" />
@@ -116,9 +115,7 @@ Diffusion is component-based:
       <Parameter name="cfl" type="double" value="1" />
       <Parameter name="debug cells" type="Array(int)" value="{0, 1}" />
       <ParameterList name="initial conditions" type="ParameterList">
-
         <Parameter name="value" type="double" value="0" />
-
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
@@ -184,10 +181,6 @@ Diffusion is component-based:
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
-    <ParameterList name="debug" type="ParameterList">
-      <Parameter name="fields" type="Array(string)" value="{surface-total_component_concentration}" />
-      <Parameter name="evaluators" type="Array(string)" value="{surface-total_component_concentration}" />
-    </ParameterList>
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="surface-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />

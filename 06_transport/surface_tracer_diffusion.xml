@@ -73,8 +73,8 @@
   </ParameterList>
 
   <ParameterList name="observations">
-    <ParameterList name="surface-component_concentration">
-      <Parameter name="variable" type="string" value="surface-total_component_concentration" />
+    <ParameterList name="surface-molar_mixing_ratio">
+      <Parameter name="variable" type="string" value="surface-molar_mixing_ratio" />
       <Parameter name="functional" type="string" value="point" />
       <Parameter name="region" type="string" value="observation point" />
       <Parameter name="delimiter" type="string" value="" />
@@ -94,35 +94,7 @@
   <ParameterList name="PKs" type="ParameterList">
 
     <ParameterList name="surface transport" type="ParameterList">
-      <!-- NOTE: diffusion does not work off of a boundary condition. BCs are advection only. -->
-      <!-- <ParameterList name="source terms" type="ParameterList"> -->
-      <!--   <ParameterList name="component mass source" type="ParameterList"> -->
-      <!--     <ParameterList name="SOURCE: Tracer1" type="ParameterList"> -->
-      <!--       <Parameter name="regions" type="Array(string)" value="{tracer source surface}" /> -->
-      <!--       <Parameter name="spatial distribution method" type="string" value="volume" /> -->
-      <!--       <Parameter name="component names" type="Array(string)" value="{Tracer1,Tracer2}" /> -->
-      <!--       <ParameterList name="source function" type="ParameterList"> -->
-      <!--         <Parameter name="number of dofs" type="int" value="2" /> -->
-      <!--         <ParameterList name="dof 1 function"> -->
-      <!--           <ParameterList name="function-tabular" type="ParameterList"> -->
-      <!--             <Parameter name="y values" type="Array(double)" value="{0.1, 0}" /> -->
-      <!--             <Parameter name="x values" type="Array(double)" value="{ 0,43200}" /> -->
-      <!--             <Parameter name="forms" type="Array(string)" value="{constant}" /> -->
-      <!--           </ParameterList> -->
-      <!--         </ParameterList> -->
-      <!--         <ParameterList name="dof 2 function"> -->
-      <!--           <ParameterList name="function-tabular" type="ParameterList"> -->
-      <!--             <Parameter name="y values" type="Array(double)" value="{0.1, 0}" /> -->
-      <!--             <Parameter name="x values" type="Array(double)" value="{ 0,43200}" /> -->
-      <!--             <Parameter name="forms" type="Array(string)" value="{constant}" /> -->
-      <!--           </ParameterList> -->
-      <!--         </ParameterList> -->
-      <!--       </ParameterList> -->
-      <!--     </ParameterList> -->
-      <!--   </ParameterList> -->
-      <!-- </ParameterList> -->
       <Parameter name="PK type" type="string" value="transport ATS" />
-      <Parameter name="primary variable key" type="string" value="surface-total_component_concentration" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
       <Parameter name="advection spatial discretization order" type="int" value="1" />
@@ -130,7 +102,6 @@
       <Parameter name="cfl" type="double" value="1" />
       <Parameter name="debug cells" type="Array(int)" value="{0, 1}" />
       <ParameterList name="initial conditions" type="ParameterList">
-
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="ic" type="ParameterList">
             <!-- IC is nonzero in the first cell only -->
@@ -151,7 +122,6 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
@@ -188,10 +158,6 @@
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
-    <ParameterList name="debug" type="ParameterList">
-      <Parameter name="fields" type="Array(string)" value="{surface-total_component_concentration}" />
-      <Parameter name="evaluators" type="Array(string)" value="{surface-total_component_concentration}" />
-    </ParameterList>
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="surface-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable" />

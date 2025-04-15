@@ -61,8 +61,8 @@
   </ParameterList>
 
   <ParameterList name="observations">
-    <ParameterList name="surface-component_concentration">
-      <Parameter name="variable" type="string" value="surface-total_component_concentration" />
+    <ParameterList name="surface-molar_mixing_ratio">
+      <Parameter name="variable" type="string" value="surface-molar_mixing_ratio" />
       <Parameter name="functional" type="string" value="point" />
       <Parameter name="region" type="string" value="observation point" />
       <Parameter name="delimiter" type="string" value="" />
@@ -84,7 +84,6 @@
     <ParameterList name="surface transport" type="ParameterList">
       <!-- NOTE: diffusion does not work off of a boundary condition. BCs are advection only. -->
       <Parameter name="PK type" type="string" value="transport ATS" />
-      <Parameter name="primary variable key" type="string" value="surface-total_component_concentration" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
       <Parameter name="advection spatial discretization order" type="int" value="1" />
@@ -92,7 +91,6 @@
       <Parameter name="cfl" type="double" value="1" />
       <Parameter name="debug cells" type="Array(int)" value="{0, 1}" />
       <ParameterList name="initial conditions" type="ParameterList">
-
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="ic" type="ParameterList">
             <!-- IC is nonzero in a patch on the left hand boundary -->
@@ -113,7 +111,6 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
-
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
@@ -145,10 +142,6 @@
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
-    <ParameterList name="debug" type="ParameterList">
-      <Parameter name="fields" type="Array(string)" value="{surface-total_component_concentration}" />
-      <Parameter name="evaluators" type="Array(string)" value="{surface-total_component_concentration}" />
-    </ParameterList>
     <ParameterList name="evaluators" type="ParameterList">
       <!-- liquid water content of 100 = dx (10) * dy (10) * pd = 1 -->
       <!-- water moving in the +x direction, note dot-with-normal includes a factor of area -->

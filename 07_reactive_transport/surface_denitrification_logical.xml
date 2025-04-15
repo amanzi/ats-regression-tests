@@ -93,7 +93,6 @@
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value="1" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="fv: default" />
         <ParameterList name="inverse">
@@ -137,7 +136,6 @@
       <Parameter name="initial conditions time" type="double" value="0" />
       <Parameter name="number of component concentrations" type="int" value="6" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
       <ParameterList name="initial conditions" type="ParameterList">
 
         <ParameterList name="geochemical conditions" type="ParameterList">

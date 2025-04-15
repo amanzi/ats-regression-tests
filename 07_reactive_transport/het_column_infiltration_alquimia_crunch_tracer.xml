@@ -258,10 +258,6 @@
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value="1" />
       <Parameter name="debug cells" type="Array(int)" value="{99}" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-      <ParameterList name="initial conditions" type="ParameterList">
-
-      </ParameterList>
 
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation" />
@@ -308,12 +304,6 @@
       <Parameter name="water tolerance" type="double" value="0.001" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <Parameter name="water source in meters" type="bool" value="true" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-      <ParameterList name="initial conditions" type="ParameterList">
-
-        <Parameter name="constant" type="double" value="0" />
-
-      </ParameterList>
 
       <ParameterList name="source terms">
         <ParameterList name="geochemical" type="ParameterList">
@@ -350,25 +340,16 @@
     <ParameterList name="chemistry subsurface" type="ParameterList">
       <Parameter name="PK type" type="string" value="chemistry alquimia" />
       <Parameter name="engine" type="string" value="CrunchFlow" />
-      <Parameter name="chemistry model" type="string" value="Alquimia" />
-      <Parameter name="domain name" type="string" value="domain" />
       <Parameter name="engine input file" type="string" value="../data/1d-tracer-crunch.in" />
-      <Parameter name="minerals" type="Array(string)" value="{}" />
-      <Parameter name="activity model" type="string" value="unit" />
-      <Parameter name="maximum Newton iterations" type="int" value="100" />
-      <Parameter name="tolerance" type="double" value="1e-15" />
+      <Parameter name="domain name" type="string" value="domain" />
       <Parameter name="auxiliary data" type="Array(string)" value="{pH}" />
-      <Parameter name="initial conditions time" type="double" value="0" />
-      <Parameter name="number of component concentrations" type="int" value="10" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-      <ParameterList name="initial conditions" type="ParameterList">
 
+      <ParameterList name="initial conditions" type="ParameterList">
         <ParameterList name="geochemical conditions" type="ParameterList">
           <ParameterList name="initial" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{computational domain}" />
           </ParameterList>
         </ParameterList>
-
       </ParameterList>
 
       <ParameterList name="timestep controller" type="ParameterList">
@@ -383,26 +364,17 @@
     <ParameterList name="chemistry surface" type="ParameterList">
       <Parameter name="PK type" type="string" value="chemistry alquimia" />
       <Parameter name="engine" type="string" value="CrunchFlow" />
-      <Parameter name="chemistry model" type="string" value="Alquimia" />
+      <Parameter name="engine input file" type="string" value="../data/1d-tracer-crunch.in" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="saturation liquid key" type="string" value="surface-ponded_depth" />
-      <Parameter name="engine input file" type="string" value="../data/1d-tracer-crunch.in" />
-      <Parameter name="minerals" type="Array(string)" value="{}" />
-      <Parameter name="activity model" type="string" value="unit" />
-      <Parameter name="maximum Newton iterations" type="int" value="100" />
-      <Parameter name="tolerance" type="double" value="1e-15" />
       <Parameter name="auxiliary data" type="Array(string)" value="{pH}" />
-      <Parameter name="initial conditions time" type="double" value="0" />
-      <Parameter name="number of component concentrations" type="int" value="12" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-      <ParameterList name="initial conditions" type="ParameterList">
 
+      <ParameterList name="initial conditions" type="ParameterList">
         <ParameterList name="geochemical conditions" type="ParameterList">
           <ParameterList name="initial" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface domain}" />
           </ParameterList>
         </ParameterList>
-
       </ParameterList>
 
       <ParameterList name="timestep controller" type="ParameterList">

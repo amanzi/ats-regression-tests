@@ -61,9 +61,6 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-  <ParameterList name="verbose object" type="ParameterList">
-    <Parameter name="verbosity level" type="string" value="high" />
-  </ParameterList>
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{0, 0.1, -1}" />
@@ -84,9 +81,6 @@
       <Parameter name="PKs order" type="Array(string)" value="{surface chemistry, surface transport}" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="transport index" type="int" value="1" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="low" />
-      </ParameterList>
 
     </ParameterList>
 
@@ -97,11 +91,6 @@
       <Parameter name="advection spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value="1" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="medium" />
-        <Parameter name="name" type="string" value="Surface Transport" />
-      </ParameterList>
 
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="fv: default" />
@@ -119,9 +108,6 @@
             <Parameter name="error tolerance" type="double" value="1e-20" />
             <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}" />
             <Parameter name="size of Krylov space" type="int" value="5" />
-            <ParameterList name="verbose object">
-              <Parameter name="verbosity level" type="string" value="low" />
-            </ParameterList>
           </ParameterList>
         </ParameterList>
       </ParameterList>
@@ -165,19 +151,13 @@
       <Parameter name="initial conditions time" type="double" value="0" />
       <Parameter name="number of component concentrations" type="int" value="6" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-      <ParameterList name="verbose object" type="ParameterList">
-        <Parameter name="verbosity level" type="string" value="high" />
-      </ParameterList>
 
       <ParameterList name="initial conditions" type="ParameterList">
-
         <ParameterList name="geochemical conditions" type="ParameterList">
           <ParameterList name="initial" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface domain}" />
           </ParameterList>
         </ParameterList>
-
       </ParameterList>
 
       <ParameterList name="timestep controller" type="ParameterList">

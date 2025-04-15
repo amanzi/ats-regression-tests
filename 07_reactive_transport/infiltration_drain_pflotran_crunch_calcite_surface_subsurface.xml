@@ -233,7 +233,6 @@
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value="1" />
       <Parameter name="debug cells" type="Array(int)" value="{0, 99}" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
       <ParameterList name="initial conditions" type="ParameterList">
 
         <Parameter name="constant" type="double" value="0" />
@@ -280,7 +279,6 @@
       <Parameter name="water tolerance" type="double" value="0.001" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <Parameter name="water source in meters" type="bool" value="true" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
       <ParameterList name="initial conditions" type="ParameterList">
 
         <Parameter name="constant" type="double" value="0" />
@@ -336,7 +334,6 @@
       <Parameter name="auxiliary data" type="Array(string)" value="{pH}" />
       <Parameter name="initial conditions time" type="double" value="0" />
       <Parameter name="number of component concentrations" type="int" value="4" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
       <ParameterList name="initial conditions" type="ParameterList">
 
         <ParameterList name="geochemical conditions" type="ParameterList">
@@ -370,7 +367,6 @@
       <Parameter name="auxiliary data" type="Array(string)" value="{pH}" />
       <Parameter name="initial conditions time" type="double" value="0" />
       <Parameter name="number of component concentrations" type="int" value="4" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
       <ParameterList name="initial conditions" type="ParameterList">
 
         <ParameterList name="geochemical conditions" type="ParameterList">

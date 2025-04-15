@@ -71,7 +71,6 @@
 
     <ParameterList name="transport" type="ParameterList">
       <Parameter name="PK type" type="string" value="transport ATS" />
-      <Parameter name="primary variable key" type="string" value="total_component_concentration" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
       <Parameter name="advection spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
@@ -105,9 +104,7 @@
       </ParameterList>
 
       <ParameterList name="initial conditions" type="ParameterList">
-
         <Parameter name="constant" type="double" value="0" />
-
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">

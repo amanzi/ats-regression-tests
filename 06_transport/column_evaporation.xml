@@ -205,12 +205,9 @@
       <Parameter name="advection spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value="1" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
       <Parameter name="debug cells" type="Array(int)" value="{99}" />
       <ParameterList name="initial conditions" type="ParameterList">
-
         <Parameter name="constant" type="double" value="1" />
-
       </ParameterList>
 
       <ParameterList name="diffusion">
@@ -247,7 +244,6 @@
 
     <ParameterList name="surface transport">
       <Parameter name="PK type" type="string" value="transport ATS" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
       <Parameter name="advection spatial discretization order" type="int" value="1" />
@@ -256,12 +252,7 @@
       <Parameter name="water tolerance" type="double" value="0.001" />
       <Parameter name="debug cells" type="Array(int)" value="{0}" />
       <ParameterList name="initial conditions" type="ParameterList">
-
         <Parameter name="constant" type="double" value="1" />
-
-      </ParameterList>
-
-      <ParameterList name="source terms">
       </ParameterList>
 
       <ParameterList name="component maximum concentration [mol C / mol H2O]">
