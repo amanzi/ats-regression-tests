@@ -1,0 +1,674 @@
+[mac133388:18826] shmem: mmap: an error occurred while determining whether or not /var/folders/lw/15z_m4610jj7s4xrkp96ldt0gh4qx_/T//ompi.mac133388.520249258/jf.0/2889547776/sm_segment.mac133388.520249258.ac3b0000.0 could be created.
+ATS version 1.5.2_b338e3d7, Amanzi version 1.6-dev_933021028
+======================================================================================================
+ATS                |  Writing input file ...
+ATS                |  
+ATS                |  <ParameterList name="ANONYMOUS">
+ATS                |    <ParameterList id="6" name="mesh">
+ATS                |      <ParameterList id="5" name="domain">
+ATS                |        <Parameter docString="" id="0" isDefault="false" isUsed="true" name="mesh type" type="string" value="generate mesh"/>
+ATS                |        <ParameterList id="4" name="generate mesh parameters">
+ATS                |          <Parameter docString="" id="1" isDefault="false" isUsed="true" name="number of cells" type="Array(int)" value="{100, 1, 1}"/>
+ATS                |          <Parameter docString="" id="2" isDefault="false" isUsed="true" name="domain low coordinate" type="Array(double)" value="{0.00000000000000000e+00, 0.00000000000000000e+00, 0.00000000000000000e+00}"/>
+ATS                |          <Parameter docString="" id="3" isDefault="false" isUsed="true" name="domain high coordinate" type="Array(double)" value="{1.00000000000000000e+02, 1.00000000000000000e+00, 1.00000000000000000e+00}"/>
+ATS                |        </ParameterList>
+ATS                |      </ParameterList>
+ATS                |    </ParameterList>
+ATS                |    <ParameterList id="19" name="regions">
+ATS                |      <ParameterList id="10" name="computational domain">
+ATS                |        <ParameterList id="9" name="region: box">
+ATS                |          <Parameter docString="" id="7" isDefault="false" isUsed="true" name="low coordinate" type="Array(double)" value="{0.00000000000000000e+00, 0.00000000000000000e+00, 0.00000000000000000e+00}"/>
+ATS                |          <Parameter docString="" id="8" isDefault="false" isUsed="true" name="high coordinate" type="Array(double)" value="{1.00000000000000000e+02, 1.00000000000000000e+00, 1.00000000000000000e+00}"/>
+ATS                |        </ParameterList>
+ATS                |      </ParameterList>
+ATS                |      <ParameterList id="14" name="east">
+ATS                |        <ParameterList id="13" name="region: plane">
+ATS                |          <Parameter docString="" id="11" isDefault="false" isUsed="true" name="point" type="Array(double)" value="{1.00000000000000000e+02, 0.00000000000000000e+00, 0.00000000000000000e+00}"/>
+ATS                |          <Parameter docString="" id="12" isDefault="false" isUsed="true" name="normal" type="Array(double)" value="{1.00000000000000000e+00, 0.00000000000000000e+00, 0.00000000000000000e+00}"/>
+ATS                |        </ParameterList>
+ATS                |      </ParameterList>
+ATS                |      <ParameterList id="18" name="west">
+ATS                |        <ParameterList id="17" name="region: plane">
+ATS                |          <Parameter docString="" id="15" isDefault="false" isUsed="true" name="point" type="Array(double)" value="{0.00000000000000000e+00, 0.00000000000000000e+00, 0.00000000000000000e+00}"/>
+ATS                |          <Parameter docString="" id="16" isDefault="false" isUsed="true" name="normal" type="Array(double)" value="{-1.00000000000000000e+00, 0.00000000000000000e+00, 0.00000000000000000e+00}"/>
+ATS                |        </ParameterList>
+ATS                |      </ParameterList>
+ATS                |    </ParameterList>
+ATS                |    <ParameterList id="27" name="cycle driver">
+ATS                |      <Parameter docString="" id="20" isDefault="false" isUsed="true" name="start time" type="double" value="0.00000000000000000e+00"/>
+ATS                |      <Parameter docString="" id="21" isDefault="false" isUsed="true" name="start time units" type="string" value="s"/>
+ATS                |      <Parameter docString="" id="22" isDefault="false" isUsed="true" name="end time" type="double" value="1.00000000000000000e+00"/>
+ATS                |      <Parameter docString="" id="23" isDefault="false" isUsed="true" name="end time units" type="string" value="s"/>
+ATS                |      <ParameterList id="26" name="PK tree">
+ATS                |        <ParameterList id="25" name="Richards">
+ATS                |          <Parameter docString="" id="24" isDefault="false" isUsed="true" name="PK type" type="string" value="richards steady state"/>
+ATS                |        </ParameterList>
+ATS                |      </ParameterList>
+ATS                |    </ParameterList>
+ATS                |    <ParameterList id="29" name="checkpoint">
+ATS                |      <Parameter docString="" id="28" isDefault="false" isUsed="true" name="cycles" type="Array(int)" value="{0, 1}"/>
+ATS                |    </ParameterList>
+ATS                |    <ParameterList id="96" name="PKs">
+ATS                |      <ParameterList id="95" name="Richards">
+ATS                |        <Parameter docString="" id="30" isDefault="false" isUsed="true" name="primary variable key" type="string" value="pressure"/>
+ATS                |        <Parameter docString="" id="31" isDefault="false" isUsed="true" name="PK type" type="string" value="richards steady state"/>
+ATS                |        <Parameter docString="" id="32" isDefault="false" isUsed="true" name="relative permeability method" type="string" value="upwind with Darcy flux"/>
+ATS                |        <Parameter docString="" id="33" isDefault="false" isUsed="true" name="permeability rescaling" type="double" value="1.00000000000000000e+07"/>
+ATS                |        <Parameter docString="" id="34" isDefault="false" isUsed="true" name="modify predictor for flux BCs" type="bool" value="true"/>
+ATS                |        <ParameterList id="57" name="time integrator">
+ATS                |          <Parameter docString="" id="35" isDefault="false" isUsed="true" name="extrapolate initial guess" type="bool" value="true"/>
+ATS                |          <Parameter docString="" id="36" isDefault="false" isUsed="true" name="solver type" type="string" value="nka_bt_ats"/>
+ATS                |          <Parameter docString="" id="37" isDefault="false" isUsed="true" name="timestep controller type" type="string" value="smarter"/>
+ATS                |          <ParameterList id="46" name="nka_bt_ats parameters">
+ATS                |            <Parameter docString="" id="38" isDefault="false" isUsed="true" name="nka lag iterations" type="int" value="2"/>
+ATS                |            <Parameter docString="" id="39" isDefault="false" isUsed="true" name="max backtrack steps" type="int" value="5"/>
+ATS                |            <Parameter docString="" id="40" isDefault="false" isUsed="true" name="backtrack lag" type="int" value="0"/>
+ATS                |            <Parameter docString="" id="41" isDefault="false" isUsed="true" name="backtrack factor" type="double" value="5.00000000000000000e-01"/>
+ATS                |            <Parameter docString="" id="42" isDefault="false" isUsed="true" name="backtrack tolerance" type="double" value="1.00000000000000005e-04"/>
+ATS                |            <Parameter docString="" id="43" isDefault="false" isUsed="true" name="nonlinear tolerance" type="double" value="1.00000000000000002e-08"/>
+ATS                |            <Parameter docString="" id="44" isDefault="false" isUsed="true" name="diverged tolerance" type="double" value="1.00000000000000000e+10"/>
+ATS                |            <Parameter docString="" id="45" isDefault="false" isUsed="true" name="limit iterations" type="int" value="100"/>
+ATS                |          </ParameterList>
+ATS                |          <ParameterList id="56" name="timestep controller smarter parameters">
+ATS                |            <Parameter docString="" id="47" isDefault="false" isUsed="true" name="max iterations" type="int" value="18"/>
+ATS                |            <Parameter docString="" id="48" isDefault="false" isUsed="true" name="min iterations" type="int" value="10"/>
+ATS                |            <Parameter docString="" id="49" isDefault="false" isUsed="true" name="timestep reduction factor" type="double" value="5.00000000000000000e-01"/>
+ATS                |            <Parameter docString="" id="50" isDefault="false" isUsed="true" name="timestep increase factor" type="double" value="1.25000000000000000e+00"/>
+ATS                |            <Parameter docString="" id="51" isDefault="false" isUsed="true" name="max timestep" type="double" value="1.00000000000000000e+10"/>
+ATS                |            <Parameter docString="" id="52" isDefault="false" isUsed="true" name="min timestep" type="double" value="1.00000000000000004e-10"/>
+ATS                |            <Parameter docString="" id="53" isDefault="false" isUsed="true" name="growth wait after fail" type="int" value="2"/>
+ATS                |            <Parameter docString="" id="54" isDefault="false" isUsed="true" name="count before increasing increase factor" type="int" value="2"/>
+ATS                |            <Parameter docString="" id="55" isDefault="false" isUsed="true" name="initial timestep [s]" type="double" value="1.00000000000000000e+00"/>
+ATS                |          </ParameterList>
+ATS                |        </ParameterList>
+ATS                |        <ParameterList id="59" name="diffusion">
+ATS                |          <Parameter docString="" id="58" isDefault="false" isUsed="true" name="discretization primary" type="string" value="mfd: default"/>
+ATS                |        </ParameterList>
+ATS                |        <ParameterList id="61" name="diffusion preconditioner">
+ATS                |          <Parameter docString="" id="60" isDefault="false" isUsed="true" name="include Newton correction" type="bool" value="true"/>
+ATS                |        </ParameterList>
+ATS                |        <ParameterList id="79" name="inverse">
+ATS                |          <Parameter docString="" id="62" isDefault="false" isUsed="true" name="preconditioning method" type="string" value="boomer amg"/>
+ATS                |          <Parameter docString="" id="63" isDefault="false" isUsed="true" name="iterative method" type="string" value="gmres"/>
+ATS                |          <ParameterList id="69" name="boomer amg parameters">
+ATS                |            <Parameter docString="" id="64" isDefault="false" isUsed="true" name="cycle applications" type="int" value="1"/>
+ATS                |            <Parameter docString="" id="65" isDefault="false" isUsed="true" name="smoother sweeps" type="int" value="3"/>
+ATS                |            <Parameter docString="" id="66" isDefault="false" isUsed="true" name="strong threshold" type="double" value="6.50000000000000022e-01"/>
+ATS                |            <Parameter docString="" id="67" isDefault="false" isUsed="true" name="tolerance" type="double" value="0.00000000000000000e+00"/>
+ATS                |            <Parameter docString="" id="68" isDefault="false" isUsed="true" name="verbosity" type="int" value="0"/>
+ATS                |          </ParameterList>
+ATS                |          <ParameterList id="71" name="verbose object">
+ATS                |            <Parameter docString="" id="70" isDefault="false" isUsed="true" name="verbosity level" type="string" value="high"/>
+ATS                |          </ParameterList>
+ATS                |          <ParameterList id="78" name="gmres parameters">
+ATS                |            <Parameter docString="" id="72" isDefault="false" isUsed="true" name="preconditioning strategy" type="string" value="left"/>
+ATS                |            <Parameter docString="" id="73" isDefault="false" isUsed="true" name="error tolerance" type="double" value="9.99999999999999980e-13"/>
+ATS                |            <Parameter docString="" id="74" isDefault="false" isUsed="true" name="convergence criteria" type="Array(string)" value="{relative residual, make one iteration}"/>
+ATS                |            <Parameter docString="" id="75" isDefault="false" isUsed="true" name="maximum number of iteration" type="int" value="80"/>
+ATS                |            <ParameterList id="77" name="verbose object">
+ATS                |              <Parameter docString="" id="76" isDefault="false" isUsed="true" name="verbosity level" type="string" value="high"/>
+ATS                |            </ParameterList>
+ATS                |          </ParameterList>
+ATS                |        </ParameterList>
+ATS                |        <ParameterList id="92" name="boundary conditions">
+ATS                |          <ParameterList id="85" name="water flux">
+ATS                |            <ParameterList id="84" name="west">
+ATS                |              <Parameter docString="" id="80" isDefault="false" isUsed="true" name="regions" type="Array(string)" value="{west}"/>
+ATS                |              <ParameterList id="83" name="outward water flux">
+ATS                |                <ParameterList id="82" name="function-constant">
+ATS                |                  <Parameter docString="" id="81" isDefault="false" isUsed="true" name="value" type="double" value="-4.39254986955315034e-04"/>
+ATS                |                </ParameterList>
+ATS                |              </ParameterList>
+ATS                |            </ParameterList>
+ATS                |          </ParameterList>
+ATS                |          <ParameterList id="91" name="pressure">
+ATS                |            <ParameterList id="90" name="east">
+ATS                |              <Parameter docString="" id="86" isDefault="false" isUsed="true" name="regions" type="Array(string)" value="{east}"/>
+ATS                |              <ParameterList id="89" name="boundary pressure">
+ATS                |                <ParameterList id="88" name="function-constant">
+ATS                |                  <Parameter docString="" id="87" isDefault="false" isUsed="true" name="value" type="double" value="2.01325000000000000e+05"/>
+ATS                |                </ParameterList>
+ATS                |              </ParameterList>
+ATS                |            </ParameterList>
+ATS                |          </ParameterList>
+ATS                |        </ParameterList>
+ATS                |        <ParameterList id="94" name="initial conditions">
+ATS                |          <Parameter docString="" id="93" isDefault="false" isUsed="true" name="value" type="double" value="2.01325000000000000e+05"/>
+ATS                |        </ParameterList>
+ATS                |      </ParameterList>
+ATS                |    </ParameterList>
+ATS                |    <ParameterList id="147" name="state">
+ATS                |      <ParameterList id="133" name="evaluators">
+ATS                |        <ParameterList id="98" name="water_content">
+ATS                |          <Parameter docString="" id="97" isDefault="false" isUsed="true" name="evaluator type" type="string" value="richards water content"/>
+ATS                |        </ParameterList>
+ATS                |        <ParameterList id="100" name="capillary_pressure_gas_liq">
+ATS                |          <Parameter docString="" id="99" isDefault="false" isUsed="true" name="evaluator type" type="string" value="capillary pressure, atmospheric gas over liquid"/>
+ATS                |        </ParameterList>
+ATS                |        <ParameterList id="103" name="molar_density_liquid">
+ATS                |          <Parameter docString="" id="101" isDefault="false" isUsed="true" name="evaluator type" type="string" value="independent variable constant"/>
+ATS                |          <Parameter docString="" id="102" isDefault="false" isUsed="true" name="value" type="double" value="5.54093810713294515e+04"/>
+ATS                |        </ParameterList>
+ATS                |        <ParameterList id="106" name="mass_density_liquid">
+ATS                |          <Parameter docString="" id="104" isDefault="false" isUsed="true" name="evaluator type" type="string" value="independent variable constant"/>
+ATS                |          <Parameter docString="" id="105" isDefault="false" isUsed="true" name="value" type="double" value="9.98200000000000045e+02"/>
+ATS                |        </ParameterList>
+ATS                |        <ParameterList id="109" name="viscosity_liquid">
+ATS                |          <Parameter docString="" id="107" isDefault="false" isUsed="true" name="evaluator type" type="string" value="independent variable constant"/>
+ATS                |          <Parameter docString="" id="108" isDefault="false" isUsed="true" name="value" type="double" value="1.00200000000000007e-03"/>
+ATS                |        </ParameterList>
+ATS                |        <ParameterList id="112" name="porosity">
+ATS                |          <Parameter docString="" id="110" isDefault="false" isUsed="true" name="evaluator type" type="string" value="independent variable constant"/>
+ATS                |          <Parameter docString="" id="111" isDefault="false" isUsed="true" name="value" type="double" value="2.50000000000000000e-01"/>
+ATS                |        </ParameterList>
+ATS                |        <ParameterList id="123" name="permeability">
+ATS                |          <Parameter docString="" id="113" isDefault="false" isUsed="true" name="evaluator type" type="string" value="independent variable tensor"/>
+ATS                |          <Parameter docString="" id="114" isDefault="false" isUsed="true" name="constant in time" type="bool" value="true"/>
+ATS                |          <Parameter docString="" id="115" isDefault="false" isUsed="true" name="tensor type" type="string" value="scalar"/>
+ATS                |          <ParameterList id="122" name="function">
+ATS                |            <ParameterList id="121" name="domain">
+ATS                |              <Parameter docString="" id="116" isDefault="false" isUsed="true" name="region" type="string" value="computational domain"/>
+ATS                |              <Parameter docString="" id="117" isDefault="false" isUsed="true" name="component" type="string" value="cell"/>
+ATS                |              <ParameterList id="120" name="function">
+ATS                |                <ParameterList id="119" name="function-constant">
+ATS                |                  <Parameter docString="" id="118" isDefault="false" isUsed="true" name="value" type="double" value="9.99999999999999980e-13"/>
+ATS                |                </ParameterList>
+ATS                |              </ParameterList>
+ATS                |            </ParameterList>
+ATS                |          </ParameterList>
+ATS                |        </ParameterList>
+ATS                |        <ParameterList id="126" name="relative_permeability">
+ATS                |          <Parameter docString="" id="124" isDefault="false" isUsed="true" name="evaluator type" type="string" value="relative permeability, water retention model"/>
+ATS                |          <Parameter docString="" id="125" isDefault="false" isUsed="true" name="model parameters" type="string" value="WRM parameters"/>
+ATS                |        </ParameterList>
+ATS                |        <ParameterList id="132" name="saturation_liquid">
+ATS                |          <Parameter docString="" id="127" isDefault="false" isUsed="true" name="model parameters" type="string" value="WRM parameters"/>
+ATS                |          <Parameter docString="" id="128" isDefault="false" isUsed="true" name="checkpoint" type="bool" value="true"/>
+ATS                |          <Parameter docString="" id="129" isDefault="false" isUsed="true" name="evaluator type" type="string" value="water retention model"/>
+ATS                |          <ParameterList id="131" name="verbose object">
+ATS                |            <Parameter docString="" id="130" isDefault="false" isUsed="true" name="verbosity level" type="string" value="low"/>
+ATS                |          </ParameterList>
+ATS                |        </ParameterList>
+ATS                |      </ParameterList>
+ATS                |      <ParameterList id="138" name="initial conditions">
+ATS                |        <ParameterList id="135" name="atmospheric_pressure">
+ATS                |          <Parameter docString="" id="134" isDefault="false" isUsed="true" name="value" type="double" value="1.01325000000000000e+05"/>
+ATS                |        </ParameterList>
+ATS                |        <ParameterList id="137" name="gravity">
+ATS                |          <Parameter docString="" id="136" isDefault="false" isUsed="true" name="value" type="Array(double)" value="{0.00000000000000000e+00, 0.00000000000000000e+00, -9.80664999999999942e+00}"/>
+ATS                |        </ParameterList>
+ATS                |      </ParameterList>
+ATS                |      <ParameterList id="146" name="model parameters">
+ATS                |        <ParameterList id="145" name="WRM parameters">
+ATS                |          <ParameterList id="144" name="computational domain">
+ATS                |            <Parameter docString="" id="139" isDefault="false" isUsed="true" name="region" type="string" value="computational domain"/>
+ATS                |            <Parameter docString="" id="140" isDefault="false" isUsed="true" name="wrm type" type="string" value="van Genuchten"/>
+ATS                |            <Parameter docString="" id="141" isDefault="false" isUsed="true" name="van Genuchten alpha [Pa^-1]" type="double" value="1.49999999999999987e-04"/>
+ATS                |            <Parameter docString="" id="142" isDefault="false" isUsed="true" name="van Genuchten m [-]" type="double" value="8.00000000000000044e-01"/>
+ATS                |            <Parameter docString="" id="143" isDefault="false" isUsed="true" name="residual saturation [-]" type="double" value="0.00000000000000000e+00"/>
+ATS                |          </ParameterList>
+ATS                |        </ParameterList>
+ATS                |      </ParameterList>
+ATS                |    </ParameterList>
+ATS                |    <ParameterList id="150" name="visualization">
+ATS                |      <ParameterList id="149" name="domain">
+ATS                |        <Parameter docString="" id="148" isDefault="false" isUsed="true" name="cycles start period stop" type="Array(int)" value="{0, 1, -1}"/>
+ATS                |      </ParameterList>
+ATS                |    </ParameterList>
+ATS                |    <ParameterList id="153" name="VerboseObject">
+ATS                |      <Parameter docString="" id="151" isDefault="true" isUsed="true" name="Output File" type="string" value="none"/>
+ATS                |      <Parameter docString="" id="152" isDefault="true" isUsed="true" name="Verbosity Level" type="string" value="default"/>
+ATS                |    </ParameterList>
+ATS                |    <Validators/>
+ATS                |  </ParameterList>
+ATS                |  
+ATS                |    ... completed.
+ATS                |  ================================================================================
+ATS                |  Beginning mesh creation stage...
+ATS Mesh Factory   |  Creating mesh "domain" of type "generate mesh".
+Amanzi::MeshFactor |  Creating 3D block mesh using format "MSTK"
+ATS Mesh Factory   |    Registered mesh "domain".
+================================================================================
+
+                      TimeMonitor results over 1 processor
+
+Timer Name            Global time (num calls)    
+--------------------------------------------------------------------------------
+0: create mesh        0 (1)                      
+1: create run         0 (0)                      
+2: setup              0 (0)                      
+3: initialize         0 (0)                      
+4: solve              0 (0)                      
+4a: advance step      0 (0)                      
+4b: visualize         0 (0)                      
+4c: observe           0 (0)                      
+4d: checkpoint        0 (0)                      
+5: finalize           0 (0)                      
+--------------------------------------------------------------------------------
+wallclock duration    0 (1)                      
+================================================================================
+ATS                |    ... completed: 0.026186 / 0.026186 / 0.026186 (min/mean/max) [s]
+ATS                |  ================================================================================
+ATS                |  Beginning run creation stage...
+ATS                |    ... completed: 0.012392 / 0.012392 / 0.012392 (min/mean/max) [s]
+ATS                |  ================================================================================
+ATS                |  Beginning setup stage...
+State              |  ------------------------------------------
+State              |  Dependency & Structure list for evaluators
+State              |  ------------------------------------------
+State              |  capillary_pressure_gas_liq
+State              |    type: secondary
+State              |    dep: "pressure"
+State              |    comp=cell location=4 dofs=1 size=100 points=100
+State              |    comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |    
+State              |  cell_volume
+State              |    Type: independent
+State              |    comp=cell location=4 dofs=1 size=100 points=100
+State              |    
+State              |  darcy_velocity
+State              |    Type: primary
+State              |    comp=cell location=4 dofs=3 size=100 points=100
+State              |    
+State              |  mass_density_liquid
+State              |    Type: independent
+State              |    comp=cell location=4 dofs=1 size=100 points=100
+State              |    
+State              |  molar_density_liquid
+State              |    Type: independent
+State              |    comp=cell location=4 dofs=1 size=100 points=100
+State              |    comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |    
+State              |  permeability
+State              |    Type: independent
+State              |  porosity
+State              |    Type: independent
+State              |    comp=cell location=4 dofs=1 size=100 points=100
+State              |    
+State              |  pressure
+State              |    Type: primary
+State              |  pressure
+State              |    Type: primary
+State              |    comp=face location=3 dofs=1 size=501 points=501
+State              |    comp=cell location=4 dofs=1 size=100 points=100
+State              |    
+State              |  relative_permeability
+State              |    type: secondary
+State              |    dep: "saturation_liquid"
+State              |    dep: "molar_density_liquid"
+State              |    dep: "viscosity_liquid"
+State              |    comp=cell location=4 dofs=1 size=100 points=100
+State              |    comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |    
+State              |  saturation_liquidsaturation_gas
+State              |    type: secondary
+State              |    dep: "capillary_pressure_gas_liq"
+State              |    comp=cell location=4 dofs=1 size=100 points=100
+State              |    comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |    
+State              |  saturation_liquidsaturation_gas
+State              |    type: secondary
+State              |    dep: "capillary_pressure_gas_liq"
+State              |  saturation_liquid
+State              |    Type: primary
+State              |    comp=cell location=4 dofs=1 size=100 points=100
+State              |    comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |    
+State              |  time
+State              |    Type: primary
+State              |  time
+State              |    Type: primary
+State              |  viscosity_liquid
+State              |    Type: independent
+State              |    comp=cell location=4 dofs=1 size=100 points=100
+State              |    comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |    
+State              |  water_content
+State              |    type: secondary
+State              |    dep: "porosity"
+State              |    dep: "saturation_liquid"
+State              |    dep: "molar_density_liquid"
+State              |    dep: "cell_volume"
+State              |  water_content
+State              |    Type: primary
+State              |    comp=cell location=4 dofs=1 size=100 points=100
+State              |    
+State              |  water_flux
+State              |    Type: primary
+State              |    comp=face location=3 dofs=1 size=501 points=501
+State              |    
+State              |  ------------------------------
+State              |  Structure list for derivatives
+State              |  ------------------------------
+State              |  Dcapillary_pressure_gas_liq/D{ pressure }
+State              |    comp=cell location=4 dofs=1 size=100 points=100
+State              |    comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |    
+State              |  Drelative_permeability/D{ pressure }
+State              |    comp=cell location=4 dofs=1 size=100 points=100
+State              |    comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |    
+State              |  Dsaturation_gas/D{ pressure }
+State              |    comp=cell location=4 dofs=1 size=100 points=100
+State              |    comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |    
+State              |  Dsaturation_liquid/D{ pressure }
+State              |    comp=cell location=4 dofs=1 size=100 points=100
+State              |    comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |    
+State              |  Dwater_content/D{ pressure }
+State              |    comp=cell location=4 dofs=1 size=100 points=100
+State              |    
+State              |  Setup is complete.
+State              |  
+ATS                |    ... completed: 0.013303 / 0.013303 / 0.013303 (min/mean/max) [s]
+ATS                |  ================================================================================
+ATS                |  Beginning initialize stage...
+State              |  initializing data through initial conditions...
+State              |  initializing "atmospheric_pressure" [ok]
+State              |  initializing "capillary_pressure_gas_liq" ... skipped
+State              |  initializing "cell_volume" ... skipped
+State              |  initializing "cycle" ... skipped
+State              |  initializing "darcy_velocity" ... skipped
+State              |  initializing "dt" ... skipped
+State              |  initializing "dupwind_relative_permeability|dpressure" ... skipped
+State              |  initializing "gravity" [ok]
+State              |  initializing "mass_density_liquid" ... skipped
+State              |  initializing "molar_density_liquid" ... skipped
+State              |  initializing "permeability" ... skipped
+State              |  initializing "permeability_rescaling" [ok]
+State              |  initializing "porosity" ... skipped
+State              |  initializing "position" ... skipped
+State              |  initializing "pressure" ... skipped
+State              |  initializing "relative_permeability" ... skipped
+State              |  initializing "saturation_gas" ... skipped
+State              |  initializing "saturation_liquid" ... skipped
+State              |  initializing "time" ... skipped
+State              |  initializing "upwind_relative_permeability" ... skipped
+State              |  initializing "viscosity_liquid" ... skipped
+State              |  initializing "water_content" ... skipped
+State              |  initializing "water_flux" ... skipped
+State              |  initializing "water_flux_direction" ... skipped
+State              |  initializing eval: "capillary_pressure_gas_liq" @ ""
+State              |  initializing eval: "cell_volume" @ ""
+State              |  initializing eval: "darcy_velocity" @ ""
+State              |  initializing eval: "mass_density_liquid" @ ""
+State              |  initializing eval: "molar_density_liquid" @ ""
+State              |  initializing eval: "permeability" @ ""
+State              |  initializing eval: "porosity" @ ""
+State              |  initializing eval: "pressure" @ "current"
+State              |  initializing eval: "pressure" @ ""
+State              |  initializing eval: "relative_permeability" @ ""
+State              |  initializing eval: "saturation_gas" @ ""
+State              |  initializing eval: "saturation_liquid" @ ""
+State              |  initializing eval: "saturation_liquid" @ "current"
+State              |  initializing eval: "time" @ ""
+State              |  initializing eval: "time" @ "current"
+State              |  initializing eval: "viscosity_liquid" @ ""
+State              |  initializing eval: "water_content" @ ""
+State              |  initializing eval: "water_content" @ "current"
+State              |  initializing eval: "water_flux" @ ""
+timestep manager   |  Proposed dT=1 s, is near equal to next event time remaining 1 s.
+           | ------------------------------------------
+           | Dependency & Structure list for evaluators
+           | ------------------------------------------
+           | capillary_pressure_gas_liq
+           |   type: secondary
+           |   dep: "pressure"
+State              |   comp=cell location=4 dofs=1 size=100 points=100
+State              |   comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |   
+           | cell_volume
+           |   Type: independent
+State              |   comp=cell location=4 dofs=1 size=100 points=100
+State              |   
+           | darcy_velocity
+           |   Type: primary
+State              |   comp=cell location=4 dofs=3 size=100 points=100
+State              |   
+           | mass_density_liquid
+           |   Type: independent
+State              |   comp=cell location=4 dofs=1 size=100 points=100
+State              |   
+           | molar_density_liquid
+           |   Type: independent
+State              |   comp=cell location=4 dofs=1 size=100 points=100
+State              |   comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |   
+           | permeability
+           |   Type: independent
+           | porosity
+           |   Type: independent
+State              |   comp=cell location=4 dofs=1 size=100 points=100
+State              |   
+           | pressure
+           |   Type: primary
+           | pressure
+           |   Type: primary
+State              |   comp=face location=3 dofs=1 size=501 points=501
+State              |   comp=cell location=4 dofs=1 size=100 points=100
+State              |   
+           | relative_permeability
+           |   type: secondary
+           |   dep: "saturation_liquid"
+           |   dep: "molar_density_liquid"
+           |   dep: "viscosity_liquid"
+State              |   comp=cell location=4 dofs=1 size=100 points=100
+State              |   comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |   
+           | saturation_liquidsaturation_gas
+           |   type: secondary
+           |   dep: "capillary_pressure_gas_liq"
+State              |   comp=cell location=4 dofs=1 size=100 points=100
+State              |   comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |   
+           | saturation_liquidsaturation_gas
+           |   type: secondary
+           |   dep: "capillary_pressure_gas_liq"
+           | saturation_liquid
+           |   Type: primary
+State              |   comp=cell location=4 dofs=1 size=100 points=100
+State              |   comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |   
+           | time
+           |   Type: primary
+           | time
+           |   Type: primary
+           | viscosity_liquid
+           |   Type: independent
+State              |   comp=cell location=4 dofs=1 size=100 points=100
+State              |   comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |   
+           | water_content
+           |   type: secondary
+           |   dep: "porosity"
+           |   dep: "saturation_liquid"
+           |   dep: "molar_density_liquid"
+           |   dep: "cell_volume"
+           | water_content
+           |   Type: primary
+State              |   comp=cell location=4 dofs=1 size=100 points=100
+State              |   
+           | water_flux
+           |   Type: primary
+State              |   comp=face location=3 dofs=1 size=501 points=501
+State              |   
+           | ------------------------------
+           | Structure list for derivatives
+           | ------------------------------
+           | Dcapillary_pressure_gas_liq/D{ pressure }
+State              |   comp=cell location=4 dofs=1 size=100 points=100
+State              |   comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |   
+           | Drelative_permeability/D{ pressure }
+State              |   comp=cell location=4 dofs=1 size=100 points=100
+State              |   comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |   
+           | Dsaturation_gas/D{ pressure }
+State              |   comp=cell location=4 dofs=1 size=100 points=100
+State              |   comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |   
+           | Dsaturation_liquid/D{ pressure }
+State              |   comp=cell location=4 dofs=1 size=100 points=100
+State              |   comp=boundary_face location=13 dofs=1 size=402 points=402
+State              |   
+           | Dwater_content/D{ pressure }
+State              |   comp=cell location=4 dofs=1 size=100 points=100
+State              |   
+ATS                |   
+ATS                |   Field                                    Min/Max/Avg
+ATS                |   Richards_TI_dt_internal................. 1
+ATS                |   Richards_TI_increase_factor............. 1.25
+ATS                |   atmospheric_pressure.................... 101325
+ATS                |   capillary_pressure_gas_liq.bnd_face..... -100000 / -100000 / -100000
+ATS                |   capillary_pressure_gas_liq.cell......... -100000 / -100000 / -100000
+ATS                |   cell_volume............................. 1 / 1 / 1
+ATS                |   darcy_velocity.......................... 0 / 0 / 0
+ATS                |   dt...................................... 1
+ATS                |   dupwind_relative_permeability|dpressure. 1 / 1 / 1
+ATS                |   gravity................................. 0 0 -9.80665
+ATS                |   mass_density_liquid..................... 998.2 / 998.2 / 998.2
+ATS                |   molar_density_liquid.bnd_face........... 55409.4 / 55409.4 / 55409.4
+ATS                |   molar_density_liquid.cell............... 55409.4 / 55409.4 / 55409.4
+ATS                |   permeability_rescaling.................. 1e+07
+ATS                |   porosity................................ 0.25 / 0.25 / 0.25
+ATS                |   pressure.cell........................... 201325 / 201325 / 201325
+ATS                |   pressure.face........................... 201325 / 201325 / 201325
+ATS                |   pressure@current.cell................... 201325 / 201325 / 201325
+ATS                |   pressure@current.face................... 201325 / 201325 / 201325
+ATS                |   relative_permeability.bnd_face.......... 5.52988 / 5.52988 / 5.52988
+ATS                |   relative_permeability.cell.............. 5.52988 / 5.52988 / 5.52988
+ATS                |   saturation_gas.bnd_face................. 0 / 0 / 0
+ATS                |   saturation_gas.cell..................... 0 / 0 / 0
+ATS                |   saturation_liquid.bnd_face.............. 1 / 1 / 1
+ATS                |   saturation_liquid.cell.................. 1 / 1 / 1
+ATS                |   saturation_liquid@current.bnd_face...... 1 / 1 / 1
+ATS                |   saturation_liquid@current.cell.......... 1 / 1 / 1
+ATS                |   time.................................... 0
+ATS                |   time@current............................ 0
+ATS                |   upwind_relative_permeability............ 1 / 1 / 1
+ATS                |   viscosity_liquid.bnd_face............... 0.001002 / 0.001002 / 0.001002
+ATS                |   viscosity_liquid.cell................... 0.001002 / 0.001002 / 0.001002
+ATS                |   water_content........................... 13852.3 / 13852.3 / 13852.3
+ATS                |   water_content@current................... 13852.3 / 13852.3 / 13852.3
+ATS                |   water_flux.............................. 0 / 0 / 0
+ATS                |   water_flux_direction.................... 0 / 0 / 0
+ATS                |    ... completed: 0.005998 / 0.005998 / 0.005998 (min/mean/max) [s]
+ATS                |  ================================================================================
+ATS                |  Beginning timestepping stage...
+ATS                |  ================================================================================
+ATS                |  
+ATS                |  Cycle = 0,  Time [days] = 0,  dt [days] = 1.157407407407407e-05
+ATS                |  --------------------------------------------------------------------------------
+Richards           |  ----------------------------------------------------------------
+Richards           |  Advancing: t0 = 0 t1 = 1 h = 1
+Richards           |  ----------------------------------------------------------------
+Richards_TI        |  step 0 T = 0 [sec]  dT = 1
+Richards_TI        |  preconditioner lag is 0 out of 0
+Richards           |       Admissible p? (min/max): 201325,  201325
+Richards           |   ----------------------------------------------------------------
+Richards           |   Residual calculation: t0 = 0 t1 = 1 h = 1
+Richards           |  Debug Cells Information:
+Richards           |   ENorm (Infnorm) of: water_content: 
+Richards           |     ENorm (face) = [401] 3.2605e-05 (0.54132)
+Richards           |     ENorm (cell) = [11] 1.10085e-18 (1.82767e-14)
+Solver::NKA_BT_ATS |  0: error(res) = 3.2605e-05
+Solver::NKA_BT_ATS |  0: L2 error(res) = 7.65542
+Solver::NKA_BT_ATS |  Updating preconditioner.
+Richards           |   Precon update at t = 1
+Richards           |   Precon application:
+inverse::GMRES     |  0 ||r||=1905.45
+inverse::GMRES     |  1 ||r||=79.143
+inverse::GMRES     |  2 ||r||=1.89309
+inverse::GMRES     |  3 ||r||=0.0960527
+inverse::GMRES     |  4 ||r||=0.00521317
+inverse::GMRES     |  5 ||r||=0.000112246
+inverse::GMRES     |  6 ||r||=1.35578e-06
+inverse::GMRES     |  7 ||r||=6.19854e-09
+inverse::GMRES     |  Converged (relative res), itr=8 ||r||=6.19854e-09 ||r0||=69737.5
+Richards           |   Linf, L2 pressure correction (face) = 5684.86, 69976.4
+Richards           |   Linf, L2 pressure correction (cell) = 790.359, 4586.01
+Richards           |   Linf, L2 pressure correction (face) = 5684.86, 69976.4
+Richards           |   Linf, L2 pressure correction (cell) = 790.359, 4586.01
+Richards           |   Linf, L2 pressure correction (face) = 5684.86, 69976.4
+Richards           |   Linf, L2 pressure correction (cell) = 790.359, 4586.01
+Richards           |       Admissible p? (min/max): 196434,  207010
+Richards           |   ----------------------------------------------------------------
+Richards           |   Residual calculation: t0 = 0 t1 = 1 h = 1
+Richards           |  Debug Cells Information:
+Richards           |   ENorm (Infnorm) of: water_content: 
+Richards           |     ENorm (face) = [98] 4.84083e-19 (8.03692e-15)
+Richards           |     ENorm (cell) = [2] 3.06601e-18 (5.0903e-14)
+Solver::NKA_BT_ATS |  1: backtrack 0: error(res) = 3.06601e-18
+Solver::NKA_BT_ATS |  1: backtrack 0: L2 error(res) = 1.8123e-13
+Solver::NKA_BT_ATS |  Solve succeeded: 1 iterations, error = 3.06601e-18
+Richards_TI        |  success: 1 nonlinear itrs error=3.06601e-18
+Richards_TI        |  TS:0 FS:0 NS:1 PC:1 1 LS:0 dt:1.0000e+00 1.0000e+00
+ATS                |    ... completed: 0.025334 / 0.025334 / 0.025334 (min/mean/max) [s]
+ATS                |  ================================================================================
+ATS                |  Beginning finalize stage...
+ATS                |   
+ATS                |   Field                                    Min/Max/Avg
+ATS                |   Richards_TI_dt_internal................. 1
+ATS                |   Richards_TI_increase_factor............. 1.25
+ATS                |   atmospheric_pressure.................... 101325
+ATS                |   capillary_pressure_gas_liq.bnd_face..... -105684.8576522527 / -95109.47263644007 / -100397.1651442468
+ATS                |   capillary_pressure_gas_liq.cell......... -100790.3586372527 / -100003.9716514401 / -100397.1651442464
+ATS                |   cell_volume............................. 1 / 1 / 1
+ATS                |   darcy_velocity.......................... -6.411754851091064e-20 / 7.927447996737094e-09 / 2.642482663657466e-09
+ATS                |   dt...................................... 1
+ATS                |   dupwind_relative_permeability|dpressure. 0 / 0 / 0
+ATS                |   gravity................................. 0 0 -9.806649999999999
+ATS                |   mass_density_liquid..................... 998.2 / 998.2 / 998.1999999999982
+ATS                |   molar_density_liquid.bnd_face........... 55409.38107132945 / 55409.38107132945 / 55409.38107132919
+ATS                |   molar_density_liquid.cell............... 55409.38107132945 / 55409.38107132945 / 55409.38107132941
+ATS                |   permeability_rescaling.................. 10000000
+ATS                |   porosity................................ 0.25 / 0.25 / 0.25
+ATS                |   pressure.cell........................... 201328.9716514401 / 202115.3586372527 / 201722.1651442463
+ATS                |   pressure.face........................... 196434.4726364401 / 207009.8576522527 / 201722.1651442465
+ATS                |   pressure@current.cell................... 201328.9716514401 / 202115.3586372527 / 201722.1651442463
+ATS                |   pressure@current.face................... 196434.4726364401 / 207009.8576522527 / 201722.1651442465
+ATS                |   relative_permeability.bnd_face.......... 5.529878350432081 / 5.529878350432081 / 5.52987835043206
+ATS                |   relative_permeability.cell.............. 5.529878350432081 / 5.529878350432081 / 5.529878350432074
+ATS                |   saturation_gas.bnd_face................. 0 / 0 / 0
+ATS                |   saturation_gas.cell..................... 0 / 0 / 0
+ATS                |   saturation_liquid.bnd_face.............. 1 / 1 / 1
+ATS                |   saturation_liquid.cell.................. 1 / 1 / 1
+ATS                |   saturation_liquid@current.bnd_face...... 1 / 1 / 1
+ATS                |   saturation_liquid@current.cell.......... 1 / 1 / 1
+ATS                |   time.................................... 1
+ATS                |   time@current............................ 1
+ATS                |   upwind_relative_permeability............ 5.529878350432081 / 5.529878350432081 / 5.529878350432092
+ATS                |   viscosity_liquid.bnd_face............... 0.001002 / 0.001002 / 0.001002000000000003
+ATS                |   viscosity_liquid.cell................... 0.001002 / 0.001002 / 0.001002000000000002
+ATS                |   water_content........................... 13852.34526783236 / 13852.34526783236 / 13852.34526783235
+ATS                |   water_content@current................... 13852.34526783236 / 13852.34526783236 / 13852.34526783235
+ATS                |   water_flux.............................. -4.695732837809613e-15 / 0.0004392549869791813 / 8.855240249947954e-05
+ATS                |   water_flux_direction.................... -8.326672684688674e-16 / 7.943302892817882e-05 / 1.601344494206791e-05
+ATS                |   --------------------------------------------------------------------------------
+ATS                |   All meshes combined have 100 cells.
+ATS                |   Memory usage (high water mark):
+ATS                |     Maximum per core:      84.2 MBytes,  maximum per cell: 882769.9 Bytes
+ATS                |     Minimum per core:      84.2 MBytes,  minimum per cell: 882769.9 Bytes
+ATS                |     Total:                 84.2 MBytes,  total per cell:   882769.9 Bytes
+ATS                |    ... completed: 0.0 / 0.0 / 0.0 (min/mean/max) [s]
+================================================================================
+
+                      TimeMonitor results over 1 processor
+
+Timer Name                                Global time (num calls)    
+--------------------------------------------------------------------------------
+0: create mesh                            0.02619 (0)                
+1: create run                             0.01239 (1)                
+2: setup                                  0.0133 (1)                 
+3: initialize                             0.005998 (1)               
+4: solve                                  0.02533 (1)                
+4a: advance step                          0.01973 (1)                
+4b: visualize                             0.01138 (2)                
+4c: observe                               2e-06 (2)                  
+4d: checkpoint                            0.004183 (2)               
+5: finalize                               0.004532 (1)               
+--------------------------------------------------------------------------------
+Epetra_CrsMatrix::Multiply(TransA,X,Y)    2.1e-05 (9)                
+wallclock duration                        0.101 (0)                  
+================================================================================

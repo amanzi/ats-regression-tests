@@ -91,9 +91,6 @@
         </ParameterList>
       </ParameterList>
     </ParameterList>
-    <ParameterList name="timestep manager" type="ParameterList">
-      <Parameter name="prescribed timesteps file name" type="string" value="../data/transport-column_infiltration_dts.h5" />
-    </ParameterList>
   </ParameterList>
   <ParameterList name="PKs">
 
