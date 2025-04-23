@@ -6,7 +6,7 @@ CHEMISTRY
   PRIMARY_SPECIES
     tracer
   /
-  DATABASE ./tracer-pflotran.dat
+  DATABASE tracer-pflotran.dat
   LOG_FORMULATION
   MAX_RESIDUAL_TOLERANCE 1.d-16
   MAX_RELATIVE_CHANGE_TOLERANCE 1.d-16

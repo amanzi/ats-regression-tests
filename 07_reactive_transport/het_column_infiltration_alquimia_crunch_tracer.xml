@@ -93,7 +93,7 @@
           </ParameterList>
         </ParameterList>
         <ParameterList name="reactive transport" type="ParameterList">
-          <Parameter name="PK type" type="string" value="coupled reactive transport" />
+          <Parameter name="PK type" type="string" value="surface subsurface reactive transport" />
           <ParameterList name="chemistry coupler" type="ParameterList">
             <Parameter name="PK type" type="string" value="weak MPC" />
             <ParameterList name="chemistry surface" type="ParameterList">
@@ -323,7 +323,7 @@
     </ParameterList>
 
     <ParameterList name="reactive transport" type="ParameterList">
-      <Parameter name="PK type" type="string" value="coupled reactive transport" />
+      <Parameter name="PK type" type="string" value="surface subsurface reactive transport" />
       <Parameter name="PK name" type="string" value="reactive transport" />
       <Parameter name="PKs order" type="Array(string)" value="{chemistry coupler, surface-subsurface transport coupler}" />
       <Parameter name="transport index" type="int" value="1" />
@@ -340,7 +340,7 @@
     <ParameterList name="chemistry subsurface" type="ParameterList">
       <Parameter name="PK type" type="string" value="chemistry alquimia" />
       <Parameter name="engine" type="string" value="CrunchFlow" />
-      <Parameter name="engine input file" type="string" value="../data/1d-tracer-crunch.in" />
+      <Parameter name="engine input file" type="string" value="../data/tracer-crunch.in" />
       <Parameter name="domain name" type="string" value="domain" />
       <Parameter name="auxiliary data" type="Array(string)" value="{pH}" />
 

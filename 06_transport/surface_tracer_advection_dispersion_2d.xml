@@ -193,7 +193,7 @@
         <Parameter name="dependencies" type="Array(string)" value="{surface-water_flux_directions}" />
         <Parameter name="surface-water_flux_directions coefficient" type="double" value="1" />
       </ParameterList>
-      <ParameterList name="surface-darcy_velocity">
+      <ParameterList name="surface-water_velocity">
         <Parameter name="evaluator type" type="string" value="independent variable" />
         <Parameter name="constant in time" type="bool" value="true" />
         <ParameterList name="function" type="ParameterList">

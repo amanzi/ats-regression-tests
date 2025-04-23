@@ -135,7 +135,7 @@
       <Parameter name="engine" type="string" value="PFloTran" />
       <Parameter name="chemistry model" type="string" value="Alquimia" />
       <Parameter name="domain name" type="string" value="domain" />
-      <Parameter name="engine input file" type="string" value="../data/pflotran_in/sorption.in" />
+      <Parameter name="engine input file" type="string" value="../data/sorption-pflotran.in" />
       <Parameter name="activity model" type="string" value="unit" />
       <Parameter name="maximum Newton iterations" type="int" value="100" />
       <Parameter name="saturation liquid key" type="string" value="saturation_liquid" />

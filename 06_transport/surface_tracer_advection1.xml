@@ -117,12 +117,12 @@ case because of aligned velocity and timesteps.
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
-        <ParameterList name="concentration" type="ParameterList">
+        <ParameterList name="molar mixing ratio" type="ParameterList">
           <ParameterList name="tracer1" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface west}" />
             <Parameter name="spatial distribution method" type="string" value="none" />
             <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
-            <ParameterList name="boundary concentration function" type="ParameterList">
+            <ParameterList name="boundary molar mixing ratio function" type="ParameterList">
               <Parameter name="number of dofs" type="int" value="2" />
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant" type="ParameterList">

@@ -128,7 +128,7 @@
       <Parameter name="PK type" type="string" value="chemistry alquimia" />
       <Parameter name="engine" type="string" value="PFloTran" />
       <Parameter name="domain name" type="string" value="domain" />
-      <Parameter name="engine input file" type="string" value="../data/pflotran_in/sorption.in" />
+      <Parameter name="engine input file" type="string" value="../data/sorption-pflotran.in" />
       <Parameter name="debug cells" type="Array(int)" value="{0,99}" />
 
       <ParameterList name="initial conditions" type="ParameterList">

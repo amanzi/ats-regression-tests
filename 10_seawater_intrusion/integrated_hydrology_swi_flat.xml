@@ -373,19 +373,14 @@
       <Parameter name="advection spatial discretization order" type="int" value="1" />
       <Parameter name="temporal discretization order" type="int" value="1" />
       <Parameter name="cfl" type="double" value="1" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-      <ParameterList name="verbose object">
-        <Parameter name="verbosity level" type="string" value="high" />
-        <Parameter name="name" type="string" value="Subsurface Transport" />
-      </ParameterList>
 
       <ParameterList name="boundary conditions">
-        <ParameterList name="concentration">
+        <ParameterList name="molar mixing ratio">
           <ParameterList name="East Side">
             <Parameter name="regions" type="Array(string)" value="{east face}" />
             <Parameter name="spatial distribution method" type="string" value="none" />
             <Parameter name="component names" type="Array(string)" value="{salt}" />
-            <ParameterList name="boundary concentration function">
+            <ParameterList name="boundary molar mixing ratio function">
               <ParameterList name="function-constant">
                 <Parameter name="value" type="double" value="0.035" />
               </ParameterList>
@@ -413,22 +408,17 @@
       <Parameter name="cfl" type="double" value="1" />
       <Parameter name="water tolerance" type="double" value="0.0001" />
       <Parameter name="enable internal tests" type="bool" value="false" />
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration" />
-      <ParameterList name="verbose object">
-        <Parameter name="verbosity level" type="string" value="high" />
-        <Parameter name="name" type="string" value="Surface Transport" />
-      </ParameterList>
 
       <ParameterList name="source terms">
       </ParameterList>
 
       <ParameterList name="boundary conditions">
-        <ParameterList name="concentration">
+        <ParameterList name="molar mixing ratio">
           <ParameterList name="East Side">
             <Parameter name="regions" type="Array(string)" value="{surface east}" />
             <Parameter name="spatial distribution method" type="string" value="none" />
             <Parameter name="component names" type="Array(string)" value="{salt}" />
-            <ParameterList name="boundary concentration function">
+            <ParameterList name="boundary molar mixing ratio function">
               <ParameterList name="function-constant">
                 <Parameter name="value" type="double" value="0.035" />
               </ParameterList>
@@ -450,10 +440,6 @@
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="verbose object">
       <Parameter name="verbosity level" type="string" value="extreme" />
-    </ParameterList>
-    <ParameterList name="debug">
-      <Parameter name="evaluators" type="Array(string)" value="{total_component_concentration}" />
-      <Parameter name="data" type="Array(string)" value="{total_component_concentration}" />
     </ParameterList>
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="water_content" type="ParameterList">
