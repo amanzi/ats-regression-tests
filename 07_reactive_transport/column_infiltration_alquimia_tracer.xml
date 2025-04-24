@@ -91,6 +91,9 @@
         </ParameterList>
       </ParameterList>
     </ParameterList>
+    <ParameterList name="timestep manager" type="ParameterList">
+      <Parameter name="prescribed timesteps file name" type="string" value="../data/transport-column_infiltration_dts.h5" />
+    </ParameterList>
   </ParameterList>
   <ParameterList name="PKs">
 
@@ -149,7 +152,7 @@
           <Parameter name="min timestep" type="double" value="1e-10" />
           <Parameter name="growth wait after fail" type="int" value="2" />
           <Parameter name="count before increasing increase factor" type="int" value="2" />
-          <Parameter name="initial timestep [s]" type="double" value="1" />
+          <Parameter name="initial timestep [s]" type="double" value="86400" />
         </ParameterList>
       </ParameterList>
 

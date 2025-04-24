@@ -364,7 +364,7 @@
     <ParameterList name="chemistry surface" type="ParameterList">
       <Parameter name="PK type" type="string" value="chemistry alquimia" />
       <Parameter name="engine" type="string" value="CrunchFlow" />
-      <Parameter name="engine input file" type="string" value="../data/1d-tracer-crunch.in" />
+      <Parameter name="engine input file" type="string" value="../data/tracer-crunch.in" />
       <Parameter name="domain name" type="string" value="surface" />
       <Parameter name="saturation liquid key" type="string" value="surface-ponded_depth" />
       <Parameter name="auxiliary data" type="Array(string)" value="{pH}" />

@@ -107,8 +107,8 @@
 
 
   Primary species    itype     guess      Total conc.  Constraint phase
-  H+                   7    1.0000E-05    0.0000E+00                       
-  Na+                  2    1.0000E-06    0.0000E+00                       
+  H+                   7    1.0000E-05    6.1019-310                       
+  Na+                  2    1.0000E-06    6.1019-310                       
   NO3-                 1    1.0000E-06    1.0029E-01                       
   Zn++                 1    1.0000E-06    1.0029E-07                       
   Cl-                  1    1.0000E-06    1.0000E-20                       
