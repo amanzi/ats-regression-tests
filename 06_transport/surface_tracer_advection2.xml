@@ -83,8 +83,8 @@ C = 2 for Tracer 2.  Watch the advected front move across at 1m/s.
   </ParameterList>
 
   <ParameterList name="observations">
-    <ParameterList name="surface-molar_mixing_ratio">
-      <Parameter name="variable" type="string" value="surface-molar_mixing_ratio" />
+    <ParameterList name="surface-molar_ratio">
+      <Parameter name="variable" type="string" value="surface-molar_ratio" />
       <Parameter name="functional" type="string" value="point" />
       <Parameter name="region" type="string" value="observation point" />
       <Parameter name="delimiter" type="string" value="" />

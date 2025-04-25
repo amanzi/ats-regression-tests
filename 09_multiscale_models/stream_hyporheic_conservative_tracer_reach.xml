@@ -103,7 +103,7 @@
   </ParameterList>
   <ParameterList name="observations">
     <ParameterList name="surface-component_concentration">
-      <Parameter name="variable" type="string" value="surface-molar_mixing_ratio" />
+      <Parameter name="variable" type="string" value="surface-molar_ratio" />
       <Parameter name="functional" type="string" value="point" />
       <Parameter name="region" type="string" value="surface outlet" />
       <Parameter name="delimiter" type="string" value="" />
@@ -161,7 +161,7 @@
             <Parameter name="regions" type="Array(string)" value="{tracer source subgrid}" />
             <Parameter name="spatial distribution method" type="string" value="subgrid" />
             <ParameterList name="boundary molar mixing ratio" type="ParameterList">
-              <Parameter name="disaggregated key" type="string" value="surface-molar_mixing_ratio" />
+              <Parameter name="disaggregated key" type="string" value="surface-molar_ratio" />
             </ParameterList>
           </ParameterList>
         </ParameterList>
@@ -215,7 +215,7 @@
             <Parameter name="spatial distribution method" type="string" value="subgrid return" />
             <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
             <ParameterList name="source function" type="ParameterList">
-              <Parameter name="subgrid field suffix" type="string" value="molar_mixing_ratio" />
+              <Parameter name="subgrid field suffix" type="string" value="molar_ratio" />
               <Parameter name="domain subgrid field" type="string" value="subgrid" />
               <ParameterList name="function" type="ParameterList">
                 <ParameterList name="function-constant" type="ParameterList">

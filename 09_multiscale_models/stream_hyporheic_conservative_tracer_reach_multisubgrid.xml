@@ -251,7 +251,7 @@
             <Parameter name="spatial distribution method" type="string" value="subgrid return" />
             <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
             <ParameterList name="source function" type="ParameterList">
-              <Parameter name="subgrid field suffix" type="string" value="molar_mixing_ratio" />
+              <Parameter name="subgrid field suffix" type="string" value="molar_ratio" />
               <Parameter name="subgrid domain set" type="string" value="subgrid_1" />
               <ParameterList name="function" type="ParameterList">
                 <Parameter name="number of dofs" type="int" value="2" />
@@ -294,7 +294,7 @@
             <Parameter name="spatial distribution method" type="string" value="subgrid return" />
             <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
             <ParameterList name="source function" type="ParameterList">
-              <Parameter name="subgrid field suffix" type="string" value="molar_mixing_ratio" />
+              <Parameter name="subgrid field suffix" type="string" value="molar_ratio" />
               <Parameter name="subgrid domain set" type="string" value="subgrid_2" />
               <ParameterList name="function" type="ParameterList">
                 <Parameter name="number of dofs" type="int" value="2" />
@@ -415,7 +415,7 @@
             <Parameter name="regions" type="Array(string)" value="{tracer source subgrid}" />
             <Parameter name="spatial distribution method" type="string" value="subgrid" />
             <ParameterList name="boundary molar mixing ratio" type="ParameterList">
-              <Parameter name="disaggregated key" type="string" value="surface-molar_mixing_ratio" />
+              <Parameter name="disaggregated key" type="string" value="surface-molar_ratio" />
             </ParameterList>
           </ParameterList>
         </ParameterList>
@@ -461,7 +461,7 @@
             <Parameter name="regions" type="Array(string)" value="{tracer source subgrid}" />
             <Parameter name="spatial distribution method" type="string" value="subgrid" />
             <ParameterList name="boundary molar mixing ratio" type="ParameterList">
-              <Parameter name="disaggregated key" type="string" value="surface-molar_mixing_ratio" />
+              <Parameter name="disaggregated key" type="string" value="surface-molar_ratio" />
             </ParameterList>
           </ParameterList>
         </ParameterList>
