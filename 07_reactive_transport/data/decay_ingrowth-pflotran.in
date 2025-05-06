@@ -1,0 +1,25 @@
+CHEMISTRY
+PRIMARY_SPECIES
+  Tracer1
+  Tracer2
+/
+RADIOACTIVE_DECAY_REACTION
+  REACTION Tracer1 <-> Tracer2
+  RATE_CONSTANT 0.0001 ! 1/s
+  !RATE_CONSTANT 0 ! 1/s
+/
+LOG_FORMULATION
+DATABASE hanford-pflotran.dat
+END
+CONSTRAINT upstreambc
+  CONCENTRATIONS
+    Tracer1 1.0      T
+    Tracer2 1.0e-20  T
+  /
+END
+CONSTRAINT initial
+  CONCENTRATIONS
+    Tracer1 1.0e-20  T
+    Tracer2 1.0e-20  T
+  /
+END

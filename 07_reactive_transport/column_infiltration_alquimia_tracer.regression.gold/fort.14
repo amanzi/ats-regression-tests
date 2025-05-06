@@ -1,0 +1,236 @@
+ WARNING: Card (NONISOTHERMAL) not found in input file.
+
+ ! ************************************************************************** !
+
+ Initial Basis
+
+ Primary Species:
+  tracer
+    Charge:   0.00
+    Molar Mass:    1.0000 [g/mol]
+    Debye-Huckel a0:    0.0000 [Angstrom]
+
+
+ Secondary Species: None
+
+ Gas Components: None
+
+ Minerals: None
+
+ Surface Complexation Reactions: None
+
+   Surface Complexes: None
+
+ Ion Exchange Reactions: None
+
+ ! ************************************************************************** !
+
+
+ ! ************************************************************************** !
+
+ Final Basis
+
+ Primary Species:
+  tracer
+    Charge:   0.00
+    Molar Mass:    1.0000 [g/mol]
+    Debye-Huckel a0:    0.0000 [Angstrom]
+
+
+ Secondary Species: None
+
+ Gas Components: None
+
+ Minerals: None
+
+ Surface Complexation Reactions: None
+
+   Surface Complexes: None
+
+ Ion Exchange Reactions: None
+
+ ! ************************************************************************** !
+
+--------------------------------------------------------------------------------
+
+     1  Primary Species
+
+              tracer              
+
+     0  Secondary Complex Species
+
+
+
+     0  Active Gas Species
+
+
+
+     0  Passive Gas Species
+
+
+
+     0  Reference Minerals
+
+
+
+     0  Kinetic Mineral Reactions
+
+
+
+     0  Ion Exchange Reactions
+
+     0  Ion Exchange Cations
+--------------------------------------------------------------------------------
+Constraint Species: tracer
+Constraint Species: tracer
+ WARNING: Card (NONISOTHERMAL) not found in input file.
+
+ ! ************************************************************************** !
+
+ Initial Basis
+
+ Primary Species:
+  tracer
+    Charge:   0.00
+    Molar Mass:    1.0000 [g/mol]
+    Debye-Huckel a0:    0.0000 [Angstrom]
+
+
+ Secondary Species: None
+
+ Gas Components: None
+
+ Minerals: None
+
+ Surface Complexation Reactions: None
+
+   Surface Complexes: None
+
+ Ion Exchange Reactions: None
+
+ ! ************************************************************************** !
+
+
+ ! ************************************************************************** !
+
+ Final Basis
+
+ Primary Species:
+  tracer
+    Charge:   0.00
+    Molar Mass:    1.0000 [g/mol]
+    Debye-Huckel a0:    0.0000 [Angstrom]
+
+
+ Secondary Species: None
+
+ Gas Components: None
+
+ Minerals: None
+
+ Surface Complexation Reactions: None
+
+   Surface Complexes: None
+
+ Ion Exchange Reactions: None
+
+ ! ************************************************************************** !
+
+--------------------------------------------------------------------------------
+
+     1  Primary Species
+
+              tracer              
+
+     0  Secondary Complex Species
+
+
+
+     0  Active Gas Species
+
+
+
+     0  Passive Gas Species
+
+
+
+     0  Reference Minerals
+
+
+
+     0  Kinetic Mineral Reactions
+
+
+
+     0  Ion Exchange Reactions
+
+     0  Ion Exchange Cations
+--------------------------------------------------------------------------------
+Constraint Species: tracer
+Constraint Species: tracer
+processing : initial
+Looking for pflotran constraint : initial
+initializing constraint : initial
+equilibrate constraint : initial
+
+  Constraint: initial
+  ----------------------------------------------------------------------------
+        iterations:    11
+    ionic strength:   0.0000E+00 [mol/L]
+    charge balance:   0.0000E+00
+          pressure:   0.0000E+00 [Pa]
+       temperature:    25.00 [C]
+       density H2O:   997.16 [kg/m^3]
+ ln / activity H2O:   0.0000E+00  1.0000E+00    [---]
+ mole fraction H2O:   1.0000E+00    [---]
+ mass fraction H2O:   1.0000E+00    [---]
+  ----------------------------------------------------------------------------
+
+  primary                   free        total
+  species                   molal       molal       act coef     constraint
+  ----------------------------------------------------------------------------
+  tracer                    1.0000E-20  1.0028E-20  1.0000E+00    total aq
+processing : initial
+Looking for pflotran constraint : initial
+initializing constraint : initial
+equilibrate constraint : initial
+
+  Constraint: initial
+  ----------------------------------------------------------------------------
+        iterations:    11
+    ionic strength:   0.0000E+00 [mol/L]
+    charge balance:   0.0000E+00
+          pressure:   0.0000E+00 [Pa]
+       temperature:    25.00 [C]
+       density H2O:   997.16 [kg/m^3]
+ ln / activity H2O:   0.0000E+00  1.0000E+00    [---]
+ mole fraction H2O:   1.0000E+00    [---]
+ mass fraction H2O:   1.0000E+00    [---]
+  ----------------------------------------------------------------------------
+
+  primary                   free        total
+  species                   molal       molal       act coef     constraint
+  ----------------------------------------------------------------------------
+  tracer                    1.0000E-20  1.0028E-20  1.0000E+00    total aq
+processing : west
+Looking for pflotran constraint : west
+initializing constraint : west
+equilibrate constraint : west
+
+  Constraint: west
+  ----------------------------------------------------------------------------
+        iterations:    10
+    ionic strength:   0.0000E+00 [mol/L]
+    charge balance:   0.0000E+00
+          pressure:   4.7454-310 [Pa]
+       temperature:    25.00 [C]
+       density H2O:   997.16 [kg/m^3]
+ ln / activity H2O:   0.0000E+00  1.0000E+00    [---]
+ mole fraction H2O:   9.0910E-01    [---]
+ mass fraction H2O:   9.9448E-01    [---]
+  ----------------------------------------------------------------------------
+
+  primary                   free        total
+  species                   molal       molal       act coef     constraint
+  ----------------------------------------------------------------------------
+  tracer                    5.5500E+00  5.5658E+00  1.0000E+00    total aq

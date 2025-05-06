@@ -1,2 +1,2 @@
-ATS: b'ats-1.5-dev-52-ga18aa1bd'
-Amanzi: b'amanzi-1.4-dev-969-ge4902d829'
+ATS: b'ats-1.5-dev-125-gb338e3d7'
+Amanzi: b'amanzi-1.6-dev-183-g933021028a'

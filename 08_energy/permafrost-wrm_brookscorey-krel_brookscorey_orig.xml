@@ -4,9 +4,9 @@
       <Parameter name="build columns from set" type="string" value="surface face" />
       <Parameter name="mesh type" type="string" value="generate mesh" />
       <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{1,1,100}" />
-        <Parameter name="domain low coordinate" type="Array(double)" value="{ 0, 0, 0}" />
-        <Parameter name="domain high coordinate" type="Array(double)" value="{ 1, 1,10}" />
+        <Parameter name="number of cells" type="Array(int)" value="{1, 1, 100}" />
+        <Parameter name="domain low coordinate" type="Array(double)" value="{0, 0, 0}" />
+        <Parameter name="domain high coordinate" type="Array(double)" value="{1, 1, 10}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
@@ -26,8 +26,8 @@
   <ParameterList name="regions" type="ParameterList">
     <ParameterList name="domain" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{ 0, 0, 0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{ 1, 1,10}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{0, 0, 0}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{1, 1, 10}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface domain" type="ParameterList">
@@ -36,38 +36,38 @@
     </ParameterList>
     <ParameterList name="east face" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{ 1, 1, 0}" />
-        <Parameter name="normal" type="Array(double)" value="{ 1, 0, 0}" />
+        <Parameter name="point" type="Array(double)" value="{1, 1, 0}" />
+        <Parameter name="normal" type="Array(double)" value="{1, 0, 0}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="west face" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{ 0, 0, 0}" />
+        <Parameter name="point" type="Array(double)" value="{0, 0, 0}" />
         <Parameter name="normal" type="Array(double)" value="{-1, 0, 0}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="north face" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{ 1, 1, 0}" />
-        <Parameter name="normal" type="Array(double)" value="{ 0, 1, 0}" />
+        <Parameter name="point" type="Array(double)" value="{1, 1, 0}" />
+        <Parameter name="normal" type="Array(double)" value="{0, 1, 0}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="south face" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{ 0, 0, 0}" />
-        <Parameter name="normal" type="Array(double)" value="{ 0,-1, 0}" />
+        <Parameter name="point" type="Array(double)" value="{0, 0, 0}" />
+        <Parameter name="normal" type="Array(double)" value="{0, -1, 0}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="bottom face" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{0.5,0.5, 0}" />
-        <Parameter name="normal" type="Array(double)" value="{ 0, 0,-1}" />
+        <Parameter name="point" type="Array(double)" value="{0.5, 0.5, 0}" />
+        <Parameter name="normal" type="Array(double)" value="{0, 0, -1}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface face" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{0.5,0.5,10}" />
-        <Parameter name="normal" type="Array(double)" value="{ 0, 0, 1}" />
+        <Parameter name="point" type="Array(double)" value="{0.5, 0.5, 10}" />
+        <Parameter name="normal" type="Array(double)" value="{0, 0, 1}" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface outlet" type="ParameterList">
@@ -76,19 +76,19 @@
     </ParameterList>
     <ParameterList name="east face seepage" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{ 0, 0, 9}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{ 1, 0,10}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{0, 0, 9}" />
+        <Parameter name="high coordinate" type="Array(double)" value="{1, 0, 10}" />
       </ParameterList>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
-    <Parameter name="start time" type="double" value=" 0" />
+    <Parameter name="start time" type="double" value="0" />
     <Parameter name="start time units" type="string" value="s" />
     <Parameter name="end time" type="double" value="360" />
     <Parameter name="end time units" type="string" value="d" />
     <ParameterList name="required times" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{ 0, 1,-1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0, 1, -1}" />
       <Parameter name="times start period stop units" type="string" value="d" />
     </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
@@ -119,7 +119,7 @@
 
     <ParameterList name="top level MPC" type="ParameterList">
       <Parameter name="PK type" type="string" value="strong MPC" />
-      <Parameter name="PKs order" type="Array(string)" value="{SEB,permafrost surface and subsurface}" />
+      <Parameter name="PKs order" type="Array(string)" value="{SEB, permafrost surface and subsurface}" />
       <ParameterList name="time integrator" type="ParameterList">
         <Parameter name="extrapolate initial guess" type="bool" value="true" />
         <Parameter name="solver type" type="string" value="nka_bt_ats" />
@@ -160,7 +160,7 @@
       <Parameter name="dump preconditioner" type="bool" value="false" />
       <ParameterList name="ewc delegate" type="ParameterList">
         <Parameter name="predictor type" type="string" value="smart ewc" />
-        <Parameter name="freeze-thaw cusp width [K]" type="double" value=" 1" />
+        <Parameter name="freeze-thaw cusp width [K]" type="double" value="1" />
       </ParameterList>
 
       <ParameterList name="water delegate" type="ParameterList">
@@ -177,14 +177,14 @@
           <Parameter name="cycle applications" type="int" value="1" />
           <Parameter name="smoother sweeps" type="int" value="1" />
           <Parameter name="strong threshold" type="double" value="0.65" />
-          <Parameter name="tolerance" type="double" value=" 0" />
+          <Parameter name="tolerance" type="double" value="0" />
           <Parameter name="number of functions" type="int" value="2" />
           <Parameter name="verbosity" type="int" value="0" />
         </ParameterList>
         <ParameterList name="gmres parameters" type="ParameterList">
           <Parameter name="preconditioning strategy" type="string" value="left" />
           <Parameter name="error tolerance" type="double" value="1e-06" />
-          <Parameter name="convergence criteria" type="Array(string)" value="{relative residual,make one iteration}" />
+          <Parameter name="convergence criteria" type="Array(string)" value="{relative residual, make one iteration}" />
           <Parameter name="maximum number of iteration" type="int" value="10" />
         </ParameterList>
       </ParameterList>
@@ -224,8 +224,10 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="restart file" type="string" value="../data/energy_freezeup_checkpoint_final.h5" />
+
       </ParameterList>
 
     </ParameterList>
@@ -245,8 +247,10 @@
       <ParameterList name="boundary conditions" type="ParameterList">
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="initialize surface head from subsurface" type="bool" value="true" />
+
       </ParameterList>
 
     </ParameterList>
@@ -278,8 +282,10 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="restart file" type="string" value="../data/energy_freezeup_checkpoint_final.h5" />
+
       </ParameterList>
 
       <ParameterList name="thermal conductivity evaluator" type="ParameterList">
@@ -287,9 +293,9 @@
           <ParameterList name="mineral" type="ParameterList">
             <Parameter name="region" type="string" value="domain" />
             <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry" />
-            <Parameter name="thermal conductivity, saturated (unfrozen) [W m^-1 K^-1]" type="double" value=" 1" />
+            <Parameter name="thermal conductivity, saturated (unfrozen) [W m^-1 K^-1]" type="double" value="1" />
             <Parameter name="thermal conductivity, dry [W m^-1 K^-1]" type="double" value="0.29" />
-            <Parameter name="unsaturated alpha frozen [-]" type="double" value=" 1" />
+            <Parameter name="unsaturated alpha frozen [-]" type="double" value="1" />
             <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5" />
           </ParameterList>
         </ParameterList>
@@ -321,8 +327,10 @@
       <ParameterList name="boundary conditions" type="ParameterList">
       </ParameterList>
 
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="initialize surface temperature from subsurface" type="bool" value="true" />
+
       </ParameterList>
 
       <ParameterList name="thermal conductivity evaluator" type="ParameterList">
@@ -344,8 +352,10 @@
       <Parameter name="conserved quantity key" type="string" value="snow-water_volume" />
       <Parameter name="source term" type="bool" value="true" />
       <Parameter name="source key" type="string" value="snow-source_sink" />
-      <ParameterList name="initial condition" type="ParameterList">
+      <ParameterList name="initial conditions" type="ParameterList">
+
         <Parameter name="constant" type="double" value="0.35" />
+
       </ParameterList>
 
       <ParameterList name="inverse" type="ParameterList">
@@ -354,7 +364,7 @@
         <ParameterList name="gmres parameters" type="ParameterList">
           <Parameter name="preconditioning strategy" type="string" value="left" />
           <Parameter name="error tolerance" type="double" value="1e-06" />
-          <Parameter name="convergence criteria" type="Array(string)" value="{relative residual,make one iteration}" />
+          <Parameter name="convergence criteria" type="Array(string)" value="{relative residual, make one iteration}" />
           <Parameter name="maximum number of iteration" type="int" value="80" />
         </ParameterList>
       </ParameterList>
@@ -406,7 +416,8 @@
         </ParameterList>
       </ParameterList>
       <ParameterList name="permeability" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable" />
+        <Parameter name="evaluator type" type="string" value="independent variable tensor" />
+        <Parameter name="tensor type" type="string" value="scalar" />
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="mineral" type="ParameterList">
             <Parameter name="region" type="string" value="domain" />
@@ -536,7 +547,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}" />
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value=" 1" />
+                <Parameter name="value" type="double" value="1" />
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -545,21 +556,21 @@
       <ParameterList name="snow-source_sink" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="surface energy balance, three components" />
         <Parameter name="save diagnostic data" type="bool" value="true" />
-        <Parameter name="wind speed reference height [m]" type="double" value=" 3" />
+        <Parameter name="wind speed reference height [m]" type="double" value="3" />
       </ParameterList>
       <ParameterList name="snow-water_equivalent" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="dependencies" type="Array(string)" value="{snow-depth,snow-density}" />
+        <Parameter name="dependencies" type="Array(string)" value="{snow-depth, snow-density}" />
         <Parameter name="coefficient" type="double" value="0.001" />
         <Parameter name="units" type="string" value="m" />
       </ParameterList>
       <ParameterList name="snow-water_volume" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="dependencies" type="Array(string)" value="{snow-water_equivalent,snow-cell_volume}" />
+        <Parameter name="dependencies" type="Array(string)" value="{snow-water_equivalent, snow-cell_volume}" />
       </ParameterList>
       <ParameterList name="snow-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="dependencies" type="Array(string)" value="{snow-water_volume,surface-molar_density_liquid}" />
+        <Parameter name="dependencies" type="Array(string)" value="{snow-water_volume, surface-molar_density_liquid}" />
         <Parameter name="units" type="string" value="mol" />
       </ParameterList>
       <ParameterList name="surface-energy" type="ParameterList">
@@ -707,7 +718,7 @@
       <ParameterList name="relative_permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="relative permeability, freezing Brooks-Corey" />
         <Parameter name="model parameters" type="string" value="WRM parameters" />
-        <Parameter name="minimum rel perm cutoff" type="double" value=" 0" />
+        <Parameter name="minimum rel perm cutoff" type="double" value="0" />
         <Parameter name="use surface rel perm" type="bool" value="true" />
       </ParameterList>
       <ParameterList name="saturation_liquid" type="ParameterList">
@@ -734,7 +745,7 @@
       </ParameterList>
 
       <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{ 0, 0,-9.80665}" />
+        <Parameter name="value" type="Array(double)" value="{0, 0, -9.80665}" />
       </ParameterList>
 
       <ParameterList name="land cover types" type="ParameterList">
@@ -764,7 +775,7 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times" type="Array(double)" value="{ 0,140,160,180,200,360}" />
+    <Parameter name="times" type="Array(double)" value="{0, 140, 160, 180, 200, 360}" />
     <Parameter name="times units" type="string" value="d" />
   </ParameterList>
 </ParameterList>
