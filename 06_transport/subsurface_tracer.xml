@@ -1,11 +1,11 @@
 <ParameterList name="Main" type="ParameterList">
   <ParameterList name="mesh" type="ParameterList">
     <ParameterList name="domain">
-      <Parameter name="mesh type" type="string" value="read mesh file" />
-      <Parameter name="build columns from set" type="string" value="surface" />
+      <Parameter name="mesh type" type="string" value="read mesh file"/>
+      <Parameter name="build columns from set" type="string" value="surface"/>
       <ParameterList name="read mesh file parameters">
-        <Parameter name="file" type="string" value="../data/synthetic_hillslope.exo" />
-        <Parameter name="format" type="string" value="Exodus II" />
+        <Parameter name="file" type="string" value="../data/synthetic_hillslope.exo"/>
+        <Parameter name="format" type="string" value="Exodus II"/>
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -17,107 +17,107 @@
     </ParameterList>
     <ParameterList name="west face" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{0, 0, 0}" />
-        <Parameter name="normal" type="Array(double)" value="{-1, 0, 0}" />
+        <Parameter name="point" type="Array(double)" value="{0, 0, 0}"/>
+        <Parameter name="normal" type="Array(double)" value="{-1, 0, 0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="east face" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{1000, 0, 0}" />
-        <Parameter name="normal" type="Array(double)" value="{1, 0, 0}" />
+        <Parameter name="point" type="Array(double)" value="{1000, 0, 0}"/>
+        <Parameter name="normal" type="Array(double)" value="{1, 0, 0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
       <ParameterList name="region: labeled set" type="ParameterList">
-        <Parameter name="label" type="string" value="2" />
-        <Parameter name="file" type="string" value="../data/synthetic_hillslope.exo" />
-        <Parameter name="format" type="string" value="Exodus II" />
-        <Parameter name="entity" type="string" value="face" />
+        <Parameter name="label" type="string" value="2"/>
+        <Parameter name="file" type="string" value="../data/synthetic_hillslope.exo"/>
+        <Parameter name="format" type="string" value="Exodus II"/>
+        <Parameter name="entity" type="string" value="face"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="well" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{990, -10, 98}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{1000, 10, 100}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{990, -10, 98}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{1000, 10, 100}"/>
       </ParameterList>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
-    <Parameter name="start time" type="double" value="0" />
-    <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="20" />
-    <Parameter name="end time units" type="string" value="d" />
+    <Parameter name="start time" type="double" value="0"/>
+    <Parameter name="start time units" type="string" value="s"/>
+    <Parameter name="end time" type="double" value="20"/>
+    <Parameter name="end time units" type="string" value="d"/>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="transport" type="ParameterList">
-        <Parameter name="PK type" type="string" value="transport ATS" />
+        <Parameter name="PK type" type="string" value="transport ATS"/>
       </ParameterList>
     </ParameterList>
   </ParameterList>
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0, 10, -1}" />
-      <Parameter name="times start period stop units" type="string" value="d" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0, 10, -1}"/>
+      <Parameter name="times start period stop units" type="string" value="d"/>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="file name base" type="string" value="checkpoint" />
-    <Parameter name="times start period stop" type="Array(double)" value="{0, 10, -1}" />
-    <Parameter name="times start period stop units" type="string" value="d" />
+    <Parameter name="file name base" type="string" value="checkpoint"/>
+    <Parameter name="times start period stop" type="Array(double)" value="{0, 10, -1}"/>
+    <Parameter name="times start period stop units" type="string" value="d"/>
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
 
     <ParameterList name="transport" type="ParameterList">
-      <Parameter name="PK type" type="string" value="transport ATS" />
-      <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
-      <Parameter name="advection spatial discretization order" type="int" value="1" />
-      <Parameter name="temporal discretization order" type="int" value="1" />
-      <Parameter name="cfl" type="double" value="1" />
-      <Parameter name="debug cells" type="Array(int)" value="{9900}" />
+      <Parameter name="PK type" type="string" value="transport ATS"/>
+      <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}"/>
+      <Parameter name="advection spatial discretization order" type="int" value="1"/>
+      <Parameter name="temporal discretization order" type="int" value="1"/>
+      <Parameter name="cfl" type="double" value="1"/>
+      <Parameter name="debug cells" type="Array(int)" value="{9900}"/>
       <ParameterList name="molecular diffusivity [m^2 s^-1]" type="ParameterList">
-        <Parameter name="Tracer1" type="double" value="1e-10" />
-        <Parameter name="Tracer2" type="double" value="0.001" />
+        <Parameter name="Tracer1" type="double" value="1e-10"/>
+        <Parameter name="Tracer2" type="double" value="0.001"/>
       </ParameterList>
 
       <ParameterList name="diffusion">
-        <Parameter name="discretization primary" type="string" value="mfd: default" />
-        <Parameter name="schema" type="Array(string)" value="{face, cell}" />
-        <Parameter name="preconditioner schema" type="Array(string)" value="{face}" />
+        <Parameter name="discretization primary" type="string" value="mfd: default"/>
+        <Parameter name="schema" type="Array(string)" value="{face, cell}"/>
+        <Parameter name="preconditioner schema" type="Array(string)" value="{face}"/>
         <ParameterList name="inverse">
-          <Parameter name="preconditioning method" type="string" value="boomer amg" />
-          <Parameter name="iterative method" type="string" value="gmres" />
+          <Parameter name="preconditioning method" type="string" value="boomer amg"/>
+          <Parameter name="iterative method" type="string" value="gmres"/>
           <ParameterList name="boomer amg parameters">
-            <Parameter name="tolerance" type="double" value="0" />
-            <Parameter name="smoother sweeps" type="int" value="3" />
-            <Parameter name="cycle applications" type="int" value="5" />
-            <Parameter name="strong threshold" type="double" value="0.5" />
+            <Parameter name="tolerance" type="double" value="0"/>
+            <Parameter name="smoother sweeps" type="int" value="3"/>
+            <Parameter name="cycle applications" type="int" value="5"/>
+            <Parameter name="strong threshold" type="double" value="0.5"/>
           </ParameterList>
           <ParameterList name="gmres parameters">
-            <Parameter name="maximum number of iterations" type="int" value="400" />
-            <Parameter name="error tolerance" type="double" value="1e-10" />
-            <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}" />
-            <Parameter name="size of Krylov space" type="int" value="5" />
+            <Parameter name="maximum number of iterations" type="int" value="400"/>
+            <Parameter name="error tolerance" type="double" value="1e-10"/>
+            <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}"/>
+            <Parameter name="size of Krylov space" type="int" value="5"/>
           </ParameterList>
         </ParameterList>
       </ParameterList>
 
       <ParameterList name="initial conditions" type="ParameterList">
-        <Parameter name="constant" type="double" value="0" />
+        <Parameter name="constant" type="double" value="0"/>
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="molar mixing ratio" type="ParameterList">
           <ParameterList name="tracer1" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{east face}" />
-            <Parameter name="spatial distribution method" type="string" value="none" />
-            <Parameter name="component names" type="Array(string)" value="{Tracer1}" />
+            <Parameter name="regions" type="Array(string)" value="{east face}"/>
+            <Parameter name="spatial distribution method" type="string" value="none"/>
+            <Parameter name="component names" type="Array(string)" value="{Tracer1}"/>
             <ParameterList name="boundary molar mixing ratio function" type="ParameterList">
-              <Parameter name="number of dofs" type="int" value="1" />
+              <Parameter name="number of dofs" type="int" value="1"/>
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="1" />
+                  <Parameter name="value" type="double" value="1"/>
                 </ParameterList>
               </ParameterList>
             </ParameterList>
@@ -128,14 +128,14 @@
       <ParameterList name="source terms" type="ParameterList">
         <ParameterList name="component mass source" type="ParameterList">
           <ParameterList name="tracer2" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{well}" />
-            <Parameter name="spatial distribution method" type="string" value="none" />
-            <Parameter name="component names" type="Array(string)" value="{Tracer2}" />
+            <Parameter name="regions" type="Array(string)" value="{well}"/>
+            <Parameter name="spatial distribution method" type="string" value="none"/>
+            <Parameter name="component names" type="Array(string)" value="{Tracer2}"/>
             <ParameterList name="source function" type="ParameterList">
-              <Parameter name="number of dofs" type="int" value="1" />
+              <Parameter name="number of dofs" type="int" value="1"/>
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="1000" />
+                  <Parameter name="value" type="double" value="1000"/>
                 </ParameterList>
               </ParameterList>
             </ParameterList>
@@ -150,42 +150,42 @@
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="saturation_liquid" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable from file" />
-        <Parameter name="constant in time" type="bool" value="true" />
-        <Parameter name="filename" type="string" value="../data/richards-hillslope_steadystate.h5" />
-        <Parameter name="variable name" type="string" value="saturation_liquid" />
-        <Parameter name="component name" type="string" value="cell" />
-        <Parameter name="mesh entity" type="string" value="cell" />
+        <Parameter name="evaluator type" type="string" value="independent variable from file"/>
+        <Parameter name="constant in time" type="bool" value="true"/>
+        <Parameter name="filename" type="string" value="../data/richards-hillslope_steadystate.h5"/>
+        <Parameter name="variable name" type="string" value="saturation_liquid"/>
+        <Parameter name="component name" type="string" value="cell"/>
+        <Parameter name="mesh entity" type="string" value="cell"/>
       </ParameterList>
       <ParameterList name="water_flux" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable from file" />
-        <Parameter name="constant in time" type="bool" value="true" />
-        <Parameter name="filename" type="string" value="../data/richards-hillslope_steadystate.h5" />
-        <Parameter name="variable name" type="string" value="mass_flux" />
-        <Parameter name="component name" type="string" value="face" />
-        <Parameter name="mesh entity" type="string" value="face" />
+        <Parameter name="evaluator type" type="string" value="independent variable from file"/>
+        <Parameter name="constant in time" type="bool" value="true"/>
+        <Parameter name="filename" type="string" value="../data/richards-hillslope_steadystate.h5"/>
+        <Parameter name="variable name" type="string" value="mass_flux"/>
+        <Parameter name="component name" type="string" value="face"/>
+        <Parameter name="mesh entity" type="string" value="face"/>
       </ParameterList>
       <ParameterList name="porosity" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="0.25" />
+        <Parameter name="evaluator type" type="string" value="independent variable constant"/>
+        <Parameter name="value" type="double" value="0.25"/>
       </ParameterList>
       <ParameterList name="molar_density_liquid" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="55000" />
+        <Parameter name="evaluator type" type="string" value="independent variable constant"/>
+        <Parameter name="value" type="double" value="55000"/>
       </ParameterList>
       <ParameterList name="water_content" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="dependencies" type="Array(string)" value="{porosity, molar_density_liquid, saturation_liquid, cell_volume}" />
+        <Parameter name="evaluator type" type="string" value="multiplicative evaluator"/>
+        <Parameter name="dependencies" type="Array(string)" value="{porosity, molar_density_liquid, saturation_liquid, cell_volume}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 
       <ParameterList name="atmospheric_pressure" type="ParameterList">
-        <Parameter name="value" type="double" value="101325" />
+        <Parameter name="value" type="double" value="101325"/>
       </ParameterList>
 
       <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{0, 0, -9.80665}" />
+        <Parameter name="value" type="Array(double)" value="{0, 0, -9.80665}"/>
       </ParameterList>
 
     </ParameterList>
