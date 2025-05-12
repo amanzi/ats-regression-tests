@@ -73,44 +73,44 @@
   <ParameterList name="regions" type="ParameterList">
     <ParameterList name="computational domain" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{-10000000000, -10000000000, -1000}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{10000000000, 10000000000, 1000}"/>
+        <Parameter name="low coordinate" type="Array(double)" value="{-10000000000.0, -10000000000.0, -1000.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{10000000000.0, 10000000000.0, 1000.0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface domain" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{-10000000000, -10000000000}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{10000000000, 10000000000}"/>
+        <Parameter name="low coordinate" type="Array(double)" value="{-10000000000.0, -10000000000.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{10000000000.0, 10000000000.0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="computational domain moss" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
         <Parameter name="low coordinate" type="Array(double)" value="{-1e-10, -1e-10, 4.98}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{10000000000, 10000000000, 5}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{10000000000.0, 10000000000.0, 5.0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="computational domain peat" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
         <Parameter name="low coordinate" type="Array(double)" value="{-1e-10, -1e-10, 4.9}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{10000000000, 10000000000, 4.98}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{10000000000.0, 10000000000.0, 4.98}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="computational domain ice rich" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
         <Parameter name="low coordinate" type="Array(double)" value="{-1e-10, -1e-10, 2.4}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{10000000000, 10000000000, 4.8}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{10000000000.0, 10000000000.0, 4.8}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="computational domain null subsidence" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{-1e-10, -1e-10, -35}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{10000000000, 10000000000, -40}"/>
+        <Parameter name="low coordinate" type="Array(double)" value="{-1e-10, -1e-10, -35.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{10000000000.0, 10000000000.0, -40.0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="computational domain mineral" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{-1e-10, -1e-10, -1000}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{10000000000, 10000000000, 4.9}"/>
+        <Parameter name="low coordinate" type="Array(double)" value="{-1e-10, -1e-10, -1000.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{10000000000.0, 10000000000.0, 4.9}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
@@ -148,12 +148,12 @@
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
-    <Parameter name="start time" type="double" value="0"/>
+    <Parameter name="start time" type="double" value="0.0"/>
     <Parameter name="start time units" type="string" value="s"/>
-    <Parameter name="end time" type="double" value="150"/>
+    <Parameter name="end time" type="double" value="150.0"/>
     <Parameter name="end time units" type="string" value="d"/>
     <ParameterList name="required times" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0, 1, -1}"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 1.0, -1.0}"/>
       <Parameter name="times start period stop units" type="string" value="d"/>
     </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
@@ -205,7 +205,7 @@
     <ParameterList name="water balance" type="ParameterList">
       <Parameter name="observation output filename" type="string" value="data_collection.dat"/>
       <Parameter name="time units" type="string" value="d"/>
-      <Parameter name="times start period stop" type="Array(double)" value="{0, 1, -1}"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 1.0, -1.0}"/>
       <Parameter name="times start period stop units" type="string" value="d"/>
       <ParameterList name="observed quantities" type="ParameterList">
         <ParameterList name="outlet discharge [mol d^-1]" type="ParameterList">
@@ -289,7 +289,7 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times" type="Array(double)" value="{0, 1, 73, 125, 150}"/>
+    <Parameter name="times" type="Array(double)" value="{0.0, 1.0, 73.0, 125.0, 150.0}"/>
     <Parameter name="times units" type="string" value="d"/>
     <Parameter name="single file checkpoint" type="bool" value="false"/>
     <Parameter name="time units" type="string" value="noleap"/>
@@ -297,16 +297,16 @@
 
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="column:*" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0, 1, -1}"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 1.0, -1.0}"/>
       <Parameter name="times start period stop units" type="string" value="d"/>
     </ParameterList>
     <ParameterList name="surface_column:*" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0, 1, -1}"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 1.0, -1.0}"/>
       <Parameter name="times start period stop units" type="string" value="d"/>
       <Parameter name="aliases" type="Array(string)" value="{snow_column:*}"/>
     </ParameterList>
     <ParameterList name="surface_star" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0, 1, -1}"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 1.0, -1.0}"/>
       <Parameter name="times start period stop units" type="string" value="d"/>
     </ParameterList>
   </ParameterList>
@@ -342,7 +342,7 @@
       <Parameter name="deformation mode" type="string" value="structural"/>
       <Parameter name="deformation region" type="string" value="computational domain null subsidence"/>
       <Parameter name="deformation strategy" type="string" value="average"/>
-      <Parameter name="deformation relaxation time [s]" type="double" value="43200"/>
+      <Parameter name="deformation relaxation time [s]" type="double" value="43200.0"/>
       <Parameter name="volume fraction of solids required to be structural [-]" type="double" value="0.4"/>
       <Parameter name="bottom region" type="string" value="bottom face"/>
       <Parameter name="bottom region type" type="string" value="node"/>
@@ -403,8 +403,8 @@
           <Parameter name="backtrack max steps" type="int" value="10"/>
           <Parameter name="backtrack factor" type="double" value="0.25"/>
           <Parameter name="backtrack tolerance" type="double" value="0.0001"/>
-          <Parameter name="nonlinear tolerance" type="double" value="5e-05"/>
-          <Parameter name="diverged tolerance" type="double" value="10000000000"/>
+          <Parameter name="nonlinear tolerance" type="double" value="0.00005"/>
+          <Parameter name="diverged tolerance" type="double" value="10000000000.0"/>
           <Parameter name="limit iterations" type="int" value="21"/>
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
@@ -412,11 +412,11 @@
           <Parameter name="min iterations" type="int" value="10"/>
           <Parameter name="timestep reduction factor" type="double" value="0.5"/>
           <Parameter name="timestep increase factor" type="double" value="1.25"/>
-          <Parameter name="max timestep" type="double" value="86400"/>
-          <Parameter name="min timestep" type="double" value="1e-06"/>
+          <Parameter name="max timestep" type="double" value="86400.0"/>
+          <Parameter name="min timestep" type="double" value="0.000001"/>
           <Parameter name="growth wait after fail" type="int" value="2"/>
           <Parameter name="count before increasing increase factor" type="int" value="2"/>
-          <Parameter name="initial timestep [s]" type="double" value="43200"/>
+          <Parameter name="initial timestep [s]" type="double" value="43200.0"/>
         </ParameterList>
       </ParameterList>
 
@@ -434,12 +434,12 @@
       <Parameter name="debug cells" type="Array(int)" value="{0}"/>
       <ParameterList name="initial conditions" type="ParameterList">
 
-        <Parameter name="constant" type="double" value="0"/>
+        <Parameter name="constant" type="double" value="0.0"/>
 
       </ParameterList>
 
       <ParameterList name="accumulation preconditioner" type="ParameterList">
-        <Parameter name="diagonal shift" type="double" value="1e-06"/>
+        <Parameter name="diagonal shift" type="double" value="0.000001"/>
       </ParameterList>
 
       <ParameterList name="inverse" type="ParameterList">
@@ -474,7 +474,7 @@
         <Parameter name="iterative method" type="string" value="gmres"/>
         <ParameterList name="gmres parameters" type="ParameterList">
           <Parameter name="preconditioning strategy" type="string" value="left"/>
-          <Parameter name="error tolerance" type="double" value="1e-06"/>
+          <Parameter name="error tolerance" type="double" value="0.000001"/>
           <Parameter name="convergence criteria" type="Array(string)" value="{relative residual, make one iteration}"/>
           <Parameter name="maximum number of iterations" type="int" value="10"/>
         </ParameterList>
@@ -521,7 +521,7 @@
       <Parameter name="source key suffix" type="string" value="water_source"/>
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux"/>
       <Parameter name="surface rel perm strategy" type="string" value="clobber"/>
-      <Parameter name="permeability rescaling" type="double" value="10000000"/>
+      <Parameter name="permeability rescaling" type="double" value="10000000.0"/>
       <Parameter name="debug cells" type="Array(int)" value="{0}"/>
       <ParameterList name="diffusion" type="ParameterList">
         <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation"/>
@@ -596,7 +596,7 @@
             <Parameter name="thermal conductivity, saturated (unfrozen) [W m^-1 K^-1]" type="double" value="0.75"/>
             <Parameter name="thermal conductivity, dry [W m^-1 K^-1]" type="double" value="0.1"/>
             <Parameter name="saturated beta frozen [-]" type="double" value="0.45"/>
-            <Parameter name="unsaturated alpha frozen [-]" type="double" value="1"/>
+            <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0"/>
             <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5"/>
           </ParameterList>
           <ParameterList name="computational domain peat" type="ParameterList">
@@ -605,7 +605,7 @@
             <Parameter name="thermal conductivity, saturated (unfrozen) [W m^-1 K^-1]" type="double" value="0.75"/>
             <Parameter name="thermal conductivity, dry [W m^-1 K^-1]" type="double" value="0.1"/>
             <Parameter name="saturated beta frozen [-]" type="double" value="0.48"/>
-            <Parameter name="unsaturated alpha frozen [-]" type="double" value="1"/>
+            <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0"/>
             <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5"/>
           </ParameterList>
           <ParameterList name="computational domain mineral" type="ParameterList">
@@ -614,7 +614,7 @@
             <Parameter name="thermal conductivity, saturated (unfrozen) [W m^-1 K^-1]" type="double" value="1.1"/>
             <Parameter name="thermal conductivity, dry [W m^-1 K^-1]" type="double" value="0.3"/>
             <Parameter name="saturated beta frozen [-]" type="double" value="0.6"/>
-            <Parameter name="unsaturated alpha frozen [-]" type="double" value="1"/>
+            <Parameter name="unsaturated alpha frozen [-]" type="double" value="1.0"/>
             <Parameter name="unsaturated alpha unfrozen [-]" type="double" value="0.5"/>
           </ParameterList>
         </ParameterList>
@@ -641,8 +641,8 @@
           <Parameter name="backtrack lag" type="int" value="0"/>
           <Parameter name="backtrack factor" type="double" value="0.25"/>
           <Parameter name="backtrack tolerance" type="double" value="0.0001"/>
-          <Parameter name="nonlinear tolerance" type="double" value="5e-05"/>
-          <Parameter name="diverged tolerance" type="double" value="10000000000"/>
+          <Parameter name="nonlinear tolerance" type="double" value="0.00005"/>
+          <Parameter name="diverged tolerance" type="double" value="10000000000.0"/>
           <Parameter name="limit iterations" type="int" value="21"/>
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
@@ -650,16 +650,16 @@
           <Parameter name="min iterations" type="int" value="12"/>
           <Parameter name="timestep reduction factor" type="double" value="0.5"/>
           <Parameter name="timestep increase factor" type="double" value="1.25"/>
-          <Parameter name="max timestep" type="double" value="86400"/>
-          <Parameter name="min timestep" type="double" value="1e-06"/>
+          <Parameter name="max timestep" type="double" value="86400.0"/>
+          <Parameter name="min timestep" type="double" value="0.000001"/>
           <Parameter name="growth wait after fail" type="int" value="2"/>
           <Parameter name="count before increasing increase factor" type="int" value="2"/>
-          <Parameter name="initial timestep [s]" type="double" value="43200"/>
+          <Parameter name="initial timestep [s]" type="double" value="43200.0"/>
         </ParameterList>
       </ParameterList>
 
       <ParameterList name="operator preconditioner" type="ParameterList">
-        <Parameter name="diagonal shift" type="double" value="1e-05"/>
+        <Parameter name="diagonal shift" type="double" value="0.00001"/>
       </ParameterList>
 
       <ParameterList name="inverse" type="ParameterList">
@@ -667,7 +667,7 @@
         <Parameter name="iterative method" type="string" value="gmres"/>
         <ParameterList name="gmres parameters" type="ParameterList">
           <Parameter name="preconditioning strategy" type="string" value="left"/>
-          <Parameter name="error tolerance" type="double" value="1e-06"/>
+          <Parameter name="error tolerance" type="double" value="0.000001"/>
           <Parameter name="convergence criteria" type="Array(string)" value="{relative residual, make one iteration}"/>
           <Parameter name="maximum number of iterations" type="int" value="80"/>
         </ParameterList>
@@ -692,7 +692,7 @@
             <Parameter name="regions" type="Array(string)" value="{surface outlet}"/>
             <ParameterList name="boundary head" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0"/>
+                <Parameter name="value" type="double" value="0.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -863,7 +863,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="3"/>
+                <Parameter name="value" type="double" value="3.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -871,13 +871,13 @@
       </ParameterList>
       <ParameterList name="Ssurface_star-drag_exponent" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable constant"/>
-        <Parameter name="value" type="double" value="3"/>
+        <Parameter name="value" type="double" value="3.0"/>
       </ParameterList>
       <ParameterList name="surface_star-mobile_depth" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="additive evaluator"/>
         <Parameter name="dependency suffixes" type="Array(string)" value="{ponded_depth, depression_depth}"/>
-        <Parameter name="ponded_depth coefficient" type="double" value="1"/>
-        <Parameter name="depression_depth coefficient" type="double" value="-1"/>
+        <Parameter name="ponded_depth coefficient" type="double" value="1.0"/>
+        <Parameter name="depression_depth coefficient" type="double" value="-1.0"/>
       </ParameterList>
       <ParameterList name="surface_star-fractional_conductance" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="fractional conductance"/>
@@ -898,7 +898,7 @@
           <Parameter name="smoothing width [K]" type="double" value="0.5"/>
           <Parameter name="interfacial tension ice-water [mN m^-1]" type="double" value="33.1"/>
           <Parameter name="interfacial tension air-water [mN m^-1]" type="double" value="72.7"/>
-          <Parameter name="latent heat [J kg^-1]" type="double" value="334000"/>
+          <Parameter name="latent heat [J kg^-1]" type="double" value="334000.0"/>
         </ParameterList>
       </ParameterList>
       <ParameterList name="surface_column:*-unfrozen_fraction" type="ParameterList">
@@ -962,7 +962,7 @@
         <Parameter name="evaluator type" type="string" value="iem"/>
         <ParameterList name="IEM parameters" type="ParameterList">
           <Parameter name="IEM type" type="string" value="linear"/>
-          <Parameter name="heat capacity [J mol^-1 K^-1]" type="double" value="76"/>
+          <Parameter name="heat capacity [J mol^-1 K^-1]" type="double" value="76.0"/>
         </ParameterList>
       </ParameterList>
       <ParameterList name="surface_column:*-internal_energy_liquid" type="ParameterList">
@@ -970,7 +970,7 @@
         <Parameter name="internal energy key" type="string" value="surface_column:*-internal_energy_liquid"/>
         <ParameterList name="IEM parameters" type="ParameterList">
           <Parameter name="IEM type" type="string" value="linear"/>
-          <Parameter name="heat capacity [J mol^-1 K^-1]" type="double" value="76"/>
+          <Parameter name="heat capacity [J mol^-1 K^-1]" type="double" value="76.0"/>
         </ParameterList>
       </ParameterList>
       <ParameterList name="surface_star-internal_energy_liquid" type="ParameterList">
@@ -978,14 +978,14 @@
         <Parameter name="internal energy key" type="string" value="surface_star-internal_energy_liquid"/>
         <ParameterList name="IEM parameters" type="ParameterList">
           <Parameter name="IEM type" type="string" value="linear"/>
-          <Parameter name="heat capacity [J mol^-1 K^-1]" type="double" value="76"/>
+          <Parameter name="heat capacity [J mol^-1 K^-1]" type="double" value="76.0"/>
         </ParameterList>
       </ParameterList>
       <ParameterList name="column:*-internal_energy_rock" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="iem"/>
         <ParameterList name="IEM parameters" type="ParameterList">
           <Parameter name="IEM type" type="string" value="linear"/>
-          <Parameter name="heat capacity [J kg^-1 K^-1]" type="double" value="620"/>
+          <Parameter name="heat capacity [J kg^-1 K^-1]" type="double" value="620.0"/>
         </ParameterList>
       </ParameterList>
       <ParameterList name="column:*-internal_energy_ice" type="ParameterList">
@@ -1020,8 +1020,8 @@
         <Parameter name="evaluator type" type="string" value="surface rel perm"/>
         <ParameterList name="surface rel perm model" type="ParameterList">
           <Parameter name="surface rel perm model type" type="string" value="unfrozen fraction rel perm, limit one"/>
-          <Parameter name="unfrozen rel perm cutoff pressure [Pa]" type="double" value="0"/>
-          <Parameter name="unfrozen rel perm cutoff pressure, below [Pa]" type="double" value="-100"/>
+          <Parameter name="unfrozen rel perm cutoff pressure [Pa]" type="double" value="0.0"/>
+          <Parameter name="unfrozen rel perm cutoff pressure, below [Pa]" type="double" value="-100.0"/>
         </ParameterList>
       </ParameterList>
       <ParameterList name="surface_star-manning_coefficient" type="ParameterList">
@@ -1052,15 +1052,15 @@
         <ParameterList name="compressible porosity model parameters" type="ParameterList">
           <ParameterList name="moss" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain moss"/>
-            <Parameter name="pore compressibility [Pa^-1]" type="double" value="5e-07"/>
+            <Parameter name="pore compressibility [Pa^-1]" type="double" value="5e-7"/>
           </ParameterList>
           <ParameterList name="peat" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain peat"/>
-            <Parameter name="pore compressibility [Pa^-1]" type="double" value="1e-07"/>
+            <Parameter name="pore compressibility [Pa^-1]" type="double" value="1e-7"/>
           </ParameterList>
           <ParameterList name="upper mineral" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain mineral"/>
-            <Parameter name="pore compressibility [Pa^-1]" type="double" value="1e-08"/>
+            <Parameter name="pore compressibility [Pa^-1]" type="double" value="1e-8"/>
           </ParameterList>
         </ParameterList>
       </ParameterList>
@@ -1105,7 +1105,7 @@
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="2170"/>
+                <Parameter name="value" type="double" value="2170.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -1114,7 +1114,7 @@
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="400"/>
+                <Parameter name="value" type="double" value="400.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -1123,7 +1123,7 @@
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="700"/>
+                <Parameter name="value" type="double" value="700.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -1368,18 +1368,18 @@
       <ParameterList name="column:*-relative_permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="relative permeability, water retention model"/>
         <Parameter name="model parameters" type="string" value="WRM parameters"/>
-        <Parameter name="minimum rel perm cutoff" type="double" value="0"/>
+        <Parameter name="minimum rel perm cutoff" type="double" value="0.0"/>
         <Parameter name="use surface rel perm" type="bool" value="true"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 
       <ParameterList name="atmospheric_pressure" type="ParameterList">
-        <Parameter name="value" type="double" value="101325"/>
+        <Parameter name="value" type="double" value="101325.0"/>
       </ParameterList>
 
       <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{0, 0, -9.80665}"/>
+        <Parameter name="value" type="Array(double)" value="{0.0, 0.0, -9.80665}"/>
       </ParameterList>
 
       <ParameterList name="land cover types" type="ParameterList">
@@ -1401,7 +1401,7 @@
           <Parameter name="wrm type" type="string" value="van Genuchten"/>
           <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.0023"/>
           <Parameter name="van Genuchten m [-]" type="double" value="0.2754"/>
-          <Parameter name="residual saturation [-]" type="double" value="0"/>
+          <Parameter name="residual saturation [-]" type="double" value="0.0"/>
           <Parameter name="smoothing interval width [saturation]" type="double" value="0.1"/>
           <Parameter name="dessicated zone thickness [m]" type="double" value="0.1"/>
         </ParameterList>
@@ -1410,7 +1410,7 @@
           <Parameter name="wrm type" type="string" value="van Genuchten"/>
           <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00051"/>
           <Parameter name="van Genuchten m [-]" type="double" value="0.19"/>
-          <Parameter name="residual saturation [-]" type="double" value="0"/>
+          <Parameter name="residual saturation [-]" type="double" value="0.0"/>
           <Parameter name="smoothing interval width [saturation]" type="double" value="0.1"/>
           <Parameter name="dessicated zone thickness [m]" type="double" value="0.1"/>
         </ParameterList>

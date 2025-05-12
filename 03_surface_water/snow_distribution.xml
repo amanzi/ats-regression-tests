@@ -37,14 +37,14 @@
     </ParameterList>
     <ParameterList name="west" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{-50, 0}"/>
-        <Parameter name="normal" type="Array(double)" value="{-1, 0}"/>
+        <Parameter name="point" type="Array(double)" value="{-50.0, 0.0}"/>
+        <Parameter name="normal" type="Array(double)" value="{-1.0, 0.0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="east" type="ParameterList">
       <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{50, 0}"/>
-        <Parameter name="normal" type="Array(double)" value="{1, 0}"/>
+        <Parameter name="point" type="Array(double)" value="{50.0, 0.0}"/>
+        <Parameter name="normal" type="Array(double)" value="{1.0, 0.0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
@@ -58,12 +58,12 @@
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
-    <Parameter name="start time" type="double" value="0"/>
+    <Parameter name="start time" type="double" value="0.0"/>
     <Parameter name="start time units" type="string" value="s"/>
-    <Parameter name="end time" type="double" value="3600"/>
+    <Parameter name="end time" type="double" value="3600.0"/>
     <Parameter name="end time units" type="string" value="s"/>
     <ParameterList name="required times" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0, 3600, -1}"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 3600.0, -1.0}"/>
       <Parameter name="times start period stop units" type="string" value="s"/>
     </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
@@ -81,7 +81,7 @@
       <Parameter name="domain name" type="string" value="snow"/>
       <Parameter name="upwind conductivity method" type="string" value="upwind by potential difference"/>
       <Parameter name="debug cells" type="Array(int)" value="{0, 20}"/>
-      <Parameter name="distribution time" type="double" value="86400"/>
+      <Parameter name="distribution time" type="double" value="86400.0"/>
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high"/>
       </ParameterList>
@@ -90,8 +90,8 @@
         <ParameterList name="function-tabular" type="ParameterList">
           <Parameter name="x header" type="string" value="time [s]"/>
           <Parameter name="y header" type="string" value="precipitation snow [m SWE s^-1]"/>
-          <Parameter name="x values" type="Array(double)" value="{0, 3600}"/>
-          <Parameter name="y values" type="Array(double)" value="{1e-05, 1e-05}"/>
+          <Parameter name="x values" type="Array(double)" value="{0.0, 3600.0}"/>
+          <Parameter name="y values" type="Array(double)" value="{0.00001, 0.00001}"/>
           <Parameter name="forms" type="Array(string)" value="{constant}"/>
         </ParameterList>
       </ParameterList>
@@ -107,9 +107,9 @@
           <Parameter name="backtrack lag" type="int" value="0"/>
           <Parameter name="last backtrack iteration" type="int" value="10"/>
           <Parameter name="backtrack factor" type="double" value="0.25"/>
-          <Parameter name="backtrack tolerance" type="double" value="0"/>
+          <Parameter name="backtrack tolerance" type="double" value="0.0"/>
           <Parameter name="nonlinear tolerance" type="double" value="0.02"/>
-          <Parameter name="diverged tolerance" type="double" value="1000000"/>
+          <Parameter name="diverged tolerance" type="double" value="1000000.0"/>
           <Parameter name="limit iterations" type="int" value="21"/>
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
@@ -117,11 +117,11 @@
           <Parameter name="min iterations" type="int" value="10"/>
           <Parameter name="timestep reduction factor" type="double" value="0.75"/>
           <Parameter name="timestep increase factor" type="double" value="1.5"/>
-          <Parameter name="max timestep" type="double" value="86400"/>
+          <Parameter name="max timestep" type="double" value="86400.0"/>
           <Parameter name="min timestep" type="double" value="1e-10"/>
           <Parameter name="growth wait after fail" type="int" value="2"/>
           <Parameter name="count before increasing increase factor" type="int" value="2"/>
-          <Parameter name="initial timestep [s]" type="double" value="60"/>
+          <Parameter name="initial timestep [s]" type="double" value="60.0"/>
         </ParameterList>
       </ParameterList>
 
@@ -138,7 +138,7 @@
         <Parameter name="iterative method" type="string" value="gmres"/>
         <ParameterList name="gmres parameters" type="ParameterList">
           <Parameter name="preconditioning strategy" type="string" value="left"/>
-          <Parameter name="error tolerance" type="double" value="1e-06"/>
+          <Parameter name="error tolerance" type="double" value="0.000001"/>
           <Parameter name="convergence criteria" type="Array(string)" value="{relative residual, make one iteration}"/>
           <Parameter name="maximum number of iteration" type="int" value="80"/>
         </ParameterList>
@@ -152,7 +152,7 @@
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0"/>
+                <Parameter name="value" type="double" value="0.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -175,7 +175,7 @@
             <Parameter name="components" type="Array(string)" value="{cell, boundary_face}"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0"/>
+                <Parameter name="value" type="double" value="0.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -190,7 +190,7 @@
             <Parameter name="components" type="Array(string)" value="{cell, boundary_face}"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0"/>
+                <Parameter name="value" type="double" value="0.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -205,7 +205,7 @@
             <Parameter name="components" type="Array(string)" value="{cell, boundary_face}"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="0"/>
+                <Parameter name="value" type="double" value="0.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -253,7 +253,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1"/>
+                <Parameter name="value" type="double" value="1.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -268,7 +268,7 @@
             <Parameter name="components" type="Array(string)" value="{cell, boundary_face}"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="100"/>
+                <Parameter name="value" type="double" value="100.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -276,16 +276,16 @@
       </ParameterList>
       <ParameterList name="snow-skin_potential" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="snow skin potential"/>
-        <Parameter name="dt factor [s]" type="double" value="432000"/>
+        <Parameter name="dt factor [s]" type="double" value="432000.0"/>
       </ParameterList>
       <ParameterList name="snow-conductivity" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="overland conductivity"/>
-        <Parameter name="dt factor [s]" type="double" value="432000"/>
+        <Parameter name="dt factor [s]" type="double" value="432000.0"/>
         <Parameter name="include density" type="bool" value="false"/>
         <Parameter name="mobile depth key" type="string" value="snow-precipitation"/>
         <Parameter name="slope key" type="string" value="surface-elevation"/>
         <Parameter name="coefficient key" type="string" value="snow-manning_coefficient"/>
-        <Parameter name="swe density factor [-]" type="double" value="10"/>
+        <Parameter name="swe density factor [-]" type="double" value="10.0"/>
         <ParameterList name="overland conductivity model" type="ParameterList">
           <Parameter name="Manning exponent" type="double" value="0.66666667"/>
           <Parameter name="slope regularization epsilon" type="double" value="0.01"/>
@@ -323,25 +323,25 @@
     <ParameterList name="initial conditions" type="ParameterList">
 
       <ParameterList name="atmospheric_pressure" type="ParameterList">
-        <Parameter name="value" type="double" value="101325"/>
+        <Parameter name="value" type="double" value="101325.0"/>
       </ParameterList>
 
       <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{0, 0, -9.80665}"/>
+        <Parameter name="value" type="Array(double)" value="{0.0, 0.0, -9.80665}"/>
       </ParameterList>
 
     </ParameterList>
   </ParameterList>
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop 0" type="Array(double)" value="{0, 3600, -1}"/>
+      <Parameter name="times start period stop 0" type="Array(double)" value="{0.0, 3600.0, -1.0}"/>
       <Parameter name="times start period stop 0 units" type="string" value="s"/>
       <Parameter name="aliased domains" type="Array(string)" value="{snow}"/>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times start period stop 0" type="Array(double)" value="{0, 3600, -1}"/>
+    <Parameter name="times start period stop 0" type="Array(double)" value="{0.0, 3600.0, -1.0}"/>
     <Parameter name="times start period stop 0 units" type="string" value="s"/>
   </ParameterList>
 

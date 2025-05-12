@@ -4,7 +4,7 @@
       <Parameter name="mesh type" type="string" value="generate mesh"/>
       <ParameterList name="generate mesh parameters" type="ParameterList">
         <Parameter name="number of cells" type="Array(int)" value="{1, 1}"/>
-        <Parameter name="domain low coordinate" type="Array(double)" value="{0, 0}"/>
+        <Parameter name="domain low coordinate" type="Array(double)" value="{0.0, 0.0}"/>
         <Parameter name="domain high coordinate" type="Array(double)" value="{1.1, 1.1}"/>
       </ParameterList>
     </ParameterList>
@@ -18,12 +18,12 @@
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
-    <Parameter name="start time" type="double" value="0"/>
+    <Parameter name="start time" type="double" value="0.0"/>
     <Parameter name="start time units" type="string" value="s"/>
-    <Parameter name="end time" type="double" value="1000"/>
+    <Parameter name="end time" type="double" value="1000.0"/>
     <Parameter name="end time units" type="string" value="s"/>
     <ParameterList name="required times" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0, 100, -1}"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 100.0, -1.0}"/>
     </ParameterList>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="subcycler" type="ParameterList">
@@ -50,7 +50,7 @@
       <Parameter name="domain name" type="string" value="domain"/>
       <Parameter name="source key" type="string" value="source"/>
       <Parameter name="time discretization theta" type="double" value="0.5"/>
-      <Parameter name="absolute error tolerance" type="double" value="1"/>
+      <Parameter name="absolute error tolerance" type="double" value="1.0"/>
       <Parameter name="debug cells" type="Array(int)" value="{0}"/>
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="high"/>
@@ -66,15 +66,15 @@
           <Parameter name="backtrack lag" type="int" value="0"/>
           <Parameter name="backtrack factor" type="double" value="0.5"/>
           <Parameter name="backtrack tolerance" type="double" value="0.0001"/>
-          <Parameter name="nonlinear tolerance" type="double" value="1e-08"/>
-          <Parameter name="diverged tolerance" type="double" value="1000000"/>
+          <Parameter name="nonlinear tolerance" type="double" value="1e-8"/>
+          <Parameter name="diverged tolerance" type="double" value="1000000.0"/>
           <Parameter name="limit iterations" type="int" value="21"/>
           <ParameterList name="verbose object" type="ParameterList">
             <Parameter name="verbosity level" type="string" value="high"/>
           </ParameterList>
         </ParameterList>
         <ParameterList name="timestep controller fixed parameters">
-          <Parameter name="timestep [s]" type="double" value="1"/>
+          <Parameter name="timestep [s]" type="double" value="1.0"/>
         </ParameterList>
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="high"/>
@@ -93,7 +93,7 @@
             <Parameter name="components" type="Array(string)" value="{cell}"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
-                <Parameter name="value" type="double" value="1"/>
+                <Parameter name="value" type="double" value="1.0"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
@@ -120,11 +120,11 @@
     <ParameterList name="initial conditions" type="ParameterList">
 
       <ParameterList name="atmospheric_pressure" type="ParameterList">
-        <Parameter name="value" type="double" value="101325"/>
+        <Parameter name="value" type="double" value="101325.0"/>
       </ParameterList>
 
       <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{0, 0, -9.80665}"/>
+        <Parameter name="value" type="Array(double)" value="{0.0, 0.0, -9.80665}"/>
       </ParameterList>
 
     </ParameterList>
@@ -134,18 +134,18 @@
   </ParameterList>
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0, 100, -1}"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 100.0, -1.0}"/>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="checkpoint">
-    <Parameter name="times start period stop" type="Array(double)" value="{0, 100, -1}"/>
+    <Parameter name="times start period stop" type="Array(double)" value="{0.0, 100.0, -1.0}"/>
   </ParameterList>
 
   <ParameterList name="observations" type="ParameterList">
     <ParameterList name="u" type="ParameterList">
       <Parameter name="observation output filename" type="string" value="u.dat"/>
-      <Parameter name="times start period stop" type="Array(double)" value="{0, 100, -1}"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 100.0, -1.0}"/>
       <ParameterList name="observed quantities" type="ParameterList">
         <ParameterList name="u" type="ParameterList">
           <Parameter name="variable" type="string" value="u"/>
