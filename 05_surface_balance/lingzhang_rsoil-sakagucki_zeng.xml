@@ -593,17 +593,6 @@
         <Parameter name="value" type="Array(double)" value="{0.0, 0.0, -9.80665}"/>
       </ParameterList>
 
-      <ParameterList name="land cover types" type="ParameterList">
-        <ParameterList name="surface domain" type="ParameterList">
-          <Parameter name="roughness length of bare ground [m]" type="double" value="0.04"/>
-          <Parameter name="roughness length of snow [m]" type="double" value="0.004"/>
-          <Parameter name="snow transition depth [m]" type="double" value="0.02"/>
-          <Parameter name="water transition depth [m]" type="double" value="0.02"/>
-          <Parameter name="albedo of bare ground [-]" type="double" value="0.135"/>
-          <Parameter name="emissivity of bare ground [-]" type="double" value="0.92"/>
-        </ParameterList>
-      </ParameterList>
-
     </ParameterList>
     <ParameterList name="model parameters" type="ParameterList">
       <ParameterList name="WRM parameters" type="ParameterList">
@@ -615,6 +604,16 @@
           <Parameter name="residual saturation [-]" type="double" value="0.1"/>
           <Parameter name="smoothing interval width [saturation]" type="double" value="0.1"/>
           <Parameter name="dessicated zone thickness [m]" type="double" value="0.05"/>
+        </ParameterList>
+      </ParameterList>
+      <ParameterList name="land cover types" type="ParameterList">
+        <ParameterList name="surface domain" type="ParameterList">
+          <Parameter name="roughness length of bare ground [m]" type="double" value="0.04"/>
+          <Parameter name="roughness length of snow [m]" type="double" value="0.004"/>
+          <Parameter name="snow transition depth [m]" type="double" value="0.02"/>
+          <Parameter name="water transition depth [m]" type="double" value="0.02"/>
+          <Parameter name="albedo of bare ground [-]" type="double" value="0.135"/>
+          <Parameter name="emissivity of bare ground [-]" type="double" value="0.92"/>
         </ParameterList>
       </ParameterList>
     </ParameterList>

@@ -379,7 +379,7 @@
       <ParameterList name="viscosity_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="viscosity"/>
         <ParameterList name="viscosity model parameters" type="ParameterList">
-          <Parameter name="viscosity relation type" type="string" value="constant"/>
+          <Parameter name="viscosity type" type="string" value="constant"/>
         </ParameterList>
       </ParameterList>
       <ParameterList name="surface-relative_permeability" type="ParameterList">

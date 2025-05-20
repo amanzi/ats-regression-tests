@@ -126,7 +126,7 @@
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="surface-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="overland pressure water content"/>
-        <Parameter name="molar mass" type="double" value="0.018181818181818"/>
+        <Parameter name="molar mass [kg mol^-1]" type="double" value="0.018181818181818"/>
       </ParameterList>
       <ParameterList name="surface-ponded_depth" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="ponded depth"/>

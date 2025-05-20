@@ -219,7 +219,7 @@
         <Parameter name="evaluator type" type="string" value="viscosity"/>
         <Parameter name="viscosity key" type="string" value="viscosity_liquid"/>
         <ParameterList name="viscosity model parameters" type="ParameterList">
-          <Parameter name="viscosity relation type" type="string" value="liquid water"/>
+          <Parameter name="viscosity type" type="string" value="liquid water"/>
         </ParameterList>
         <ParameterList name="verbose object" type="ParameterList">
           <Parameter name="verbosity level" type="string" value="low"/>

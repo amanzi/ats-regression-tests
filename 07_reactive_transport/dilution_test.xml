@@ -270,6 +270,8 @@
         <Parameter name="value" type="Array(double)" value="{0.0, 0.0, -9.80665}"/>
       </ParameterList>
 
+    </ParameterList>
+    <ParameterList name="model parameters" type="ParameterList">
       <ParameterList name="land cover types" type="ParameterList">
         <ParameterList name="surface domain" type="ParameterList">
           <Parameter name="roughness length of bare ground [m]" type="double" value="0.04"/>
@@ -280,7 +282,6 @@
           <Parameter name="emissivity of ground surface [-]" type="double" value="0.92"/>
         </ParameterList>
       </ParameterList>
-
     </ParameterList>
   </ParameterList>
 </ParameterList>

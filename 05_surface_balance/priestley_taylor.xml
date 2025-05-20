@@ -486,6 +486,18 @@
         <Parameter name="value" type="Array(double)" value="{0.0, 0.0, -9.80665}"/>
       </ParameterList>
 
+    </ParameterList>
+    <ParameterList name="model parameters" type="ParameterList">
+      <ParameterList name="WRM parameters" type="ParameterList">
+        <ParameterList name="computation domain" type="ParameterList">
+          <Parameter name="region" type="string" value="computational domain"/>
+          <Parameter name="wrm type" type="string" value="van Genuchten"/>
+          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00545"/>
+          <Parameter name="van Genuchten n [-]" type="double" value="2.0"/>
+          <Parameter name="residual saturation [-]" type="double" value="0.1"/>
+          <Parameter name="smoothing interval width [saturation]" type="double" value="0.1"/>
+        </ParameterList>
+      </ParameterList>
       <ParameterList name="land cover types" type="ParameterList">
         <ParameterList name="surface domain" type="ParameterList">
           <Parameter name="roughness length of bare ground [m]" type="double" value="0.04"/>
@@ -502,19 +514,6 @@
           <Parameter name="Priestley-Taylor alpha of transpiration [-]" type="double" value="1.26"/>
           <Parameter name="leaf on time [doy]" type="double" value="-1.0"/>
           <Parameter name="leaf off time [doy]" type="double" value="-1.0"/>
-        </ParameterList>
-      </ParameterList>
-
-    </ParameterList>
-    <ParameterList name="model parameters" type="ParameterList">
-      <ParameterList name="WRM parameters" type="ParameterList">
-        <ParameterList name="computation domain" type="ParameterList">
-          <Parameter name="region" type="string" value="computational domain"/>
-          <Parameter name="wrm type" type="string" value="van Genuchten"/>
-          <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00545"/>
-          <Parameter name="van Genuchten n [-]" type="double" value="2.0"/>
-          <Parameter name="residual saturation [-]" type="double" value="0.1"/>
-          <Parameter name="smoothing interval width [saturation]" type="double" value="0.1"/>
         </ParameterList>
       </ParameterList>
     </ParameterList>
