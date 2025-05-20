@@ -1,17 +1,17 @@
 <ParameterList name="Main" type="ParameterList">
   <ParameterList name="mesh" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="mesh type" type="string" value="aliased" />
+      <Parameter name="mesh type" type="string" value="aliased"/>
       <ParameterList name="aliased parameters">
-        <Parameter name="target" type="string" value="domain" />
+        <Parameter name="target" type="string" value="domain"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="mesh type" type="string" value="generate mesh" />
+      <Parameter name="mesh type" type="string" value="generate mesh"/>
       <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{100, 1}" />
-        <Parameter name="domain low coordinate" type="Array(double)" value="{0, 0}" />
-        <Parameter name="domain high coordinate" type="Array(double)" value="{1000, 1}" />
+        <Parameter name="number of cells" type="Array(int)" value="{100, 1}"/>
+        <Parameter name="domain low coordinate" type="Array(double)" value="{0.0, 0.0}"/>
+        <Parameter name="domain high coordinate" type="Array(double)" value="{1000.0, 1.0}"/>
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -19,174 +19,170 @@
   <ParameterList name="regions" type="ParameterList">
     <ParameterList name="surface domain" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{0, 0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{1000, 1}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{0.0, 0.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{1000.0, 1.0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface west" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{0, 0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{0, 1}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{0.0, 0.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{0.0, 1.0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface east" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{1000, 0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{1000, 1}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{1000.0, 0.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{1000.0, 1.0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface outlet" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{1000, 0}" />
-        <Parameter name="high coordinate" type="Array(double)" value="{1000, 1}" />
+        <Parameter name="low coordinate" type="Array(double)" value="{1000.0, 0.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{1000.0, 1.0}"/>
       </ParameterList>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="cycle driver" type="ParameterList">
-    <Parameter name="end cycle" type="int" value="-1" />
-    <Parameter name="start time" type="double" value="0" />
-    <Parameter name="start time units" type="string" value="s" />
-    <Parameter name="end time" type="double" value="1000" />
-    <Parameter name="end time units" type="string" value="s" />
+    <Parameter name="end cycle" type="int" value="-1"/>
+    <Parameter name="start time" type="double" value="0.0"/>
+    <Parameter name="start time units" type="string" value="s"/>
+    <Parameter name="end time" type="double" value="1000.0"/>
+    <Parameter name="end time units" type="string" value="s"/>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="Reactive Transport" type="ParameterList">
-        <Parameter name="PK type" type="string" value="reactive transport" />
+        <Parameter name="PK type" type="string" value="reactive transport"/>
         <ParameterList name="surface chemistry" type="ParameterList">
-          <Parameter name="PK type" type="string" value="chemistry alquimia" />
+          <Parameter name="PK type" type="string" value="chemistry alquimia"/>
         </ParameterList>
         <ParameterList name="surface transport" type="ParameterList">
-          <Parameter name="PK type" type="string" value="transport ATS" />
+          <Parameter name="PK type" type="string" value="transport ATS"/>
         </ParameterList>
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0, 100, -1}" />
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 100.0, -1.0}"/>
     </ParameterList>
   </ParameterList>
 
   <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times start period stop" type="Array(double)" value="{0, 100, -1}" />
+    <Parameter name="times start period stop" type="Array(double)" value="{0.0, 100.0, -1.0}"/>
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
 
     <ParameterList name="Reactive Transport" type="ParameterList">
-      <Parameter name="PK type" type="string" value="reactive transport" />
-      <Parameter name="PKs order" type="Array(string)" value="{surface chemistry, surface transport}" />
-      <Parameter name="domain name" type="string" value="surface" />
+      <Parameter name="PK type" type="string" value="reactive transport"/>
+      <Parameter name="PKs order" type="Array(string)" value="{surface chemistry, surface transport}"/>
+      <Parameter name="domain name" type="string" value="surface"/>
+
     </ParameterList>
 
     <ParameterList name="surface transport" type="ParameterList">
-      <Parameter name="PK type" type="string" value="transport ATS" />
-      <Parameter name="domain name" type="string" value="surface" />
-      <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}" />
-      <Parameter name="advection spatial discretization order" type="int" value="1" />
-      <Parameter name="temporal discretization order" type="int" value="1" />
-      <Parameter name="cfl" type="double" value="1" />
-      <Parameter name="debug cells" type="Array(int)" value="{0,99}" />
-
+      <Parameter name="PK type" type="string" value="transport ATS"/>
+      <Parameter name="domain name" type="string" value="surface"/>
+      <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}"/>
+      <Parameter name="advection spatial discretization order" type="int" value="1"/>
+      <Parameter name="temporal discretization order" type="int" value="1"/>
+      <Parameter name="cfl" type="double" value="1.0"/>
+      <Parameter name="debug cells" type="Array(int)" value="{0, 99}"/>
       <ParameterList name="boundary conditions" type="ParameterList">
         <ParameterList name="geochemical" type="ParameterList">
           <ParameterList name="west_bc" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{surface west}" />
-            <Parameter name="solutes" type="Array(string)" value="{Tracer1, Tracer2}" />
-            <Parameter name="times" type="Array(double)" value="{0, 1e+20}" />
-            <Parameter name="geochemical conditions" type="Array(string)" value="{upstreambc, upstreambc}" />
-            <Parameter name="time functions" type="Array(string)" value="{constant}" />
+            <Parameter name="regions" type="Array(string)" value="{surface west}"/>
+            <Parameter name="solutes" type="Array(string)" value="{Tracer1, Tracer2}"/>
+            <Parameter name="times" type="Array(double)" value="{0.0, 1e+20}"/>
+            <Parameter name="geochemical conditions" type="Array(string)" value="{upstreambc, upstreambc}"/>
+            <Parameter name="time functions" type="Array(string)" value="{constant}"/>
           </ParameterList>
           <ParameterList name="east_bc" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{surface east}" />
-            <Parameter name="solutes" type="Array(string)" value="{Tracer1, Tracer2}" />
-            <Parameter name="times" type="Array(double)" value="{0, 1e+20}" />
-            <Parameter name="geochemical conditions" type="Array(string)" value="{initial, initial}" />
-            <Parameter name="time functions" type="Array(string)" value="{constant}" />
+            <Parameter name="regions" type="Array(string)" value="{surface east}"/>
+            <Parameter name="solutes" type="Array(string)" value="{Tracer1, Tracer2}"/>
+            <Parameter name="times" type="Array(double)" value="{0.0, 1e+20}"/>
+            <Parameter name="geochemical conditions" type="Array(string)" value="{initial, initial}"/>
+            <Parameter name="time functions" type="Array(string)" value="{constant}"/>
           </ParameterList>
         </ParameterList>
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="surface chemistry" type="ParameterList">
-      <Parameter name="PK type" type="string" value="chemistry alquimia" />
-      <Parameter name="engine" type="string" value="PFloTran" />
-      <Parameter name="chemistry model" type="string" value="Alquimia" />
-      <Parameter name="saturation liquid key suffix" type="string" value="ponded_depth" />
-      <Parameter name="domain name" type="string" value="surface" />
-      <Parameter name="engine input file" type="string" value="../data/decay_ingrowth-pflotran.in" />
-      <Parameter name="debug cells" type="Array(int)" value="{0,99}" />
-
+      <Parameter name="PK type" type="string" value="chemistry alquimia"/>
+      <Parameter name="engine" type="string" value="PFloTran"/>
+      <Parameter name="chemistry model" type="string" value="Alquimia"/>
+      <Parameter name="saturation liquid key suffix" type="string" value="ponded_depth"/>
+      <Parameter name="domain name" type="string" value="surface"/>
+      <Parameter name="engine input file" type="string" value="../data/decay_ingrowth-pflotran.in"/>
+      <Parameter name="debug cells" type="Array(int)" value="{0, 99}"/>
       <ParameterList name="initial conditions" type="ParameterList">
+
         <ParameterList name="geochemical conditions" type="ParameterList">
           <ParameterList name="initial" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{surface domain}" />
+            <Parameter name="regions" type="Array(string)" value="{surface domain}"/>
           </ParameterList>
         </ParameterList>
+
       </ParameterList>
 
       <ParameterList name="timestep controller" type="ParameterList">
-        <Parameter name="timestep controller type" type="string" value="fixed" />
+        <Parameter name="timestep controller type" type="string" value="fixed"/>
         <ParameterList name="timestep controller fixed parameters" type="ParameterList">
-          <Parameter name="timestep [s]" type="double" value="15778463" />
+          <Parameter name="timestep [s]" type="double" value="15778463.0"/>
         </ParameterList>
       </ParameterList>
+
     </ParameterList>
+
   </ParameterList>
 
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="evaluators" type="ParameterList">
-
       <ParameterList name="surface-ponded_depth" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="1" />
+        <Parameter name="evaluator type" type="string" value="independent variable constant"/>
+        <Parameter name="value" type="double" value="1.0"/>
       </ParameterList>
-
       <ParameterList name="surface-water_flux_directions" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable from file" />
-        <Parameter name="constant in time" type="bool" value="true" />
-        <Parameter name="filename" type="string" value="../../06_transport/data/Qface1.h5" />
-        <Parameter name="domain name" type="string" value="surface" />
-        <Parameter name="variable name" type="string" value="surface-water_flux" />
-        <Parameter name="component name" type="string" value="face" />
-        <Parameter name="mesh entity" type="string" value="face" />
+        <Parameter name="evaluator type" type="string" value="independent variable from file"/>
+        <Parameter name="constant in time" type="bool" value="true"/>
+        <Parameter name="filename" type="string" value="../../06_transport/data/Qface1.h5"/>
+        <Parameter name="domain name" type="string" value="surface"/>
+        <Parameter name="variable name" type="string" value="surface-water_flux"/>
+        <Parameter name="component name" type="string" value="face"/>
+        <Parameter name="mesh entity" type="string" value="face"/>
       </ParameterList>
       <ParameterList name="surface-water_flux" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="additive evaluator" />
-        <Parameter name="dependencies" type="Array(string)" value="{surface-water_flux_directions}" />
-        <Parameter name="surface-water_flux_directions coefficient" type="double" value="1" />
+        <Parameter name="evaluator type" type="string" value="additive evaluator"/>
+        <Parameter name="dependencies" type="Array(string)" value="{surface-water_flux_directions}"/>
+        <Parameter name="surface-water_flux_directions coefficient" type="double" value="1.0"/>
       </ParameterList>
-
       <ParameterList name="surface-molar_density_liquid" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="1" />
+        <Parameter name="evaluator type" type="string" value="independent variable constant"/>
+        <Parameter name="value" type="double" value="1.0"/>
       </ParameterList>
-
       <ParameterList name="surface-mass_density_liquid" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="1" />
+        <Parameter name="evaluator type" type="string" value="independent variable constant"/>
+        <Parameter name="value" type="double" value="1.0"/>
       </ParameterList>
-
       <ParameterList name="surface-porosity" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="independent variable constant" />
-        <Parameter name="value" type="double" value="1" />
+        <Parameter name="evaluator type" type="string" value="independent variable constant"/>
+        <Parameter name="value" type="double" value="1.0"/>
       </ParameterList>
-      
       <ParameterList name="surface-water_content" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="multiplicative evaluator" />
-        <Parameter name="dependencies" type="Array(string)" value="{surface-ponded_depth, surface-molar_density_liquid, surface-cell_volume}" />
+        <Parameter name="evaluator type" type="string" value="multiplicative evaluator"/>
+        <Parameter name="dependencies" type="Array(string)" value="{surface-ponded_depth, surface-molar_density_liquid, surface-cell_volume}"/>
       </ParameterList>
-
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 
       <ParameterList name="atmospheric_pressure" type="ParameterList">
-        <Parameter name="value" type="double" value="101325" />
+        <Parameter name="value" type="double" value="101325.0"/>
       </ParameterList>
 
       <ParameterList name="gravity" type="ParameterList">
-        <Parameter name="value" type="Array(double)" value="{0, 0, -9.80665}" />
+        <Parameter name="value" type="Array(double)" value="{0.0, 0.0, -9.80665}"/>
       </ParameterList>
 
     </ParameterList>

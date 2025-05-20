@@ -97,7 +97,6 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="checkpoint">
     <Parameter name="file name base" type="string" value="checkpoint"/>
     <Parameter name="times start period stop" type="Array(double)" value="{0.0, 43200.0, -1.0}"/>
@@ -109,6 +108,7 @@
       <Parameter name="PKs order" type="Array(string)" value="{surface-subsurface flow coupler, surface-subsurface transport coupler}"/>
       <Parameter name="PK type" type="string" value="weak MPC"/>
       <Parameter name="subcycle" type="Array(int)" value="{0, 1}"/>
+
     </ParameterList>
 
     <ParameterList name="surface-subsurface flow coupler">
@@ -168,7 +168,6 @@
       <Parameter name="permeability rescaling" type="double" value="10000000.0"/>
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux"/>
       <Parameter name="surface rel perm strategy" type="string" value="clobber"/>
-
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="mfd: default"/>
       </ParameterList>
@@ -241,7 +240,6 @@
       <Parameter name="mass source in meters" type="bool" value="true"/>
       <Parameter name="initial timestep" type="double" value="1.0"/>
       <Parameter name="min ponded depth for tidal bc" type="double" value="-2.0"/>
-
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="fv: default"/>
       </ParameterList>
@@ -277,6 +275,7 @@
       <Parameter name="PK type" type="string" value="surface subsurface transport"/>
       <Parameter name="PKs order" type="Array(string)" value="{subsurface transport, surface transport}"/>
       <Parameter name="component names" type="Array(string)" value="{salt}"/>
+
     </ParameterList>
 
     <ParameterList name="subsurface transport">
@@ -285,7 +284,6 @@
       <Parameter name="advection spatial discretization order" type="int" value="1"/>
       <Parameter name="temporal discretization order" type="int" value="1"/>
       <Parameter name="cfl" type="double" value="1.0"/>
-
       <ParameterList name="boundary conditions">
         <ParameterList name="molar mixing ratio">
           <ParameterList name="East Side">
@@ -302,8 +300,11 @@
       </ParameterList>
 
       <ParameterList name="initial conditions">
-        <Parameter name="value" type="double" value="0"/>
+
+        <Parameter name="value" type="double" value="0.0"/>
+
       </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="surface transport">
@@ -314,7 +315,6 @@
       <Parameter name="temporal discretization order" type="int" value="1"/>
       <Parameter name="cfl" type="double" value="1.0"/>
       <Parameter name="water tolerance" type="double" value="0.0001"/>
-
       <ParameterList name="boundary conditions">
         <ParameterList name="molar mixing ratio">
           <ParameterList name="East Side">
@@ -331,8 +331,11 @@
       </ParameterList>
 
       <ParameterList name="initial conditions">
-        <Parameter name="value" type="double" value="0"/>
+
+        <Parameter name="value" type="double" value="0.0"/>
+
       </ParameterList>
+
     </ParameterList>
 
   </ParameterList>
