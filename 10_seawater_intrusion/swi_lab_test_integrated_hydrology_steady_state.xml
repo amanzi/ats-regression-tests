@@ -285,12 +285,12 @@
       <Parameter name="temporal discretization order" type="int" value="1"/>
       <Parameter name="cfl" type="double" value="1.0"/>
       <ParameterList name="boundary conditions">
-        <ParameterList name="molar ratio">
+        <ParameterList name="mole fraction">
           <ParameterList name="East Side">
             <Parameter name="regions" type="Array(string)" value="{east face}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
             <Parameter name="component names" type="Array(string)" value="{salt}"/>
-            <ParameterList name="boundary molar ratio function">
+            <ParameterList name="boundary mole fraction function">
               <ParameterList name="function-constant">
                 <Parameter name="value" type="double" value="0.035"/>
               </ParameterList>
@@ -316,12 +316,12 @@
       <Parameter name="cfl" type="double" value="1.0"/>
       <Parameter name="water tolerance" type="double" value="0.0001"/>
       <ParameterList name="boundary conditions">
-        <ParameterList name="molar ratio">
+        <ParameterList name="mole fraction">
           <ParameterList name="East Side">
             <Parameter name="regions" type="Array(string)" value="{surface east}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
             <Parameter name="component names" type="Array(string)" value="{salt}"/>
-            <ParameterList name="boundary molar ratio function">
+            <ParameterList name="boundary mole fraction function">
               <ParameterList name="function-constant">
                 <Parameter name="value" type="double" value="0.035"/>
               </ParameterList>
@@ -380,7 +380,7 @@
         <Parameter name="EOS basis" type="string" value="both"/>
         <Parameter name="molar density key" type="string" value="surface-molar_density_liquid"/>
         <Parameter name="mass density key" type="string" value="surface-mass_density_liquid"/>
-        <Parameter name="molar ratio tag" type="string" value="current"/>
+        <Parameter name="mole fraction tag" type="string" value="current"/>
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="salt water"/>
           <Parameter name="fresh water mass density [kg/m^3]" type="double" value="1000.0"/>
@@ -392,7 +392,7 @@
         <Parameter name="EOS basis" type="string" value="both"/>
         <Parameter name="molar density key" type="string" value="surface-molar_density_liquid"/>
         <Parameter name="mass density key" type="string" value="surface-mass_density_liquid"/>
-        <Parameter name="molar ratio tag" type="string" value="current"/>
+        <Parameter name="mole fraction tag" type="string" value="current"/>
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="salt water"/>
           <Parameter name="fresh water mass density [kg/m^3]" type="double" value="1000.0"/>
@@ -408,7 +408,7 @@
         <Parameter name="EOS basis" type="string" value="both"/>
         <Parameter name="molar density key" type="string" value="molar_density_liquid"/>
         <Parameter name="mass density key" type="string" value="mass_density_liquid"/>
-        <Parameter name="molar ratio tag" type="string" value="current"/>
+        <Parameter name="mole fraction tag" type="string" value="current"/>
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="salt water"/>
           <Parameter name="fresh water mass density [kg/m^3]" type="double" value="1000.0"/>

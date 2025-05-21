@@ -374,12 +374,12 @@
       <Parameter name="temporal discretization order" type="int" value="1"/>
       <Parameter name="cfl" type="double" value="1.0"/>
       <ParameterList name="boundary conditions">
-        <ParameterList name="molar ratio">
+        <ParameterList name="mole fraction">
           <ParameterList name="East Side">
             <Parameter name="regions" type="Array(string)" value="{east face}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
             <Parameter name="component names" type="Array(string)" value="{salt}"/>
-            <ParameterList name="boundary molar ratio function">
+            <ParameterList name="boundary mole fraction function">
               <ParameterList name="function-constant">
                 <Parameter name="value" type="double" value="0.035"/>
               </ParameterList>
@@ -413,12 +413,12 @@
       </ParameterList>
 
       <ParameterList name="boundary conditions">
-        <ParameterList name="molar ratio">
+        <ParameterList name="mole fraction">
           <ParameterList name="East Side">
             <Parameter name="regions" type="Array(string)" value="{surface east}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
             <Parameter name="component names" type="Array(string)" value="{salt}"/>
-            <ParameterList name="boundary molar ratio function">
+            <ParameterList name="boundary mole fraction function">
               <ParameterList name="function-constant">
                 <Parameter name="value" type="double" value="0.035"/>
               </ParameterList>
