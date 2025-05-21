@@ -325,11 +325,11 @@
       <Parameter name="cfl" type="double" value="1.0"/>
       <Parameter name="debug cells" type="Array(int)" value="{0}"/>
       <ParameterList name="boundary conditions" type="ParameterList">
-        <ParameterList name="molar mixing ratio" type="ParameterList">
+        <ParameterList name="molar ratio" type="ParameterList">
           <ParameterList name="subgrid" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{tracer source subgrid}"/>
             <Parameter name="spatial distribution method" type="string" value="subgrid"/>
-            <ParameterList name="boundary molar mixing ratio" type="ParameterList">
+            <ParameterList name="boundary molar ratio" type="ParameterList">
               <Parameter name="disaggregated key" type="string" value="surface-molar_ratio"/>
             </ParameterList>
           </ParameterList>
