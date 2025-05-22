@@ -83,8 +83,8 @@ C = 2 for Tracer 2.  Watch the advected front move across at 1m/s.
   </ParameterList>
 
   <ParameterList name="observations">
-    <ParameterList name="surface-molar_ratio">
-      <Parameter name="variable" type="string" value="surface-molar_ratio"/>
+    <ParameterList name="surface-mole_fraction">
+      <Parameter name="variable" type="string" value="surface-mole_fraction"/>
       <Parameter name="functional" type="string" value="point"/>
       <Parameter name="region" type="string" value="observation point"/>
       <Parameter name="delimiter" type="string" value=""/>
@@ -118,12 +118,12 @@ C = 2 for Tracer 2.  Watch the advected front move across at 1m/s.
       </ParameterList>
 
       <ParameterList name="boundary conditions" type="ParameterList">
-        <ParameterList name="molar ratio" type="ParameterList">
+        <ParameterList name="mole fraction" type="ParameterList">
           <ParameterList name="tracer1" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface west}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
             <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}"/>
-            <ParameterList name="boundary molar ratio function" type="ParameterList">
+            <ParameterList name="boundary mole fraction function" type="ParameterList">
               <Parameter name="number of dofs" type="int" value="2"/>
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant" type="ParameterList">
