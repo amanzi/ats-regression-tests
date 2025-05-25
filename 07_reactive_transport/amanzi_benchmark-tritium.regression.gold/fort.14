@@ -97,7 +97,7 @@ equilibrate constraint : initial
         iterations:    11
     ionic strength:   5.0090E-21 [mol/L]
     charge balance:   1.0000E-20
-          pressure:   8.3607-312 [Pa]
+          pressure:   0.0000E+00 [Pa]
        temperature:    25.00 [C]
        density H2O:   997.16 [kg/m^3]
  ln / activity H2O:   0.0000E+00  1.0000E+00    [---]
