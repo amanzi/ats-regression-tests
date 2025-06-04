@@ -2,13 +2,13 @@
 # -----------------------------------------------------------------------------
 # Observation Name: time [s]
 # -----------------------------------------------------------------------------
-# Observation Name: surface-molar_mixing_ratio
+# Observation Name: surface-mole_fraction
 # Region: observation point
 # Reduction: point
-# Variable: surface-molar_mixing_ratio
+# Variable: surface-mole_fraction
 # Number of Vectors: 2
 # =============================================================================
-"time [s]""surface-molar_mixing_ratio Tracer1""surface-molar_mixing_ratio Tracer2"
+"time [s]""surface-mole_fraction Tracer1""surface-mole_fraction Tracer2"
 0.000000000000e+000.000000000000e+000.000000000000e+00
 1.200000000000e+021.476358655529e-1613.804190577051e-46
 2.400000000000e+025.081742047888e-1085.558416814300e-30
@@ -17,4 +17,4 @@
 6.000000000000e+023.610346416818e-231.918726069665e-12
 7.200000000000e+023.426172670434e-174.639576837669e-06
 8.400000000000e+022.526212652583e-141.713765499729e-02
-9.600000000000e+021.880261203843e-086.146645593454e-01
+9.600000000000e+021.880261203842e-086.146645593454e-01

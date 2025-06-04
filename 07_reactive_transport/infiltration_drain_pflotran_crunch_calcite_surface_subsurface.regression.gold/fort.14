@@ -338,7 +338,7 @@ equilibrate constraint : INITIAL
   mineral                             log SI       Affinity     log K
                                                    [kJ/mol]
   ----------------------------------------------------------------------------
-  Calcite                               0.0000     -0.0000    1.8487E+00
+  Calcite                              -0.0000      0.0000    1.8487E+00
 
   gas              par pres [bars]  conc [mol/m^3]  log K
   ----------------------------------------------------------------------------
@@ -354,7 +354,7 @@ equilibrate constraint : RAIN
                 pH:   5.6572
     ionic strength:   2.2061E-06 [mol/L]
     charge balance:  -4.3853E-22
-          pressure:   4.6800-310 [Pa]
+          pressure:   0.0000E+00 [Pa]
        temperature:    25.00 [C]
        density H2O:   997.16 [kg/m^3]
  ln / activity H2O:   0.0000E+00  1.0000E+00    [---]
