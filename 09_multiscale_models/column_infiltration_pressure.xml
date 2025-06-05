@@ -522,8 +522,7 @@
 
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="debug" type="ParameterList">
-      <Parameter name="data" type="Array(string)" value="{}"/>
-      <Parameter name="evaluators" type="Array(string)" value="{column:0-mass_density_liquid}"/>
+      <Parameter name="data" type="Array(string)" value="{surface_star-alt_avg_temp}"/>
     </ParameterList>
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="surface_column:*-water_source_sink" type="ParameterList">
@@ -763,7 +762,6 @@
       </ParameterList>
       <ParameterList name="column:*-permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable tensor"/>
-        <Parameter name="tensor type" type="string" value="scalar"/>
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="subsurface domain" type="ParameterList">
             <Parameter name="region" type="string" value="subsurface domain"/>
@@ -775,6 +773,7 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
+        <Parameter name="tensor type" type="string" value="scalar"/>
       </ParameterList>
       <ParameterList name="column:*-base_porosity" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable"/>

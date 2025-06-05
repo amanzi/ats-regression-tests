@@ -35,7 +35,7 @@
     <Parameter name="end cycle" type="int" value="-1"/>
     <Parameter name="start time" type="double" value="0.0"/>
     <Parameter name="start time units" type="string" value="s"/>
-    <Parameter name="end time" type="double" value="10000.0"/>
+    <Parameter name="end time" type="double" value="36000.0"/>
     <Parameter name="end time units" type="string" value="s"/>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="Reactive Transport" type="ParameterList">
@@ -49,14 +49,26 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
-  <ParameterList name="checkpoint" type="ParameterList">
-    <Parameter name="times start period stop" type="Array(double)" value="{0.0, 1000.0, -1.0}"/>
+  <ParameterList name="verbose object" type="ParameterList">
+    <Parameter name="verbosity level" type="string" value="high"/>
   </ParameterList>
-
-  <ParameterList name="visualization" type="ParameterList">
-    <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 1000.0, -1.0}"/>
+  <ParameterList name="observations">
+    <ParameterList name="concentration">
+      <Parameter name="variable" type="string" value="total_component_concentration"/>
+      <Parameter name="functional" type="string" value="point"/>
+      <Parameter name="region" type="string" value="outlet"/>
+      <Parameter name="delimiter" type="string" value=""/>
+      <Parameter name="location name" type="string" value="cell"/>
+      <Parameter name="number of vectors" type="int" value="1"/>
+      <Parameter name="write interval" type="int" value="1"/>
+      <Parameter name="observation output filename" type="string" value="outlet.dat"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 0.1, -1.0}"/>
+      <Parameter name="times start period stop units" type="string" value="h"/>
     </ParameterList>
+  </ParameterList>
+  <ParameterList name="checkpoint" type="ParameterList">
+    <Parameter name="file name base" type="string" value="checkpoint"/>
+    <Parameter name="times start period stop" type="Array(double)" value="{0.0, 1000.0, 12000.0}"/>
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
@@ -64,6 +76,10 @@
     <ParameterList name="Reactive Transport" type="ParameterList">
       <Parameter name="PK type" type="string" value="reactive transport"/>
       <Parameter name="PKs order" type="Array(string)" value="{chemistry, transport}"/>
+      <Parameter name="transport index" type="int" value="1"/>
+      <ParameterList name="verbose object" type="ParameterList">
+        <Parameter name="verbosity level" type="string" value="low"/>
+      </ParameterList>
 
     </ParameterList>
 
@@ -74,6 +90,10 @@
       <Parameter name="advection spatial discretization order" type="int" value="1"/>
       <Parameter name="temporal discretization order" type="int" value="1"/>
       <Parameter name="cfl" type="double" value="1.0"/>
+      <ParameterList name="verbose object" type="ParameterList">
+        <Parameter name="verbosity level" type="string" value="medium"/>
+      </ParameterList>
+
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="fv: default"/>
         <Parameter name="discretization secondary" type="string" value="fv: default"/>
@@ -93,6 +113,9 @@
             <Parameter name="error tolerance" type="double" value="1e-20"/>
             <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}"/>
             <Parameter name="size of Krylov space" type="int" value="5"/>
+            <ParameterList name="verbose object">
+              <Parameter name="verbosity level" type="string" value="low"/>
+            </ParameterList>
           </ParameterList>
         </ParameterList>
       </ParameterList>
@@ -124,13 +147,17 @@
       <Parameter name="PK type" type="string" value="chemistry alquimia"/>
       <Parameter name="engine" type="string" value="PFloTran"/>
       <Parameter name="chemistry model" type="string" value="Alquimia"/>
-      <Parameter name="engine input file" type="string" value="../data/dilution_test-pflotran.in"/>
+      <Parameter name="engine input file" type="string" value="../data/pflotran_in/dilution_test.in"/>
       <Parameter name="activity model" type="string" value="unit"/>
       <Parameter name="maximum Newton iterations" type="int" value="100"/>
       <Parameter name="tolerance" type="double" value="1e-12"/>
       <Parameter name="initial conditions time" type="double" value="0.0"/>
       <Parameter name="number of component concentrations" type="int" value="1"/>
       <Parameter name="debug cells" type="Array(int)" value="{99}"/>
+      <ParameterList name="verbose object" type="ParameterList">
+        <Parameter name="verbosity level" type="string" value="high"/>
+      </ParameterList>
+
       <ParameterList name="initial conditions" type="ParameterList">
 
         <ParameterList name="geochemical conditions" type="ParameterList">
@@ -251,6 +278,18 @@
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="1000.0"/>
               </ParameterList>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+      <ParameterList name="dispersion_coefficient" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="dispersion tensor"/>
+        <ParameterList name="mechanical dispersion parameters" type="ParameterList">
+          <ParameterList name="domain" type="ParameterList">
+            <Parameter name="region" type="string" value="computational domain"/>
+            <Parameter name="mechanical dispersion type" type="string" value="isotropic"/>
+            <ParameterList name="isotropic parameters">
+              <Parameter name="alpha" type="double" value="0.0"/>
             </ParameterList>
           </ParameterList>
         </ParameterList>

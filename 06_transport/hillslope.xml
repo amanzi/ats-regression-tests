@@ -55,7 +55,7 @@
     <Parameter name="end time units" type="string" value="s"/>
     <ParameterList name="PK tree">
       <ParameterList name="flow and transport">
-        <Parameter name="PK type" type="string" value="coupled flow and transport"/>
+        <Parameter name="PK type" type="string" value="subcycling MPC"/>
         <ParameterList name="surface-subsurface flow coupler">
           <Parameter name="PK type" type="string" value="coupled water"/>
           <ParameterList name="flow">
@@ -80,9 +80,12 @@
   <ParameterList name="PKs">
 
     <ParameterList name="flow and transport">
-      <Parameter name="PK type" type="string" value="coupled flow and transport"/>
+      <Parameter name="PK type" type="string" value="subcycling MPC"/>
       <Parameter name="PKs order" type="Array(string)" value="{surface-subsurface flow coupler, surface-subsurface transport coupler}"/>
-      <Parameter name="subcycle" type="Array(int)" value="{0, 1}"/>
+      <Parameter name="master PK index" type="int" value="0"/>
+      <ParameterList name="verbose object">
+        <Parameter name="verbosity level" type="string" value="high"/>
+      </ParameterList>
 
     </ParameterList>
 
@@ -93,6 +96,9 @@
         <Parameter name="modify predictor damp and cap the water spurt" type="bool" value="true"/>
         <Parameter name="damp and cap the water spurt" type="bool" value="true"/>
         <Parameter name="cap over atmospheric" type="double" value="0.0001"/>
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="high"/>
+        </ParameterList>
       </ParameterList>
 
       <ParameterList name="inverse">
@@ -103,12 +109,22 @@
           <Parameter name="smoother sweeps" type="int" value="1"/>
           <Parameter name="strong threshold" type="double" value="0.65"/>
           <Parameter name="tolerance" type="double" value="0.0"/>
+          <ParameterList name="verbose object">
+            <Parameter name="verbosity level" type="string" value="medium"/>
+          </ParameterList>
         </ParameterList>
         <ParameterList name="gmres parameters" type="ParameterList">
           <Parameter name="preconditioning strategy" type="string" value="left"/>
           <Parameter name="error tolerance" type="double" value="1e-10"/>
           <Parameter name="convergence criteria" type="Array(string)" value="{relative residual, make one iteration}"/>
+          <ParameterList name="verbose object">
+            <Parameter name="verbosity level" type="string" value="high"/>
+          </ParameterList>
         </ParameterList>
+      </ParameterList>
+
+      <ParameterList name="verbose object">
+        <Parameter name="verbosity level" type="string" value="high"/>
       </ParameterList>
 
       <ParameterList name="time integrator">
@@ -124,6 +140,12 @@
           <Parameter name="nonlinear tolerance" type="double" value="0.000001"/>
           <Parameter name="diverged tolerance" type="double" value="1000000.0"/>
           <Parameter name="limit iterations" type="int" value="21"/>
+          <ParameterList name="verbose object">
+            <Parameter name="verbosity level" type="string" value="high"/>
+          </ParameterList>
+        </ParameterList>
+        <ParameterList name="verbose object">
+          <Parameter name="verbosity level" type="string" value="high"/>
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters">
           <Parameter name="max iterations" type="int" value="15"/>
@@ -147,6 +169,10 @@
       <Parameter name="permeability rescaling" type="double" value="10000000.0"/>
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux"/>
       <Parameter name="debug cells" type="Array(int)" value="{0}"/>
+      <ParameterList name="verbose object">
+        <Parameter name="verbosity level" type="string" value="high"/>
+      </ParameterList>
+
       <ParameterList name="initial conditions" type="ParameterList">
 
         <Parameter name="hydrostatic head [m]" type="double" value="0.0"/>
@@ -174,6 +200,10 @@
       <Parameter name="source term" type="bool" value="true"/>
       <Parameter name="water source in meters" type="bool" value="true"/>
       <Parameter name="debug cells" type="Array(int)" value="{0}"/>
+      <ParameterList name="verbose object">
+        <Parameter name="verbosity level" type="string" value="low"/>
+      </ParameterList>
+
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="fv: default"/>
       </ParameterList>
@@ -202,16 +232,25 @@
       <Parameter name="PK type" type="string" value="surface subsurface transport"/>
       <Parameter name="PK name" type="string" value="surface subsurface transport"/>
       <Parameter name="PKs order" type="Array(string)" value="{subsurface transport, surface transport}"/>
-      <Parameter name="component names" type="Array(string)" value="{Tracer1}"/>
+      <Parameter name="component names" type="Array(string)" value="{Tc-99}"/>
+      <ParameterList name="verbose object">
+        <Parameter name="name" type="string" value="Coupled TransportPK"/>
+        <Parameter name="verbosity level" type="string" value="high"/>
+      </ParameterList>
 
     </ParameterList>
 
     <ParameterList name="subsurface transport">
       <Parameter name="PK type" type="string" value="transport ATS"/>
-      <Parameter name="component names" type="Array(string)" value="{Tracer1}"/>
+      <Parameter name="component names" type="Array(string)" value="{Tc-99}"/>
       <Parameter name="advection spatial discretization order" type="int" value="1"/>
       <Parameter name="temporal discretization order" type="int" value="1"/>
       <Parameter name="cfl" type="double" value="1.0"/>
+      <ParameterList name="verbose object">
+        <Parameter name="verbosity level" type="string" value="extreme"/>
+        <Parameter name="name" type="string" value="Subsurface Transport"/>
+      </ParameterList>
+
       <ParameterList name="initial conditions" type="ParameterList">
 
         <Parameter name="constant" type="double" value="0.0"/>
@@ -230,12 +269,18 @@
             <Parameter name="maximum number of iterations" type="int" value="400"/>
             <Parameter name="error tolerance" type="double" value="1e-10"/>
             <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}"/>
+            <ParameterList name="verbose object">
+              <Parameter name="verbosity level" type="string" value="high"/>
+            </ParameterList>
           </ParameterList>
           <ParameterList name="boomer amg parameters">
             <Parameter name="tolerance" type="double" value="0.0"/>
             <Parameter name="smoother sweeps" type="int" value="1"/>
             <Parameter name="cycle applications" type="int" value="1"/>
             <Parameter name="strong threshold" type="double" value="0.65"/>
+            <ParameterList name="verbose object">
+              <Parameter name="verbosity level" type="string" value="medium"/>
+            </ParameterList>
           </ParameterList>
         </ParameterList>
       </ParameterList>
@@ -244,11 +289,12 @@
       </ParameterList>
 
       <ParameterList name="molecular diffusivity [m^2 s^-1]" type="ParameterList">
-        <Parameter name="Tracer1" type="double" value="0.001"/>
+        <Parameter name="Tc-99" type="double" value="0.001"/>
       </ParameterList>
 
       <ParameterList name="tortuosity [-]" type="ParameterList">
         <Parameter name="aqueous" type="double" value="1.0"/>
+        <Parameter name="gaseous" type="double" value="1.0"/>
       </ParameterList>
 
     </ParameterList>
@@ -257,7 +303,7 @@
       <Parameter name="PK type" type="string" value="transport ATS"/>
       <Parameter name="domain name" type="string" value="surface"/>
       <Parameter name="water source in meters" type="bool" value="true"/>
-      <Parameter name="component names" type="Array(string)" value="{Tracer1}"/>
+      <Parameter name="component names" type="Array(string)" value="{Tc-99}"/>
       <Parameter name="advection spatial discretization order" type="int" value="1"/>
       <Parameter name="temporal discretization order" type="int" value="1"/>
       <Parameter name="cfl" type="double" value="1.0"/>
@@ -268,10 +314,15 @@
 
       </ParameterList>
 
+      <ParameterList name="verbose object">
+        <Parameter name="verbosity level" type="string" value="high"/>
+        <Parameter name="name" type="string" value="Surface Transport"/>
+      </ParameterList>
+
       <ParameterList name="source terms">
         <ParameterList name="component mass source">
-          <ParameterList name="Tracer1 injection">
-            <Parameter name="component names" type="Array(string)" value="{Tracer1}"/>
+          <ParameterList name="Tc-99 injection">
+            <Parameter name="component names" type="Array(string)" value="{Tc-99}"/>
             <Parameter name="regions" type="Array(string)" value="{rainfall patch}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
             <ParameterList name="source function">
@@ -288,6 +339,9 @@
   </ParameterList>
 
   <ParameterList name="state">
+    <ParameterList name="verbose object">
+      <Parameter name="verbosity level" type="string" value="extreme"/>
+    </ParameterList>
     <ParameterList name="evaluators">
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="richards water content"/>
@@ -361,7 +415,6 @@
       <ParameterList name="permeability">
         <Parameter name="evaluator type" type="string" value="independent variable tensor"/>
         <Parameter name="value" type="double" value="5e-12"/>
-        <Parameter name="tensor type" type="string" value="scalar"/>
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain"/>
@@ -373,6 +426,7 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
+        <Parameter name="tensor type" type="string" value="scalar"/>
       </ParameterList>
       <ParameterList name="surface-relative_permeability">
         <Parameter name="evaluator type" type="string" value="independent variable constant"/>
@@ -392,6 +446,9 @@
           <Parameter name="overland conductivity type " type="string" value="manning"/>
           <Parameter name="Manning exponent" type="double" value="0.666666666667"/>
           <Parameter name="slope regularization epsilon" type="double" value="0.01"/>
+        </ParameterList>
+        <ParameterList name="verbose object">
+          <Parameter name="verbosity level" type="string" value="low"/>
         </ParameterList>
       </ParameterList>
       <ParameterList name="relative_permeability" type="ParameterList">

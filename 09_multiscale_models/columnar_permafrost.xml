@@ -907,7 +907,6 @@
       </ParameterList>
       <ParameterList name="column:*-permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable tensor"/>
-        <Parameter name="tensor type" type="string" value="scalar"/>
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="rest domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain"/>
@@ -919,6 +918,7 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
+        <Parameter name="tensor type" type="string" value="scalar"/>
       </ParameterList>
       <ParameterList name="column:*-density_rock" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable"/>

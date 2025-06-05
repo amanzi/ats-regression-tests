@@ -97,6 +97,9 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
+  <ParameterList name="verbose object">
+    <Parameter name="verbosity level" type="string" value="high"/>
+  </ParameterList>
   <ParameterList name="checkpoint">
     <Parameter name="file name base" type="string" value="checkpoint"/>
     <Parameter name="times start period stop" type="Array(double)" value="{0.0, 43200.0, -1.0}"/>
@@ -108,6 +111,9 @@
       <Parameter name="PKs order" type="Array(string)" value="{surface-subsurface flow coupler, surface-subsurface transport coupler}"/>
       <Parameter name="PK type" type="string" value="weak MPC"/>
       <Parameter name="subcycle" type="Array(int)" value="{0, 1}"/>
+      <ParameterList name="verbose object">
+        <Parameter name="verbosity level" type="string" value="low"/>
+      </ParameterList>
 
     </ParameterList>
 
@@ -122,6 +128,9 @@
           <Parameter name="smoother sweeps" type="int" value="1"/>
           <Parameter name="strong threshold" type="double" value="0.85"/>
           <Parameter name="tolerance" type="double" value="0.0"/>
+        </ParameterList>
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="low"/>
         </ParameterList>
         <ParameterList name="gmres parameters" type="ParameterList">
           <Parameter name="preconditioning strategy" type="string" value="left"/>
@@ -144,6 +153,9 @@
           <Parameter name="nonlinear tolerance" type="double" value="0.00001"/>
           <Parameter name="diverged tolerance" type="double" value="100000.0"/>
           <Parameter name="limit iterations" type="int" value="100"/>
+          <ParameterList name="verbose object" type="ParameterList">
+            <Parameter name="verbosity level" type="string" value="low"/>
+          </ParameterList>
         </ParameterList>
         <ParameterList name="timestep controller smarter parameters" type="ParameterList">
           <Parameter name="max iterations" type="int" value="20"/>
@@ -168,6 +180,10 @@
       <Parameter name="permeability rescaling" type="double" value="10000000.0"/>
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux"/>
       <Parameter name="surface rel perm strategy" type="string" value="clobber"/>
+      <ParameterList name="verbose object">
+        <Parameter name="verbosity level" type="string" value="low"/>
+      </ParameterList>
+
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="mfd: default"/>
       </ParameterList>
@@ -240,6 +256,10 @@
       <Parameter name="mass source in meters" type="bool" value="true"/>
       <Parameter name="initial timestep" type="double" value="1.0"/>
       <Parameter name="min ponded depth for tidal bc" type="double" value="-2.0"/>
+      <ParameterList name="verbose object">
+        <Parameter name="verbosity level" type="string" value="low"/>
+      </ParameterList>
+
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="fv: default"/>
       </ParameterList>
@@ -275,34 +295,39 @@
       <Parameter name="PK type" type="string" value="surface subsurface transport"/>
       <Parameter name="PKs order" type="Array(string)" value="{subsurface transport, surface transport}"/>
       <Parameter name="component names" type="Array(string)" value="{salt}"/>
+      <ParameterList name="verbose object">
+        <Parameter name="name" type="string" value="Coupled TransportPK"/>
+        <Parameter name="verbosity level" type="string" value="high"/>
+      </ParameterList>
 
     </ParameterList>
 
     <ParameterList name="subsurface transport">
       <Parameter name="PK type" type="string" value="transport ATS"/>
+      <Parameter name="previous saturation liquid key" type="string" value="prev_saturation_liquid"/>
+      <Parameter name="water flux" type="string" value="water_flux"/>
       <Parameter name="component names" type="Array(string)" value="{salt}"/>
       <Parameter name="advection spatial discretization order" type="int" value="1"/>
       <Parameter name="temporal discretization order" type="int" value="1"/>
       <Parameter name="cfl" type="double" value="1.0"/>
+      <ParameterList name="verbose object">
+        <Parameter name="verbosity level" type="string" value="high"/>
+        <Parameter name="name" type="string" value="Subsurface Transport"/>
+      </ParameterList>
+
       <ParameterList name="boundary conditions">
-        <ParameterList name="mole fraction">
+        <ParameterList name="concentration">
           <ParameterList name="East Side">
             <Parameter name="regions" type="Array(string)" value="{east face}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
             <Parameter name="component names" type="Array(string)" value="{salt}"/>
-            <ParameterList name="boundary mole fraction function">
+            <ParameterList name="boundary concentration function">
               <ParameterList name="function-constant">
                 <Parameter name="value" type="double" value="0.035"/>
               </ParameterList>
             </ParameterList>
           </ParameterList>
         </ParameterList>
-      </ParameterList>
-
-      <ParameterList name="initial conditions">
-
-        <Parameter name="value" type="double" value="0.0"/>
-
       </ParameterList>
 
     </ParameterList>
@@ -310,18 +335,29 @@
     <ParameterList name="surface transport">
       <Parameter name="PK type" type="string" value="transport ATS"/>
       <Parameter name="domain name" type="string" value="surface"/>
+      <Parameter name="previous saturation liquid key" type="string" value="surface-prev_ponded_depth"/>
+      <Parameter name="water flux" type="string" value="surface-water_flux"/>
       <Parameter name="component names" type="Array(string)" value="{salt}"/>
       <Parameter name="advection spatial discretization order" type="int" value="1"/>
       <Parameter name="temporal discretization order" type="int" value="1"/>
       <Parameter name="cfl" type="double" value="1.0"/>
       <Parameter name="water tolerance" type="double" value="0.0001"/>
+      <Parameter name="enable internal tests" type="bool" value="false"/>
+      <ParameterList name="verbose object">
+        <Parameter name="verbosity level" type="string" value="high"/>
+        <Parameter name="name" type="string" value="Surface Transport"/>
+      </ParameterList>
+
+      <ParameterList name="source terms">
+      </ParameterList>
+
       <ParameterList name="boundary conditions">
-        <ParameterList name="mole fraction">
+        <ParameterList name="concentration">
           <ParameterList name="East Side">
             <Parameter name="regions" type="Array(string)" value="{surface east}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
             <Parameter name="component names" type="Array(string)" value="{salt}"/>
-            <ParameterList name="boundary mole fraction function">
+            <ParameterList name="boundary concentration function">
               <ParameterList name="function-constant">
                 <Parameter name="value" type="double" value="0.035"/>
               </ParameterList>
@@ -330,17 +366,18 @@
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="initial conditions">
-
-        <Parameter name="value" type="double" value="0.0"/>
-
-      </ParameterList>
-
     </ParameterList>
 
   </ParameterList>
 
   <ParameterList name="state">
+    <ParameterList name="verbose object">
+      <Parameter name="verbosity level" type="string" value="extreme"/>
+    </ParameterList>
+    <ParameterList name="debug">
+      <Parameter name="evaluators" type="Array(string)" value="{total_component_concentration}"/>
+      <Parameter name="data" type="Array(string)" value="{total_component_concentration}"/>
+    </ParameterList>
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="richards water content"/>
@@ -380,11 +417,14 @@
         <Parameter name="EOS basis" type="string" value="both"/>
         <Parameter name="molar density key" type="string" value="surface-molar_density_liquid"/>
         <Parameter name="mass density key" type="string" value="surface-mass_density_liquid"/>
-        <Parameter name="mole fraction tag" type="string" value="current"/>
+        <Parameter name="concentration tag" type="string" value="current"/>
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="salt water"/>
           <Parameter name="fresh water mass density [kg/m^3]" type="double" value="1000.0"/>
           <Parameter name="sea water density coefficient" type="double" value="700.0"/>
+        </ParameterList>
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="extreme"/>
         </ParameterList>
       </ParameterList>
       <ParameterList name="surface-molar_density_liquid" type="ParameterList">
@@ -392,11 +432,14 @@
         <Parameter name="EOS basis" type="string" value="both"/>
         <Parameter name="molar density key" type="string" value="surface-molar_density_liquid"/>
         <Parameter name="mass density key" type="string" value="surface-mass_density_liquid"/>
-        <Parameter name="mole fraction tag" type="string" value="current"/>
+        <Parameter name="concentration tag" type="string" value="current"/>
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="salt water"/>
           <Parameter name="fresh water mass density [kg/m^3]" type="double" value="1000.0"/>
           <Parameter name="sea water density coefficient" type="double" value="700.0"/>
+        </ParameterList>
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="extreme"/>
         </ParameterList>
       </ParameterList>
       <ParameterList name="surface-source_molar_density">
@@ -408,11 +451,14 @@
         <Parameter name="EOS basis" type="string" value="both"/>
         <Parameter name="molar density key" type="string" value="molar_density_liquid"/>
         <Parameter name="mass density key" type="string" value="mass_density_liquid"/>
-        <Parameter name="mole fraction tag" type="string" value="current"/>
+        <Parameter name="concentration tag" type="string" value="current"/>
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="salt water"/>
           <Parameter name="fresh water mass density [kg/m^3]" type="double" value="1000.0"/>
           <Parameter name="sea water density coefficient" type="double" value="700.0"/>
+        </ParameterList>
+        <ParameterList name="verbose object" type="ParameterList">
+          <Parameter name="verbosity level" type="string" value="extreme"/>
         </ParameterList>
       </ParameterList>
       <ParameterList name="viscosity_liquid">
@@ -434,7 +480,6 @@
       <ParameterList name="permeability">
         <Parameter name="evaluator type" type="string" value="independent variable tensor"/>
         <Parameter name="value" type="double" value="5.67e-10"/>
-        <Parameter name="tensor type" type="string" value="scalar"/>
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain"/>
@@ -446,6 +491,7 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
+        <Parameter name="tensor type" type="string" value="scalar"/>
       </ParameterList>
       <ParameterList name="surface-relative_permeability">
         <Parameter name="evaluator type" type="string" value="independent variable constant"/>
@@ -460,6 +506,9 @@
           <Parameter name="overland conductivity type " type="string" value="manning"/>
           <Parameter name="Manning exponent" type="double" value="0.666666666667"/>
           <Parameter name="slope regularization epsilon" type="double" value="0.0001"/>
+        </ParameterList>
+        <ParameterList name="verbose object">
+          <Parameter name="verbosity level" type="string" value="low"/>
         </ParameterList>
       </ParameterList>
       <ParameterList name="saturation_liquid" type="ParameterList">
@@ -493,6 +542,42 @@
 
       <ParameterList name="gravity">
         <Parameter name="value" type="Array(double)" value="{0.0, 0.0, -9.80665}"/>
+      </ParameterList>
+
+      <ParameterList name="surface-total_component_concentration">
+        <ParameterList name="function">
+          <ParameterList name="All">
+            <Parameter name="regions" type="Array(string)" value="{surface domain}"/>
+            <Parameter name="component" type="string" value="cell"/>
+            <ParameterList name="function">
+              <Parameter name="number of dofs" type="int" value="1"/>
+              <Parameter name="function type" type="string" value="composite function"/>
+              <ParameterList name="dof 1 function">
+                <ParameterList name="function-constant">
+                  <Parameter name="value" type="double" value="0.0"/>
+                </ParameterList>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+
+      <ParameterList name="total_component_concentration">
+        <ParameterList name="function">
+          <ParameterList name="All">
+            <Parameter name="regions" type="Array(string)" value="{computational domain}"/>
+            <Parameter name="component" type="string" value="cell"/>
+            <ParameterList name="function">
+              <Parameter name="number of dofs" type="int" value="1"/>
+              <Parameter name="function type" type="string" value="composite function"/>
+              <ParameterList name="dof 1 function">
+                <ParameterList name="function-constant">
+                  <Parameter name="value" type="double" value="0.0"/>
+                </ParameterList>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
       </ParameterList>
 
     </ParameterList>

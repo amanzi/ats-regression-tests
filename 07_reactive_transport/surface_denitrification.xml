@@ -61,6 +61,9 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
+  <ParameterList name="verbose object" type="ParameterList">
+    <Parameter name="verbosity level" type="string" value="high"/>
+  </ParameterList>
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{0.0, 0.1, -1.0}"/>
@@ -81,6 +84,9 @@
       <Parameter name="PKs order" type="Array(string)" value="{surface chemistry, surface transport}"/>
       <Parameter name="domain name" type="string" value="surface"/>
       <Parameter name="transport index" type="int" value="1"/>
+      <ParameterList name="verbose object" type="ParameterList">
+        <Parameter name="verbosity level" type="string" value="low"/>
+      </ParameterList>
 
     </ParameterList>
 
@@ -91,6 +97,11 @@
       <Parameter name="advection spatial discretization order" type="int" value="1"/>
       <Parameter name="temporal discretization order" type="int" value="1"/>
       <Parameter name="cfl" type="double" value="1.0"/>
+      <ParameterList name="verbose object" type="ParameterList">
+        <Parameter name="verbosity level" type="string" value="medium"/>
+        <Parameter name="name" type="string" value="Surface Transport"/>
+      </ParameterList>
+
       <ParameterList name="diffusion">
         <Parameter name="discretization primary" type="string" value="fv: default"/>
         <ParameterList name="inverse">
@@ -107,6 +118,9 @@
             <Parameter name="error tolerance" type="double" value="1e-20"/>
             <Parameter name="convergence criteria" type="Array(string)" value="{relative rhs, make one iteration}"/>
             <Parameter name="size of Krylov space" type="int" value="5"/>
+            <ParameterList name="verbose object">
+              <Parameter name="verbosity level" type="string" value="low"/>
+            </ParameterList>
           </ParameterList>
         </ParameterList>
       </ParameterList>
@@ -143,8 +157,17 @@
       <Parameter name="chemistry model" type="string" value="Alquimia"/>
       <Parameter name="saturation liquid key suffix" type="string" value="ponded_depth"/>
       <Parameter name="domain name" type="string" value="surface"/>
-      <Parameter name="engine input file" type="string" value="../data/denitrification-pflotran.in"/>
+      <Parameter name="engine input file" type="string" value="../data/pflotran_in/denitrification_reach.in"/>
+      <Parameter name="activity model" type="string" value="unit"/>
+      <Parameter name="maximum Newton iterations" type="int" value="100"/>
+      <Parameter name="tolerance" type="double" value="1e-12"/>
+      <Parameter name="initial conditions time" type="double" value="0.0"/>
+      <Parameter name="number of component concentrations" type="int" value="6"/>
       <Parameter name="debug cells" type="Array(int)" value="{0}"/>
+      <ParameterList name="verbose object" type="ParameterList">
+        <Parameter name="verbosity level" type="string" value="high"/>
+      </ParameterList>
+
       <ParameterList name="initial conditions" type="ParameterList">
 
         <ParameterList name="geochemical conditions" type="ParameterList">
@@ -206,6 +229,18 @@
       <ParameterList name="surface-mass_density_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable constant"/>
         <Parameter name="value" type="double" value="1000.0"/>
+      </ParameterList>
+      <ParameterList name="surface-dispersion_coefficient" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="dispersion tensor"/>
+        <ParameterList name="mechanical dispersion parameters" type="ParameterList">
+          <ParameterList name="surface" type="ParameterList">
+            <Parameter name="region" type="string" value="surface domain"/>
+            <Parameter name="mechanical dispersion type" type="string" value="isotropic"/>
+            <ParameterList name="isotropic parameters">
+              <Parameter name="alpha" type="double" value="0.0"/>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
       </ParameterList>
       <ParameterList name="surface-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator"/>

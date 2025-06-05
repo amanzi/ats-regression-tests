@@ -58,8 +58,8 @@
     <Parameter name="end time units" type="string" value="d"/>
     <ParameterList name="PK tree">
       <ParameterList name="flow and transport">
-        <Parameter name="PK type" type="string" value="coupled flow and transport"/>
-        <ParameterList name="flow coupler">
+        <Parameter name="PK type" type="string" value="subcycling MPC"/>
+        <ParameterList name="surface-subsurface flow coupler">
           <Parameter name="PK type" type="string" value="coupled water"/>
           <ParameterList name="flow">
             <Parameter name="PK type" type="string" value="richards flow"/>
@@ -68,7 +68,7 @@
             <Parameter name="PK type" type="string" value="overland flow, pressure basis"/>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="transport coupler">
+        <ParameterList name="surface-subsurface transport coupler">
           <Parameter name="PK type" type="string" value="surface subsurface transport"/>
           <ParameterList name="subsurface transport">
             <Parameter name="PK type" type="string" value="transport ATS"/>
@@ -79,17 +79,20 @@
         </ParameterList>
       </ParameterList>
     </ParameterList>
+    <ParameterList name="timestep manager" type="ParameterList">
+      <Parameter name="prescribed timesteps file name" type="string" value="../data/transport-column_exfiltration_dts.h5"/>
+    </ParameterList>
   </ParameterList>
   <ParameterList name="PKs">
 
     <ParameterList name="flow and transport">
-      <Parameter name="PK type" type="string" value="coupled flow and transport"/>
-      <Parameter name="PKs order" type="Array(string)" value="{flow coupler, transport coupler}"/>
+      <Parameter name="PK type" type="string" value="subcycling MPC"/>
+      <Parameter name="PKs order" type="Array(string)" value="{surface-subsurface flow coupler, surface-subsurface transport coupler}"/>
       <Parameter name="subcycle" type="Array(int)" value="{0, 1}"/>
 
     </ParameterList>
 
-    <ParameterList name="flow coupler">
+    <ParameterList name="surface-subsurface flow coupler">
       <Parameter name="PK type" type="string" value="coupled water"/>
       <Parameter name="PKs order" type="Array(string)" value="{flow, overland flow}"/>
       <ParameterList name="water delegate" type="ParameterList">
@@ -132,7 +135,7 @@
           <Parameter name="min timestep" type="double" value="1e-10"/>
           <Parameter name="growth wait after fail" type="int" value="2"/>
           <Parameter name="count before increasing increase factor" type="int" value="2"/>
-          <Parameter name="initial timestep [s]" type="double" value="846000.0"/>
+          <Parameter name="initial timestep [s]" type="double" value="1.0"/>
         </ParameterList>
       </ParameterList>
 
@@ -200,17 +203,17 @@
 
     </ParameterList>
 
-    <ParameterList name="transport coupler">
+    <ParameterList name="surface-subsurface transport coupler">
       <Parameter name="PK type" type="string" value="surface subsurface transport"/>
       <Parameter name="PK name" type="string" value="surface subsurface transport"/>
       <Parameter name="PKs order" type="Array(string)" value="{subsurface transport, surface transport}"/>
-      <Parameter name="component names" type="Array(string)" value="{Tracer1}"/>
+      <Parameter name="component names" type="Array(string)" value="{Tc-99}"/>
 
     </ParameterList>
 
     <ParameterList name="subsurface transport">
       <Parameter name="PK type" type="string" value="transport ATS"/>
-      <Parameter name="component names" type="Array(string)" value="{Tracer1}"/>
+      <Parameter name="component names" type="Array(string)" value="{Tc-99}"/>
       <Parameter name="advection spatial discretization order" type="int" value="1"/>
       <Parameter name="temporal discretization order" type="int" value="1"/>
       <Parameter name="cfl" type="double" value="1.0"/>
@@ -257,7 +260,7 @@
     <ParameterList name="surface transport">
       <Parameter name="PK type" type="string" value="transport ATS"/>
       <Parameter name="domain name" type="string" value="surface"/>
-      <Parameter name="component names" type="Array(string)" value="{Tracer1}"/>
+      <Parameter name="component names" type="Array(string)" value="{Tc-99}"/>
       <Parameter name="advection spatial discretization order" type="int" value="1"/>
       <Parameter name="temporal discretization order" type="int" value="1"/>
       <Parameter name="cfl" type="double" value="1.0"/>
@@ -268,6 +271,9 @@
 
         <Parameter name="constant" type="double" value="0.0"/>
 
+      </ParameterList>
+
+      <ParameterList name="source terms">
       </ParameterList>
 
     </ParameterList>
@@ -337,7 +343,6 @@
       <ParameterList name="permeability">
         <Parameter name="evaluator type" type="string" value="independent variable tensor"/>
         <Parameter name="value" type="double" value="1.15e-11"/>
-        <Parameter name="tensor type" type="string" value="scalar"/>
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain"/>
@@ -349,6 +354,7 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
+        <Parameter name="tensor type" type="string" value="scalar"/>
       </ParameterList>
       <ParameterList name="surface-relative_permeability">
         <Parameter name="evaluator type" type="string" value="independent variable constant"/>
@@ -410,18 +416,6 @@
     </ParameterList>
   </ParameterList>
   <ParameterList name="checkpoint">
-    <Parameter name="times start period stop" type="Array(double)" value="{0.0, 10.0, -1.0}"/>
-    <Parameter name="times start period stop units" type="string" value="d"/>
-  </ParameterList>
-
-  <ParameterList name="visualization">
-    <ParameterList name="surface">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 10.0, -1.0}"/>
-      <Parameter name="times start period stop units" type="string" value="d"/>
-    </ParameterList>
-    <ParameterList name="domain">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 10.0, -1.0}"/>
-      <Parameter name="times start period stop units" type="string" value="d"/>
-    </ParameterList>
+    <Parameter name="cycles" type="Array(int)" value="{0, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34}"/>
   </ParameterList>
 </ParameterList>

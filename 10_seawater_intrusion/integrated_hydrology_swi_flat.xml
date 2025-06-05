@@ -373,13 +373,18 @@
       <Parameter name="advection spatial discretization order" type="int" value="1"/>
       <Parameter name="temporal discretization order" type="int" value="1"/>
       <Parameter name="cfl" type="double" value="1.0"/>
+      <ParameterList name="verbose object">
+        <Parameter name="verbosity level" type="string" value="high"/>
+        <Parameter name="name" type="string" value="Subsurface Transport"/>
+      </ParameterList>
+
       <ParameterList name="boundary conditions">
-        <ParameterList name="mole fraction">
+        <ParameterList name="concentration">
           <ParameterList name="East Side">
             <Parameter name="regions" type="Array(string)" value="{east face}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
             <Parameter name="component names" type="Array(string)" value="{salt}"/>
-            <ParameterList name="boundary mole fraction function">
+            <ParameterList name="boundary concentration function">
               <ParameterList name="function-constant">
                 <Parameter name="value" type="double" value="0.035"/>
               </ParameterList>
@@ -393,8 +398,6 @@
         <Parameter name="constant" type="double" value="0.0"/>
 
       </ParameterList>
-
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration"/>
 
     </ParameterList>
 
@@ -409,16 +412,21 @@
       <Parameter name="cfl" type="double" value="1.0"/>
       <Parameter name="water tolerance" type="double" value="0.0001"/>
       <Parameter name="enable internal tests" type="bool" value="false"/>
+      <ParameterList name="verbose object">
+        <Parameter name="verbosity level" type="string" value="high"/>
+        <Parameter name="name" type="string" value="Surface Transport"/>
+      </ParameterList>
+
       <ParameterList name="source terms">
       </ParameterList>
 
       <ParameterList name="boundary conditions">
-        <ParameterList name="mole fraction">
+        <ParameterList name="concentration">
           <ParameterList name="East Side">
             <Parameter name="regions" type="Array(string)" value="{surface east}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
             <Parameter name="component names" type="Array(string)" value="{salt}"/>
-            <ParameterList name="boundary mole fraction function">
+            <ParameterList name="boundary concentration function">
               <ParameterList name="function-constant">
                 <Parameter name="value" type="double" value="0.035"/>
               </ParameterList>
@@ -433,8 +441,6 @@
 
       </ParameterList>
 
-      <Parameter name="primary variable key suffix" type="string" value="total_component_concentration"/>
-
     </ParameterList>
 
   </ParameterList>
@@ -442,6 +448,10 @@
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="verbose object">
       <Parameter name="verbosity level" type="string" value="extreme"/>
+    </ParameterList>
+    <ParameterList name="debug">
+      <Parameter name="evaluators" type="Array(string)" value="{total_component_concentration}"/>
+      <Parameter name="data" type="Array(string)" value="{total_component_concentration}"/>
     </ParameterList>
     <ParameterList name="evaluators" type="ParameterList">
       <ParameterList name="water_content" type="ParameterList">
@@ -528,7 +538,6 @@
       <ParameterList name="permeability">
         <Parameter name="evaluator type" type="string" value="independent variable tensor"/>
         <Parameter name="value" type="double" value="1.15e-10"/>
-        <Parameter name="tensor type" type="string" value="scalar"/>
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain"/>
@@ -540,6 +549,7 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
+        <Parameter name="tensor type" type="string" value="scalar"/>
       </ParameterList>
       <ParameterList name="surface-relative_permeability">
         <Parameter name="evaluator type" type="string" value="independent variable constant"/>

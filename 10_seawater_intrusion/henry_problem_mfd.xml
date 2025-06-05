@@ -82,7 +82,7 @@
     <Parameter name="end time units" type="string" value="d"/>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="Flow and Transport">
-        <Parameter name="PK type" type="string" value="coupled flow and transport"/>
+        <Parameter name="PK type" type="string" value="subcycling MPC"/>
         <ParameterList name="flow richards" type="ParameterList">
           <Parameter name="PK type" type="string" value="richards flow"/>
         </ParameterList>
@@ -99,9 +99,9 @@
   <ParameterList name="PKs" type="ParameterList">
 
     <ParameterList name="Flow and Transport">
-      <Parameter name="PK type" type="string" value="coupled flow and transport"/>
+      <Parameter name="PK type" type="string" value="subcycling MPC"/>
       <Parameter name="PKs order" type="Array(string)" value="{flow richards, subsurface transport}"/>
-      <Parameter name="subcycle" type="Array(int)" value="{0, 0}"/>
+      <Parameter name="subcycle" type="Array(int)" value="{0, 1}"/>
 
     </ParameterList>
 
@@ -109,6 +109,7 @@
       <Parameter name="primary variable key" type="string" value="pressure"/>
       <Parameter name="PK type" type="string" value="richards flow"/>
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux"/>
+      <Parameter name="modify predictor for flux BCs" type="bool" value="false"/>
       <Parameter name="permeability rescaling" type="double" value="10000000.0"/>
       <Parameter name="debug cells" type="Array(int)" value="{0, 49, 4950, 4999}"/>
       <ParameterList name="time integrator" type="ParameterList">
@@ -196,18 +197,19 @@
 
     <ParameterList name="subsurface transport">
       <Parameter name="PK type" type="string" value="transport ATS"/>
+      <Parameter name="previous saturation liquid key" type="string" value="prev_saturation_liquid"/>
       <Parameter name="component names" type="Array(string)" value="{salt}"/>
       <Parameter name="advection spatial discretization order" type="int" value="1"/>
       <Parameter name="temporal discretization order" type="int" value="1"/>
       <Parameter name="cfl" type="double" value="1.0"/>
       <Parameter name="debug cells" type="Array(int)" value="{0, 49, 4950, 4999}"/>
       <ParameterList name="boundary conditions">
-        <ParameterList name="mole fraction">
+        <ParameterList name="concentration">
           <ParameterList name="EAST">
             <Parameter name="regions" type="Array(string)" value="{east bottom}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
             <Parameter name="component names" type="Array(string)" value="{salt}"/>
-            <ParameterList name="boundary mole fraction function">
+            <ParameterList name="boundary concentration function">
               <Parameter name="number of dofs" type="int" value="1"/>
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant">
@@ -220,7 +222,7 @@
             <Parameter name="regions" type="Array(string)" value="{west face}"/>
             <Parameter name="spatial distribution method" type="string" value="none"/>
             <Parameter name="component names" type="Array(string)" value="{salt}"/>
-            <ParameterList name="boundary mole fraction function">
+            <ParameterList name="boundary concentration function">
               <Parameter name="number of dofs" type="int" value="1"/>
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant">
@@ -255,7 +257,7 @@
         <Parameter name="EOS basis" type="string" value="both"/>
         <Parameter name="molar density key" type="string" value="molar_density_liquid"/>
         <Parameter name="mass density key" type="string" value="mass_density_liquid"/>
-        <Parameter name="mole fraction tag" type="string" value="current"/>
+        <Parameter name="concentration tag" type="string" value="current"/>
         <ParameterList name="EOS parameters" type="ParameterList">
           <Parameter name="EOS type" type="string" value="salt water"/>
           <Parameter name="fresh water mass density [kg/m^3]" type="double" value="997.0"/>
@@ -305,7 +307,6 @@
       <ParameterList name="permeability" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable tensor"/>
         <Parameter name="constant in time" type="bool" value="true"/>
-        <Parameter name="tensor type" type="string" value="scalar"/>
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
             <Parameter name="region" type="string" value="computational domain"/>
@@ -317,6 +318,7 @@
             </ParameterList>
           </ParameterList>
         </ParameterList>
+        <Parameter name="tensor type" type="string" value="scalar"/>
       </ParameterList>
       <ParameterList name="temperature" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable"/>
