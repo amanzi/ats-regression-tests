@@ -46,7 +46,7 @@
   <ParameterList name="cycle driver" type="ParameterList">
     <Parameter name="start time" type="double" value="0.0"/>
     <Parameter name="start time units" type="string" value="s"/>
-    <Parameter name="end time" type="double" value="20.0"/>
+    <Parameter name="end time" type="double" value="40.0"/>
     <Parameter name="end time units" type="string" value="d"/>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="transport" type="ParameterList">
@@ -154,7 +154,8 @@
       <ParameterList name="saturation_liquid" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable from file"/>
         <Parameter name="constant in time" type="bool" value="true"/>
-        <Parameter name="filename" type="string" value="../data/richards-hillslope_steadystate.h5"/>
+        <Parameter name="checkpoint file" type="bool" value="true"/>
+        <Parameter name="filename" type="string" value="../data/richards-hillslope_ic-np2.h5"/>
         <Parameter name="variable name" type="string" value="saturation_liquid"/>
         <Parameter name="component name" type="string" value="cell"/>
         <Parameter name="mesh entity" type="string" value="cell"/>
@@ -162,8 +163,9 @@
       <ParameterList name="water_flux" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable from file"/>
         <Parameter name="constant in time" type="bool" value="true"/>
-        <Parameter name="filename" type="string" value="../data/richards-hillslope_steadystate.h5"/>
-        <Parameter name="variable name" type="string" value="mass_flux"/>
+        <Parameter name="checkpoint file" type="bool" value="true"/>
+        <Parameter name="filename" type="string" value="../data/richards-hillslope_ic-np2.h5"/>
+        <Parameter name="variable name" type="string" value="water_flux"/>
         <Parameter name="component name" type="string" value="face"/>
         <Parameter name="mesh entity" type="string" value="face"/>
       </ParameterList>
