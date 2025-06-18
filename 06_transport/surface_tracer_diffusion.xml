@@ -1,4 +1,26 @@
 <ParameterList name="Main" type="ParameterList">
+<!--  
+This simulation tests the DIFFUSION of transport in a 1D surface domain.  
+The domain is a rectangular channel with dimensions 1000 m (length) by 1 m (width) discretized into 100 cells.
+
+Simulation Summary:
+  - Tracers: Tracer1 and Tracer2
+  - Flow: Zero velocity field (u=0), thus only diffusion happens
+  - Initial Conditions: Uniform concentration C = 1 for both tracers throughout the domain
+  - Boundary Conditions: None applied
+  - Molecular Diffusivity:
+      * Tracer1: small, D = 0.01 m^2/s
+      * Tracer2: large, D = 10.0 m^2/s
+  - Numerical Scheme:
+      * Spatial: centered finite difference (second-order)
+      * Temporal: first-order time stepping
+  - Outputs:
+      * Breakthrough curve at observation point
+      * Diffusive mass fluxes of tracers across an observation face over time
+      * Checkpoint files every 900 seconds
+  - Simulation Duration: 1800 seconds
+-->
+
   <ParameterList name="mesh" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="mesh type" type="string" value="aliased"/>
@@ -43,8 +65,14 @@
     </ParameterList>
     <ParameterList name="observation point" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{990.0, 0.0}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{1000.0, 1.0}"/>
+        <Parameter name="low coordinate" type="Array(double)" value="{90.0, 0.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{100.0, 1.0}"/>
+      </ParameterList>
+    </ParameterList>
+    <ParameterList name="observation face" type="ParameterList">
+      <ParameterList name="region: box" type="ParameterList">
+        <Parameter name="low coordinate" type="Array(double)" value="{100.0, 0.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{100.0, 1.0}"/>
       </ParameterList>
     </ParameterList>
   </ParameterList>
@@ -53,7 +81,7 @@
     <Parameter name="end cycle" type="int" value="20000"/>
     <Parameter name="start time" type="double" value="0.0"/>
     <Parameter name="start time units" type="string" value="s"/>
-    <Parameter name="end time" type="double" value="1000.0"/>
+    <Parameter name="end time" type="double" value="1800.0"/>
     <Parameter name="end time units" type="string" value="s"/>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="surface transport" type="ParameterList">
@@ -66,6 +94,7 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
+
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{0.0, 10.0, -1.0}"/>
@@ -77,18 +106,31 @@
       <Parameter name="variable" type="string" value="surface-mole_fraction"/>
       <Parameter name="functional" type="string" value="point"/>
       <Parameter name="region" type="string" value="observation point"/>
-      <Parameter name="delimiter" type="string" value=""/>
+      <Parameter name="delimiter" type="string" value=","/>
       <Parameter name="location name" type="string" value="cell"/>
       <Parameter name="number of vectors" type="int" value="2"/>
       <Parameter name="write interval" type="int" value="1"/>
       <Parameter name="observation output filename" type="string" value="breakthrough_curve.dat"/>
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 120.0, -1.0}"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 180.0, -1.0}"/>
       <Parameter name="times start period stop units" type="string" value="s"/>
     </ParameterList>
+    <ParameterList name="surface-mass_flux_diffusion">
+      <Parameter name="variable" type="string" value="surface-mass_flux_diffusion"/>
+      <Parameter name="direction normalized flux" type="bool" value="true"/>
+      <Parameter name="region" type="string" value="observation face"/>
+      <Parameter name="functional" type="string" value="extensive integral"/>
+      <Parameter name="delimiter" type="string" value=","/>
+      <Parameter name="location name" type="string" value="face"/>
+      <Parameter name="write interval" type="int" value="1"/>
+      <Parameter name="observation output filename" type="string" value="surface_mass_flux_diffusion.dat"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 180.0, -1.0}"/>
+      <Parameter name="times start period stop units" type="string" value="s"/>
+    </ParameterList>      
   </ParameterList>
+
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="file name base" type="string" value="checkpoint"/>
-    <Parameter name="times start period stop" type="Array(double)" value="{0.0, 3600.0, -1.0}"/>
+    <Parameter name="times start period stop" type="Array(double)" value="{0.0, 900.0, -1.0}"/>
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">

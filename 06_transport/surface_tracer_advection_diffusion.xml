@@ -1,15 +1,24 @@
 <ParameterList name="Main" type="ParameterList">
-  <!--
+<!--  
+This simulation tests both the diffusion and advection of two tracers in a 1D surface domain.
+The domain is a rectangular channel with dimensions 1000 m (length) by 1 m (width) discretized into 100 cells.
 
-Transport only problem with fixed flow field.
-    
-Starts with 0 C everywhere, advects in from BC with C = 1 for Tracer1,
-C = 2 for Tracer 2.  Watch the advected front move across at 1m/s.
-
-Diffusion is component-based:
-- little-to-no diffusion for Tracer 1
-- lots of diffusion for Tracer 2
-
+Simulation Summary:
+  - Tracers: Tracer1 and Tracer2
+  - Flow: fixed flow field
+  - Initial Conditions: C = 0 everywhere for both tracers
+  - Boundary Conditions: None applied
+  - Molecular Diffusivity:
+      * Tracer1: small, D = 0.01 m^2/s
+      * Tracer2: large, D = 5 m^2/s
+  - Numerical Scheme:
+      * Spatial: centered finite difference (second-order)
+      * Temporal: first-order discretization
+  - Outputs:
+      * Concentration profiles at observation point and specified time interval
+      * Diffusion and advection mass fluxes of tracers at an observation face over time (for mass conservation check)
+      * Checkpoint files every 900 seconds
+  - Simulation Duration: 1800 seconds
 -->
   <ParameterList name="mesh" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
@@ -65,7 +74,7 @@ Diffusion is component-based:
     <Parameter name="end cycle" type="int" value="20000"/>
     <Parameter name="start time" type="double" value="0.0"/>
     <Parameter name="start time units" type="string" value="s"/>
-    <Parameter name="end time" type="double" value="1000.0"/>
+    <Parameter name="end time" type="double" value="1800.0"/>
     <Parameter name="end time units" type="string" value="s"/>
     <ParameterList name="PK tree" type="ParameterList">
       <ParameterList name="surface transport" type="ParameterList">
@@ -94,13 +103,37 @@ Diffusion is component-based:
       <Parameter name="number of vectors" type="int" value="2"/>
       <Parameter name="write interval" type="int" value="1"/>
       <Parameter name="observation output filename" type="string" value="breakthrough_curve.dat"/>
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 120.0, -1.0}"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 180.0, -1.0}"/>
       <Parameter name="times start period stop units" type="string" value="s"/>
     </ParameterList>
+    <ParameterList name="surface-mass_flux_advection">
+      <Parameter name="variable" type="string" value="surface-mass_flux_advection"/>
+      <Parameter name="direction normalized flux" type="bool" value="true"/>
+      <Parameter name="region" type="string" value="surface east"/>
+      <Parameter name="functional" type="string" value="extensive integral"/>
+      <Parameter name="delimiter" type="string" value=","/>
+      <Parameter name="location name" type="string" value="face"/>
+      <Parameter name="write interval" type="int" value="1"/>
+      <Parameter name="observation output filename" type="string" value="surface_mass_flux_advection.dat"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 180.0, -1.0}"/>
+      <Parameter name="times start period stop units" type="string" value="s"/>
+    </ParameterList> 
+    <ParameterList name="surface-mass_flux_diffusion">
+      <Parameter name="variable" type="string" value="surface-mass_flux_diffusion"/>
+      <Parameter name="direction normalized flux" type="bool" value="true"/>
+      <Parameter name="region" type="string" value="surface east"/>
+      <Parameter name="functional" type="string" value="extensive integral"/>
+      <Parameter name="delimiter" type="string" value=","/>
+      <Parameter name="location name" type="string" value="face"/>
+      <Parameter name="write interval" type="int" value="1"/>
+      <Parameter name="observation output filename" type="string" value="surface_mass_flux_diffusion.dat"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 180.0, -1.0}"/>
+      <Parameter name="times start period stop units" type="string" value="s"/>
+    </ParameterList>        
   </ParameterList>
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="file name base" type="string" value="checkpoint"/>
-    <Parameter name="times start period stop" type="Array(double)" value="{0.0, 3600.0, -1.0}"/>
+    <Parameter name="times start period stop" type="Array(double)" value="{0.0, 900.0, -1.0}"/>
   </ParameterList>
 
   <ParameterList name="PKs" type="ParameterList">
