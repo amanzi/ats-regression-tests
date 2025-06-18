@@ -74,10 +74,17 @@ def commandline_options():
                         help="Indicate that there are new tests being run. "
                         "Skips the output check and creates a new gold file.")
 
+    parser.add_argument('-r', '--rerun-failed', default=None, nargs='?', const=True,
+                        help="Rerun only failed tests from a previous logfile.  If "
+                        "a value is provided, it is the path to the logfile.  If no "
+                        "value is provided, will search for the last logfile. "
+                        "Note that a config file (or '.') must still be provided -- "
+                        "only failed tests in the provided config files will be run.")
+    
     parser.add_argument('--save-dt-history', default=False, action="store_true",
                         help="When used with --new-tests, does an additional run "
-                        "to get the timestep history for more accurate comparison. ")
-    
+                        "to get the timestep history for more accurate comparison.")
+
     parser.add_argument('-s', '--suites', nargs="+", default=[],
                         help='space separated list of test suite names')
 
@@ -109,16 +116,33 @@ def main(options):
     txtwrap = textwrap.TextWrapper(width=78, subsequent_indent=4*" ")
     root_dir = os.getcwd()
 
+    # find and import test_manager
     if options.ats is not None:
         sys.path.append(os.path.join(options.ats, 'tools', 'testing'))
     if 'ATS_SRC_DIR' in os.environ:
         sys.path.append(os.path.join(os.environ['ATS_SRC_DIR'], 'tools', 'testing'))
-
     import test_manager
+
+    # silent here means limited stdout for use by cmake or simple list calls
     silent = options.list_tests or options.list_available_suites or options.list_available_tests
+
+    # create the logfile
     testlog = test_manager.setup_testlog(txtwrap, silent)
 
     test_manager.check_options(options)
+
+    # if using rerun-failed option, parse logfile for failed tests
+    if options.rerun_failed:
+        if isinstance(options.rerun_failed, bool):
+            options.rerun_failed = test_manager.find_last_logfile()
+        options.tests = test_manager.find_failed(options.rerun_failed)
+
+        # need to short-circuit return here, because empty test list
+        # will be interpreted as running all tests
+        if len(options.tests) == 0:
+            return 0
+
+    # find executable and mpi
     if silent:
         executable = None
         mpiexec = None
@@ -194,6 +218,11 @@ def main(options):
                          options.save_dt_history)
 
             report[filename] = tm.run_status()
+
+            # Not sure why this is needed to get proper printing when there are no tests...
+            if tm.num_tests() == 0:
+                print('', file=sys.stdout)
+        
         os.chdir(root_dir)
             
     stop = time.time()
