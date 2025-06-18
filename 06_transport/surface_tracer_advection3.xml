@@ -1,6 +1,6 @@
 <ParameterList name="Main" type="ParameterList">
 <!--
-This simulation tests the advection of two tracers in a 1D surface domain without diffusion. 
+This simulation tests the ADVECTION of transport in a 1D surface domain with second-order spatial and temporal discretization schemes.
 The domain is a rectangular channel with dimensions 1000 m (length) by 1 m (width) discretized into 100 cells.
 
 Simulation Summary:
@@ -14,10 +14,10 @@ Simulation Summary:
       * Spatial: second-order discretization for advection
       * Temporal: second-order predictor-corrector scheme
   - Outputs:
-      * Breakthrough curve at observation point (cell centroid: 995 m, 0.5 m)
-      * Advection mass fluxes of tracers at observation face over time (for mass conservation check)
+      * Breakthrough curve at observation point
+      * Advective mass fluxes of tracers across an observation face over time
       * Checkpoint files every 900 seconds
-  - Simulation Duration: 1800 seconds
+  - Total simulation time: 1800 seconds
 -->
   <ParameterList name="mesh" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">

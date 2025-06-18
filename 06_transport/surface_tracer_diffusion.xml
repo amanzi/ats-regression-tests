@@ -1,23 +1,22 @@
 <ParameterList name="Main" type="ParameterList">
 <!--  
-This simulation tests the diffusion of two tracers in a 1D surface domain without advection.  
+This simulation tests the DIFFUSION of transport in a 1D surface domain.  
 The domain is a rectangular channel with dimensions 1000 m (length) by 1 m (width) discretized into 100 cells.
 
 Simulation Summary:
   - Tracers: Tracer1 and Tracer2
-  - Flow: Zero velocity field (u=0), diffusion only (no advection)
+  - Flow: Zero velocity field (u=0), thus only diffusion happens
   - Initial Conditions: Uniform concentration C = 1 for both tracers throughout the domain
-  - Boundary Conditions:
-      * No mass flux (Note: but water flux can carry tracers out of the domain through the (east) boundary)
+  - Boundary Conditions: None applied
   - Molecular Diffusivity:
       * Tracer1: small, D = 0.01 m^2/s
-      * Tracer2: large, D = 10 m^2/s
+      * Tracer2: large, D = 10.0 m^2/s
   - Numerical Scheme:
       * Spatial: centered finite difference (second-order)
-      * Temporal: first-order discretization
+      * Temporal: first-order time stepping
   - Outputs:
-      * Concentration profiles at observation point and specified time interval
-      * Diffusion mass fluxes of tracers at an observation face over time (for mass conservation check)
+      * Breakthrough curve at observation point
+      * Diffusive mass fluxes of tracers across an observation face over time
       * Checkpoint files every 900 seconds
   - Simulation Duration: 1800 seconds
 -->
