@@ -118,6 +118,9 @@
         <Parameter name="gaseous" type="double" value="1.0"/>
       </ParameterList>
 
+      <ParameterList name="boundary conditions" type="ParameterList">
+      </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="chemistry" type="ParameterList">

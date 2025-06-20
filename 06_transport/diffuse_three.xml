@@ -204,35 +204,6 @@
       <ParameterList name="boundary conditions">
       </ParameterList>
 
-      <ParameterList name="source terms">
-        <ParameterList name="component mass source">
-          <ParameterList name="all injection">
-            <Parameter name="component names" type="Array(string)" value="{O2, Ar, N2O}"/>
-            <Parameter name="component mass source" type="Array(string)" value="{1.0, 1.0, 1.0}"/>
-            <Parameter name="regions" type="Array(string)" value="{top layer}"/>
-            <Parameter name="spatial distribution method" type="string" value="none"/>
-            <ParameterList name="source function">
-              <Parameter name="number of dofs" type="int" value="3"/>
-              <ParameterList name="dof 1 function">
-                <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="1.0"/>
-                </ParameterList>
-              </ParameterList>
-              <ParameterList name="dof 2 function">
-                <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="1.0"/>
-                </ParameterList>
-              </ParameterList>
-              <ParameterList name="dof 3 function">
-                <ParameterList name="function-constant">
-                  <Parameter name="value" type="double" value="1.0"/>
-                </ParameterList>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-
       <ParameterList name="molecular diffusivity [m^2 s^-1]" type="ParameterList">
         <Parameter name="N2O" type="double" value="1e-8"/>
         <Parameter name="Ar" type="double" value="0.000001"/>
@@ -243,6 +214,9 @@
         <Parameter name="aqueous" type="double" value="1.0"/>
         <Parameter name="gaseous" type="double" value="1.0"/>
       </ParameterList>
+
+      <Parameter name="source term" type="bool" value="true"/>
+      <Parameter name="source key suffix" type="string" value="all_injection_source"/>
 
     </ParameterList>
 
@@ -378,6 +352,36 @@
             <Parameter name="mechanical dispersion type" type="string" value="isotropic"/>
             <ParameterList name="isotropic parameters">
               <Parameter name="alpha" type="double" value="0.0001"/>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+      <ParameterList name="all_injection_source" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable"/>
+        <Parameter name="spatial distribution method" type="string" value="none"/>
+        <ParameterList name="function" type="ParameterList">
+          <ParameterList name="all injection" type="ParameterList">
+            <Parameter name="component names" type="Array(string)" value="{O2, Ar, N2O}"/>
+            <Parameter name="component" type="string" value="cell"/>
+            <Parameter name="component mass source" type="Array(string)" value="{1.0, 1.0, 1.0}"/>
+            <Parameter name="regions" type="Array(string)" value="{top layer}"/>
+            <ParameterList name="function">
+              <Parameter name="number of dofs" type="int" value="3"/>
+              <ParameterList name="dof 1 function">
+                <ParameterList name="function-constant">
+                  <Parameter name="value" type="double" value="1.0"/>
+                </ParameterList>
+              </ParameterList>
+              <ParameterList name="dof 2 function">
+                <ParameterList name="function-constant">
+                  <Parameter name="value" type="double" value="1.0"/>
+                </ParameterList>
+              </ParameterList>
+              <ParameterList name="dof 3 function">
+                <ParameterList name="function-constant">
+                  <Parameter name="value" type="double" value="1.0"/>
+                </ParameterList>
+              </ParameterList>
             </ParameterList>
           </ParameterList>
         </ParameterList>
