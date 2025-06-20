@@ -186,31 +186,6 @@
 
       <ParameterList name="source terms" type="ParameterList">
         <ParameterList name="component mass source" type="ParameterList">
-          <ParameterList name="SOURCE: Tracer" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{tracer source surface}"/>
-            <Parameter name="spatial distribution method" type="string" value="volume"/>
-            <Parameter name="component names" type="Array(string)" value="{Tracer1}"/>
-            <ParameterList name="source function" type="ParameterList">
-              <ParameterList name="function-tabular" type="ParameterList">
-                <Parameter name="y values" type="Array(double)" value="{0.1, 0.0}"/>
-                <Parameter name="x values" type="Array(double)" value="{0.0, 86400.0}"/>
-                <Parameter name="forms" type="Array(string)" value="{constant}"/>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="SINK: to subgrid" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{surface domain}"/>
-            <Parameter name="spatial distribution method" type="string" value="first order exchange"/>
-            <Parameter name="component names" type="Array(string)" value="{Tracer1}"/>
-            <ParameterList name="source function" type="ParameterList">
-              <Parameter name="domain name" type="string" value="surface"/>
-              <ParameterList name="function" type="ParameterList">
-                <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="0.000017"/>
-                </ParameterList>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
           <ParameterList name="SOURCE: from subgrid" type="ParameterList">
             <Parameter name="regions" type="Array(string)" value="{surface domain}"/>
             <Parameter name="spatial distribution method" type="string" value="subgrid return"/>
@@ -227,6 +202,12 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
+
+      <ParameterList name="boundary conditions" type="ParameterList">
+      </ParameterList>
+
+      <Parameter name="source term" type="bool" value="true"/>
+      <Parameter name="source key suffix" type="string" value="component_source"/>
 
     </ParameterList>
 
@@ -258,6 +239,49 @@
       <ParameterList name="subgrid:*-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="additive evaluator"/>
         <Parameter name="dependency suffixes" type="Array(string)" value="{cell_volume}"/>
+      </ParameterList>
+      <ParameterList name="surface-source_tracer" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable"/>
+        <Parameter name="spatial distribution method" type="string" value="volume"/>
+        <ParameterList name="function" type="ParameterList">
+          <ParameterList name="SOURCE: Tracer" type="ParameterList">
+            <Parameter name="regions" type="Array(string)" value="{tracer source surface}"/>
+            <Parameter name="component" type="string" value="cell"/>
+            <Parameter name="component names" type="Array(string)" value="{Tracer1}"/>
+            <ParameterList name="function" type="ParameterList">
+              <ParameterList name="function-tabular" type="ParameterList">
+                <Parameter name="y values" type="Array(double)" value="{0.1, 0.0}"/>
+                <Parameter name="x values" type="Array(double)" value="{0.0, 86400.0}"/>
+                <Parameter name="forms" type="Array(string)" value="{constant}"/>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+      <ParameterList name="surface-sink_to_subgrid_source" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="multiplicative reciprocal"/>
+        <Parameter name="multiplicative dependencies" type="Array(string)" value="{exchange_coefficient_0, water_content, mole_fraction}"/>
+        <Parameter name="reciprocal dependencies" type="Array(string)" value="{cell_volume}"/>
+        <Parameter name="coefficient" type="double" value="-1.0"/>
+      </ParameterList>
+      <ParameterList name="surface-exchange_coefficient_0" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable"/>
+        <Parameter name="constant in time" type="bool" value="true"/>
+        <ParameterList name="function" type="ParameterList">
+          <ParameterList name="entry" type="ParameterList">
+            <Parameter name="regions" type="Array(string)" value="{surface domain}"/>
+            <Parameter name="component" type="string" value="cell"/>
+            <ParameterList name="function" type="ParameterList">
+              <ParameterList name="function-constant" type="ParameterList">
+                <Parameter name="value" type="double" value="0.000017"/>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+      <ParameterList name="surface-component_source" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="additive evaluator"/>
+        <Parameter name="dependency suffixes" type="Array(string)" value="{source_tracer, sink_to_subgrid_source}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
