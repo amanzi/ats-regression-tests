@@ -256,8 +256,9 @@
             <Parameter name="ats units [moles/m^3]" type="bool" value="true"/>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="component mass source">
-        </ParameterList>
+      </ParameterList>
+
+      <ParameterList name="boundary conditions" type="ParameterList">
       </ParameterList>
 
     </ParameterList>

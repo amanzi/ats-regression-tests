@@ -205,9 +205,7 @@
       <Parameter name="cfl" type="double" value="1.0"/>
       <Parameter name="debug cells" type="Array(int)" value="{99}"/>
       <ParameterList name="initial conditions" type="ParameterList">
-
         <Parameter name="constant" type="double" value="0.0"/>
-
       </ParameterList>
 
       <ParameterList name="diffusion">

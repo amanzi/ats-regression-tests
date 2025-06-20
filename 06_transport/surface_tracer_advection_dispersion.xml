@@ -262,6 +262,10 @@
           </ParameterList>
         </ParameterList>
       </ParameterList>
+      <ParameterList name="surface-component_source" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="additive"/>
+        <Parameter name="dependency suffixes" type="Array(string)" value="{}"/>
+      </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
 
