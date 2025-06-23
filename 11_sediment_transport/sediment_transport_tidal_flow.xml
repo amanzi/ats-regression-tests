@@ -546,7 +546,7 @@
         <Parameter name="value" type="double" value="101325.0" />
       </ParameterList>
 
-      <ParameterList name="MSL" type="ParameterList">
+      <ParameterList name="msl" type="ParameterList">
         <Parameter name="value" type="double" value="48.2" />
       </ParameterList>
 
@@ -557,15 +557,7 @@
       <ParameterList name="gravity" type="ParameterList">
         <Parameter name="value" type="Array(double)" value="{0.0,0.0,-9.80665}" />
       </ParameterList>
-
-      <ParameterList name="msl" type="ParameterList">
-        <ParameterList name="function" type="ParameterList">
-          <ParameterList name="function-constant" type="ParameterList">
-            <Parameter name="value" type="double" value="0.5" />
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
-      
+     
       <ParameterList name="surface-soil_porosity" type="ParameterList">
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="domain" type="ParameterList">
