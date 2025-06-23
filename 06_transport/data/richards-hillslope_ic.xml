@@ -145,10 +145,8 @@
       </ParameterList>
 
       <ParameterList name="initial conditions" type="ParameterList">
-
         <Parameter name="hydrostatic head [m]" type="double" value="0.0"/>
         <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000.0"/>
-
       </ParameterList>
 
     </ParameterList>
@@ -157,6 +155,9 @@
 
   <ParameterList name="state" type="ParameterList">
     <ParameterList name="evaluators" type="ParameterList">
+      <ParameterList name="depth" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="depth"/>
+      </ParameterList>
       <ParameterList name="water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="richards water content"/>
         <Parameter name="checkpoint" type="bool" value="true"/>
