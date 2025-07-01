@@ -595,8 +595,8 @@
       </ParameterList>
       <ParameterList name="surface-sink_to_subgrid_1_source" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative reciprocal"/>
-        <Parameter name="multiplicative dependencies" type="Array(string)" value="{exchange_coefficient_0, water_content, mole_fraction}"/>
-        <Parameter name="reciprocal dependencies" type="Array(string)" value="{cell_volume}"/>
+        <Parameter name="multiplicative dependency key suffixes" type="Array(string)" value="{exchange_coefficient_0, water_content, mole_fraction}"/>
+        <Parameter name="reciprocal dependency key suffixes" type="Array(string)" value="{cell_volume}"/>
         <Parameter name="coefficient" type="double" value="-1.0"/>
       </ParameterList>
       <ParameterList name="surface-exchange_coefficient_0" type="ParameterList">
@@ -624,8 +624,8 @@
       </ParameterList>
       <ParameterList name="surface-sink_to_subgrid_2_source" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative reciprocal"/>
-        <Parameter name="multiplicative dependencies" type="Array(string)" value="{exchange_coefficient_1, water_content, mole_fraction}"/>
-        <Parameter name="reciprocal dependencies" type="Array(string)" value="{cell_volume}"/>
+        <Parameter name="multiplicative dependency key suffixes" type="Array(string)" value="{exchange_coefficient_1, water_content, mole_fraction}"/>
+        <Parameter name="reciprocal dependency key suffixes" type="Array(string)" value="{cell_volume}"/>
         <Parameter name="coefficient" type="double" value="-1.0"/>
       </ParameterList>
       <ParameterList name="surface-exchange_coefficient_1" type="ParameterList">
