@@ -1,4 +1,18 @@
 <ParameterList name="Main" type="ParameterList">
+<!--
+
+** This test simulates a transport-only problem governed solely by diffusion **
+    
+- Initial Conditions: Concentrations C1,C2 = 1 are set in the first cell; 
+  all other cells are initialized to zero.
+- Boundary Conditions: No boundary conditions are applied; 
+  water flux is set to 0 m/s at both ends (isolated domain).
+- Diffusivity: Strong contrast in diffusivities with D1 = 0.01 and D2 = 10, 
+  representing a difference of three orders of magnitude.
+
+Watch the pure diffusion from the 1st cell to the rest of the domain.
+
+-->  
   <ParameterList name="mesh" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="mesh type" type="string" value="aliased"/>
@@ -29,10 +43,10 @@
         <Parameter name="high coordinate" type="Array(double)" value="{0.0, 1.0}"/>
       </ParameterList>
     </ParameterList>
-    <ParameterList name="surface east" type="ParameterList">
+    <ParameterList name="test face" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{1000.0, 0.0}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{1000.0, 1.0}"/>
+        <Parameter name="low coordinate" type="Array(double)" value="{100.0, 0.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{100.0, 1.0}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="tracer source surface" type="ParameterList">
@@ -66,6 +80,7 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
+
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{0.0, 10.0, -1.0}"/>
@@ -77,7 +92,7 @@
       <Parameter name="variable" type="string" value="surface-mole_fraction"/>
       <Parameter name="functional" type="string" value="point"/>
       <Parameter name="region" type="string" value="observation point"/>
-      <Parameter name="delimiter" type="string" value=""/>
+      <Parameter name="delimiter" type="string" value=" "/>
       <Parameter name="location name" type="string" value="cell"/>
       <Parameter name="number of vectors" type="int" value="2"/>
       <Parameter name="write interval" type="int" value="1"/>
@@ -85,7 +100,20 @@
       <Parameter name="times start period stop" type="Array(double)" value="{0.0, 120.0, -1.0}"/>
       <Parameter name="times start period stop units" type="string" value="s"/>
     </ParameterList>
+    <ParameterList name="surface-mass_flux_diffusion">
+      <Parameter name="variable" type="string" value="surface-mass_flux_diffusion"/>
+      <Parameter name="direction normalized flux" type="bool" value="true"/>
+      <Parameter name="region" type="string" value="test face"/>
+      <Parameter name="functional" type="string" value="extensive integral"/>
+      <Parameter name="delimiter" type="string" value=" "/>
+      <Parameter name="location name" type="string" value="face"/>
+      <Parameter name="write interval" type="int" value="1"/>
+      <Parameter name="observation output filename" type="string" value="surface_mass_flux_diffusion.dat"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 120.0, -1.0}"/>
+      <Parameter name="times start period stop units" type="string" value="s"/>
+    </ParameterList>      
   </ParameterList>
+
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="file name base" type="string" value="checkpoint"/>
     <Parameter name="times start period stop" type="Array(double)" value="{0.0, 3600.0, -1.0}"/>
