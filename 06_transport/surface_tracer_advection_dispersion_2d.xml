@@ -29,6 +29,12 @@
         <Parameter name="high coordinate" type="Array(double)" value="{100.0, 550.0}"/>
       </ParameterList>
     </ParameterList>
+    <ParameterList name="face east" type="ParameterList">
+      <ParameterList name="region: box" type="ParameterList">
+        <Parameter name="low coordinate" type="Array(double)" value="{1000.0, 0.0}"/>
+        <Parameter name="high coordinate" type="Array(double)" value="{1000.0, 1000.0}"/>
+      </ParameterList>
+    </ParameterList>    
     <ParameterList name="observation point" type="ParameterList">
       <ParameterList name="region: box" type="ParameterList">
         <Parameter name="low coordinate" type="Array(double)" value="{990.0, 990.0}"/>
@@ -54,6 +60,7 @@
       </ParameterList>
     </ParameterList>
   </ParameterList>
+
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{0.0, 10.0, -1.0}"/>
@@ -73,7 +80,32 @@
       <Parameter name="times start period stop" type="Array(double)" value="{0.0, 120.0, -1.0}"/>
       <Parameter name="times start period stop units" type="string" value="s"/>
     </ParameterList>
+    <ParameterList name="surface-mass_flux_advection">
+      <Parameter name="variable" type="string" value="surface-mass_flux_advection"/>
+      <Parameter name="direction normalized flux" type="bool" value="true"/>
+      <Parameter name="region" type="string" value="face east"/>
+      <Parameter name="functional" type="string" value="extensive integral"/>
+      <Parameter name="delimiter" type="string" value=" "/>
+      <Parameter name="location name" type="string" value="face"/>
+      <Parameter name="write interval" type="int" value="1"/>
+      <Parameter name="observation output filename" type="string" value="surface_mass_flux_advection.dat"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 120.0, -1.0}"/>
+      <Parameter name="times start period stop units" type="string" value="s"/>
+    </ParameterList>        
+    <ParameterList name="surface-mass_flux_diffusion">
+      <Parameter name="variable" type="string" value="surface-mass_flux_diffusion"/>
+      <Parameter name="direction normalized flux" type="bool" value="true"/>
+      <Parameter name="region" type="string" value="face east"/>
+      <Parameter name="functional" type="string" value="extensive integral"/>
+      <Parameter name="delimiter" type="string" value=" "/>
+      <Parameter name="location name" type="string" value="face"/>
+      <Parameter name="write interval" type="int" value="1"/>
+      <Parameter name="observation output filename" type="string" value="surface_mass_flux_diffusion.dat"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 120.0, -1.0}"/>
+      <Parameter name="times start period stop units" type="string" value="s"/>
+    </ParameterList>     
   </ParameterList>
+  
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="file name base" type="string" value="checkpoint"/>
     <Parameter name="times start period stop" type="Array(double)" value="{0.0, 3600.0, -1.0}"/>
