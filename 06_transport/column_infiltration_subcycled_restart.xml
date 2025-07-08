@@ -404,10 +404,6 @@
           <Parameter name="verbosity level" type="string" value="extreme"/>
         </ParameterList>
       </ParameterList>
-      <ParameterList name="domain-component_source" type="ParameterList">
-        <Parameter name="evaluator type" type="string" value="additive"/>
-        <Parameter name="dependency suffixes" type="Array(string)" value="{}"/>
-      </ParameterList>
       <ParameterList name="surface-tracer1_injection_source" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="independent variable"/>
         <Parameter name="spatial distribution method" type="string" value="none"/>
