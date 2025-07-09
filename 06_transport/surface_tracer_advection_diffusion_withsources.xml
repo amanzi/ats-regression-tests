@@ -79,7 +79,6 @@ Diffusion is component-based:
       </ParameterList>
     </ParameterList>
   </ParameterList>
-
   <ParameterList name="visualization" type="ParameterList">
     <ParameterList name="surface" type="ParameterList">
       <Parameter name="times start period stop" type="Array(double)" value="{0.0, 10.0, -1.0}"/>
@@ -104,27 +103,26 @@ Diffusion is component-based:
       <Parameter name="direction normalized flux" type="bool" value="true"/>
       <Parameter name="region" type="string" value="surface east"/>
       <Parameter name="functional" type="string" value="extensive integral"/>
-      <Parameter name="delimiter" type="string" value=" "/>
+      <Parameter name="delimiter" type="string" value=""/>
       <Parameter name="location name" type="string" value="face"/>
       <Parameter name="write interval" type="int" value="1"/>
       <Parameter name="observation output filename" type="string" value="surface_mass_flux_advection.dat"/>
       <Parameter name="times start period stop" type="Array(double)" value="{0.0, 120.0, -1.0}"/>
       <Parameter name="times start period stop units" type="string" value="s"/>
-    </ParameterList>        
+    </ParameterList>
     <ParameterList name="surface-mass_flux_diffusion">
       <Parameter name="variable" type="string" value="surface-mass_flux_diffusion"/>
       <Parameter name="direction normalized flux" type="bool" value="true"/>
       <Parameter name="region" type="string" value="surface east"/>
       <Parameter name="functional" type="string" value="extensive integral"/>
-      <Parameter name="delimiter" type="string" value=" "/>
+      <Parameter name="delimiter" type="string" value=""/>
       <Parameter name="location name" type="string" value="face"/>
       <Parameter name="write interval" type="int" value="1"/>
       <Parameter name="observation output filename" type="string" value="surface_mass_flux_diffusion.dat"/>
       <Parameter name="times start period stop" type="Array(double)" value="{0.0, 120.0, -1.0}"/>
       <Parameter name="times start period stop units" type="string" value="s"/>
-    </ParameterList>         
+    </ParameterList>
   </ParameterList>
-
   <ParameterList name="checkpoint" type="ParameterList">
     <Parameter name="file name base" type="string" value="checkpoint"/>
     <Parameter name="times start period stop" type="Array(double)" value="{0.0, 3600.0, -1.0}"/>
@@ -175,34 +173,8 @@ Diffusion is component-based:
         </ParameterList>
       </ParameterList>
 
-      <ParameterList name="source terms" type="ParameterList">
-        <ParameterList name="component mass source" type="ParameterList">
-          <ParameterList name="SOURCE: Tracer1" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{tracer source surface}"/>
-            <Parameter name="spatial distribution method" type="string" value="volume"/>
-            <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}"/>
-            <ParameterList name="source function" type="ParameterList">
-              <Parameter name="number of dofs" type="int" value="2"/>
-              <ParameterList name="dof 1 function">
-                <ParameterList name="function-tabular" type="ParameterList">
-                  <!-- source of Tracer1 is 1/2 the advective flux for the first half of the simulation time -->
-                  <Parameter name="x values" type="Array(double)" value="{0.0, 500.0}"/>
-                  <Parameter name="y values" type="Array(double)" value="{0.05, 0.0}"/>
-                  <Parameter name="forms" type="Array(string)" value="{constant}"/>
-                </ParameterList>
-              </ParameterList>
-              <ParameterList name="dof 2 function">
-                <!-- source of Tracer2 is twice the advective flux for the first half of the simulation time -->
-                <ParameterList name="function-tabular" type="ParameterList">
-                  <Parameter name="x values" type="Array(double)" value="{0.0, 500.0}"/>
-                  <Parameter name="y values" type="Array(double)" value="{0.2, 0.0}"/>
-                  <Parameter name="forms" type="Array(string)" value="{constant}"/>
-                </ParameterList>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
-      </ParameterList>
+      <Parameter name="source term" type="bool" value="true"/>
+      <Parameter name="source key suffix" type="string" value="source_tracer1"/>
 
     </ParameterList>
 
@@ -249,6 +221,36 @@ Diffusion is component-based:
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
                 <Parameter name="value" type="double" value="1.0"/>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+      <ParameterList name="surface-source_tracer1" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable"/>
+        <Parameter name="spatial distribution method" type="string" value="volume"/>
+        <ParameterList name="function" type="ParameterList">
+          <ParameterList name="SOURCE: Tracer1" type="ParameterList">
+            <Parameter name="regions" type="Array(string)" value="{tracer source surface}"/>
+            <Parameter name="component" type="string" value="cell"/>
+            <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}"/>
+            <ParameterList name="function" type="ParameterList">
+              <Parameter name="number of dofs" type="int" value="2"/>
+              <ParameterList name="dof 1 function">
+                <ParameterList name="function-tabular" type="ParameterList">
+                  <!-- source of Tracer1 is 1/2 the advective flux for the first half of the simulation time -->
+                  <Parameter name="x values" type="Array(double)" value="{0.0, 500.0}"/>
+                  <Parameter name="y values" type="Array(double)" value="{0.05, 0.0}"/>
+                  <Parameter name="forms" type="Array(string)" value="{constant}"/>
+                </ParameterList>
+              </ParameterList>
+              <ParameterList name="dof 2 function">
+                <!-- source of Tracer2 is twice the advective flux for the first half of the simulation time -->
+                <ParameterList name="function-tabular" type="ParameterList">
+                  <Parameter name="x values" type="Array(double)" value="{0.0, 500.0}"/>
+                  <Parameter name="y values" type="Array(double)" value="{0.2, 0.0}"/>
+                  <Parameter name="forms" type="Array(string)" value="{constant}"/>
+                </ParameterList>
               </ParameterList>
             </ParameterList>
           </ParameterList>

@@ -280,6 +280,9 @@
         </ParameterList>
       </ParameterList>
 
+      <ParameterList name="boundary conditions" type="ParameterList">
+      </ParameterList>
+
     </ParameterList>
 
     <ParameterList name="reactive transport" type="ParameterList">

@@ -223,100 +223,18 @@
             <Parameter name="time functions" type="Array(string)" value="{constant}"/>
           </ParameterList>
         </ParameterList>
-        <ParameterList name="component mass source" type="ParameterList">
-          <ParameterList name="SINK: to subgrid_1" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{surface domain}"/>
-            <Parameter name="spatial distribution method" type="string" value="first order exchange"/>
-            <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}"/>
-            <ParameterList name="source function" type="ParameterList">
-              <Parameter name="domain name" type="string" value="surface"/>
-              <ParameterList name="function" type="ParameterList">
-                <Parameter name="number of dofs" type="int" value="2"/>
-                <ParameterList name="dof 1 function">
-                  <ParameterList name="function-constant" type="ParameterList">
-                    <Parameter name="value" type="double" value="0.00005"/>
-                  </ParameterList>
-                </ParameterList>
-                <ParameterList name="dof 2 function">
-                  <ParameterList name="function-constant" type="ParameterList">
-                    <Parameter name="value" type="double" value="0.00005"/>
-                  </ParameterList>
-                </ParameterList>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="SOURCE: from subgrid_1" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{surface domain}"/>
-            <Parameter name="spatial distribution method" type="string" value="subgrid return"/>
-            <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}"/>
-            <ParameterList name="source function" type="ParameterList">
-              <Parameter name="subgrid field suffix" type="string" value="mole_fraction"/>
-              <Parameter name="subgrid domain set" type="string" value="subgrid_1"/>
-              <ParameterList name="function" type="ParameterList">
-                <Parameter name="number of dofs" type="int" value="2"/>
-                <ParameterList name="dof 1 function">
-                  <ParameterList name="function-constant" type="ParameterList">
-                    <Parameter name="value" type="double" value="0.00005"/>
-                  </ParameterList>
-                </ParameterList>
-                <ParameterList name="dof 2 function">
-                  <ParameterList name="function-constant" type="ParameterList">
-                    <Parameter name="value" type="double" value="0.00005"/>
-                  </ParameterList>
-                </ParameterList>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="SINK: to subgrid_2" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{surface domain}"/>
-            <Parameter name="spatial distribution method" type="string" value="first order exchange"/>
-            <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}"/>
-            <ParameterList name="source function" type="ParameterList">
-              <Parameter name="domain name" type="string" value="surface"/>
-              <ParameterList name="function" type="ParameterList">
-                <Parameter name="number of dofs" type="int" value="2"/>
-                <ParameterList name="dof 1 function">
-                  <ParameterList name="function-constant" type="ParameterList">
-                    <Parameter name="value" type="double" value="0.00005"/>
-                  </ParameterList>
-                </ParameterList>
-                <ParameterList name="dof 2 function">
-                  <ParameterList name="function-constant" type="ParameterList">
-                    <Parameter name="value" type="double" value="0.00005"/>
-                  </ParameterList>
-                </ParameterList>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-          <ParameterList name="SOURCE: from subgrid_2" type="ParameterList">
-            <Parameter name="regions" type="Array(string)" value="{surface domain}"/>
-            <Parameter name="spatial distribution method" type="string" value="subgrid return"/>
-            <Parameter name="component names" type="Array(string)" value="{Tracer1, Tracer2}"/>
-            <ParameterList name="source function" type="ParameterList">
-              <Parameter name="subgrid field suffix" type="string" value="mole_fraction"/>
-              <Parameter name="subgrid domain set" type="string" value="subgrid_2"/>
-              <ParameterList name="function" type="ParameterList">
-                <Parameter name="number of dofs" type="int" value="2"/>
-                <ParameterList name="dof 1 function">
-                  <ParameterList name="function-constant" type="ParameterList">
-                    <Parameter name="value" type="double" value="0.00005"/>
-                  </ParameterList>
-                </ParameterList>
-                <ParameterList name="dof 2 function">
-                  <ParameterList name="function-constant" type="ParameterList">
-                    <Parameter name="value" type="double" value="0.00005"/>
-                  </ParameterList>
-                </ParameterList>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
       </ParameterList>
 
       <ParameterList name="tortuosity [-]" type="ParameterList">
         <Parameter name="aqueous" type="double" value="1.0"/>
         <Parameter name="gaseous" type="double" value="1.0"/>
       </ParameterList>
+
+      <ParameterList name="boundary conditions" type="ParameterList">
+      </ParameterList>
+
+      <Parameter name="source term" type="bool" value="true"/>
+      <Parameter name="source key suffix" type="string" value="component_source"/>
 
     </ParameterList>
 
@@ -524,15 +442,10 @@
             <Parameter name="region" type="string" value="surface domain"/>
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function" type="ParameterList">
-              <Parameter name="number of dofs" type="int" value="2"/>
+              <Parameter name="number of dofs" type="int" value="3"/>
               <ParameterList name="dof 1 function">
                 <ParameterList name="function-constant" type="ParameterList">
                   <Parameter name="value" type="double" value="0.1"/>
-                </ParameterList>
-              </ParameterList>
-              <ParameterList name="dof 2 function">
-                <ParameterList name="function-constant" type="ParameterList">
-                  <Parameter name="value" type="double" value="0.0"/>
                 </ParameterList>
               </ParameterList>
             </ParameterList>
@@ -632,6 +545,80 @@
       <ParameterList name="subgrid_2:*-water_content" type="ParameterList">
         <Parameter name="evaluator type" type="string" value="multiplicative evaluator"/>
         <Parameter name="dependency suffixes" type="Array(string)" value="{cell_volume}"/>
+      </ParameterList>
+      <ParameterList name="surface-source_from_subgrid_1" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="subgrid return"/>
+        <Parameter name="subgrid domain set" type="string" value="subgrid_1"/>
+        <Parameter name="subgrid field suffix" type="string" value="mole_fraction"/>
+        <Parameter name="exchange coefficient key suffix" type="string" value="exchange_coefficient_subgrid_1"/>
+      </ParameterList>
+      <ParameterList name="surface-sink_to_subgrid_1" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="multiplicative reciprocal"/>
+        <Parameter name="multiplicative dependency key suffixes" type="Array(string)" value="{exchange_coefficient_subgrid_1, water_content, mole_fraction}"/>
+        <Parameter name="reciprocal dependency key suffixes" type="Array(string)" value="{cell_volume}"/>
+        <Parameter name="coefficient" type="double" value="-1.0"/>
+      </ParameterList>
+      <ParameterList name="surface-exchange_coefficient_subgrid_1" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable"/>
+        <Parameter name="constant in time" type="bool" value="true"/>
+        <ParameterList name="function" type="ParameterList">
+          <ParameterList name="entry" type="ParameterList">
+            <Parameter name="regions" type="Array(string)" value="{surface domain}"/>
+            <Parameter name="component" type="string" value="cell"/>
+            <ParameterList name="function" type="ParameterList">
+              <Parameter name="number of dofs" type="int" value="2"/>
+              <ParameterList name="dof 1 function">
+                <ParameterList name="function-constant" type="ParameterList">
+                  <Parameter name="value" type="double" value="0.00005"/>
+                </ParameterList>
+              </ParameterList>
+              <ParameterList name="dof 2 function">
+                <ParameterList name="function-constant" type="ParameterList">
+                  <Parameter name="value" type="double" value="0.00005"/>
+                </ParameterList>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+      <ParameterList name="surface-source_from_subgrid_2" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="subgrid return"/>
+        <Parameter name="subgrid domain set" type="string" value="subgrid_2"/>
+        <Parameter name="subgrid field suffix" type="string" value="mole_fraction"/>
+        <Parameter name="exchange coefficient key suffix" type="string" value="exchange_coefficient_subgrid_2"/>
+      </ParameterList>
+      <ParameterList name="surface-sink_to_subgrid_2" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="multiplicative reciprocal"/>
+        <Parameter name="multiplicative dependency key suffixes" type="Array(string)" value="{exchange_coefficient_subgrid_2, water_content, mole_fraction}"/>
+        <Parameter name="reciprocal dependency key suffixes" type="Array(string)" value="{cell_volume}"/>
+        <Parameter name="coefficient" type="double" value="-1.0"/>
+      </ParameterList>
+      <ParameterList name="surface-exchange_coefficient_subgrid_2" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="independent variable"/>
+        <Parameter name="constant in time" type="bool" value="true"/>
+        <ParameterList name="function" type="ParameterList">
+          <ParameterList name="entry" type="ParameterList">
+            <Parameter name="regions" type="Array(string)" value="{surface domain}"/>
+            <Parameter name="component" type="string" value="cell"/>
+            <ParameterList name="function" type="ParameterList">
+              <Parameter name="number of dofs" type="int" value="2"/>
+              <ParameterList name="dof 1 function">
+                <ParameterList name="function-constant" type="ParameterList">
+                  <Parameter name="value" type="double" value="0.00005"/>
+                </ParameterList>
+              </ParameterList>
+              <ParameterList name="dof 2 function">
+                <ParameterList name="function-constant" type="ParameterList">
+                  <Parameter name="value" type="double" value="0.00005"/>
+                </ParameterList>
+              </ParameterList>
+            </ParameterList>
+          </ParameterList>
+        </ParameterList>
+      </ParameterList>
+      <ParameterList name="surface-component_source" type="ParameterList">
+        <Parameter name="evaluator type" type="string" value="additive evaluator"/>
+        <Parameter name="dependency suffixes" type="Array(string)" value="{source_from_subgrid_1, sink_to_subgrid_1, source_from_subgrid_2, sink_to_subgrid_2}"/>
       </ParameterList>
     </ParameterList>
     <ParameterList name="initial conditions" type="ParameterList">
