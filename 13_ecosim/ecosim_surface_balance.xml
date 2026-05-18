@@ -1,83 +1,52 @@
-<!-- This is a test of the ATS-EcoSIM coupling-->
-<!-- Basic smoke test of ATS-EcoSIM snow model on a 1d colum
-for 10 days -->
+<!-- This is a test of the ATS-EcoSIM coupler
+the clean 1.6 refers to removeing SEB and transport-->
 
 <ParameterList name="Main" type="ParameterList">
   <ParameterList name="mesh" type="ParameterList">
-    <ParameterList name="domain" type="ParameterList">
-      <Parameter name="mesh type" type="string" value="generate mesh"/>
-      <Parameter name="build columns from set" type="string" value="surface"/>
-      <ParameterList name="generate mesh parameters" type="ParameterList">
-        <Parameter name="number of cells" type="Array(int)" value="{1, 1, 10}"/>
-        <Parameter name="domain low coordinate" type="Array(double)" value="{0.0, 0.0, 0.0}"/>
-        <Parameter name="domain high coordinate" type="Array(double)" value="{1.0, 1.0, 10.0}"/>
-      </ParameterList>
-    </ParameterList>
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="mesh type" type="string" value="surface"/>
+      <Parameter name="mesh type" type="string" value="surface" />
+      <ParameterList name="expert" type="ParameterList">
+        <Parameter name="verify mesh" type="bool" value="false" />
+      </ParameterList>
       <ParameterList name="surface parameters" type="ParameterList">
-        <Parameter name="surface sideset name" type="string" value="surface"/>
+        <Parameter name="surface sideset name" type="string" value="surface" />
+      </ParameterList>
+      <ParameterList name="surface">
       </ParameterList>
     </ParameterList>
-    <ParameterList name="snow" type="ParameterList">
-      <Parameter name="mesh type" type="string" value="aliased"/>
-      <ParameterList name="aliased parameters" type="ParameterList">
-        <Parameter name="target" type="string" value="surface"/>
+    <ParameterList name="domain" type="ParameterList">
+      <Parameter name="mesh type" type="string" value="read mesh file" />
+      <Parameter name="build columns from set" type="string" value="surface" />
+      <ParameterList name="read mesh file parameters" type="ParameterList">
+        <Parameter name="file" type="string" value="../data/column.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
       </ParameterList>
     </ParameterList>
-  </ParameterList>
+  </ParameterList> 
 
   <ParameterList name="regions" type="ParameterList">
-    <ParameterList name="subsurface domain" type="ParameterList">
-      <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{0.0, 0.0, 0.0}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{1.0, 1.0, 10.0}"/>
+    <ParameterList name="computational domain" type="ParameterList">
+      <ParameterList name="region: all" type="ParameterList">
       </ParameterList>
     </ParameterList>
     <ParameterList name="surface domain" type="ParameterList">
       <ParameterList name="region: all" type="ParameterList">
       </ParameterList>
     </ParameterList>
-    <ParameterList name="east face" type="ParameterList">
-      <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{1.0, 1.0, 0.0}"/>
-        <Parameter name="normal" type="Array(double)" value="{1.0, 0.0, 0.0}"/>
-      </ParameterList>
-    </ParameterList>
-    <ParameterList name="west face" type="ParameterList">
-      <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{0.0, 0.0, 0.0}"/>
-        <Parameter name="normal" type="Array(double)" value="{-1.0, 0.0, 0.0}"/>
-      </ParameterList>
-    </ParameterList>
-    <ParameterList name="north face" type="ParameterList">
-      <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{1.0, 1.0, 0.0}"/>
-        <Parameter name="normal" type="Array(double)" value="{0.0, 1.0, 0.0}"/>
-      </ParameterList>
-    </ParameterList>
-    <ParameterList name="south face" type="ParameterList">
-      <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{0.0, 0.0, 0.0}"/>
-        <Parameter name="normal" type="Array(double)" value="{0.0, -1.0, 0.0}"/>
+    <ParameterList name="surface" type="ParameterList">
+      <ParameterList name="region: labeled set" type="ParameterList">
+        <Parameter name="label" type="string" value="2" />
+        <Parameter name="file" type="string" value="../data/column.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
+        <Parameter name="entity" type="string" value="Face" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="bottom face" type="ParameterList">
-      <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{0.5, 0.5, 0.0}"/>
-        <Parameter name="normal" type="Array(double)" value="{0.0, 0.0, -1.0}"/>
-      </ParameterList>
-    </ParameterList>
-    <ParameterList name="surface" type="ParameterList">
-      <ParameterList name="region: plane" type="ParameterList">
-        <Parameter name="point" type="Array(double)" value="{0.5, 0.5, 10.0}"/>
-        <Parameter name="normal" type="Array(double)" value="{0.0, 0.0, 1.0}"/>
-      </ParameterList>
-    </ParameterList>
-    <ParameterList name="east face seepage" type="ParameterList">
-      <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{0.0, 0.0, 6.0}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{1.0, 0.0, 6.1}"/>
+      <ParameterList name="region: labeled set" type="ParameterList">
+        <Parameter name="label" type="string" value="1" />
+        <Parameter name="file" type="string" value="../data/column.exo" />
+        <Parameter name="format" type="string" value="Exodus II" />
+        <Parameter name="entity" type="string" value="Face" />
       </ParameterList>
     </ParameterList>
     <ParameterList name="surf_obs" type="ParameterList">
@@ -86,19 +55,13 @@ for 10 days -->
         <Parameter name="high coordinate" type="Array(double)" value="{1.0, 1.0}"/>
       </ParameterList>
     </ParameterList>
-    <ParameterList name="top_cell_obs" type="ParameterList">
-      <ParameterList name="region: box" type="ParameterList">
-        <Parameter name="low coordinate" type="Array(double)" value="{0.0, 0.0, 0.0}"/>
-        <Parameter name="high coordinate" type="Array(double)" value="{1.0, 1.0, 1.0}"/>
-      </ParameterList>
-    </ParameterList>
   </ParameterList>
 
   <!-- No transport or ATS SEB -->
   <ParameterList name="cycle driver" type="ParameterList">
       <Parameter name="start time" type="double" value="0.0"/>
-      <Parameter name="start time units" type="string" value="d"/>
-      <Parameter name="end time" type="double" value="1.0"/>
+      <Parameter name="start time units" type="string" value="s"/>
+      <Parameter name="end time" type="double" value="200.0"/>
       <Parameter name="end time units" type="string" value="d"/>
       <ParameterList name="PK tree" type="ParameterList">
         <ParameterList name="top level MPC" type="ParameterList">
@@ -124,17 +87,16 @@ for 10 days -->
         </ParameterList>
       </ParameterList>
     </ParameterList>
-  <ParameterList name="checkpoint" type="ParameterList">
-  </ParameterList>
+
   <ParameterList name="visualization">
     <ParameterList name="domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 86400.0, -1.0}"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 864000.0, -1.0}"/>
     </ParameterList>
     <ParameterList name="surface domain" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 86400.0, -1.0}"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 864000.0, -1.0}"/>
     </ParameterList>
     <ParameterList name="surface" type="ParameterList">
-      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 86400.0, -1.0}"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 864000.0, -1.0}"/>
     </ParameterList>
   </ParameterList>
 
@@ -150,14 +112,15 @@ for 10 days -->
       <Parameter name="engine" type="string" value="EcoSIM"/>
       <Parameter name="engine input file" type="string" value="Null"/>
       <Parameter name="primary variable key" type="string" value="hydraulic_conductivity"/>
-      <Parameter name="heat capacity [MJ mol^-1 K^-1]" type="double" value="2.00"/>
+      <Parameter name="heat capacity [MJ mol^-1 K^-1]" type="double" value="2.0"/>
       <Parameter name="field capacity [Mpa]" type="double" value="-0.033"/>
       <Parameter name="wilting point [Mpa]" type="double" value="-1.5"/>
       <Parameter name="initial time step" type="double" value="3600.0"/>
       <Parameter name="EcoSIM precipitation" type="bool" value="false"/>
       <Parameter name="prescribe snow albedo" type="bool" value="false"/>
       <Parameter name="prescribe phenology" type="bool" value="false"/>
-      <Parameter name="starting day of year [0-364]" type="int" value="0"/>
+      <Parameter name="microbe model" type="bool" value="false"/>
+      <Parameter name="starting day of year [0-364]" type="int" value="363"/>
       <Parameter name="starting year" type="int" value="1995"/>
       <ParameterList name="boundary conditions" type="ParameterList">
       </ParameterList>
@@ -311,14 +274,14 @@ for 10 days -->
 
       <ParameterList name="initial conditions" type="ParameterList">
 
-        <Parameter name="value" type="double" value="270.0"/>
+        <Parameter name="value" type="double" value="280.0"/>
 
       </ParameterList>
 
       <ParameterList name="thermal conductivity evaluator" type="ParameterList">
         <ParameterList name="thermal conductivity parameters" type="ParameterList">
           <ParameterList name="mineral" type="ParameterList">
-            <Parameter name="region" type="string" value="subsurface domain"/>
+            <Parameter name="region" type="string" value="computational domain"/>
             <Parameter name="thermal conductivity type" type="string" value="three-phase wet/dry"/>
             <Parameter name="thermal conductivity, saturated (unfrozen) [W m^-1 K^-1]" type="double" value="1.0"/>
             <Parameter name="thermal conductivity, dry [W m^-1 K^-1]" type="double" value="0.29"/>
@@ -791,7 +754,7 @@ for 10 days -->
         <Parameter name="constant in time" type="bool" value="true"/>
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="mineral" type="ParameterList">
-            <Parameter name="region" type="string" value="subsurface domain"/>
+            <Parameter name="region" type="string" value="computational domain"/>
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
@@ -805,7 +768,7 @@ for 10 days -->
         <Parameter name="evaluator type" type="string" value="compressible porosity"/>
         <ParameterList name="compressible porosity model parameters" type="ParameterList">
           <ParameterList name="upper mineral" type="ParameterList">
-            <Parameter name="region" type="string" value="subsurface domain"/>
+            <Parameter name="region" type="string" value="computational domain"/>
             <Parameter name="pore compressibility [Pa^-1]" type="double" value="1e-8"/>
           </ParameterList>
         </ParameterList>
@@ -815,7 +778,7 @@ for 10 days -->
         <Parameter name="constant in time" type="bool" value="true"/>
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="mineral" type="ParameterList">
-            <Parameter name="region" type="string" value="subsurface domain"/>
+            <Parameter name="region" type="string" value="computational domain"/>
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
@@ -831,7 +794,7 @@ for 10 days -->
         <Parameter name="constant in time" type="bool" value="true"/>
         <ParameterList name="function" type="ParameterList">
           <ParameterList name="mineral" type="ParameterList">
-            <Parameter name="region" type="string" value="subsurface domain"/>
+            <Parameter name="region" type="string" value="computational domain"/>
             <Parameter name="component" type="string" value="cell"/>
             <ParameterList name="function" type="ParameterList">
               <ParameterList name="function-constant" type="ParameterList">
@@ -922,7 +885,7 @@ for 10 days -->
     <ParameterList name="model parameters" type="ParameterList">
       <ParameterList name="WRM parameters" type="ParameterList">
         <ParameterList name="mineral" type="ParameterList">
-          <Parameter name="region" type="string" value="subsurface domain"/>
+          <Parameter name="region" type="string" value="computational domain"/>
           <Parameter name="wrm type" type="string" value="van Genuchten"/>
           <Parameter name="van Genuchten alpha [Pa^-1]" type="double" value="0.00002"/>
           <Parameter name="van Genuchten n [-]" type="double" value="1.58"/>
@@ -942,5 +905,42 @@ for 10 days -->
       </ParameterList>
     </ParameterList>
   </ParameterList>
-  
+  <ParameterList name="observations" type="ParameterList">
+    <ParameterList name="Qs" type="ParameterList">
+      <Parameter name="observation output filename" type="string" value="surf_prop.dat"/>
+      <Parameter name="times start period stop" type="Array(double)" value="{0.0, 86400.0, -1.0}"/>
+      <ParameterList name="observed quantities" type="ParameterList">
+        <ParameterList name="Q_e_ecosim" type="ParameterList">
+          <Parameter name="variable" type="string" value="surface-ecosim_source"/>
+          <Parameter name="region" type="string" value="surf_obs"/>
+          <Parameter name="functional" type="string" value="integral"/>
+          <Parameter name="location name" type="string" value="cell"/>
+        </ParameterList>
+        <ParameterList name="surface_temperature" type="ParameterList">
+          <Parameter name="variable" type="string" value="surface-temperature"/>
+          <Parameter name="region" type="string" value="surf_obs"/>
+          <Parameter name="functional" type="string" value="point"/>
+          <Parameter name="location name" type="string" value="cell"/>
+        </ParameterList>
+        <ParameterList name="air_temperature" type="ParameterList">
+          <Parameter name="variable" type="string" value="surface-air_temperature"/>
+          <Parameter name="region" type="string" value="surf_obs"/>
+          <Parameter name="functional" type="string" value="point"/>
+          <Parameter name="location name" type="string" value="cell"/>
+        </ParameterList>
+        <ParameterList name="Q_w_ecosim" type="ParameterList">
+          <Parameter name="variable" type="string" value="surface-ecosim_water_source"/>
+          <Parameter name="region" type="string" value="surf_obs"/>
+          <Parameter name="functional" type="string" value="integral"/>
+          <Parameter name="location name" type="string" value="cell"/>
+        </ParameterList>
+        <ParameterList name="snow_depth" type="ParameterList">
+          <Parameter name="variable" type="string" value="surface-snow_depth"/>
+          <Parameter name="region" type="string" value="surf_obs"/>
+          <Parameter name="functional" type="string" value="point"/>
+          <Parameter name="location name" type="string" value="cell"/>
+        </ParameterList>
+      </ParameterList>
+    </ParameterList>
+  </ParameterList>
 </ParameterList>
