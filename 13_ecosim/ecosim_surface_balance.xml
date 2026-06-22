@@ -130,6 +130,7 @@
       <Parameter name="prescribe snow albedo" type="bool" value="false"/>
       <Parameter name="prescribe phenology" type="bool" value="false"/>
       <Parameter name="microbe model" type="bool" value="false"/>
+      <Parameter name="number of pfts" type="int" value="1"/>
       <Parameter name="starting day of year [0-364]" type="int" value="363"/>
       <Parameter name="starting year" type="int" value="1995"/>
       <ParameterList name="boundary conditions" type="ParameterList">
