@@ -193,7 +193,7 @@
       </ParameterList>
 
       <ParameterList name="diffusion" type="ParameterList">
-        <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity"/>
+        <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation"/>
       </ParameterList>
 
       <ParameterList name="diffusion preconditioner" type="ParameterList">

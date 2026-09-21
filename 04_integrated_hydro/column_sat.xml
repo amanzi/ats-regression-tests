@@ -173,7 +173,7 @@
       <Parameter name="relative permeability method" type="string" value="upwind with Darcy flux"/>
       <Parameter name="debug cells" type="Array(int)" value="{99}"/>
       <ParameterList name="diffusion" type="ParameterList">
-        <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity"/>
+        <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation"/>
       </ParameterList>
 
       <ParameterList name="diffusion preconditioner" type="ParameterList">
