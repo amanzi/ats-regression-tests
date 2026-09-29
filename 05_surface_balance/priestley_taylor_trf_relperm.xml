@@ -222,6 +222,7 @@
         <Parameter name="evaluator type" type="string" value="transpiration distribution, relative permeability" />
         <Parameter name="water density in plant [kg m^-3]" type="double" value="997" />
         <Parameter name="model parameters" type="string" value="land cover parameters" />
+        <Parameter name="plant permeability per m [m]" type="double" value="1.e-12" />
         <Parameter name="checkpoint" type="bool" value="true" />
       </ParameterList>
       <ParameterList name="root_fraction" type="ParameterList">
