@@ -193,7 +193,7 @@
       </ParameterList>
 
       <ParameterList name="diffusion" type="ParameterList">
-        <Parameter name="discretization primary" type="string" value="mfd: optimized for sparsity"/>
+        <Parameter name="discretization primary" type="string" value="mfd: two-point flux approximation"/>
       </ParameterList>
 
       <ParameterList name="diffusion preconditioner" type="ParameterList">
@@ -215,19 +215,8 @@
 
       <ParameterList name="initial conditions" type="ParameterList">
 
-        <ParameterList name="function" type="ParameterList">
-          <ParameterList name="initial pressure cells" type="ParameterList">
-            <Parameter name="region" type="string" value="computational domain"/>
-            <Parameter name="components" type="Array(string)" value="{cell, face}"/>
-            <ParameterList name="function" type="ParameterList">
-              <ParameterList name="function-linear" type="ParameterList">
-                <Parameter name="x0" type="Array(double)" value="{0.0, 0.0, 0.0, 9.0}"/>
-                <Parameter name="y0" type="double" value="101325.0"/>
-                <Parameter name="gradient" type="Array(double)" value="{0.0, 0.0, 0.0, -9806.2306853}"/>
-              </ParameterList>
-            </ParameterList>
-          </ParameterList>
-        </ParameterList>
+        <Parameter name="hydrostatic head [m]" type="double" value="-1.0"/>
+        <Parameter name="hydrostatic water density [kg m^-3]" type="double" value="1000.0"/>
 
       </ParameterList>
 
