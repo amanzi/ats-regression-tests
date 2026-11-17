@@ -217,7 +217,7 @@
       <Parameter name="cfl" type="double" value="0.5" />
       <Parameter name="debug cells" type="Array(int)" value="{0,100,299}" />
            
-      <Parameter name="water tolerance" type="double" value="0.00001" />
+      <Parameter name="water tolerance [mol H2O m^-2]" type="double" value="0.00001" />
 
       <ParameterList name="sediment diffusion coefficient [m^2 s^-1]" type="ParameterList">
         <Parameter name="sediment" type="double" value="0.01" />
