@@ -249,7 +249,7 @@
       <Parameter name="cfl" type="double" value="0.8" />
       <!-- <Parameter name="sediment dispersion coefficient" type="string" value="horizontal_mixing" /> -->
       
-      <Parameter name="water tolerance" type="double" value="0.00001" />
+      <Parameter name="water tolerance [mol H2O m^-2]" type="double" value="0.00001" />
       <ParameterList name="verbose object" type="ParameterList">
         <Parameter name="verbosity level" type="string" value="low" />
         <Parameter name="name" type="string" value="Sediment Transport" />
